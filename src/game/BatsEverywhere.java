@@ -94,7 +94,7 @@ public class BatsEverywhere implements GLEventListener, KeyListener
 
          JFrame frame = new JFrame("Too Many Bats");
          GLCanvas canvas = new GLCanvas();
-         canvas.setPreferredSize(new Dimension(500,500));  // desired size, not guaranteed
+         canvas.setPreferredSize(new Dimension(500,500));
 
          BatsEverywhere renderer = new BatsEverywhere();
          canvas.addGLEventListener(renderer);
@@ -114,26 +114,30 @@ public class BatsEverywhere implements GLEventListener, KeyListener
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_A){
-			eyeX += step * Math.cos(Math.toRadians(theta + 90));
-			eyeZ += step * -Math.sin(Math.toRadians(theta + 90));
-		}
-		if (e.getKeyCode() == KeyEvent.VK_D){
-			eyeX += step * Math.cos(Math.toRadians(theta - 90));
-			eyeZ += step * -Math.sin(Math.toRadians(theta - 90));
-		}
-		if (e.getKeyCode() == KeyEvent.VK_S){
-			eyeX -= step * Math.cos(Math.toRadians(theta));
-			eyeZ -= step * -Math.sin(Math.toRadians(theta));
-		}
-		if (e.getKeyCode() == KeyEvent.VK_W){
-			eyeX += step * Math.cos(Math.toRadians(theta));
-			eyeZ += step * -Math.sin(Math.toRadians(theta));
-		}
-		if (e.getKeyCode() == KeyEvent.VK_Q)
-			theta += 3;
-		if (e.getKeyCode() == KeyEvent.VK_E)
-			theta -= 3;
+	    switch (e.getKeyCode()) {
+        case KeyEvent.VK_A:
+            eyeX += step * Math.cos(Math.toRadians(theta + 90));
+            eyeZ += step * -Math.sin(Math.toRadians(theta + 90));
+            break;
+        case KeyEvent.VK_D:
+            eyeX += step * Math.cos(Math.toRadians(theta - 90));
+            eyeZ += step * -Math.sin(Math.toRadians(theta - 90));
+            break;
+        case KeyEvent.VK_S:
+            eyeX -= step * Math.cos(Math.toRadians(theta));
+            eyeZ -= step * -Math.sin(Math.toRadians(theta));
+            break;
+        case KeyEvent.VK_W:
+            eyeX += step * Math.cos(Math.toRadians(theta));
+            eyeZ += step * -Math.sin(Math.toRadians(theta));
+            break;
+        case KeyEvent.VK_Q:
+            theta += 3;
+            break;
+        case KeyEvent.VK_E:
+            theta -= 3;
+            break;
+	    }
 	}
 
 	@Override
