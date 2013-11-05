@@ -7,7 +7,7 @@ import javax.media.opengl.glu.GLUquadric;
 
 import com.jogamp.opengl.util.texture.Texture;
 
-class YangBuilding extends Building {
+public class YangBuilding extends Building {
     private GLUquadric quadric; // to control properties of quadric-based objects
     private GLUquadric sphereQuadric; // for Signorile's head
     private Texture graniteTexture;     // bricks
@@ -25,8 +25,10 @@ class YangBuilding extends Building {
     private final double DEPTH = 25;
     private final double WIDTH = DEPTH/2;
     private final double Z_POINT = -2; //initial point for front bottom-left corner
+    private Land land = null;
 
     public YangBuilding(GL2 gl, GLU glu) {
+        land = new Land(gl, glu);
         quadric = glu.gluNewQuadric();
         glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
         glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
@@ -82,11 +84,13 @@ class YangBuilding extends Building {
         table = new Table(gl,glu,new Point3d(-WIDTH,0,DEPTH/.9));
         chair = new Chair(gl, glu, new Point3d(-WIDTH,0,DEPTH/.9));
         portrait = new PictureFrame(gl,glu,new Point3d(fBotLeft.getX(),fBotLeft.getY(),fBotLeft.getZ()));
-
     }
 
     public void draw(GL2 gl, GLU glu) {
-
+        gl.glPushMatrix();
+        gl.glTranslatef(0,0,100);
+        // land
+            land.draw(gl, glu);
         //building
             gl.glPushMatrix();
             	gl.glTranslated(60, 0, -40);
@@ -163,6 +167,6 @@ class YangBuilding extends Building {
             	gl.glPopMatrix();          	
             	
             gl.glPopMatrix();
-
+        gl.glPopMatrix();
    }
 }

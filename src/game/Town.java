@@ -9,6 +9,7 @@ public class Town {
     private List<Building> buildings = new LinkedList<Building>();
     
     public Town(GL2 gl, GLU glu) { 	
+        buildings.add(new YangBuilding(gl, glu));
     	buildings.add(new AndersonBuilding(gl, glu));
     	buildings.add(new BaconBuilding(gl, glu));
     	buildings.add(new ChenBuilding(gl, glu));
@@ -33,7 +34,6 @@ public class Town {
     	buildings.add(new TamburiniBuilding(gl, glu));
     	buildings.add(new VentarolaBuilding(gl, glu));
     	buildings.add(new XiangBuilding(gl, glu));
-//    	buildings.add(new YangBuilding(gl, glu));      // need to adjust to 0<=x<100, 0<=z<=100
     	buildings.add(new ZhangBuilding(gl, glu));
     }
     
