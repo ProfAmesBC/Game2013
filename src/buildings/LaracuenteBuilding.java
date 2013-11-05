@@ -4,13 +4,45 @@ import game.Building;
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
+import com.jogamp.opengl.util.texture.Texture;
+
 public class LaracuenteBuilding extends Building{
 
 	public LaracuenteBuilding(GL2 gl, GLU glu){
 	}
-	// bricks
+	
 	@Override
-	public void draw(GL2 gl, GLU glu) {
+	public void draw(GL2 gl, GLU glu){
+		int i = 0; 
+		Texture brickTexture;
+		brickTexture = setupTexture(gl, "LaracuenteBrick.jpg"); // png's don't seem to work any more
+		Texture brickExterior; 
+		brickExterior = setupTexture(gl, "LaracuenteExterior.gif"); 
+		
+				
+		gl.glEnable(GL2.GL_TEXTURE_2D);
+		brickExterior.bind(gl);
+		gl.glEnable(GL2.GL_CULL_FACE); 
+		buildingDraw(gl, glu);
+		
+		/*drawMoving(gl, glu, xpos, ypos, zpos, i, i);
+		if (i>=60)
+			i=0;
+		else
+			i++; */ 
+		
+		gl.glDisable(GL2.GL_TEXTURE_2D);
+		gl.glDisable(GL2.GL_CULL_FACE);
+		
+		gl.glEnable(GL2.GL_TEXTURE_2D);
+		brickTexture.bind(gl);
+		buildingDraw(gl, glu);
+		gl.glDisable(GL2.GL_TEXTURE_2D);
+		
+	}
+
+	
+	private void buildingDraw(GL2 gl, GLU glu) {
 	  gl.glPushMatrix();
 	  gl.glTranslatef(50,0,50);
 	  gl.glScalef(1,-1,1);
