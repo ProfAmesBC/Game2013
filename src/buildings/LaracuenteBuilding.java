@@ -178,4 +178,58 @@ public class LaracuenteBuilding extends Building{
 		gl.glPopMatrix(); 
 	  gl.glPopMatrix();
 	}
+	
+    public void drawMoving(GL2 gl, GLU glu, float eyeX, float eyeY, float eyeZ) {
+
+    	float fanx = eyeX; 
+    	float fany = eyeY; 
+		gl.glPushMatrix(); 
+		gl.glRotatef(180f, 1f, 0f, 0f);
+		gl.glPushMatrix();
+		gl.glRotatef(90f, 1f, 0f, 0f);
+		gl.glColor3f(0f, 0f, 0f);
+		gl.glBegin(GL2.GL_QUADS);
+		gl.glTexCoord2f(0f,2f); gl.glVertex3f(-30+fanx,  100+fany, -120);
+		gl.glTexCoord2f(3f,2f); gl.glVertex3f( -30+fanx,  0+fany, -120);
+		gl.glTexCoord2f(3f,0f); gl.glVertex3f( -30+fanx,  0+fany, -140);
+		gl.glTexCoord2f(0f,0f); gl.glVertex3f(-30+fanx,  100+fany, -140);
+		gl.glEnd();
+
+
+		gl.glPushMatrix();
+		gl.glRotatef(90f, 0f, 0f, 1f);
+		gl.glColor3f(0f, 0f, 0f);
+		gl.glBegin(GL2.GL_QUADS);
+		gl.glTexCoord2f(0f,2f); gl.glVertex3f(-30+fanx,  100+fany, -120);
+		gl.glTexCoord2f(3f,2f); gl.glVertex3f( -30+fanx,  0+fany, -120);
+		gl.glTexCoord2f(3f,0f); gl.glVertex3f( -30+fanx,  0+fany, -140);
+		gl.glTexCoord2f(0f,0f); gl.glVertex3f(-30+fanx,  100+fany, -140);
+		gl.glEnd();
+
+		gl.glPushMatrix();
+		gl.glRotatef(90f, 0f, 0f, 1f);
+		gl.glColor3f(0f, 0f, 0f);
+		gl.glBegin(GL2.GL_QUADS);
+		gl.glTexCoord2f(0f,2f); gl.glVertex3f(-30+fanx,  100+fany, -120);
+		gl.glTexCoord2f(3f,2f); gl.glVertex3f( -30+fanx,  0+fany, -120);
+		gl.glTexCoord2f(3f,0f); gl.glVertex3f( -30+fanx,  0+fany, -140);
+		gl.glTexCoord2f(0f,0f); gl.glVertex3f(-30+fanx,  100+fany, -140);
+		gl.glEnd();
+		
+		gl.glPushMatrix();
+		gl.glRotatef(90, 0f, 0f, 1f);
+		gl.glColor3f(0f, 0f, 0f);
+		gl.glBegin(GL2.GL_QUADS);
+		gl.glTexCoord2f(0f,2f); gl.glVertex3f(-30+fanx,  100+fany, -120);
+		gl.glTexCoord2f(3f,2f); gl.glVertex3f( -30+fanx,  0+fany, -120);
+		gl.glTexCoord2f(3f,0f); gl.glVertex3f( -30+fanx,  0+fany, -140);
+		gl.glTexCoord2f(0f,0f); gl.glVertex3f(-30+fanx,  100+fany, -140);
+		gl.glEnd();
+		
+		gl.glPopMatrix();
+		gl.glPopMatrix();
+		gl.glPopMatrix();
+		gl.glPopMatrix();
+		gl.glPopMatrix(); 
+}
 }
