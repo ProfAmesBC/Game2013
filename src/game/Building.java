@@ -66,7 +66,7 @@ public abstract class Building
             System.exit(1);
         } else {
             System.out.println(filename + " texture loaded, size is "
-                               + texture.getImageWidth() + "," + texture.getImageHeight());
+                               + texture.getImageWidth() + "x" + texture.getImageHeight());
         }
         return texture;
     }
