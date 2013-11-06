@@ -1,5 +1,5 @@
 package game;
-// Fiona Tamburini
+// Fiona Tamburini, and the CS 333 class
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
