@@ -15,16 +15,14 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import com.jogamp.opengl.util.FPSAnimator;
 
-public class BatsEverywhere implements GLEventListener, KeyListener
+public class BatsEverywhere implements GLEventListener
 {
     private JTextField statusLine = new JTextField(10); // for misc messages at bottom of window
     private int framesDrawn=0;
     private GLU glu = new GLU();
-    private float eyeX, eyeY, eyeZ;
     private Town town;
-    private float theta;
-    private float step = 2;
     private long runtime = 0;
+    private PlayerMotion playerMotion = new PlayerMotion();
 
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
@@ -39,8 +37,6 @@ public class BatsEverywhere implements GLEventListener, KeyListener
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
         town = new Town(gl, glu);
-        eyeX = -5; eyeY = 5; eyeZ = 50;
-        theta = 0;
     }
 
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -60,14 +56,11 @@ public class BatsEverywhere implements GLEventListener, KeyListener
         GL2 gl  = drawable.getGL().getGL2();
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
 
-        gl.glLoadIdentity();
-//      System.out.println(eyeX + "" + eyeY + "" + eyeZ);
-        glu.gluLookAt(eyeX, eyeY, eyeZ,   // eye location
-                eyeX + Math.cos(Math.toRadians(theta)), eyeY, eyeZ + -Math.sin(Math.toRadians(theta)),   // point to look at (near middle of pyramid)
-                 0, 1,  0); // the "up" direction
+        playerMotion.setLookAt(gl, glu);
+        
                 
         // draw town
-        town.draw(gl, glu, eyeX, eyeY, eyeZ);
+        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
 
         // check for errors, at least once per frame
         int error = gl.glGetError();
@@ -105,44 +98,11 @@ public class BatsEverywhere implements GLEventListener, KeyListener
          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          frame.pack(); // make just big enough to hold objects inside
          frame.setVisible(true);
-         canvas.addKeyListener(renderer);
+         canvas.addKeyListener(renderer.playerMotion);
          canvas.requestFocusInWindow();
          
          FPSAnimator animator = new FPSAnimator(canvas, 60);
          animator.start();
     }
 
-	@Override
-	public void keyPressed(KeyEvent e) {
-	    switch (e.getKeyCode()) {
-        case KeyEvent.VK_A:
-            eyeX += step * Math.cos(Math.toRadians(theta + 90));
-            eyeZ += step * -Math.sin(Math.toRadians(theta + 90));
-            break;
-        case KeyEvent.VK_D:
-            eyeX += step * Math.cos(Math.toRadians(theta - 90));
-            eyeZ += step * -Math.sin(Math.toRadians(theta - 90));
-            break;
-        case KeyEvent.VK_S:
-            eyeX -= step * Math.cos(Math.toRadians(theta));
-            eyeZ -= step * -Math.sin(Math.toRadians(theta));
-            break;
-        case KeyEvent.VK_W:
-            eyeX += step * Math.cos(Math.toRadians(theta));
-            eyeZ += step * -Math.sin(Math.toRadians(theta));
-            break;
-        case KeyEvent.VK_Q:
-            theta += 3;
-            break;
-        case KeyEvent.VK_E:
-            theta -= 3;
-            break;
-	    }
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) { /* not needed */ }
-
-	@Override
-	public void keyTyped(KeyEvent e) { /* not needed */ }
 }
