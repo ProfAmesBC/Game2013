@@ -9,7 +9,6 @@ public class Town {
     private List<Building> buildings = new LinkedList<Building>();
     
     public Town(GL2 gl, GLU glu) { 	
-        //Lipton
         buildings.add(new VallejoBuilding(gl, glu));
         buildings.add(new LiptonBuilding(gl, glu));
         buildings.add(new JossickBuilding(gl, glu));
@@ -60,7 +59,7 @@ public class Town {
             int dz = 100*(buildingCounter/buildingsPerRow);
             gl.glTranslatef(dx, 0, dz);
             //building.draw(gl,  glu); // without using display lists
-            building.drawWithDisplayList(gl, glu); // with
+            building.drawWithDisplayList(gl, glu); // with display lists
             building.drawMoving(gl,  glu, eyeX-dx, eyeY, eyeZ-dz);
             gl.glPopMatrix();
             buildingCounter++;
