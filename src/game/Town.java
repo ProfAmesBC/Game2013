@@ -9,6 +9,12 @@ public class Town {
     private List<Building> buildings = new LinkedList<Building>();
     
     public Town(GL2 gl, GLU glu) { 	
+        //Lipton
+        buildings.add(new VallejoBuilding(gl, glu));
+        buildings.add(new LiptonBuilding(gl, glu));
+        buildings.add(new JossickBuilding(gl, glu));
+        buildings.add(new ShippBuilding(gl, glu));
+        buildings.add(new TranBuilding(gl, glu));
         buildings.add(new YangBuilding(gl, glu));
     	buildings.add(new AndersonBuilding(gl, glu));
     	buildings.add(new BaconBuilding(gl, glu));
