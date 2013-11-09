@@ -9,3 +9,5 @@ We expect this to be finished around the third week of December, 2013.
 To run this game, you'll need to use Eclipse: File/Import/Git/Projects from Git...
 
 The class to run is TooManyBats.
+
+Refer to the wiki to see the list of teams and responsibilities.
