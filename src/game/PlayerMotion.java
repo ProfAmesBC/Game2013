@@ -2,6 +2,9 @@ package game;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.LinkedList;
+import java.util.List;
+
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
@@ -10,6 +13,7 @@ public class PlayerMotion implements KeyListener {
 	private float theta;
     private float step = 2;
     private boolean wdown, adown, sdown, ddown, qdown, edown;
+    private static List<PlayerMotionWatcher> watchers = new LinkedList<PlayerMotionWatcher>();
     
     public PlayerMotion() {
         eyeX = -5; eyeY = 5; eyeZ = 50;
@@ -26,6 +30,10 @@ public class PlayerMotion implements KeyListener {
     
     public float getEyeZ() {
     	return eyeZ;
+    }
+    
+    public static void registerPlayerWatcher(PlayerMotionWatcher watcher) {
+    	watchers.add(watcher);
     }
     
 	@Override
@@ -111,6 +119,9 @@ public class PlayerMotion implements KeyListener {
     	if(edown) {
     		theta -= 3;
     	}
+    	// TODO should only notify watchers if eye location actually changes
+    	for (PlayerMotionWatcher watcher: watchers)
+    		watcher.playerMoved(eyeX, eyeY, eyeZ);
 	}
 
 }

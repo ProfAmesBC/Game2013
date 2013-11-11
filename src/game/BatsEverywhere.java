@@ -21,6 +21,7 @@ public class BatsEverywhere implements GLEventListener
     private Town town;
     private long runtime = 0;
     private PlayerMotion playerMotion = new PlayerMotion();
+    private PlayerLogger logger = new PlayerLogger();
 
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
