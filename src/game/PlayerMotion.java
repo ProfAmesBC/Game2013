@@ -119,9 +119,10 @@ public class PlayerMotion implements KeyListener {
     	if(edown) {
     		theta -= 3;
     	}
-    	// TODO should only notify watchers if eye location actually changes
-    	for (PlayerMotionWatcher watcher: watchers)
-    		watcher.playerMoved(eyeX, eyeY, eyeZ);
+    	if(adown || ddown || sdown || wdown) {
+    		for (PlayerMotionWatcher watcher: watchers)
+    			watcher.playerMoved(eyeX, eyeY, eyeZ);
+    	}
 	}
 
 }
