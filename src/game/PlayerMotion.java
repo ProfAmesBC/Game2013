@@ -4,14 +4,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.LinkedList;
 import java.util.List;
-
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
 public class PlayerMotion implements KeyListener {
     private float eyeX, eyeY, eyeZ;
 	private float theta;
-    private float step = 2;
+    private float step = 1.5f;
     private boolean wdown, adown, sdown, ddown, qdown, edown;
     private static List<PlayerMotionWatcher> watchers = new LinkedList<PlayerMotionWatcher>();
     
@@ -114,15 +113,14 @@ public class PlayerMotion implements KeyListener {
     		eyeZ += step * -Math.sin(Math.toRadians(theta));
     	}
     	if(qdown) {
-    		theta += 3;
+    		theta += 2;
     	}
     	if(edown) {
-    		theta -= 3;
+    		theta -= 2;
     	}
-    	if(adown || ddown || sdown || wdown) {
+    	if(adown || ddown || sdown || wdown || qdown || edown) {
     		for (PlayerMotionWatcher watcher: watchers)
-    			watcher.playerMoved(eyeX, eyeY, eyeZ);
+    			watcher.playerMoved(eyeX, eyeY, eyeZ, theta);
     	}
 	}
-
 }
