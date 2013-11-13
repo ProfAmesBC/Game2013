@@ -34,6 +34,7 @@ public class Town {
     	buildings.add(new MendolaBuilding(gl, glu));
     	buildings.add(new MeuseBuilding(gl, glu));
     	buildings.add(new MidgleyBuilding(gl, glu));
+    	buildings.add(new OConnorBuilding(gl,glu));
     	buildings.add(new ParkBuilding(gl, glu));
     	buildings.add(new RothBuilding(gl, glu));
     	buildings.add(new TamburiniBuilding(gl, glu));
