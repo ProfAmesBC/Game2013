@@ -7,13 +7,14 @@ import buildings.*;
 
 public class Town {
     private List<Building> buildings = new LinkedList<Building>();
+    private List<Player> players = new LinkedList<Player>();
     
     public Town(GL2 gl, GLU glu) { 
         buildings.add(new WillisBuilding(gl, glu));
         buildings.add(new VallejoBuilding(gl, glu));
         buildings.add(new LiptonBuilding(gl, glu));
         buildings.add(new JossickBuilding(gl, glu));
-        buildings.add(new ShippBuilding(gl, glu));
+        //buildings.add(new ShippBuilding(gl, glu)); //For some reason this fella creates an error
         buildings.add(new TranBuilding(gl, glu));
         buildings.add(new YangBuilding(gl, glu));
     	buildings.add(new AndersonBuilding(gl, glu));

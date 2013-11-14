@@ -22,6 +22,7 @@ public class BatsEverywhere implements GLEventListener
     private long runtime = 0;
     private PlayerMotion playerMotion = new PlayerMotion();
     private PlayerLogger logger = new PlayerLogger();
+    private Player player;
 
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
@@ -36,6 +37,7 @@ public class BatsEverywhere implements GLEventListener
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
         town = new Town(gl, glu);
+        player  = new Player(glu, playerMotion); 
     }
 
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -60,6 +62,9 @@ public class BatsEverywhere implements GLEventListener
                 
         // draw town
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
+        
+        // draw player
+        player.draw(gl, glu); 
 
         // check for errors, at least once per frame
         int error = gl.glGetError();
