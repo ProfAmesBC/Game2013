@@ -56,6 +56,7 @@ public class Player {
 		//radius of the sphere 
 		size = 5; 
 	}
+	
 
 	public void playerBody(GL2 gl, GLU glu, GLUquadric quadric, float x, float y, float z, float r, float g, float b, double size){
 		gl.glPushMatrix();
