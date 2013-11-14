@@ -44,7 +44,7 @@ public abstract class Building
         Texture texture=null;
         try {
             System.out.println(new File(".").getAbsolutePath());
-            texture = TextureIO.newTexture(new File("src" + File.separator + "textures" + File.separator + filename), false);
+            texture = TextureIO.newTexture(new File("src" + File.separator + "textures" + File.separator + filename), true);
         } catch (IOException e) {
             System.out.println("Unable to read texture file: " + e);
             e.printStackTrace();
@@ -56,7 +56,7 @@ public abstract class Building
 //          ImageUtil.flipImageVertically(texture);
         System.out.println("Flip: " + flip);
         texture.setTexParameteri(gl, GL2.GL_TEXTURE_MAG_FILTER,GL2.GL_LINEAR); // or GL_NEAREST
-        texture.setTexParameteri(gl, GL2.GL_TEXTURE_MIN_FILTER,GL2.GL_LINEAR); // or GL_NEAREST
+        texture.setTexParameteri(gl, GL2.GL_TEXTURE_MIN_FILTER,GL2.GL_LINEAR_MIPMAP_LINEAR); // or GL_NEAREST
         texture.setTexParameteri(gl, GL2.GL_TEXTURE_WRAP_S,GL2.GL_REPEAT); // or GL_CLAMP
         texture.setTexParameteri(gl, GL2.GL_TEXTURE_WRAP_T,GL2.GL_REPEAT); // or GL_CLAMP
 

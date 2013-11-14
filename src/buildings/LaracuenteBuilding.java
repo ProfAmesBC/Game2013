@@ -8,16 +8,15 @@ import com.jogamp.opengl.util.texture.Texture;
 
 public class LaracuenteBuilding extends Building{
 	int i=0; 
+    private Texture brickTexture, brickExterior;
+
 	public LaracuenteBuilding(GL2 gl, GLU glu){
-	
+	    brickTexture = setupTexture(gl, "LaracuenteBrick.jpg");
+	    brickExterior = setupTexture(gl, "LaracuenteExterior.gif"); 	    
 	}
 	
 	@Override
 	public void draw(GL2 gl, GLU glu){
-		Texture brickTexture;
-		brickTexture = setupTexture(gl, "LaracuenteBrick.jpg"); // png's don't seem to work any more
-		Texture brickExterior; 
-		brickExterior = setupTexture(gl, "LaracuenteExterior.gif"); 
 				
 		gl.glEnable(GL2.GL_TEXTURE_2D);
 		brickExterior.bind(gl);

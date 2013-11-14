@@ -8,7 +8,13 @@ import buildings.*;
 public class Town {
     private List<Building> buildings = new LinkedList<Building>();
     
-    public Town(GL2 gl, GLU glu) { 	
+    public Town(GL2 gl, GLU glu) { 
+        buildings.add(new WillisBuilding(gl, glu));
+        buildings.add(new VallejoBuilding(gl, glu));
+        buildings.add(new LiptonBuilding(gl, glu));
+        buildings.add(new JossickBuilding(gl, glu));
+        buildings.add(new ShippBuilding(gl, glu));
+        buildings.add(new TranBuilding(gl, glu));
         buildings.add(new YangBuilding(gl, glu));
     	buildings.add(new AndersonBuilding(gl, glu));
     	buildings.add(new BaconBuilding(gl, glu));
@@ -29,6 +35,7 @@ public class Town {
     	buildings.add(new MendolaBuilding(gl, glu));
     	buildings.add(new MeuseBuilding(gl, glu));
     	buildings.add(new MidgleyBuilding(gl, glu));
+    	buildings.add(new OConnorBuilding(gl,glu));
     	buildings.add(new ParkBuilding(gl, glu));
     	buildings.add(new RothBuilding(gl, glu));
     	buildings.add(new TamburiniBuilding(gl, glu));
@@ -54,7 +61,7 @@ public class Town {
             int dz = 100*(buildingCounter/buildingsPerRow);
             gl.glTranslatef(dx, 0, dz);
             //building.draw(gl,  glu); // without using display lists
-            building.drawWithDisplayList(gl, glu); // with
+            building.drawWithDisplayList(gl, glu); // with display lists
             building.drawMoving(gl,  glu, eyeX-dx, eyeY, eyeZ-dz);
             gl.glPopMatrix();
             buildingCounter++;
