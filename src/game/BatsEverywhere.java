@@ -61,6 +61,10 @@ public class BatsEverywhere implements GLEventListener
         // draw town
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
 
+        // Draw sphere at the point you're looking at
+        //gl.glLineWidth(1);
+        //double[] location = ReadZBuffer.getOGLPos(gl, glu, 250, 250);	
+        
         // check for errors, at least once per frame
         int error = gl.glGetError();
         if (error != GL2.GL_NO_ERROR) {
