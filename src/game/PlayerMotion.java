@@ -31,6 +31,10 @@ public class PlayerMotion implements KeyListener {
     	return eyeZ;
     }
     
+    public float getTheta() {
+    	return theta;
+    }
+    
     public static void registerPlayerWatcher(PlayerMotionWatcher watcher) {
     	watchers.add(watcher);
     }
