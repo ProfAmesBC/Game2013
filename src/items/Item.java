@@ -6,4 +6,6 @@ package items;
 
 public interface Item {
 
+	public boolean getPlayerLocation();
+	
 }
