@@ -1,6 +1,4 @@
 package weapons;
-
-
 import game.PlayerMotion;
 import game.PlayerMotionWatcher;
 
@@ -36,11 +34,9 @@ public class Weapons implements KeyListener, PlayerMotionWatcher{
 			gl.glPopMatrix();
 			
 			//UPDATE POSITION OF BULLETS
-			b.setX((float) (b.getX() + b.getSpeed()*Math.cos(Math.toRadians(angle))));
-			b.setZ((float) (b.getZ() - b.getSpeed()*Math.sin(Math.toRadians(angle))));
+			b.setX((float) (b.getX() + b.getSpeed()*Math.cos(Math.toRadians(b.getAngle()))));
+			b.setZ((float) (b.getZ() - b.getSpeed()*Math.sin(Math.toRadians(b.getAngle()))));
 		}
-        
-        
         
 	}
 	
@@ -55,10 +51,8 @@ public class Weapons implements KeyListener, PlayerMotionWatcher{
 	public void keyTyped(KeyEvent e) {}
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_SPACE){
-			shootBullet();
-			System.out.println("HI");
-		}
+		//SHOOT BULLET WHEN PRESSED
+		if(e.getKeyCode() == KeyEvent.VK_SPACE){shootBullet();}
 	}
 	@Override
 	public void keyReleased(KeyEvent e) {}
