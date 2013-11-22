@@ -5,6 +5,9 @@ package weapons;
 public class Bullet{
 	private float x, y, z, angle;
 	private int speed = 5;
+	private int lifeSpan = 10;
+	public int getLifeSpan() {return lifeSpan;}
+	public void setLifeSpan(int lifeSpan) {this.lifeSpan = lifeSpan;}
 	public int getSpeed() {return speed;}
 	public void setX(float x) {this.x = x;}
 	public void setY(float y) {	this.y = y;}
@@ -19,6 +22,7 @@ public class Bullet{
 		this.y = y;
 		this.z = z;
 		this.angle = angle;
+		
 	}
 
 

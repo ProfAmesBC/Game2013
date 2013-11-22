@@ -5,6 +5,7 @@ import game.PlayerMotionWatcher;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
@@ -27,7 +28,8 @@ public class Weapons implements KeyListener, PlayerMotionWatcher{
         glu.gluQuadricTexture  (quadric, true);        // false, or true to generate texture coordinates
 		
         //GO THROUGH BULLETS LIST, DRAW BULLETS
-		for(Bullet b: bulletsList){
+		for(Iterator<Bullet> it = bulletsList.iterator(); it.hasNext();){
+			Bullet b = it.next();
 			gl.glPushMatrix();
 				gl.glTranslatef(b.getX(), b.getY(), b.getZ());
 				glu.gluSphere(quadric, 0.2, 10, 10);
@@ -36,7 +38,18 @@ public class Weapons implements KeyListener, PlayerMotionWatcher{
 			//UPDATE POSITION OF BULLETS
 			b.setX((float) (b.getX() + b.getSpeed()*Math.cos(Math.toRadians(b.getAngle()))));
 			b.setZ((float) (b.getZ() - b.getSpeed()*Math.sin(Math.toRadians(b.getAngle()))));
+			
+			if(b.getLifeSpan() == 0){
+				it.remove();
+			} else { 
+				b.setLifeSpan(b.getLifeSpan()-1);
+			}
+			
+			//if(bulletsList.isEmpty()){break;}
+						
 		}
+		
+
         
 	}
 	
