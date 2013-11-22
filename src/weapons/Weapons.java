@@ -30,7 +30,7 @@ public class Weapons implements KeyListener, PlayerMotionWatcher{
 		for(Bullet b: bulletsList){
 			gl.glPushMatrix();
 				gl.glTranslatef(b.getX(), b.getY(), b.getZ());
-				glu.gluSphere(quadric, 0.5, 10, 10);
+				glu.gluSphere(quadric, 0.2, 10, 10);
 			gl.glPopMatrix();
 			
 			//UPDATE POSITION OF BULLETS

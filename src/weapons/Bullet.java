@@ -4,7 +4,7 @@ package weapons;
 
 public class Bullet{
 	private float x, y, z, angle;
-	private int speed = 3;
+	private int speed = 5;
 	public int getSpeed() {return speed;}
 	public void setX(float x) {this.x = x;}
 	public void setY(float y) {	this.y = y;}
