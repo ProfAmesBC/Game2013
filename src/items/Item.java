@@ -8,4 +8,6 @@ public interface Item {
 
 	public boolean getPlayerLocation();
 	
+	public void use();
+	
 }

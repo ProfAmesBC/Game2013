@@ -5,4 +5,8 @@ package items;
 
 public interface PowerUp {
 
+	public boolean getPlayerLocation();
+	
+	public void use();
+	
 }
