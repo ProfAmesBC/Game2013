@@ -56,6 +56,9 @@ public class PlayerMotion implements KeyListener {
         case KeyEvent.VK_E:
             edown = true;
             break;
+        case KeyEvent.VK_P:
+            step=step*2;
+            break;
 	    }
 	}
 
@@ -121,6 +124,12 @@ public class PlayerMotion implements KeyListener {
     	if(adown || ddown || sdown || wdown || qdown || edown) {
     		for (PlayerMotionWatcher watcher: watchers)
     			watcher.playerMoved(eyeX, eyeY, eyeZ, theta);
-    	}
+    	}    	    	
+	}
+	public void setStep(float step){
+		this.step = step;
+	}
+	public float getStep(){
+		return step;
 	}
 }

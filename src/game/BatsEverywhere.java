@@ -1,6 +1,8 @@
 package game;
 // Fiona Tamburini, and the CS 333 class
 
+import inventory.PowerUpFactory;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
@@ -12,6 +14,7 @@ import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+
 import weapons.Weapons;
 
 import com.jogamp.opengl.util.FPSAnimator;
@@ -26,7 +29,8 @@ public class BatsEverywhere implements GLEventListener
     private long runtime = 0;
     private PlayerMotion playerMotion = new PlayerMotion();
     private PlayerLogger logger = new PlayerLogger();
-
+	private PowerUpFactory powerUps; 
+	
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
       //drawable.setGL(new TraceGL2(drawable.getGL().getGL2(), System.out)); // to trace every call.  Less useful.
@@ -38,7 +42,10 @@ public class BatsEverywhere implements GLEventListener
         gl.glHint(GL2.GL_PERSPECTIVE_CORRECTION_HINT, GL2.GL_NICEST); // or GL_FASTEST
         
         gl.glEnable(GL2.GL_DEPTH_TEST);
-        
+        powerUps = new PowerUpFactory(gl,glu);
+		powerUps.addSpeedPowerUp(playerMotion.getEyeX(), playerMotion.getEyeY(), 70, 0, 70);
+		powerUps.addSpeedPowerUp(playerMotion.getEyeX(), playerMotion.getEyeY(), 100, 0, 100);
+		powerUps.addSpeedPowerUp(playerMotion.getEyeX(), playerMotion.getEyeY(), 0, 0, 0);
         town = new Town(gl, glu);
     }
 
@@ -59,12 +66,11 @@ public class BatsEverywhere implements GLEventListener
         GL2 gl  = drawable.getGL().getGL2();
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
 
-        playerMotion.setLookAt(gl, glu);
-        
-                
+        playerMotion.setLookAt(gl, glu);        
         // draw town
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
         weapons.update(gl, glu);
+        powerUps.update(gl, glu);
         // Draw sphere at the point you're looking at
         //gl.glLineWidth(1);
         //double[] location = ReadZBuffer.getOGLPos(gl, glu, 250, 250);	
