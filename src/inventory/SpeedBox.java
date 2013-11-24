@@ -17,7 +17,7 @@ public class SpeedBox implements PowerUp {
 	private boolean grabbed = false; 	
 	private double T;
 	private Bag bag;
-	private PlayerAttributes p;
+	private static PlayerAttributes p;
 	
 	public SpeedBox(GL2 gl, GLU glu,float x, float y, float z, Bag bag, PlayerAttributes p) {		
 		textureItem = Building.setupTexture(gl, "textureItem.png");			
@@ -35,7 +35,7 @@ public class SpeedBox implements PowerUp {
  
 	public void draw(GL2 gl, GLU glu) {				
 		T = T + 0.1;
-		if((itemX-3<playerX && itemZ-3<playerZ) && (itemX+5>playerX) && (itemZ+5>playerZ)) {
+		if((itemX-3<playerX && itemZ-3<playerZ) && (itemX+5>playerX) && (itemZ+5>playerZ) && grabbed == false) {
 			grabbed = true;
 			bag.addItem(this);			
 		}

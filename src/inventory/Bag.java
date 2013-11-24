@@ -13,7 +13,7 @@ public class Bag {
 
 	public void addItem(PowerUp i) {
 		String checkType = i.getType();
-		
+		System.out.println("");
 		if(checkType.equals("Speed"))
 			speedBoxes.incrementCount();
 		if(checkType.equals("Damage"))
@@ -21,8 +21,9 @@ public class Bag {
 	}
 
 	public void useItem(String i) {
-		if(i.equals("Speed")) {
+		if(i.equals("Speed")) {			
 			if(speedBoxes.getCount() > 0) {
+				System.out.println(speedBoxes.getCount());
 				speedBoxes.decrementCount();
 				speedBoxes.use();
 			}
