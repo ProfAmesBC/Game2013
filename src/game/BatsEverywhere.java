@@ -32,6 +32,7 @@ public class BatsEverywhere implements GLEventListener
     private PlayerAttributes p = new PlayerAttributes(1.5f,bag);
     private PlayerMotion playerMotion = new PlayerMotion(p);
 	private PowerUpFactory powerUps;
+	private StatusText writer;
 	
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
@@ -53,6 +54,8 @@ public class BatsEverywhere implements GLEventListener
 		powerUps.addSpeedPowerUp(350, 0, 350);
 		powerUps.addSpeedPowerUp(400, 0, 400);
         town = new Town(gl, glu);
+        writer = new StatusText(drawable);
+        writer.draw("workssss");
     }
 
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -76,7 +79,7 @@ public class BatsEverywhere implements GLEventListener
         // draw town
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
         weapons.update(gl, glu);
-        powerUps.update(gl, glu);
+        powerUps.update();
         // Draw sphere at the point you're looking at
         //gl.glLineWidth(1);
         //double[] location = ReadZBuffer.getOGLPos(gl, glu, 250, 250);	

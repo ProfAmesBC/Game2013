@@ -12,7 +12,7 @@ public class PowerUpFactory {
 	private GL2 gl; 
 	private GLU glu;	
 	private PlayerAttributes p;
-	ArrayList<PowerUp> list = new ArrayList<PowerUp>();
+	private ArrayList<PowerUp> list = new ArrayList<PowerUp>();
     public PowerUpFactory(GL2 gl, GLU glu,PlayerAttributes p){
 		this.gl = gl;
 		this.glu = glu;
@@ -23,9 +23,9 @@ public class PowerUpFactory {
 		list.add(boost);
 	}
 	
-	public void update(GL2 gl2, GLU glu2){
-		for(PowerUp item : list){			
-			item.draw(gl2, glu2);			
+	public void update(){			
+		for(PowerUp item : list){						
+			item.draw(gl, glu);			
 			if(item.grabbed()) list.remove(this);
 		}
 	}

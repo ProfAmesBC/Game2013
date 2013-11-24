@@ -14,7 +14,7 @@ public class SpeedBox implements PowerUp {
 	private float itemX,itemY,itemZ;
 	private float playerX,playerY,playerZ;
 	private float angle;
-	private boolean grabbed = false; 	
+	private boolean grabbed;	
 	private double T;
 	private Bag bag;
 	private static PlayerAttributes p;
@@ -27,6 +27,7 @@ public class SpeedBox implements PowerUp {
 		PlayerMotion.registerPlayerWatcher(this);
 		this.bag = bag;
 		this.p = p;
+		grabbed = false;
 	}
 	
 	public SpeedBox() {
@@ -34,7 +35,7 @@ public class SpeedBox implements PowerUp {
 	}
  
 	public void draw(GL2 gl, GLU glu) {				
-		T = T + 0.1;
+		T = T + 0.05;
 		if((itemX-3<playerX && itemZ-3<playerZ) && (itemX+5>playerX) && (itemZ+5>playerZ) && grabbed == false) {
 			grabbed = true;
 			bag.addItem(this);			
