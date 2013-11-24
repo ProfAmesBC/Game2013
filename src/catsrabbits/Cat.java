@@ -13,5 +13,7 @@ public class Cat extends Critter{
 	
 	public void drawWholeBody(GL2 gl, GLU glu){
 		// TODO
+		texture.bind(gl);
+		
 	}
 }

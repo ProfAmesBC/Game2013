@@ -12,6 +12,14 @@ public class Rabbit extends Critter{
 	}
 	
 	public void drawWholeBody(GL2 gl, GLU glu){
-		// TODO
+		gl.glPushMatrix();
+			gl.glEnable(GL2.GL_TEXTURE_2D);
+			texture.bind(gl);
+			glu.gluSphere(textureQuadric, 2, 10, 10);
+			gl.glDisable(GL2.GL_TEXTURE_2D);
+			
+			// TODO
+			
+		gl.glPopMatrix();
 	}
 }
