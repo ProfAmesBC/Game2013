@@ -47,7 +47,11 @@ public class BatsEverywhere implements GLEventListener
         
         powerUps = new PowerUpFactory(gl,glu,p);
 		powerUps.addSpeedPowerUp(70, 0, 70);
-		powerUps.addSpeedPowerUp(100, 0, 100);		
+		powerUps.addSpeedPowerUp(100, 0, 100);
+		powerUps.addSpeedPowerUp(200, 0, 200);
+		powerUps.addSpeedPowerUp(300, 0, 300);
+		powerUps.addSpeedPowerUp(350, 0, 350);
+		powerUps.addSpeedPowerUp(400, 0, 400);
         town = new Town(gl, glu);
     }
 
