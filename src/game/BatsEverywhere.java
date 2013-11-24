@@ -1,6 +1,7 @@
 package game;
 // Fiona Tamburini, and the CS 333 class
 
+import inventory.Bag;
 import inventory.PowerUpFactory;
 
 import java.awt.BorderLayout;
@@ -27,9 +28,10 @@ public class BatsEverywhere implements GLEventListener
     private Town town;
     private Weapons weapons = new Weapons();
     private long runtime = 0;
-    private PlayerMotion playerMotion = new PlayerMotion();
-    private PlayerLogger logger = new PlayerLogger();
-	private PowerUpFactory powerUps; 
+    private Bag bag  = new Bag();
+    private PlayerAttributes p = new PlayerAttributes(1.5f,bag);
+    private PlayerMotion playerMotion = new PlayerMotion(p);
+	private PowerUpFactory powerUps;
 	
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
@@ -42,10 +44,11 @@ public class BatsEverywhere implements GLEventListener
         gl.glHint(GL2.GL_PERSPECTIVE_CORRECTION_HINT, GL2.GL_NICEST); // or GL_FASTEST
         
         gl.glEnable(GL2.GL_DEPTH_TEST);
-        powerUps = new PowerUpFactory(gl,glu);
-		powerUps.addSpeedPowerUp(playerMotion.getEyeX(), playerMotion.getEyeY(), 70, 0, 70);
-		powerUps.addSpeedPowerUp(playerMotion.getEyeX(), playerMotion.getEyeY(), 100, 0, 100);
-		powerUps.addSpeedPowerUp(playerMotion.getEyeX(), playerMotion.getEyeY(), 0, 0, 0);
+        
+        powerUps = new PowerUpFactory(gl,glu,p);
+		powerUps.addSpeedPowerUp(70, 0, 70);
+		powerUps.addSpeedPowerUp(100, 0, 100);
+		powerUps.addSpeedPowerUp(0, 0, 0);
         town = new Town(gl, glu);
     }
 

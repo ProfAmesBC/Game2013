@@ -1,25 +1,40 @@
 package inventory;
-public class Bag {
-	private int speedUp; 
-	private int damageUp;
+
+import game.PlayerAttributes;
+
+public class Bag {	
+	private DummyItem speedBoxes;
+	private DummyItem damageBoxes;
 	
-	public Bag(){
-		speedUp = 0;
-		damageUp = 0;				
+	public Bag() {
+		speedBoxes = new DummyItem("Speed");
+		damageBoxes = new DummyItem("Damage");
 	}
-	public void addSpeedItem(){
-		speedUp++;
+
+	public void addItem(PowerUp i) {
+		String checkType = i.getType();
+		
+		if(checkType.equals("Speed"))
+			speedBoxes.incrementCount();
+		if(checkType.equals("Damage"))
+			speedBoxes.incrementCount();
 	}
-	public void addDamageItem(){
-		damageUp++;
+
+	public void useItem(String i) {
+		if(i.equals("Speed")) {
+			if(speedBoxes.getCount() > 0) {
+				speedBoxes.decrementCount();
+				speedBoxes.use();
+			}
+		}
+		
+		if(i.equals("Damage")) {
+			if(damageBoxes.getCount() > 0) {
+				damageBoxes.decrementCount();
+				damageBoxes.use();
+			}
+		}
+		
 	}
-	public void useSpeedUp(){
-		speedUp--;
-	}
-	public void useDoubleDamage(){
-		damageUp--;
-	}
-	public int getSpeedUp(){
-		return speedUp;
-	}
+
 }
