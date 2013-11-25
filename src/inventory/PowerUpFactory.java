@@ -23,8 +23,7 @@ public class PowerUpFactory {
 		list.add(boost);
 	}
 	
-	public void update(){			
-		System.out.println(toString());
+	public void update(){					
 		for(PowerUp item : list){						
 			item.draw(gl, glu);			
 			if(item.grabbed()) list.remove(this);
