@@ -1,8 +1,6 @@
-// Diana Cheung, CS333 Class of 2013
-/**
- * Superclass for cat and rabbit classes. May also be useful for Bat class
- */
 package catsrabbits;
+// Diana Cheung, CS333 Class of 2013
+// Superclass for cat and rabbit classes. May also be useful for Bat class
 
 import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;
 import javax.media.opengl.glu.GLUquadric;
@@ -42,6 +40,31 @@ public abstract class Critter{
 		move();
 	}
 	public abstract void drawWholeBody(GL2 gl,GLU glu);
+	
+	protected void drawSphere(GLUquadric quadric,float r,GLU glu){glu.gluSphere(quadric, r, 10, 10);}
+	protected void drawTexturedUnitSphere(GLU glu){drawSphere(textureQuadric,1,glu);}
+	protected abstract void drawBody(GL2 gl,GLU glu);
+	protected abstract void drawHead(GL2 gl,GLU glu);
+	protected void drawOneEye(GLU glu){drawSphere(quadric,.5f,glu);}
+	protected void drawEyes(GL2 gl,GLU glu,float xDist){
+		gl.glPushMatrix();
+			gl.glTranslatef(xDist, 0, 0);
+			drawOneEye(glu);
+			gl.glTranslatef(-2*xDist, 0, 0);
+			drawOneEye(glu);
+		gl.glPopMatrix();
+	}
+	protected abstract void drawNose(GL2 gl,GLU glu);
+	protected abstract void drawEar(GL2 gl,GLU glu);
+	protected void drawEars(GL2 gl,GLU glu){
+		gl.glEnable(GL2.GL_TEXTURE_2D);
+		drawEar(gl,glu);
+		gl.glScalef(-1, 1, 1);
+		drawEar(gl,glu);
+		gl.glDisable(GL2.GL_TEXTURE_2D);
+	}
+	protected abstract void drawTail(GL2 gl,GLU glu);
+	protected abstract void drawFeet(GL2 gl,GLU glu);
 	
 	protected void move(){
 		double radians=Math.toRadians(angle);
