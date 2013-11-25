@@ -1,8 +1,9 @@
 package game;
-// Fiona Tamburini, and the CS 333 class
+
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.GLEventListener;
@@ -11,6 +12,8 @@ import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import weapons.Weapons;
+
 import com.jogamp.opengl.util.FPSAnimator;
 
 public class BatsEverywhere implements GLEventListener
@@ -19,6 +22,7 @@ public class BatsEverywhere implements GLEventListener
     private int framesDrawn=0;
     private GLU glu = new GLU();
     private Town town;
+    private Weapons weapons = new Weapons();
     private long runtime = 0;
     private PlayerMotion playerMotion = new PlayerMotion();
     private PlayerLogger logger = new PlayerLogger();
@@ -60,7 +64,7 @@ public class BatsEverywhere implements GLEventListener
                 
         // draw town
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
-
+        weapons.update(gl, glu);
         // Draw sphere at the point you're looking at
         //gl.glLineWidth(1);
         //double[] location = ReadZBuffer.getOGLPos(gl, glu, 250, 250);	
@@ -102,6 +106,7 @@ public class BatsEverywhere implements GLEventListener
          frame.pack(); // make just big enough to hold objects inside
          frame.setVisible(true);
          canvas.addKeyListener(renderer.playerMotion);
+         canvas.addKeyListener(renderer.weapons);
          canvas.requestFocusInWindow();
          
          FPSAnimator animator = new FPSAnimator(canvas, 60);
