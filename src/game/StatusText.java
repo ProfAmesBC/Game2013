@@ -13,14 +13,14 @@ public class StatusText {
 	
 	public StatusText(GLAutoDrawable drawable){
 		this.drawable = drawable;
-		renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, 48));
+		renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, 32));
 	}
-	public void draw(String text) {		        
+	public void draw(String text, int x, int y) {		        
 		System.out.println("check this out:" + drawable.getWidth() + drawable.getHeight());
 		renderer.beginRendering(drawable.getWidth(), drawable.getHeight());
 		// optionally set the text color
-		renderer.setColor(0.2f, 0.2f, 1f, 0.2f); // Note use of alpha
-		renderer.draw(text, 25, 250);  // pixels, from lower left
+		renderer.setColor(1f, 1f, 1f, 0.8f); // Note use of alpha
+		renderer.draw(text, x, y);  // pixels, from lower left
 		renderer.endRendering();
 	}
 

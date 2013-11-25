@@ -24,6 +24,7 @@ public class PowerUpFactory {
 	}
 	
 	public void update(){			
+		System.out.println(toString());
 		for(PowerUp item : list){						
 			item.draw(gl, glu);			
 			if(item.grabbed()) list.remove(this);

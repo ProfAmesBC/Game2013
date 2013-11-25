@@ -5,7 +5,7 @@ import game.PlayerAttributes;
 public class Bag {	
 	private DummyItem speedBoxes;
 	private DummyItem damageBoxes;
-	
+
 	public Bag() {
 		speedBoxes = new DummyItem("Speed");
 		damageBoxes = new DummyItem("Damage");
@@ -28,14 +28,18 @@ public class Bag {
 				speedBoxes.use();
 			}
 		}
-		
+
 		if(i.equals("Damage")) {
 			if(damageBoxes.getCount() > 0) {
 				damageBoxes.decrementCount();
 				damageBoxes.use();
 			}
-		}
-		
+		}		
 	}
-
+	public String toString(){
+		String listOfItems = "";
+		listOfItems = "P:" + speedBoxes.getCount();
+		listOfItems = listOfItems + " O:" + damageBoxes.getCount();
+		return listOfItems;
+	}
 }

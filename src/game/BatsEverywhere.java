@@ -54,8 +54,7 @@ public class BatsEverywhere implements GLEventListener
 		powerUps.addSpeedPowerUp(350, 0, 350);
 		powerUps.addSpeedPowerUp(400, 0, 400);
         town = new Town(gl, glu);
-        writer = new StatusText(drawable);
-        writer.draw("workssss");
+        writer = new StatusText(drawable);        
     }
 
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -80,6 +79,7 @@ public class BatsEverywhere implements GLEventListener
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
         weapons.update(gl, glu);
         powerUps.update();
+        writer.draw(bag.toString(), 380, 470);
         // Draw sphere at the point you're looking at
         //gl.glLineWidth(1);
         //double[] location = ReadZBuffer.getOGLPos(gl, glu, 250, 250);	

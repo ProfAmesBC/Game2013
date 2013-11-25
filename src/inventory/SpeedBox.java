@@ -89,8 +89,7 @@ public class SpeedBox implements PowerUp {
 		//gl.glRotated(Math.toRadians(15*frames), Math.toRadians(15*frames), Math.toRadians(15*frames), 1);
 		//gl.glTranslated(-itemX, -(Math.sin(Math.toRadians(T*360+180 ))+2), -itemZ);
 		textureItem.bind(gl);
-		
-		//front face item
+
 		gl.glBegin(GL2.GL_QUADS);
 		gl.glTexCoord2f(0f,2f); gl.glVertex3f(-2.5f, 0, 0);
 		gl.glTexCoord2f(3f,2f); gl.glVertex3f( 2.5f, 0, 0);
