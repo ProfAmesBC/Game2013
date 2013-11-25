@@ -8,7 +8,8 @@ import buildings.*;
 public class Town {
     private List<Building> buildings = new LinkedList<Building>();
     
-    public Town(GL2 gl, GLU glu) { 	
+    public Town(GL2 gl, GLU glu) { 
+        buildings.add(new WillisBuilding(gl, glu));
         buildings.add(new VallejoBuilding(gl, glu));
         buildings.add(new LiptonBuilding(gl, glu));
         buildings.add(new JossickBuilding(gl, glu));
@@ -34,6 +35,7 @@ public class Town {
     	buildings.add(new MendolaBuilding(gl, glu));
     	buildings.add(new MeuseBuilding(gl, glu));
     	buildings.add(new MidgleyBuilding(gl, glu));
+    	buildings.add(new OConnorBuilding(gl,glu));
     	buildings.add(new ParkBuilding(gl, glu));
     	buildings.add(new RothBuilding(gl, glu));
     	buildings.add(new TamburiniBuilding(gl, glu));

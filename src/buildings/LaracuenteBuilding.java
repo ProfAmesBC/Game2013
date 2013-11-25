@@ -7,43 +7,38 @@ import javax.media.opengl.glu.GLU;
 import com.jogamp.opengl.util.texture.Texture;
 
 public class LaracuenteBuilding extends Building{
-    private Texture brickTexture, brickExterior;
+	int i=0; 
+	private Texture brickTexture, brickExterior;
 
 	public LaracuenteBuilding(GL2 gl, GLU glu){
-	    brickTexture = setupTexture(gl, "LaracuenteBrick.jpg");
-	    brickExterior = setupTexture(gl, "LaracuenteExterior.gif"); 	    
+		brickTexture = setupTexture(gl, "LaracuenteBrick.jpg");
+		brickExterior = setupTexture(gl, "LaracuenteExterior.gif"); 	    
 	}
-	
+
 	@Override
 	public void draw(GL2 gl, GLU glu){
-		int i = 0; 		
-				
+
 		gl.glEnable(GL2.GL_TEXTURE_2D);
 		brickExterior.bind(gl);
 		gl.glEnable(GL2.GL_CULL_FACE); 
 		buildingDraw(gl, glu);
-		
-		/*drawMoving(gl, glu, xpos, ypos, zpos, i, i);
-		if (i>=60)
-			i=0;
-		else
-			i++; */ 
-		
+
 		gl.glDisable(GL2.GL_TEXTURE_2D);
 		gl.glDisable(GL2.GL_CULL_FACE);
-		
+
 		gl.glEnable(GL2.GL_TEXTURE_2D);
 		brickTexture.bind(gl);
 		buildingDraw(gl, glu);
 		gl.glDisable(GL2.GL_TEXTURE_2D);
-		
+
 	}
 
-	
+
 	private void buildingDraw(GL2 gl, GLU glu) {
-	  gl.glPushMatrix();
-	  gl.glTranslatef(50,0,50);
-	  gl.glScalef(1,-1,1);
+		gl.glPushMatrix();
+		gl.glTranslatef(50,0,50);
+		gl.glScalef(1,-1,1);
+
 		//floor
 		gl.glColor3f(0.9f, 0.5f, 0.2f);
 		gl.glBegin(GL2.GL_QUADS);
@@ -154,7 +149,7 @@ public class LaracuenteBuilding extends Building{
 		gl.glVertex3f(-16, 5, 12);
 		gl.glVertex3f(-16, 2, 12);
 		gl.glEnd();
-	
+
 		gl.glPushMatrix();
 		gl.glRotatef(-90f, 1f, 0f, 0f);
 		gl.glBegin(GL2.GL_QUADS);
@@ -164,7 +159,7 @@ public class LaracuenteBuilding extends Building{
 		gl.glTexCoord2f(0f,0f); gl.glVertex3f(-16, -12, 2);
 		gl.glEnd();
 		gl.glPopMatrix();
-	
+
 
 		gl.glPopMatrix();
 		gl.glPopMatrix();
@@ -174,13 +169,22 @@ public class LaracuenteBuilding extends Building{
 		gl.glPopMatrix(); 
 		gl.glPopMatrix();
 		gl.glPopMatrix(); 
-	  gl.glPopMatrix();
+		gl.glPopMatrix();
 	}
-	
-    public void drawMoving(GL2 gl, GLU glu, float eyeX, float eyeY, float eyeZ) {
 
-    	float fanx = eyeX; 
-    	float fany = eyeY; 
+	public void drawMoving(GL2 gl, GLU glu, float eyeX, float eyeY, float eyeZ) {
+		/*if (i>160 && i<250)
+    		i++;
+    	else if(i>=250)
+    		i=0;
+    	else{
+    	i++; 
+    	float fanx = i; 
+    	float fany = i; 
+
+    	gl.glPushMatrix();
+    	gl.glTranslatef(50,0,50);
+    	gl.glScalef(1,-1,1);
 		gl.glPushMatrix(); 
 		gl.glRotatef(180f, 1f, 0f, 0f);
 		gl.glPushMatrix();
@@ -213,7 +217,7 @@ public class LaracuenteBuilding extends Building{
 		gl.glTexCoord2f(3f,0f); gl.glVertex3f( -30+fanx,  0+fany, -140);
 		gl.glTexCoord2f(0f,0f); gl.glVertex3f(-30+fanx,  100+fany, -140);
 		gl.glEnd();
-		
+
 		gl.glPushMatrix();
 		gl.glRotatef(90, 0f, 0f, 1f);
 		gl.glColor3f(0f, 0f, 0f);
@@ -223,11 +227,13 @@ public class LaracuenteBuilding extends Building{
 		gl.glTexCoord2f(3f,0f); gl.glVertex3f( -30+fanx,  0+fany, -140);
 		gl.glTexCoord2f(0f,0f); gl.glVertex3f(-30+fanx,  100+fany, -140);
 		gl.glEnd();
-		
+
 		gl.glPopMatrix();
 		gl.glPopMatrix();
 		gl.glPopMatrix();
 		gl.glPopMatrix();
 		gl.glPopMatrix(); 
-}
+		gl.glPopMatrix(); 
+    	}*/
+	}
 }
