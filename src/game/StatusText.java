@@ -15,11 +15,10 @@ public class StatusText {
 		this.drawable = drawable;
 		renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, 32));
 	}
-	public void draw(String text, int x, int y) {		        
-		System.out.println("check this out:" + drawable.getWidth() + drawable.getHeight());
+	public void draw(String text, int x, int y) {		        	
 		renderer.beginRendering(drawable.getWidth(), drawable.getHeight());
 		// optionally set the text color
-		renderer.setColor(1f, 1f, 1f, 0.8f); // Note use of alpha
+		renderer.setColor(0f, 0f, 0f, 0.8f); // Note use of alpha
 		renderer.draw(text, x, y);  // pixels, from lower left
 		renderer.endRendering();
 	}
