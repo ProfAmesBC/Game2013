@@ -85,8 +85,8 @@ public class SpeedBox implements PowerUp {
 		gl.glEnable(GL2.GL_CULL_FACE);
 		gl.glEnable(GL2.GL_TEXTURE_2D);
 		gl.glPushMatrix();		
-		gl.glTranslated(itemX, Math.sin(Math.toRadians(T*360+180 ))+2, itemZ);
-		gl.glRotated(Math.toRadians(15*frames), Math.toRadians(15*frames), Math.toRadians(15*frames), 1);
+		//gl.glTranslated(itemX, Math.sin(Math.toRadians(T*360+180 ))+2, itemZ);
+		//gl.glRotated(Math.toRadians(15*frames), Math.toRadians(15*frames), Math.toRadians(15*frames), 1);
 		gl.glTranslated(-itemX, -(Math.sin(Math.toRadians(T*360+180 ))+2), -itemZ);
 		textureItem.bind(gl);
 		
