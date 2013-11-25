@@ -18,6 +18,7 @@ public class SpeedBox implements PowerUp {
 	private double T;
 	private Bag bag;
 	private static PlayerAttributes p;
+	private int frames;
 	
 	public SpeedBox(GL2 gl, GLU glu,float x, float y, float z, Bag bag, PlayerAttributes p) {		
 		textureItem = Building.setupTexture(gl, "textureItem.png");			
@@ -28,6 +29,7 @@ public class SpeedBox implements PowerUp {
 		this.bag = bag;
 		this.p = p;
 		grabbed = false;
+		frames = 0;
 	}
 	
 	public SpeedBox() {
@@ -35,6 +37,7 @@ public class SpeedBox implements PowerUp {
 	}
  
 	public void draw(GL2 gl, GLU glu) {				
+		frames++;
 		T = T + 0.05;
 		if((itemX-3<playerX && itemZ-3<playerZ) && (itemX+5>playerX) && (itemZ+5>playerZ) && grabbed == false) {
 			grabbed = true;
@@ -78,12 +81,15 @@ public class SpeedBox implements PowerUp {
 	}
 	
 	public void drawPowerUp(GL2 gl, GLU glu){		
+		
 		gl.glEnable(GL2.GL_CULL_FACE);
 		gl.glEnable(GL2.GL_TEXTURE_2D);
-		gl.glTranslated(itemX, Math.sin(Math.toRadians(T*360+180 ))+2, itemZ);
-		//gl.glRotated(Math.toRadians(15*frames), Math.toRadians(15*frames), Math.toRadians(15*frames), 1);
-		textureItem.bind(gl);
 		gl.glPushMatrix();		
+		gl.glTranslated(itemX, Math.sin(Math.toRadians(T*360+180 ))+2, itemZ);
+		gl.glRotated(Math.toRadians(15*frames), Math.toRadians(15*frames), Math.toRadians(15*frames), 1);
+		gl.glTranslated(-itemX, -(Math.sin(Math.toRadians(T*360+180 ))+2), -itemZ);
+		textureItem.bind(gl);
+		
 		//front face item
 		gl.glBegin(GL2.GL_QUADS);
 		gl.glTexCoord2f(0f,2f); gl.glVertex3f(-2.5f, 0, 0);

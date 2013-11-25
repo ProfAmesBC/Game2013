@@ -16,6 +16,7 @@ public class StatusText {
 		renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, 48));
 	}
 	public void draw(String text) {		        
+		System.out.println("check this out:" + drawable.getWidth() + drawable.getHeight());
 		renderer.beginRendering(drawable.getWidth(), drawable.getHeight());
 		// optionally set the text color
 		renderer.setColor(0.2f, 0.2f, 1f, 0.2f); // Note use of alpha
