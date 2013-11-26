@@ -3,6 +3,7 @@ package game;
 //test comment
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.GLEventListener;
@@ -11,6 +12,9 @@ import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+
+import Multiplayer.Player;
+
 import com.jogamp.opengl.util.FPSAnimator;
 
 public class BatsEverywhere implements GLEventListener

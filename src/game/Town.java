@@ -1,8 +1,11 @@
 package game;
 import java.util.LinkedList;
 import java.util.List;
+
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.*;
+
+import Multiplayer.Player;
 import buildings.*;
 
 public class Town {

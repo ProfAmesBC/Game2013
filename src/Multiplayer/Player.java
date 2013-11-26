@@ -1,9 +1,11 @@
-package game;
+package Multiplayer;
+
+import game.PlayerMotion;
 
 import javax.media.opengl.GL2;
-
 import javax.media.opengl.glu.GLU;
 import javax.media.opengl.glu.GLUquadric;
+
 import Multiplayer.*; 
 
 public class Player {
@@ -17,12 +19,9 @@ public class Player {
 	private float b; 
 	private float size; 
 	private GLUquadric quadric; 
-	private PlayerMotion playerMotion; 
+	public PlayerMotion playerMotion; 
 	
 	public Player(GLU glu, PlayerMotion playerMotion) {
-		ClientSendThread CST = new ClientSendThread(); 
-		Thread T = new Thread(CST);
-		T.start();
 	
 		quadric = glu.gluNewQuadric();
 		glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
@@ -42,6 +41,10 @@ public class Player {
 	
 		//radius of the sphere 
 		size = (float)2.8; 
+		
+		ClientSendThread CST = new ClientSendThread(this); 
+		Thread T = new Thread(CST);
+		T.start();
 	}
 
 	public float getX(){
