@@ -36,7 +36,6 @@ public class Player {
 		glu.gluQuadricTexture  (quadric, false);        // false, or true to generate texture coordinates
 		this.playerMotion = playerMotion; 
 
-
 		this.eyeX = 0;
 		this.eyeY = 5;
 		this.eyeZ = 0;
