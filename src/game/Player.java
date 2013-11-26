@@ -29,7 +29,7 @@ public class Player {
 	public float getTheta(){
 		return playerMotion.getTheta(); 
 	}
-	//we will use these to set the values for all players that are NOT the client...... right? - Tyler
+	//we will use these to set the values for all players that are NOT the client
 	public void setX(){
 
 	}
@@ -46,7 +46,7 @@ public class Player {
 		glu.gluQuadricTexture  (quadric, false);        // false, or true to generate texture coordinates
 		this.playerMotion = playerMotion; 
 
-		//IDK IF I NEED THESE - Tyler
+
 		this.eyeX = 0;
 		this.eyeY = 5;
 		this.eyeZ = 0;
