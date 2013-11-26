@@ -1,8 +1,10 @@
 package game;
 
 import javax.media.opengl.GL2;
+
 import javax.media.opengl.glu.GLU;
 import javax.media.opengl.glu.GLUquadric;
+import Multiplayer.*; 
 
 public class Player {
 	private String name; 
@@ -16,6 +18,32 @@ public class Player {
 	private float size; 
 	private GLUquadric quadric; 
 	private PlayerMotion playerMotion; 
+	
+	public Player(GLU glu, PlayerMotion playerMotion) {
+		ClientSendThread CST = new ClientSendThread(); 
+		Thread T = new Thread(CST);
+		T.start();
+	
+		quadric = glu.gluNewQuadric();
+		glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
+		glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
+		glu.gluQuadricTexture  (quadric, false);        // false, or true to generate texture coordinates
+		this.playerMotion = playerMotion; 
+
+
+		this.eyeX = 0;
+		this.eyeY = 5;
+		this.eyeZ = 0;
+		this.theta = playerMotion.getTheta();
+		
+		//random color
+		r = (float)Math.random(); //I would like to make these contingent on a hash of the player's username - Tyler
+		g = (float)Math.random(); 
+		b = (float)Math.random(); 
+	
+		//radius of the sphere 
+		size = (float)2.8; 
+	}
 
 	public float getX(){
 		return playerMotion.getEyeX(); 
@@ -39,27 +67,7 @@ public class Player {
 	public void setZ(){
 
 	}
-	public Player(GLU glu, PlayerMotion playerMotion) {
-		quadric = glu.gluNewQuadric();
-		glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
-		glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
-		glu.gluQuadricTexture  (quadric, false);        // false, or true to generate texture coordinates
-		this.playerMotion = playerMotion; 
-
-
-		this.eyeX = 0;
-		this.eyeY = 5;
-		this.eyeZ = 0;
-		this.theta = playerMotion.getTheta();
-		
-		//random color
-		r = (float)Math.random(); //I would like to make these contingent on a hash of the player's username - Tyler
-		g = (float)Math.random(); 
-		b = (float)Math.random(); 
 	
-		//radius of the sphere 
-		size = (float)2.8; 
-	}
 	
 
 	public void playerBody(GL2 gl, GLU glu, GLUquadric quadric, float x, float y, float z, float r, float g, float b, double size){
