@@ -94,14 +94,14 @@ public class Player {
 		return id;
 	}
 	//we will use these to set the values for all players that are NOT the client
-	public void setX(){
-
+	public void setX(float nx){
+		eyeX = nx;
 	}
-	public void setY(){
-
+	public void setY(float ny){
+		eyeY = ny;
 	}
-	public void setZ(){
-
+	public void setZ(float nz){
+		eyeZ = nz;
 	}
 	
 	

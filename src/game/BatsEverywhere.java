@@ -1,8 +1,12 @@
 package game;
 // Fiona Tamburini, and the CS 333 class
-//test comment
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Semaphore;
+
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.GLEventListener;
@@ -11,6 +15,7 @@ import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+
 import com.jogamp.opengl.util.FPSAnimator;
 
 public class BatsEverywhere implements GLEventListener
@@ -23,7 +28,19 @@ public class BatsEverywhere implements GLEventListener
     private PlayerMotion playerMotion = new PlayerMotion();
     private PlayerLogger logger = new PlayerLogger();
     private Player player;
+    
+    //For multiplayer
+    private static Map<Integer, Player> playerMap;
+    private static Semaphore isUpdate;
 
+    public synchronized static Map<Integer, Player> getPlayers() {
+		return playerMap;
+    }
+    
+    public synchronized static Semaphore getSem() {
+    	return isUpdate;
+    }
+    
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
       //drawable.setGL(new TraceGL2(drawable.getGL().getGL2(), System.out)); // to trace every call.  Less useful.
@@ -65,6 +82,18 @@ public class BatsEverywhere implements GLEventListener
         
         // draw player
         player.draw(gl, glu); 
+        
+        if(BatsEverywhere.isUpdate.tryAcquire()) {
+        	for (Integer i : BatsEverywhere.getPlayers().keySet()) {
+        		BatsEverywhere.getPlayers().get(i).draw(gl, glu);
+        	}
+        	try {
+				BatsEverywhere.getSem().acquire();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
 
         // check for errors, at least once per frame
         int error = gl.glGetError();
@@ -92,8 +121,10 @@ public class BatsEverywhere implements GLEventListener
          JFrame frame = new JFrame("Too Many Bats");
          GLCanvas canvas = new GLCanvas();
          canvas.setPreferredSize(new Dimension(500,500));
-
+         isUpdate = new Semaphore(0);
+         playerMap = new ConcurrentHashMap<Integer, Player>();
          BatsEverywhere renderer = new BatsEverywhere();
+         
          canvas.addGLEventListener(renderer);
 
          frame.setLayout(new BorderLayout());
