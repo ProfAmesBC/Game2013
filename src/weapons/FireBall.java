@@ -6,7 +6,7 @@ import javax.media.opengl.glu.GLUquadric;
 
 
 
-public class Bullet{
+public class FireBall{
 	private float x, y, z, angle;
 	private int speed = 5;
 	private int lifeSpan = 100;
@@ -23,7 +23,7 @@ public class Bullet{
 	private GLUquadric quadric;
 
 
-	public Bullet(float x, float y, float z, float angle){
+	public FireBall(float x, float y, float z, float angle){
 		this.x = x;
 		this.y = y;
 		this.z = z;
