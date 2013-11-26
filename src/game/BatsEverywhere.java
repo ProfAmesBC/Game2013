@@ -13,7 +13,7 @@ import javax.media.opengl.glu.GLU;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-import Multiplayer.Player;
+import Multiplayer.*;
 
 import com.jogamp.opengl.util.FPSAnimator;
 
@@ -26,7 +26,7 @@ public class BatsEverywhere implements GLEventListener
     private long runtime = 0;
     private PlayerMotion playerMotion = new PlayerMotion();
     private PlayerLogger logger = new PlayerLogger();
-    private Player player;
+    private Player player; 
 
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
@@ -41,7 +41,7 @@ public class BatsEverywhere implements GLEventListener
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
         town = new Town(gl, glu);
-        player  = new Player(glu, playerMotion); 
+        player = new Player(glu, playerMotion);
     }
 
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -52,8 +52,7 @@ public class BatsEverywhere implements GLEventListener
         gl.glLoadIdentity();
         glu.gluPerspective(50, 1, .5, 1000);
         gl.glMatrixMode(GL2.GL_MODELVIEW);
-        gl.glLoadIdentity();
-        
+        gl.glLoadIdentity();     
     }
 
     public void display(GLAutoDrawable drawable) {
@@ -61,8 +60,7 @@ public class BatsEverywhere implements GLEventListener
         GL2 gl  = drawable.getGL().getGL2();
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
 
-        playerMotion.setLookAt(gl, glu);
-        
+        playerMotion.setLookAt(gl, glu);   
                 
         // draw town
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());

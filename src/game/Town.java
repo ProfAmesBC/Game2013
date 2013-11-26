@@ -5,12 +5,11 @@ import java.util.List;
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.*;
 
-import Multiplayer.Player;
+import Multiplayer.*;
 import buildings.*;
 
 public class Town {
     private List<Building> buildings = new LinkedList<Building>();
-    private List<Player> players = new LinkedList<Player>();
     
     public Town(GL2 gl, GLU glu) { 
         buildings.add(new WillisBuilding(gl, glu));

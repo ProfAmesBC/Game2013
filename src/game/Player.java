@@ -26,9 +26,6 @@ public class Player {
 	 * 
 	 *****************************/
 	public Player(GLU glu, PlayerMotion playerMotion) {
-		//ClientSendThread CST = new ClientSendThread(); 
-	//	Thread T = new Thread(CST);
-		//T.start();
 	
 		quadric = glu.gluNewQuadric();
 		glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
@@ -48,6 +45,10 @@ public class Player {
 	
 		//radius of the sphere 
 		size = (float)2.8; 
+
+		ClientSendThread CST = new ClientSendThread(this); 
+		Thread T = new Thread(CST);
+		T.start();
 	}
 	
 	/*****************************
@@ -131,7 +132,7 @@ public class Player {
 		float floatY = eyeY;
 		float sY = (float)(floatY-2.5);
 		float sZ = eyeZ + (float)Math.sin(Math.toRadians(theta));
-		System.out.println("sX is: " + sX + ", \n sY is: " + sY + ". \n sZ is: " + sZ + ", and theta is: " + theta);
+		/*System.out.println("sX is: " + sX + ", \n sY is: " + sY + ". \n sZ is: " + sZ + ", and theta is: " + theta);*/
 
 		playerBody(gl, glu, quadric, sX, sY, sZ, r, g, b, size); 
 	}
