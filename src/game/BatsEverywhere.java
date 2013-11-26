@@ -107,7 +107,7 @@ public class BatsEverywhere implements GLEventListener
          frame.setVisible(true);
          canvas.addKeyListener(renderer.playerMotion);
          canvas.addKeyListener(renderer.projectileWeapons);
-         canvas.requestFocusInWindow();
+         canvas.requestFocus(); // so key clicks come here
          
          FPSAnimator animator = new FPSAnimator(canvas, 60);
          animator.start();
