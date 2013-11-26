@@ -7,7 +7,7 @@ import javax.media.opengl.glu.GLUquadric;
 import Multiplayer.*; 
 
 public class Player {
-	private String name; 
+	private Integer id; 
 	private float eyeX;
 	private float eyeY;
 	private float eyeZ; 
@@ -19,10 +19,16 @@ public class Player {
 	private GLUquadric quadric; 
 	private PlayerMotion playerMotion; 
 	
+	/*****************************
+	 * 
+	 * Constructor for the actual
+	 * object.
+	 * 
+	 *****************************/
 	public Player(GLU glu, PlayerMotion playerMotion) {
-		ClientSendThread CST = new ClientSendThread(); 
-		Thread T = new Thread(CST);
-		T.start();
+		//ClientSendThread CST = new ClientSendThread(); 
+	//	Thread T = new Thread(CST);
+		//T.start();
 	
 		quadric = glu.gluNewQuadric();
 		glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
@@ -44,6 +50,34 @@ public class Player {
 		//radius of the sphere 
 		size = (float)2.8; 
 	}
+	
+	/*****************************
+	 * 
+	 * Construct for the other players
+	 * 
+	 *****************************/
+	public Player(GLU glu, Integer nid) {
+		
+		id = nid;
+		quadric = glu.gluNewQuadric();
+		glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
+		glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
+		glu.gluQuadricTexture  (quadric, false);        // false, or true to generate texture coordinates
+	
+		this.eyeX = 0;
+		this.eyeY = 5;
+		this.eyeZ = 0;
+		this.theta = playerMotion.getTheta();
+		
+		//random color
+		r = (float)Math.random(); //I would like to make these contingent on a hash of the player's username - Tyler
+		g = (float)Math.random(); 
+		b = (float)Math.random(); 
+	
+		//radius of the sphere 
+		size = (float)2.8; 
+		
+	}
 
 	public float getX(){
 		return playerMotion.getEyeX(); 
@@ -56,6 +90,9 @@ public class Player {
 	}
 	public float getTheta(){
 		return playerMotion.getTheta(); 
+	}
+	public Integer getID() {
+		return id;
 	}
 	//we will use these to set the values for all players that are NOT the client
 	public void setX(){
