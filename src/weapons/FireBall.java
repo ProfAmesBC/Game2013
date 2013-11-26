@@ -6,29 +6,15 @@ import javax.media.opengl.glu.GLUquadric;
 
 
 
-public class FireBall{
-	private float x, y, z, angle;
-	private int speed = 5;
-	private int lifeSpan = 100;
-	public int getLifeSpan() {return lifeSpan;}
-	public void setLifeSpan(int lifeSpan) {this.lifeSpan = lifeSpan;}
-	public int getSpeed() {return speed;}
-	public void setX(float x) {this.x = x;}
-	public void setY(float y) {	this.y = y;}
-	public void setZ(float z) {this.z = z;}
-	public float getX() {return x;}
-	public float getY() {return y;}
-	public float getZ() {return z;}
-	public float getAngle() {return angle;}
+public class FireBall extends Projectile{
 	private GLUquadric quadric;
 
 
 	public FireBall(float x, float y, float z, float angle){
-		this.x = x;
-		this.y = y;
-		this.z = z;
-		this.angle = angle;
-		
+		setProjX(x);
+		setProjY(y);
+		setProjZ(z);
+		setProjAngle(angle);
 	}
 	
 	public void draw(GL2 gl, GLU glu){
@@ -37,20 +23,14 @@ public class FireBall{
         glu.gluQuadricNormals  (quadric, GLU.GLU_SMOOTH); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
         glu.gluQuadricTexture  (quadric, true);        // false, or true to generate texture coordinates
 		
+        gl.glColor3f(1, 0, 0);
+        
 		gl.glPushMatrix();
-			gl.glTranslatef(this.x, this.y, this.z);
+			gl.glTranslatef(getProjX(), getProjY(), getProjZ());
 			glu.gluSphere(quadric, 0.2, 10, 10);
 		gl.glPopMatrix();
 	}
-	
-	public void updatePosition(){
-		this.x = ((float) (this.x + this.speed*Math.cos(Math.toRadians(this.angle))));
-		this.z = ((float) (this.z - this.speed*Math.sin(Math.toRadians(this.angle))));
-	}
-	
-	public void updateLife(){
-		this.lifeSpan--;
-	}
+
 
 
 
