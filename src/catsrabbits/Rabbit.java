@@ -6,7 +6,7 @@ import game.*;import java.io.File;
 
 public class Rabbit extends Critter{
 	private static final float BODY_RADIUS=2,BODY_HEIGHT_WIDTH_RATIO=1.7f,EYE_CENTER_DISTANCE=.46f,EYE_CENTER_HEIGHT=.49f,
-			WHISKER_COLOR=.87f,TOP_WHISKER_LENGTH=2,TOP_WHISKER_HEIGHT=.5f,MID_WHISKER_LENGTH=2.5f,
+			WHISKER_COLOR=.87f,TOP_WHISKER_LENGTH=1,TOP_WHISKER_HEIGHT=.75f,MID_WHISKER_LENGTH=1.25f,
 			FOOT_CENTER_DISTANCE=.71f;
 	
 	public Rabbit(float x,float y,float z,float a,float s,float tR, GL2 gl,GLU glu){
