@@ -2,7 +2,7 @@ package catsrabbits;
 // Diana Cheung, CS333 Class of 2013
 
 import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;
-import game.Building;import java.io.File;
+import game.*;import java.io.File;
 
 public class Cat extends Critter{
 	public Cat(float x,float y,float z,float a,float s,float tR, GL2 gl,GLU glu){

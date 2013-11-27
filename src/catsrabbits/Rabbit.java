@@ -2,7 +2,7 @@ package catsrabbits;
 // Diana Cheung, CS333 Class of 2013
 
 import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;
-import game.Building;import java.io.File;
+import game.*;import java.io.File;
 
 public class Rabbit extends Critter{
 	private static final float BODY_RADIUS=2,BODY_HEIGHT_WIDTH_RATIO=1.7f,EYE_CENTER_DISTANCE=.46f,EYE_CENTER_HEIGHT=.49f,
