@@ -1,8 +1,8 @@
 package catsrabbits;
 // Diana Cheung, CS333 Class of 2013
 
-import game.Building;
 import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;
+import game.Building;import java.io.File;
 
 public class Rabbit extends Critter{
 	private static final float BODY_RADIUS=2,BODY_HEIGHT_WIDTH_RATIO=1.7f,EYE_CENTER_DISTANCE=.46f,EYE_CENTER_HEIGHT=.49f,
@@ -12,8 +12,7 @@ public class Rabbit extends Critter{
 	public Rabbit(float x,float y,float z,float a,float s,float tR, GL2 gl,GLU glu){
 		super(x,y,z,a,s,tR,gl,glu);
 		tRate=.01f;
-		//"src" + File.separator + "textures" + File.separator + 
-        texture=Building.setupTexture(gl, "cheungrabbitfur"+(int)(Math.random()*5)+".jpg");
+        texture=Building.setupTexture(gl, FUR_DIRECTORY+File.separator+"cheungrabbitfur"+(int)(Math.random()*5)+".jpg");
 	}
 	
 	public void drawWholeBody(GL2 gl, GLU glu){
@@ -59,7 +58,7 @@ public class Rabbit extends Critter{
 			gl.glColor3f(0, 0, 0);
 			float eyeZdist=-.71f;
 			gl.glTranslatef(0, EYE_CENTER_HEIGHT, eyeZdist);
-			drawEyes(gl,glu,EYE_CENTER_DISTANCE);
+			drawEyes(gl,glu,EYE_CENTER_DISTANCE,.37f);
 			
 			gl.glTranslatef(0, -EYE_CENTER_HEIGHT, -1.3f-eyeZdist);
 			drawNose(gl,glu);

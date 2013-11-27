@@ -7,6 +7,8 @@ import javax.media.opengl.glu.GLUquadric;
 import com.jogamp.opengl.util.texture.Texture;
 
 public abstract class Critter{
+	public static final String FUR_DIRECTORY="cheungcatrabbitfurs";
+	
 	protected float x,y,z,angle,speed,t=0,tRate;
 	protected GLUquadric textureQuadric,quadric;
 	protected Texture texture;
@@ -45,13 +47,13 @@ public abstract class Critter{
 	protected void drawTexturedUnitSphere(GLU glu){drawSphere(textureQuadric,1,glu);}
 	protected abstract void drawBody(GL2 gl,GLU glu);
 	protected abstract void drawHead(GL2 gl,GLU glu);
-	protected void drawOneEye(GLU glu){drawSphere(quadric,.5f,glu);}
-	protected void drawEyes(GL2 gl,GLU glu,float xDist){
+	protected void drawOneEye(GLU glu,float size){drawSphere(quadric,size,glu);}
+	protected void drawEyes(GL2 gl,GLU glu,float xDist,float size){
 		gl.glPushMatrix();
 			gl.glTranslatef(xDist, 0, 0);
-			drawOneEye(glu);
+			drawOneEye(glu,size);
 			gl.glTranslatef(-2*xDist, 0, 0);
-			drawOneEye(glu);
+			drawOneEye(glu,size);
 		gl.glPopMatrix();
 	}
 	protected abstract void drawNose(GL2 gl,GLU glu);
