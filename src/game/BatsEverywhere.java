@@ -2,7 +2,7 @@ package game;
 // Fiona Tamburini, and the CS 333 class
 
 import inventory.Bag;
-import inventory.PowerUpFactory;
+import inventory.ItemFactory;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -31,7 +31,7 @@ public class BatsEverywhere implements GLEventListener
     private Bag bag  = new Bag();
     private PlayerAttributes p = new PlayerAttributes(1.5f,bag);
     private PlayerMotion playerMotion = new PlayerMotion(p);
-	private PowerUpFactory powerUps;
+	private ItemFactory powerUps;
 	private StatusText writer;
 	
     public void init(GLAutoDrawable drawable) {
@@ -46,13 +46,13 @@ public class BatsEverywhere implements GLEventListener
         
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
-        powerUps = new PowerUpFactory(gl,glu,p);
-		powerUps.addSpeedPowerUp(70, 0, 70);
-		powerUps.addSpeedPowerUp(100, 0, 100);
-		powerUps.addSpeedPowerUp(200, 0, 200);
-		powerUps.addSpeedPowerUp(300, 0, 300);
-		powerUps.addSpeedPowerUp(350, 0, 350);
-		powerUps.addSpeedPowerUp(400, 0, 400);
+        powerUps = new ItemFactory(gl,glu,p);
+		powerUps.addSpeedItem(70, 0, 70);
+		powerUps.addSpeedItem(100, 0, 100);
+		powerUps.addSpeedItem(200, 0, 200);
+		powerUps.addSpeedItem(300, 0, 300);
+		powerUps.addSpeedItem(350, 0, 350);
+		powerUps.addSpeedItem(400, 0, 400);
         town = new Town(gl, glu);
         writer = new StatusText(drawable);        
     }

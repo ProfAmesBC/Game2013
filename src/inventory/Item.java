@@ -1,12 +1,14 @@
-//Power-Ups are used immediately upon
-//being picked up by the player
+// Items differ from Power-Ups because
+// they are added to the inventory
+// rather than being used immediately
 
 package inventory;
 
+import game.PlayerMotionWatcher;
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
-public interface PowerUp {
+public interface Item extends PlayerMotionWatcher {
 
 	public void draw(GL2 gl, GLU glu);
 

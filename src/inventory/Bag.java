@@ -1,8 +1,6 @@
 package inventory;
 
-import game.PlayerAttributes;
-
-public class Bag {	
+public class Bag {
 	private DummyItem speedBoxes;
 	private DummyItem damageBoxes;
 
@@ -11,30 +9,31 @@ public class Bag {
 		damageBoxes = new DummyItem("Damage");
 	}
 
-	public void addItem(PowerUp i) {
-		String checkType = i.getType();		
-		if(checkType.equals("Speed"))
+	public void addItem(Item i) {
+		String checkType = i.getType();
+		if (checkType.equals("Speed"))
 			speedBoxes.incrementCount();
-		if(checkType.equals("Damage"))
+		if (checkType.equals("Damage"))
 			speedBoxes.incrementCount();
 	}
 
 	public void useItem(String i) {
-		if(i.equals("Speed")) {			
-			if(speedBoxes.getCount() > 0) {				
+		if (i.equals("Speed")) {
+			if (speedBoxes.getCount() > 0) {
 				speedBoxes.decrementCount();
 				speedBoxes.use();
 			}
 		}
 
-		if(i.equals("Damage")) {
-			if(damageBoxes.getCount() > 0) {
+		if (i.equals("Damage")) {
+			if (damageBoxes.getCount() > 0) {
 				damageBoxes.decrementCount();
 				damageBoxes.use();
 			}
-		}		
+		}
 	}
-	public String toString(){
+
+	public String toString() {
 		String listOfItems = "";
 		listOfItems = "P:" + speedBoxes.getCount();
 		listOfItems = listOfItems + " O:" + damageBoxes.getCount();
