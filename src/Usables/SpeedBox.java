@@ -95,7 +95,7 @@ public class SpeedBox implements Item {
 		float currentSpeed = p.getStepSize();
 		int duration = 30;
 		// calls PlayerAttributes
-		p.setStepSize(currentSpeed * 2, duration);
+		p.setStepSize(currentSpeed + 1.5f, duration);
 	}
 
 	public String getType() {
