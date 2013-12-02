@@ -10,7 +10,7 @@ import javax.media.opengl.glu.GLU;
 public class PlayerMotion implements KeyListener {
     private float eyeX, eyeY, eyeZ;
 	private float theta;
-    private float step = 1.5f;
+    private float step = .75f;
     private boolean wdown, adown, sdown, ddown, qdown, edown;
     private static List<PlayerMotionWatcher> watchers = new LinkedList<PlayerMotionWatcher>();
     
@@ -18,18 +18,10 @@ public class PlayerMotion implements KeyListener {
         eyeX = -5; eyeY = 5; eyeZ = 50;
         theta = 0;
     }
-
-    public float getEyeX() {
-    	return eyeX;
-    }
     
-    public float getEyeY() {
-    	return eyeY;
-    }
-    
-    public float getEyeZ() {
-    	return eyeZ;
-    }
+    public float getEyeX() {return eyeX;} 
+    public float getEyeY() {return eyeY;}
+    public float getEyeZ() {return eyeZ;}
     
     public static void registerPlayerWatcher(PlayerMotionWatcher watcher) {
     	watchers.add(watcher);
@@ -96,21 +88,23 @@ public class PlayerMotion implements KeyListener {
 	}
 	
 	public void update() {
+		float dx = 0;
+		float dz = 0;
 		if(adown) {
-			eyeX += step * Math.cos(Math.toRadians(theta + 90));
-        	eyeZ += step * -Math.sin(Math.toRadians(theta + 90));
+			dx += Math.cos(Math.toRadians(theta + 90));
+        	dz += -Math.sin(Math.toRadians(theta + 90));
 		}
     	if(ddown) {
-    		eyeX += step * Math.cos(Math.toRadians(theta - 90));
-    		eyeZ += step * -Math.sin(Math.toRadians(theta - 90));
+    		dx += Math.cos(Math.toRadians(theta - 90));
+    		dz += -Math.sin(Math.toRadians(theta - 90));
     	}
     	if(sdown) {
-    		eyeX -= step * Math.cos(Math.toRadians(theta));
-        	eyeZ -= step * -Math.sin(Math.toRadians(theta));
+    		dx -= Math.cos(Math.toRadians(theta));
+        	dz -= -Math.sin(Math.toRadians(theta));
     	}
     	if(wdown) {
-    		eyeX += step * Math.cos(Math.toRadians(theta));
-    		eyeZ += step * -Math.sin(Math.toRadians(theta));
+    		dx += Math.cos(Math.toRadians(theta));
+    		dz += -Math.sin(Math.toRadians(theta));
     	}
     	if(qdown) {
     		theta += 2;
@@ -118,6 +112,12 @@ public class PlayerMotion implements KeyListener {
     	if(edown) {
     		theta -= 2;
     	}
+    	
+    	dx *= step;
+    	dz *= step;
+    	eyeX += dx;
+    	eyeZ += dz;
+    	
     	if(adown || ddown || sdown || wdown || qdown || edown) {
     		for (PlayerMotionWatcher watcher: watchers)
     			watcher.playerMoved(eyeX, eyeY, eyeZ, theta);
