@@ -4,11 +4,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.LinkedList;
 import java.util.List;
+
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
 public class PlayerMotion implements KeyListener {
     private float eyeX, eyeY, eyeZ;
+    private float dx, dz;
 	private float theta;
     private float step = .75f;
     private boolean wdown, adown, sdown, ddown, qdown, edown;
@@ -79,17 +81,20 @@ public class PlayerMotion implements KeyListener {
 	public void keyTyped(KeyEvent e) { /* not needed */ }
 
 	public void setLookAt(GL2 gl, GLU glu) {
-        gl.glLoadIdentity();
-//      System.out.println(eyeX + "" + eyeY + "" + eyeZ);
-        update();
+       
+        double location[] = ReadZBuffer.getOGLPos(gl, glu, 250, 250); //what you're moving towards
+		System.out.println("Player is moving towards ("+location[0]+", "+location[1]+", "+location[2]+")");
+		if(location[0]-eyeX>(dx + step) || (location[0]-eyeX)<(dx - step)) {eyeX +=dx;}//if you have room to move in the x direction, move in the x direction
+		if(location[2]-eyeZ>(dz + step) || (location[2]-eyeZ)<(dz - step)) {eyeZ +=dz;}//ditto z
+		gl.glLoadIdentity();
         glu.gluLookAt(eyeX, eyeY, eyeZ,   // eye location
                 eyeX + Math.cos(Math.toRadians(theta)), eyeY, eyeZ + -Math.sin(Math.toRadians(theta)),   // point to look at (near middle of pyramid)
                  0, 1,  0); // the "up" direction
 	}
 	
-	public void update() {
-		float dx = 0;
-		float dz = 0;
+	public void update(GL2 gl, GLU glu) {
+		dx = 0;
+		dz = 0;
 		if(adown) {
 			dx += Math.cos(Math.toRadians(theta + 90));
         	dz += -Math.sin(Math.toRadians(theta + 90));
@@ -113,11 +118,14 @@ public class PlayerMotion implements KeyListener {
     		theta -= 2;
     	}
     	
-    	dx *= step;
-    	dz *= step;
-    	eyeX += dx;
-    	eyeZ += dz;
+    	dx *= step; //net x-motion
+    	dz *= step; //net z-motion
     	
+    	gl.glLoadIdentity();
+    	glu.gluLookAt(eyeX, eyeY, eyeZ,   // eye location
+                eyeX + dx, eyeY, eyeZ + dz,   // prospective new eye location
+                 0, 1,  0); // the "up" direction
+    	    	
     	if(adown || ddown || sdown || wdown || qdown || edown) {
     		for (PlayerMotionWatcher watcher: watchers)
     			watcher.playerMoved(eyeX, eyeY, eyeZ, theta);
