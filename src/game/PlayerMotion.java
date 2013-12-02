@@ -83,7 +83,6 @@ public class PlayerMotion implements KeyListener {
 	public void setLookAt(GL2 gl, GLU glu) {
        
         double location[] = ReadZBuffer.getOGLPos(gl, glu, 250, 250); //what you're moving towards
-		System.out.println("Player is moving towards ("+location[0]+", "+location[1]+", "+location[2]+")");
 		if(location[0]-eyeX>(dx + step) || (location[0]-eyeX)<(dx - step)) {eyeX +=dx;}//if you have room to move in the x direction, move in the x direction
 		if(location[2]-eyeZ>(dz + step) || (location[2]-eyeZ)<(dz - step)) {eyeZ +=dz;}//ditto z
 		gl.glLoadIdentity();
