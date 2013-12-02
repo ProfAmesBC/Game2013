@@ -12,7 +12,7 @@ import javax.media.opengl.glu.GLU;
 
 public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher{
 	
-	private ArrayList<Bullet> bulletsList = new ArrayList<Bullet>();
+	private ArrayList<FireBall> bulletsList = new ArrayList<FireBall>();
 	private float x, y, z, angle;
 	
 	public ProjectileWeapons(){
@@ -22,8 +22,8 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher{
 	public void update(GL2 gl, GLU glu){
 		
         //GO THROUGH BULLETS LIST
-		for(Iterator<Bullet> it = bulletsList.iterator(); it.hasNext();){
-			Bullet b = it.next();
+		for(Iterator<FireBall> it = bulletsList.iterator(); it.hasNext();){
+			FireBall b = it.next();
 			b.draw(gl, glu); //DRAW BULLETS
 			b.updatePosition(); //UPDATE POSITION OF BULLETS
 			if(b.getLifeSpan() == 0){it.remove();} else {b.updateLife();} //CHECK IF BULLET DONE	
@@ -31,7 +31,7 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher{
 	}
 	
 	public void shootBullet(){
-		Bullet bullet = new Bullet(x, y, z, angle); //CREATE NEW BULLET AT CURRENT PLAYER POSITION
+		FireBall bullet = new FireBall(x, y, z, angle); //CREATE NEW BULLET AT CURRENT PLAYER POSITION
 		bulletsList.add(bullet); //ADD BULLET TO LIST OF BULLETS
 	}
 	
@@ -39,8 +39,7 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher{
 	public void keyTyped(KeyEvent e) {}
 	@Override
 	public void keyPressed(KeyEvent e) {
-		//SHOOT BULLET WHEN PRESSED
-		if(e.getKeyCode() == KeyEvent.VK_SPACE){shootBullet();}
+		if(e.getKeyCode() == KeyEvent.VK_SPACE){shootBullet();} 	//SHOOT BULLET WHEN PRESSED
 	}
 	@Override
 	public void keyReleased(KeyEvent e) {}
