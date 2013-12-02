@@ -3,6 +3,8 @@ package game;
 
 import inventory.Bag;
 import inventory.ItemFactory;
+import inventory.PlayerActions;
+import inventory.PlayerAttributes;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -28,10 +30,11 @@ public class BatsEverywhere implements GLEventListener
     private Town town;
     private Weapons weapons = new Weapons();
     private long runtime = 0;
+    private PlayerMotion playerMotion = new PlayerMotion();
     private Bag bag  = new Bag();
-    private PlayerAttributes p = new PlayerAttributes(1.5f,bag);
-    private PlayerMotion playerMotion = new PlayerMotion(p);
-	private ItemFactory powerUps;
+    private PlayerAttributes playerAttributes = new PlayerAttributes(playerMotion, bag);
+    private PlayerActions playerActions = new PlayerActions(playerAttributes);
+	private ItemFactory itemCreator;
 	private StatusText writer;
 	
     public void init(GLAutoDrawable drawable) {
@@ -46,13 +49,8 @@ public class BatsEverywhere implements GLEventListener
         
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
-        powerUps = new ItemFactory(gl,glu,p);
-		powerUps.addSpeedItem(70, 0, 70);
-		powerUps.addSpeedItem(100, 0, 100);
-		powerUps.addSpeedItem(200, 0, 200);
-		powerUps.addSpeedItem(300, 0, 300);
-		powerUps.addSpeedItem(350, 0, 350);
-		powerUps.addSpeedItem(400, 0, 400);
+        itemCreator = new ItemFactory(gl, glu, playerAttributes);
+        itemCreator.testCreate();
         town = new Town(gl, glu);
         writer = new StatusText(drawable);        
     }
@@ -78,7 +76,7 @@ public class BatsEverywhere implements GLEventListener
         // draw town
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
         weapons.update(gl, glu);
-        powerUps.update();
+        itemCreator.update();
         writer.draw(bag.toString(), 380, 470);
         // Draw sphere at the point you're looking at
         //gl.glLineWidth(1);
@@ -121,6 +119,7 @@ public class BatsEverywhere implements GLEventListener
          frame.pack(); // make just big enough to hold objects inside
          frame.setVisible(true);
          canvas.addKeyListener(renderer.playerMotion);
+         canvas.addKeyListener(renderer.playerActions);
          canvas.addKeyListener(renderer.weapons);
          canvas.requestFocusInWindow();
          

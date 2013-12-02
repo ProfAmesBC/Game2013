@@ -1,7 +1,5 @@
 package game;
 
-import inventory.Bag;
-
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.LinkedList;
@@ -13,17 +11,12 @@ import javax.media.opengl.glu.GLU;
 public class PlayerMotion implements KeyListener {
     private float eyeX, eyeY, eyeZ;
 	private float theta;
-    private float step;
-    private PlayerAttributes p;
-    private Bag b;
+	private float step = 1.5f;
     private boolean wdown, adown, sdown, ddown, qdown, edown;
     private static List<PlayerMotionWatcher> watchers = new LinkedList<PlayerMotionWatcher>();
     
-    public PlayerMotion(PlayerAttributes p) {
+    public PlayerMotion() {
         eyeX = -5; eyeY = 5; eyeZ = 50;
-        step = p.getStepSize();
-        this.p = p;
-        b = p.getBag();
         theta = 0;
     }
 
@@ -63,10 +56,6 @@ public class PlayerMotion implements KeyListener {
             break;
         case KeyEvent.VK_E:
             edown = true;
-            break;
-        case KeyEvent.VK_P:
-            b.useItem("Speed");
-            step = p.getStepSize();
             break;
 	    }
 	}
@@ -135,10 +124,13 @@ public class PlayerMotion implements KeyListener {
     			watcher.playerMoved(eyeX, eyeY, eyeZ, theta);
     	}    	    	
 	}
-	public void setStep(float step){
+	
+	public void setStep(float step, int duration) {
 		this.step = step;
 	}
-	public float getStep(){
+
+	public float getStep() {
 		return step;
 	}
+	
 }

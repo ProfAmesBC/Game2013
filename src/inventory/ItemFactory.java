@@ -1,7 +1,5 @@
 package inventory;
 
-import game.PlayerAttributes;
-
 import java.util.ArrayList;
 
 import javax.media.opengl.GL2;
@@ -32,5 +30,14 @@ public class ItemFactory {
 			if (item.grabbed())
 				list.remove(this);
 		}
+	}
+
+	public void testCreate() {
+		addSpeedItem(70, 0, 70);
+		addSpeedItem(100, 0, 100);
+		addSpeedItem(200, 0, 200);
+		addSpeedItem(300, 0, 300);
+		addSpeedItem(350, 0, 350);
+		addSpeedItem(400, 0, 400);
 	}
 }

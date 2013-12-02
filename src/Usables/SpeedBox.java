@@ -2,8 +2,8 @@ package Usables;
 
 import inventory.Bag;
 import inventory.Item;
+import inventory.PlayerAttributes;
 import game.Building;
-import game.PlayerAttributes;
 import game.PlayerMotion;
 
 import javax.media.opengl.GL2;
@@ -93,7 +93,9 @@ public class SpeedBox implements Item {
 
 	public void use() {
 		float currentSpeed = p.getStepSize();
-		p.setStepSize(currentSpeed * 2);
+		int duration = 30;
+		// calls PlayerAttributes
+		p.setStepSize(currentSpeed * 2, duration);
 	}
 
 	public String getType() {

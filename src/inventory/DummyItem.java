@@ -1,7 +1,6 @@
 package inventory;
 
 import Usables.SpeedBox;
-import game.PlayerAttributes;
 
 public class DummyItem {
 
