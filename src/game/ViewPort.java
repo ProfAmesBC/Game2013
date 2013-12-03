@@ -97,7 +97,7 @@ public class ViewPort implements GLEventListener
      JFrame frame = new JFrame("Gasket Demo");
      GLCanvas canvas = new GLCanvas();
      canvas.setPreferredSize(new Dimension(300,300));  // desired size, not guaranteed
-     ViewportDemo renderer = new ViewportDemo();
+     ViewPort renderer = new ViewPort();
      canvas.addGLEventListener(renderer);
 
      frame.setLayout(new BorderLayout());

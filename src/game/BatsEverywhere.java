@@ -26,6 +26,7 @@ public class BatsEverywhere implements GLEventListener
     private long runtime = 0;
     private PlayerMotion playerMotion = new PlayerMotion();
     private PlayerLogger logger = new PlayerLogger();
+    private int windowWidth, windowHeight;
 
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
@@ -51,6 +52,8 @@ public class BatsEverywhere implements GLEventListener
         glu.gluPerspective(50, 1, .5, 1000);
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();
+        windowWidth  = width;
+        windowHeight = height;
         
     }
 
@@ -60,6 +63,10 @@ public class BatsEverywhere implements GLEventListener
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
 
         playerMotion.setLookAt(gl, glu);
+        
+        /// NEED TO FINISH VIEWPORT
+        //
+        gl.glViewport(windowWidth/2, windowHeight/2, windowWidth/2, windowHeight/2);
         
                 
         // draw town
