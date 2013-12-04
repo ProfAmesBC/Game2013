@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>gun-shot.wav</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Desktop/gun-shot.wav</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>
