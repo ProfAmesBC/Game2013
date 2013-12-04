@@ -81,14 +81,24 @@ public class PlayerMotion implements KeyListener {
 	public void keyTyped(KeyEvent e) { /* not needed */ }
 
 	public void setLookAt(GL2 gl, GLU glu) {
-       
+		double moved = 0;
         double location[] = ReadZBuffer.getOGLPos(gl, glu, 250, 250); //what you're moving towards
-		if(location[0]-eyeX>(dx + step) || (location[0]-eyeX)<(dx - step)) {eyeX +=dx;}//if you have room to move in the x direction, move in the x direction
-		if(location[2]-eyeZ>(dz + step) || (location[2]-eyeZ)<(dz - step)) {eyeZ +=dz;}//ditto z
+		if(location[0]-eyeX>(dx + step) || (location[0]-eyeX)<(dx - step)) {
+			eyeX +=dx;
+			moved +=dx;
+		}//if you have room to move in the x direction, move in the x direction
+		if(location[2]-eyeZ>(dz + step) || (location[2]-eyeZ)<(dz - step)) {
+			eyeZ +=dz;
+			moved +=dz;
+		}//ditto z
 		gl.glLoadIdentity();
         glu.gluLookAt(eyeX, eyeY, eyeZ,   // eye location
                 eyeX + Math.cos(Math.toRadians(theta)), eyeY, eyeZ + -Math.sin(Math.toRadians(theta)),   // point to look at (near middle of pyramid)
                  0, 1,  0); // the "up" direction
+        if(moved!=0 || qdown || edown) {
+        	for (PlayerMotionWatcher watcher: watchers)
+    			watcher.playerMoved(eyeX, eyeY, eyeZ, theta);
+        }
 	}
 	
 	public void update(GL2 gl, GLU glu) {
@@ -124,10 +134,5 @@ public class PlayerMotion implements KeyListener {
     	glu.gluLookAt(eyeX, eyeY, eyeZ,   // eye location
                 eyeX + dx, eyeY, eyeZ + dz,   // prospective new eye location
                  0, 1,  0); // the "up" direction
-    	    	
-    	if(adown || ddown || sdown || wdown || qdown || edown) {
-    		for (PlayerMotionWatcher watcher: watchers)
-    			watcher.playerMoved(eyeX, eyeY, eyeZ, theta);
-    	}
 	}
 }
