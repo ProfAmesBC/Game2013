@@ -26,7 +26,6 @@ public abstract class Projectile{
 
 	
 	//These would be different for each gun
-	
 	public int getBulletSize(){return size;}
 	public void setBulletSize(int size) {this.size = size;}
 	public int getBulletRed() {return red;}
@@ -35,7 +34,17 @@ public abstract class Projectile{
 	public void setBulletGreen(int green) {this.green = green;}
 	public int getBulletBlue() {return blue;}
 	public void setBulletBlue(int blue) {this.blue = blue;}
+	public float getBulletSpeed() {return speed;}
+	public void setBulletSpeed(float speed) {this.speed = speed;}
 	
+	//Call every time there is a new gun picked up, pass it each gun's characteristics
+	public void newGun(int size, int red, int green, int blue, float speed) {
+		setBulletSize(size);
+		setBulletRed(red);
+		setBulletGreen(green);
+		setBulletBlue(blue);
+		setBulletSpeed(speed);
+	}
 	
 	
 	public abstract void draw(GL2 gl, GLU glu);
