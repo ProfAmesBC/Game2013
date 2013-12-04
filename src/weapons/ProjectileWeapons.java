@@ -12,7 +12,7 @@ import javax.media.opengl.glu.GLU;
 
 public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher{
 	
-	private ArrayList<FireBall> bulletsList = new ArrayList<FireBall>();
+	private ArrayList<RainbowBall> bulletsList = new ArrayList<RainbowBall>();
 	private float x, y, z, angle;
 	
 	public ProjectileWeapons(){
@@ -22,8 +22,8 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher{
 	public void update(GL2 gl, GLU glu){
 		
         //GO THROUGH BULLETS LIST
-		for(Iterator<FireBall> it = bulletsList.iterator(); it.hasNext();){
-			FireBall b = it.next();
+		for(Iterator<RainbowBall> it = bulletsList.iterator(); it.hasNext();){
+			RainbowBall b = it.next();
 			b.draw(gl, glu); //DRAW BULLETS
 			b.updatePosition(); //UPDATE POSITION OF BULLETS
 			if(b.getLifeSpan() == 0){it.remove();} else {b.updateLife();} //CHECK IF BULLET DONE	
@@ -31,7 +31,7 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher{
 	}
 	
 	public void shootBullet(){
-		FireBall bullet = new FireBall(x, y, z, angle); //CREATE NEW BULLET AT CURRENT PLAYER POSITION
+		RainbowBall bullet = new RainbowBall(x, y, z, angle); //CREATE NEW BULLET AT CURRENT PLAYER POSITION
 		bulletsList.add(bullet); //ADD BULLET TO LIST OF BULLETS
 	}
 	
