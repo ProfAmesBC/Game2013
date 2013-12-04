@@ -5,7 +5,6 @@ import javax.media.opengl.glu.GLU;
 import javax.media.opengl.glu.GLUquadric;
 
 
-
 public class FireBall extends Projectile{
 	private GLUquadric quadric;
 
@@ -23,15 +22,14 @@ public class FireBall extends Projectile{
         glu.gluQuadricNormals  (quadric, GLU.GLU_SMOOTH); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
         glu.gluQuadricTexture  (quadric, true);        // false, or true to generate texture coordinates
 		
+        //add get Bullet Color
         gl.glColor3f(1, 0, 0);
         
 		gl.glPushMatrix();
 			gl.glTranslatef(getProjX(), getProjY(), getProjZ());
+			
+			//add get Bullet Size
 			glu.gluSphere(quadric, 0.2, 10, 10);
 		gl.glPopMatrix();
 	}
-
-
-
-
 }
