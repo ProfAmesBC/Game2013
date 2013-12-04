@@ -12,7 +12,7 @@ public class Rabbit extends Critter{
 	public Rabbit(float x,float y,float z,float a,float s,float tR, GL2 gl,GLU glu){
 		super(x,y,z,a,s,tR,gl,glu);
 		tRate=.01f;
-        texture=Building.setupTexture(gl, FUR_DIRECTORY+File.separator+"cheungrabbitfur"+(int)(Math.random()*5)+".jpg");
+        texture=Building.setupTexture(gl,"cheungrabbitfur"+(int)(Math.random()*5)+".jpg", FUR_DIRECTORY);
 	}
 	
 	public void drawWholeBody(GL2 gl, GLU glu){

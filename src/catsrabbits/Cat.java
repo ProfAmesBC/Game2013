@@ -16,7 +16,7 @@ public class Cat extends Critter{
 		tRate=.025f;
 		furColor=(int)(Math.random()*5);
 		if(furColor==3)eyeGreen=1;	// green eyes for black fur cats
-        texture=Building.setupTexture(gl, FUR_DIRECTORY+File.separator+"cheungcatfur"+furColor+".jpg");
+        texture=Building.setupTexture(gl,"cheungcatfur"+furColor+".jpg", FUR_DIRECTORY);
 	}
 	
 	public void drawWholeBody(GL2 gl, GLU glu){

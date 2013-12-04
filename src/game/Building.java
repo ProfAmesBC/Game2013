@@ -37,6 +37,10 @@ public abstract class Building
     private static boolean isPowerOf2(int n) {
         return n == (n & -n);
     }
+    
+    public static Texture setupTexture(GL2 gl, String filename, String path) {
+        return setupTexture(gl, path + File.separator + filename);
+    }
 
     // Read gif, jpg, png, or tiff file (or a few other less common ones)
     // *** MUST BE A POWER OF 2 IN EACH DIRECTION ***
