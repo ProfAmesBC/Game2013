@@ -65,8 +65,12 @@ public class BatsEverywhere implements GLEventListener
         playerMotion.setLookAt(gl, glu);
         
         /// NEED TO FINISH VIEWPORT
-        //
         gl.glViewport(windowWidth/2, windowHeight/2, windowWidth/2, windowHeight/2);
+        //need to rotate entire town 90 degrees
+        // back away... +100 z
+        
+        //do you need to rotate back?
+        
         
                 
         // draw town
