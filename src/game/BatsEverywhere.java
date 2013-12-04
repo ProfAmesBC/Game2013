@@ -12,6 +12,7 @@ import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+
 import weapons.ProjectileWeapons;
 
 import com.jogamp.opengl.util.FPSAnimator;
@@ -59,16 +60,15 @@ public class BatsEverywhere implements GLEventListener
         GL2 gl  = drawable.getGL().getGL2();
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
 
-        playerMotion.setLookAt(gl, glu);
+        playerMotion.update(gl, glu);//draw town looking in the direction we're moving in
+        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ()); 
+            
+        playerMotion.setLookAt(gl, glu);//figure out if we can move and, if so, move    
+        gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT); //clear that town  
+        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
         
-                
-        // draw town
-        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
         projectileWeapons.update(gl, glu);
-        // Draw sphere at the point you're looking at
-        //gl.glLineWidth(1);
-        //double[] location = ReadZBuffer.getOGLPos(gl, glu, 250, 250);	
-        
+ 
         // check for errors, at least once per frame
         int error = gl.glGetError();
         if (error != GL2.GL_NO_ERROR) {
@@ -107,7 +107,7 @@ public class BatsEverywhere implements GLEventListener
          frame.setVisible(true);
          canvas.addKeyListener(renderer.playerMotion);
          canvas.addKeyListener(renderer.projectileWeapons);
-         canvas.requestFocusInWindow();
+         canvas.requestFocus(); // so key clicks come here
          
          FPSAnimator animator = new FPSAnimator(canvas, 60);
          animator.start();
