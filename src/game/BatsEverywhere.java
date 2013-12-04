@@ -11,6 +11,7 @@ import javax.media.opengl.GLProfile;
 import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
 import javax.swing.JFrame;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import weapons.ProjectileWeapons;
@@ -20,6 +21,7 @@ import com.jogamp.opengl.util.FPSAnimator;
 public class BatsEverywhere implements GLEventListener
 {
     private JTextField statusLine = new JTextField(10); // for misc messages at bottom of window
+    private JTextArea controls = new JTextArea("Controls: \n\n", 15, 10);
     private int framesDrawn=0;
     private GLU glu = new GLU();
     private Town town;
@@ -99,8 +101,15 @@ public class BatsEverywhere implements GLEventListener
          BatsEverywhere renderer = new BatsEverywhere();
          canvas.addGLEventListener(renderer);
 
+         renderer.controls.append("W: move forward \n");
+         renderer.controls.append("A: move left \n");
+         renderer.controls.append("S: move right \n");
+         renderer.controls.append("D: move backward \n");
+         renderer.controls.append("Space: fireball \n");
+         
          frame.setLayout(new BorderLayout());
          frame.add(renderer.statusLine, BorderLayout.SOUTH);
+         frame.add(renderer.controls, BorderLayout.EAST);
          frame.add(canvas, BorderLayout.CENTER);
          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          frame.pack(); // make just big enough to hold objects inside
