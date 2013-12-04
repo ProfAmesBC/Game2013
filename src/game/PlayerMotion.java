@@ -141,6 +141,5 @@ public class PlayerMotion implements KeyListener {
     	glu.gluLookAt(eyeX, eyeY, eyeZ,   // eye location
                 eyeX + dx, eyeY, eyeZ + dz,   // prospective new eye location
                  0, 1,  0); // the "up" direction
-    //'Sounds' of https://github.com/ProfAmesBC/Game2013.git
 	}
 }
