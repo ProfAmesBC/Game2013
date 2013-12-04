@@ -20,15 +20,5 @@
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Desktop/Microsoft%20Excel%202010.lnk</locationURI>
 		</link>
-		<link>
-			<name>destination.mp3</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Desktop/destination.mp3</locationURI>
-		</link>
-		<link>
-			<name>gun-shot.wav</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Desktop/gun-shot.wav</locationURI>
-		</link>
 	</linkedResources>
 </projectDescription>
