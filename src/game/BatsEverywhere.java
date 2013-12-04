@@ -21,7 +21,7 @@ import com.jogamp.opengl.util.FPSAnimator;
 public class BatsEverywhere implements GLEventListener
 {
     private JTextField statusLine = new JTextField(10); // for misc messages at bottom of window
-    private JTextArea controls = new JTextArea("Controls: \n\n", 15, 10);
+    private JTextArea controls = new JTextArea("Controls: \n\n", 20, 15);
     private int framesDrawn=0;
     private GLU glu = new GLU();
     private Town town;
@@ -105,6 +105,9 @@ public class BatsEverywhere implements GLEventListener
          renderer.controls.append("A: move left \n");
          renderer.controls.append("S: move right \n");
          renderer.controls.append("D: move backward \n");
+         renderer.controls.append("Q: turn left \n");
+         renderer.controls.append("E: turn right\n");
+         renderer.controls.append("\n");
          renderer.controls.append("Space: fireball \n");
          
          frame.setLayout(new BorderLayout());
