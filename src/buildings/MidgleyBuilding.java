@@ -9,6 +9,7 @@ import com.jogamp.opengl.util.texture.Texture;
 
 
 public class MidgleyBuilding extends Building{
+	private Texture grass;
 	private  Texture paneling;
 		    private  Texture wallpaper;
 	        private  Texture bricks;
@@ -20,6 +21,8 @@ public class MidgleyBuilding extends Building{
 		    private Texture cross;
 	        private GLUquadric quadric;
 	       public MidgleyBuilding(GL2 gl, GLU glu){
+
+	    	   grass = setupTexture(gl, "MidgleyGrass.jpg");
 	    	   paneling = setupTexture(gl, "MidgleyPanelWood.jpg");
 	           wallpaper  = setupTexture(gl, "MidgleyWallpaper.jpg"); // if this causes trouble, try bricks.gif
 	           bricks = setupTexture(gl, "MidgleyBricks.jpg");
@@ -56,6 +59,7 @@ public void texhold(GL2 gl){
 	
 
 	public void draw(GL2 gl, GLU glu){
+		drawGround(gl);
 		drawFrontWall(gl);
 		drawBackWall(gl);
 		drawRoof(gl);
@@ -101,6 +105,21 @@ public void texhold(GL2 gl){
 	    gl.glColor4d(1, 1, 1, 1);
 		gl.glEnd();
 		gl.glDisable(GL2.GL_BLEND);
+	}
+	
+	public void drawGround(GL2 gl){
+		  gl.glEnable(GL2.GL_TEXTURE_2D);
+	        grass.bind(gl);
+	       // gl.glColor4d(0,0,0,1);
+	        gl.glBegin(GL2.GL_QUADS);
+	        	gl.glTexCoord2d(0, 0);gl.glVertex3d(0, 0, 0);
+	        	gl.glTexCoord2d(20, 0);gl.glVertex3d(100, 0, 0);
+	        	gl.glTexCoord2d(20, 20);gl.glVertex3d(100, 0, 100);
+	        	gl.glTexCoord2d(0, 20);gl.glVertex3d(0, 0, 100);
+	        	
+	        gl.glEnd();
+	        gl.glDisable(GL2.GL_TEXTURE_2D);
+
 	}
 	public void drawFrontWall(GL2 gl){		
 		 gl.glEnable(GL2.GL_TEXTURE_2D);
