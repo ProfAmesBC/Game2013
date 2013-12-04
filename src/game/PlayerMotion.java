@@ -121,6 +121,7 @@ public class PlayerMotion implements KeyListener {
     	if(adown || ddown || sdown || wdown || qdown || edown) {
     		for (PlayerMotionWatcher watcher: watchers)
     			watcher.playerMoved(eyeX, eyeY, eyeZ, theta);
+    		GameSounds.footstepNoise();
     	}
 	}
 }

@@ -33,6 +33,7 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher{
 	public void shootBullet(){
 		FireBall bullet = new FireBall(x, y, z, angle); //CREATE NEW BULLET AT CURRENT PLAYER POSITION
 		bulletsList.add(bullet); //ADD BULLET TO LIST OF BULLETS
+		WeaponSounds.weaponNoise();
 	}
 	
 	@Override
