@@ -3,6 +3,7 @@ package game;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.io.File;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
@@ -12,6 +13,8 @@ import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+
+import sketchupModels.Avatar;
 import weapons.ProjectileWeapons;
 
 import com.jogamp.opengl.util.FPSAnimator;
@@ -60,7 +63,6 @@ public class BatsEverywhere implements GLEventListener
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
 
         playerMotion.setLookAt(gl, glu);
-        
                 
         // draw town
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
