@@ -63,7 +63,9 @@ public class Rabbit extends Critter{
 			drawNose(gl,glu);
 			// draw ears
 			gl.glTranslatef(0, .335f, .8f);
+			gl.glEnable(GL2.GL_TEXTURE_2D);
 			drawEars(gl,glu);
+			gl.glDisable(GL2.GL_TEXTURE_2D);
 		gl.glPopMatrix();
 	}
 	protected void drawNose(GL2 gl,GLU glu){
@@ -81,7 +83,7 @@ public class Rabbit extends Critter{
 			gl.glVertex3f(-TOP_WHISKER_LENGTH, TOP_WHISKER_HEIGHT, 0);
 		gl.glEnd();
 	}
-	protected void drawEar(GL2 gl,GLU glu){
+	protected void drawOneEar(GL2 gl,GLU glu){
 		int rotate=(int)(32f*Math.cos(Math.toRadians(t*360)))-10;
 		gl.glPushMatrix();
 			gl.glRotatef(rotate, 0, 0, -1);

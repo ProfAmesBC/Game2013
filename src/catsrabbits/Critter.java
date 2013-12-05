@@ -57,13 +57,11 @@ public abstract class Critter{
 		gl.glPopMatrix();
 	}
 	protected abstract void drawNose(GL2 gl,GLU glu);
-	protected abstract void drawEar(GL2 gl,GLU glu);
+	protected abstract void drawOneEar(GL2 gl,GLU glu);
 	protected void drawEars(GL2 gl,GLU glu){
-		gl.glEnable(GL2.GL_TEXTURE_2D);
-		drawEar(gl,glu);
+		drawOneEar(gl,glu);
 		gl.glScalef(-1, 1, 1);
-		drawEar(gl,glu);
-		gl.glDisable(GL2.GL_TEXTURE_2D);
+		drawOneEar(gl,glu);
 	}
 	protected abstract void drawTail(GL2 gl,GLU glu);
 	protected abstract void drawFeet(GL2 gl,GLU glu);

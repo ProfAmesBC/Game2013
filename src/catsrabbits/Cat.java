@@ -29,6 +29,10 @@ public class Cat extends Critter{
 			gl.glTranslatef(0,HEAD_HEIGHT,-HEAD_DIST);
 			drawHead(gl,glu);
 			// TODO gl.glTranslatef(0,-HEAD_HEIGHT,HEAD_DIST);
+
+			// TODO draw legs
+			
+			// TODO draw tail
 			
 		gl.glPopMatrix();
 	}
@@ -55,8 +59,10 @@ public class Cat extends Critter{
 			gl.glTranslatef(0, -EYE_HEIGHT, -.74f+EYE_CENTER_DIST);
 			drawNose(gl,glu);
 			// draw ears
-			gl.glTranslatef(0, .8f, .74f);
-			
+			gl.glTranslatef(0, .5f, .64f);
+			gl.glEnable(GL2.GL_TEXTURE_2D);
+			drawEars(gl,glu);
+			gl.glDisable(GL2.GL_TEXTURE_2D);
 		gl.glPopMatrix();
 	}
 	protected void drawNose(GL2 gl,GLU glu){
@@ -74,9 +80,12 @@ public class Cat extends Critter{
 			gl.glVertex3f(-TOP_WHISKER_LENGTH, TOP_WHISKER_HEIGHT, 0);
 		gl.glEnd();
 	}
-	protected void drawEar(GL2 gl, GLU glu){
-		// TODO Auto-generated method stub
-		
+	protected void drawOneEar(GL2 gl, GLU glu){
+		gl.glPushMatrix();
+			gl.glTranslatef(.3f, 0, 0);
+			gl.glRotatef(90, -1, .59f, 0);
+			glu.gluCylinder(textureQuadric, .4, 0, .5, 10, 10);
+		gl.glPopMatrix();
 	}
 	protected void drawFeet(GL2 gl, GLU glu) {
 		// TODO Auto-generated method stub
