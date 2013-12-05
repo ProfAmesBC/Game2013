@@ -15,7 +15,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import weapons.ProjectileWeapons;
-import Music.Player;
+import Music.MusicPlayer;
 
 import com.jogamp.opengl.util.FPSAnimator;
 
@@ -32,7 +32,7 @@ public class BatsEverywhere implements GLEventListener
     private PlayerMotion playerMotion = new PlayerMotion();
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
-    static Player jukebox = new Player();
+    static MusicPlayer jukebox = new MusicPlayer();
     
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
