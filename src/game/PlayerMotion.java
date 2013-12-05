@@ -70,6 +70,9 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
         case KeyEvent.VK_E:
             edown = true;
             break;
+        case KeyEvent.VK_SHIFT:
+        	step *= 3;
+        	break;
         case KeyEvent.VK_M:
         	mouseMovement = !mouseMovement;
         	break;
@@ -97,6 +100,9 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
         case KeyEvent.VK_E:
             edown = false;
             break;
+        case KeyEvent.VK_SHIFT:
+        	step /= 3;
+        	break;
 	    }
 	}
 
@@ -107,12 +113,12 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
 		double moved = 0;
         double location[] = ReadZBuffer.getOGLPos(gl, glu, width/2, height/2); //what you're moving towards
         if(eyeX+dx>0 && eyeZ+dz>0 && eyeX+dx<600 && eyeZ+dz<600 && (eyeX+dx<300 || eyeZ+dz<500)) {
-        	if(location[0]-eyeX>(dx + step) || (location[0]-eyeX)<(dx - step)) {
+        	if(Math.abs(location[0]-eyeX)>Math.abs(3*dx)) {
         		eyeX +=dx;
         		moved +=dx;
         	}//if you have room to move in the x direction, move in the x direction
 		
-        	if(location[2]-eyeZ>(dz + step) || (location[2]-eyeZ)<(dz - step)) {
+        	if(Math.abs(location[2]-eyeZ)>Math.abs(3*dz)) {
         		eyeZ +=dz;
         		moved +=dz;
         	}//ditto z
