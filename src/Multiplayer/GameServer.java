@@ -13,7 +13,7 @@ public class GameServer {
 		socket = new DatagramSocket(PORT); //master datagram socket
 		byte[] buf = new byte[256];
 		boolean listening = true;
-		GameServerTable S = new GameServerTable(playerNumber); 
+		GameServerTable S = new GameServerTable(); 
 		String inputLine; 
 		String outputLine = ""; 
 		String playerID = ""; 

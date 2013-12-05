@@ -1,80 +1,71 @@
 package Multiplayer;
 
+import java.util.LinkedList;
+
 public class GameServerTable {
-	private double[] x;
-	private double[] y;
-	private double[] z; 
-	private String[] id; 
-	private int playerIndex; 
-	
-	public GameServerTable(int playerNumber){
-		this.playerIndex = 0;
-		this.x = new double[playerNumber]; 
-		this.y = new double[playerNumber]; 
-		this.z = new double[playerNumber]; 
-		this.id = new String[playerNumber]; 
+	private LinkedList<String> id; 
+	private LinkedList<Float> x;
+	private LinkedList<Float> y;
+	private LinkedList<Float> z; 
+	private LinkedList<Float> angle; 
+
+	public GameServerTable(){
+		this.id = new LinkedList<String>(); 
+		this.x = new LinkedList<Float>(); 
+		this.y = new LinkedList<Float>(); 
+		this.z = new LinkedList<Float>(); 
+		this.angle = new LinkedList<Float>(); 
 	}
-	
+
 	//getters & setters 
-	public double getX(int index){
-		return x[index]; 
-	}
-	public void setX(int index, double value){
-		x[index] = value; 
-	}
-	
-	public double getY(int index){
-		return y[index]; 
-	}
-	public void setY(int index, double value){
-		y[index] = value; 
-	}
-	
-	public double getZ(int index){
-		return z[index]; 
-	}
-	public void setZ(int index, double value){
-		z[index] = value; 
-	}
 	public String getID(int index){
-		return id[index]; 
+		return id.get(index); 
 	}
 	public void setID(int index, String newID){
-		id[index] = newID; 
+		id.set(index, newID); 
 	}
-	
-	
-	public void addPlayer(String newID, double newX, double newY, double newZ){
-		double[] temp; 
-		String[] temp2;
-		playerIndex++;
-		
-		temp = new double[playerIndex+1]; 
-		System.arraycopy(x, 0, temp, 0, x.length); 
-		temp[playerIndex] = newX; 
-		x = temp; 
-		
-		temp = new double[playerIndex+1]; 
-		System.arraycopy(y, 0, temp, 0, y.length); 
-		temp[playerIndex] = newY; 
-		y = temp; 
-		
-		temp = new double[playerIndex+1]; 
-		System.arraycopy(z, 0, temp, 0, z.length); 
-		temp[playerIndex] = newZ; 
-		z = temp; 
-		
-		temp2 = new String[playerIndex+1];
-		System.arraycopy(id, 0, temp2, 0, id.length);
-		temp2[playerIndex] = newID; 
-		id = temp2; 
+
+	public float getX(int index){
+		return x.get(index); 
 	}
-	
+	public void setX(int index, float value){
+		x.set(index, value); 
+	}
+
+	public float getY(int index){
+		return y.get(index); 
+	}
+	public void setY(int index, float value){
+		y.set(index, value); 
+	}
+
+	public float getZ(int index){
+		return z.get(index); 
+	}
+	public void setZ(int index, float value){
+		z.set(index, value); 
+	}
+
+	public float getAngle(int index){
+		return angle.get(index); 
+	}
+	public void setAngle(int index, float value){
+		angle.set(index, value); 
+	}
+
+	public void addPlayer(String newID, float newX, float newY, float newZ, float newAngle){
+		id.add(newID); 
+		x.add(newX);
+		y.add(newY); 
+		z.add(newZ); 
+		angle.add(newAngle); 
+	}
+
 	public void printTable(){
-		for (int i=0; i<=playerIndex; i++)
-			System.out.println("Player: "+ i + " ID: "+ id[i] +" x: "+ x[i]+ " y: "+ y[i]+ " z: "+ z[i]);	
+		for (int i=0; i<=id.size(); i++)
+			System.out.println("Player: "+ i + " ID: "+ id.get(i) +" x: "+ x.get(i)+ " y: "+ y.get(i)+ " z: "+ z.get(i));	
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"); 
 		System.out.println(); 
 	}
-	
+
 }
