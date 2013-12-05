@@ -123,7 +123,7 @@ public class Player {
 
 			if (eotteohke) {gl.glScaled(1,1,-1);}
 			
-			gl.glTranslated(10,0,0);
+			gl.glTranslated(-10,0,0);
 			psy.draw(gl, glu);
 			gl.glPopMatrix();
 			waeyo++;
