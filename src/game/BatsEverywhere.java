@@ -2,6 +2,7 @@ package game;
 // Fiona Tamburini, and the CS 333 class
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.net.SocketException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Semaphore;
@@ -55,7 +56,12 @@ public class BatsEverywhere implements GLEventListener
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
         town = new Town(gl, glu);
-        player = new Player(glu, playerMotion);
+        try {
+			player = new Player(glu, playerMotion);
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -81,7 +87,7 @@ public class BatsEverywhere implements GLEventListener
         
         // draw player
         player.draw(gl, glu); 
-        System.out.println("Trying to acquire");
+     //   System.out.println("Trying to acquire");
         if(BatsEverywhere.isUpdate.tryAcquire()) {
         	for (Integer i : BatsEverywhere.getPlayers().keySet()) {
         		System.out.println("Drawing Player " + i);

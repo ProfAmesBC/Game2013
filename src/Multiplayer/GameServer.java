@@ -5,10 +5,10 @@ import java.io.*;
 
 public class GameServer { 
 	public static final int PORT = 9189;  
-	public static final String HOST = "136.167.251.23"; 
+	public static final String HOST = "localhost"; //will change 
 	public static final int playerNumber = 2; 
 	
-	public static void main(String[] args) throws IOException, InterruptedException {
+	public static void main(String[] args) throws IOException {
 		DatagramSocket socket; 
 		socket = new DatagramSocket(PORT); //master datagram socket
 		byte[] buf = new byte[256];
@@ -22,19 +22,17 @@ public class GameServer {
 		double newZ = 0; 
 		
 		while (listening) {
-			Thread.sleep(101);
 			DatagramPacket inpacket = new DatagramPacket(buf, buf.length);
 			socket.receive(inpacket); //block and wait for client datagram packet
-			inputLine = new String(inpacket.getData(), 0, inpacket.getLength());
+			inputLine = new String(inpacket.getData());
 			
-			StringTokenizer st = new StringTokenizer(inputLine); 
+			StringTokenizer st = new StringTokenizer(inputLine, ":"); 
 			
 			while(st.hasMoreTokens()){
 				playerID = st.nextToken(); 
-				newX = Double.parseDouble(st.nextToken()); 
-				newY = Double.parseDouble(st.nextToken());
-				newZ = Double.parseDouble(st.nextToken()); 
-				
+				newX = Float.parseFloat(st.nextToken()); 
+				newY = Float.parseFloat(st.nextToken());
+				newZ = Float.parseFloat(st.nextToken()); 
 			}
 			System.out.println("ID: "+ playerID + " X: "+newX+" Y: "+newY+" Z: "+newZ); 
 		}
