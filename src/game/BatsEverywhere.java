@@ -35,6 +35,7 @@ public class BatsEverywhere implements GLEventListener
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
     private Player player;
+    private Avatar psy;
     
     //For multiplayer
     private static Map<Integer, Player> playerMap;
@@ -67,6 +68,7 @@ public class BatsEverywhere implements GLEventListener
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        //psy = new Avatar(gl,glu);
     }
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -99,6 +101,7 @@ public class BatsEverywhere implements GLEventListener
         
         // draw player
         player.draw(gl, glu); 
+        
      //   System.out.println("Trying to acquire");
         projectileWeapons.update(gl, glu);
         
