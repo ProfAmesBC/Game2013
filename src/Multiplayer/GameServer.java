@@ -22,33 +22,17 @@ public class GameServer {
 		GameServerTable S = new GameServerTable(); 
 		String inputLine; 
 		String outputLine = ""; 
-		String playerID = ""; 
-
-		float newX = 0; 
-		float newY = 0; 
-		float newZ = 0; 
-
+		
+		
 		G.joinGroup();
 
 		while (listening) {
 			DatagramPacket inpacket = new DatagramPacket(buf, buf.length);
 			socket.receive(inpacket); //block and wait for client datagram packet
 			inputLine = new String(inpacket.getData());
+
 			System.out.println(inputLine);
-			StringTokenizer st = new StringTokenizer(inputLine, ":"); 
-		
-				playerID = st.nextToken(); 
-//				System.out.println(playerID);
-//				System.out.println("'"+Float.parseFloat(st.nextToken())+"'");
-//				System.out.println(Float.parseFloat(st.nextToken()));
-//				System.out.println(Float.parseFloat(st.nextToken()));
-
-			System.out.println("Finished one");
-		//	System.out.println("ID: "+ playerID + " X: "+newX+" Y: "+newY+" Z: "+newZ); 
-
-
 			G.sendToSocket(inputLine); 
-		
 		}
 		socket.close();
 	}

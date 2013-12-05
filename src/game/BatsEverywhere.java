@@ -64,6 +64,7 @@ public class BatsEverywhere implements GLEventListener
         town = new Town(gl, glu);
         try {
 			player = new Player(glu, playerMotion);
+			BatsEverywhere.getPlayers().put(1, player); 
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -111,12 +112,7 @@ public class BatsEverywhere implements GLEventListener
         		System.out.println("Drawing Player " + i);
         		BatsEverywhere.getPlayers().get(i).draw(gl, glu);
         	}
-        	try {
-				BatsEverywhere.getSem().acquire();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+        	
         }
         // check for errors, at least once per frame
         int error = gl.glGetError();

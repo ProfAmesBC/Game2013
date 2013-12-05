@@ -1,6 +1,7 @@
 package Multiplayer;
 
 import game.BatsEverywhere;
+import game.Foreigner;
 import game.Player;
 
 import java.io.IOException;
@@ -34,12 +35,13 @@ public class ReceiverClient implements Runnable {
 			while(true) {
 				DatagramPacket indata = new DatagramPacket(inbuf,inbuf.length);
 				msock.receive(indata);
+				System.out.println("Receiver: "+new String(indata.getData()));
 				String incoming = new String(indata.getData());
-				StringTokenizer tk = new StringTokenizer(new String(incoming));
-				Integer id = new Integer(Integer.parseInt(tk.nextToken()));
+				StringTokenizer tk = new StringTokenizer(new String(incoming), ":");
+				Integer id = Integer.parseInt(tk.nextToken());
 				
-				if (BatsEverywhere.getPlayers().get(id) != null) {
-					BatsEverywhere.getPlayers().put(id, new Player(glu2, id));
+				if (BatsEverywhere.getPlayers().get(id) == null) {
+					BatsEverywhere.getPlayers().put(id, new Foreigner(glu2, id));
 				}
 				Player toUpdate = BatsEverywhere.getPlayers().get(id);
 				

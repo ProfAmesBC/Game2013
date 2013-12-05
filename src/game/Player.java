@@ -13,12 +13,12 @@ public class Player {
 	private float eyeX;
 	private float eyeY;
 	private float eyeZ; 
-	private double theta;
+	private float theta;
 	private float r;
 	private float g;
 	private float b; 
 	private float size; 
-	private GLUquadric quadric; 
+	private static GLUquadric quadric = null; 
 	private PlayerMotion playerMotion; 
 	private int waeyo = 0;
 	private boolean eotteohke;
@@ -30,14 +30,20 @@ public class Player {
 	 * @throws SocketException 
 	 * 
 	 *****************************/
+	public Player() {};
 	public Player(GLU glu, PlayerMotion playerMotion) throws SocketException {
-		id = 1;
-		quadric = glu.gluNewQuadric();
-		glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
-		glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
-		glu.gluQuadricTexture  (quadric, false);        // false, or true to generate texture coordinates
+		id = (int)Math.random()*10; 
+
+		if(quadric == null){
+			quadric = glu.gluNewQuadric();
+			glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
+			glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
+			glu.gluQuadricTexture  (quadric, false);        // false, or true to generate texture coordinates
+		}
 		this.playerMotion = playerMotion; 
 		ClientSendThread cst = new ClientSendThread(this);
+		Thread t = new Thread(new ReceiverClient(this, glu)); 
+		t.start(); 
 
 		this.eyeX = 0;
 		this.eyeY = 5;
@@ -60,29 +66,6 @@ public class Player {
 	 * Construct for the other players
 	 * 
 	 *****************************/
-	public Player(GLU glu, Integer nid) {
-
-		id = nid;
-		quadric = glu.gluNewQuadric();
-		glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
-		glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
-		glu.gluQuadricTexture  (quadric, false);        // false, or true to generate texture coordinates
-
-		this.eyeX = 0;
-		this.eyeY = 5;
-		this.eyeZ = 0;
-		this.theta = playerMotion.getTheta();
-
-		//random color
-		r = (float)Math.random(); //I would like to make these contingent on a hash of the player's username - Tyler
-		g = (float)Math.random(); 
-		b = (float)Math.random(); 
-
-		//radius of the sphere 
-		size = (float)2.8; 
-		eotteohke = true;
-
-	}
 
 	public float getX(){
 		return playerMotion.getEyeX(); 
@@ -110,8 +93,13 @@ public class Player {
 		eyeZ = nz;
 	}
 
-
-
+	public float getAngle() {
+		return theta; 
+	}
+	public void setAngle(float newTheta) {
+		theta = newTheta; 
+	}
+	
 	public void playerBody(GL2 gl, GLU glu, GLUquadric quadric, float x, float y, float z, float r, float g, float b, double size){
 		gl.glPushMatrix();
 		gl.glTranslatef(x, y, z); // start position 
