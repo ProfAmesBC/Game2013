@@ -1,6 +1,7 @@
 package Multiplayer;
 
 import game.BatsEverywhere;
+import game.Foreigner;
 import game.Player;
 
 import java.io.IOException;
@@ -40,7 +41,7 @@ public class ReceiverClient implements Runnable {
 				Integer id = Integer.parseInt(tk.nextToken());
 				
 				if (BatsEverywhere.getPlayers().get(id) == null) {
-					BatsEverywhere.getPlayers().put(id, new Player(glu2, id));
+					BatsEverywhere.getPlayers().put(id, new Foreigner(glu2, id));
 				}
 				Player toUpdate = BatsEverywhere.getPlayers().get(id);
 				
