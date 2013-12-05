@@ -113,12 +113,12 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
 		double moved = 0;
         double location[] = ReadZBuffer.getOGLPos(gl, glu, width/2, height/2); //what you're moving towards
         if(eyeX+dx>0 && eyeZ+dz>0 && eyeX+dx<600 && eyeZ+dz<600 && (eyeX+dx<300 || eyeZ+dz<500)) {
-        	if(Math.abs(location[0]-eyeX)>Math.abs(3*dx)) {
+        	if(Math.abs(location[0]-eyeX)>Math.abs(dx)+1) {
         		eyeX +=dx;
         		moved +=dx;
         	}//if you have room to move in the x direction, move in the x direction
 		
-        	if(Math.abs(location[2]-eyeZ)>Math.abs(3*dz)) {
+        	if(Math.abs(location[2]-eyeZ)>Math.abs(dz)+1) {
         		eyeZ +=dz;
         		moved +=dz;
         	}//ditto z
@@ -169,8 +169,13 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     		gamma = 0;
     	}
     	
+    	
     	dx *= step; //net x-motion
     	dz *= step; //net z-motion
+    	if((wdown || sdown) && (adown || ddown)) {
+    		dx /= Math.sqrt(2);
+    		dz /= Math.sqrt(2);
+    	}
     	
     	gl.glLoadIdentity();
     	glu.gluLookAt(eyeX, eyeY, eyeZ,   // eye location
