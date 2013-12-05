@@ -25,7 +25,6 @@ public class GameServer {
 			DatagramPacket inpacket = new DatagramPacket(buf, buf.length);
 			socket.receive(inpacket); //block and wait for client datagram packet
 			inputLine = new String(inpacket.getData());
-			
 			StringTokenizer st = new StringTokenizer(inputLine, ":"); 
 			
 			while(st.hasMoreTokens()){

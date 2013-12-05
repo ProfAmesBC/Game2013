@@ -6,6 +6,8 @@ import game.Player;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.MulticastSocket;
 import java.util.StringTokenizer;
 
 import javax.media.opengl.glu.GLU;
@@ -14,18 +16,25 @@ public class ReceiverClient implements Runnable {
 	private Player p1;
 	private byte [] inbuf = new byte[1024];
 	private GLU glu2;
+	private MulticastSocket msock;
 	
 	public ReceiverClient(Player play1, GLU glu) {
 		p1 = play1;
 		glu2 = glu;
+		try {
+			msock = new MulticastSocket(20000);
+			msock.joinGroup(InetAddress.getByName("234.1.2.3"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void run() {
 		try {
-			DatagramSocket sock = new DatagramSocket();
 			while(true) {
 				DatagramPacket indata = new DatagramPacket(inbuf,inbuf.length);
-				sock.receive(indata);
+				msock.receive(indata);
 				String incoming = new String(indata.getData());
 				StringTokenizer tk = new StringTokenizer(new String(incoming));
 				Integer id = new Integer(Integer.parseInt(tk.nextToken()));
@@ -45,13 +54,4 @@ public class ReceiverClient implements Runnable {
 			e.printStackTrace();
 		}
 	}
-//TO DO ADD This later
-	//public void playerMoved(float x, float y, float z, float angle) {
-		//p1.setX(x); p1.setY(y); p1.setZ(z);// p1.setAngle(angle);
-	//}
-	
-//	public static void main(String [] args) throws UnknownHostException {
-//		Client c = new Client(p1,InetAddress.getByName("136.167.251.84"), 9189);
-//		c.run();
-//	}
 }

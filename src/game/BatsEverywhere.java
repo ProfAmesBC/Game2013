@@ -102,7 +102,7 @@ public class BatsEverywhere implements GLEventListener
      //   System.out.println("Trying to acquire");
         projectileWeapons.update(gl, glu);
         
-        System.out.println("Trying to acquire");
+     //   System.out.println("Trying to acquire");
         if(BatsEverywhere.isUpdate.tryAcquire()) {
         	for (Integer i : BatsEverywhere.getPlayers().keySet()) {
         		System.out.println("Drawing Player " + i);

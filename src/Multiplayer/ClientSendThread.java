@@ -7,7 +7,6 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
-import java.net.UnknownHostException;
 
 import game.*;
 
@@ -25,21 +24,19 @@ public class ClientSendThread implements PlayerMotionWatcher{
 		socket = new DatagramSocket();
 		buf = new byte[256];
 	}
-
 	public void playerMoved(float x, float y, float z, float angle) {
 		try {
 			InetAddress address = InetAddress.getByName(HOST); 
 			String outputLine = new String("");
-			while (true) {
-				outputLine +=  client.getID()+":";
-				outputLine += client.getX()+":";
-				outputLine += client.getY()+":";
-				outputLine += client.getZ()+":";
+			outputLine +=  client.getID()+":";
+			outputLine += client.getX()+":";
+			outputLine += client.getY()+":";
+			outputLine += client.getZ()+":";
 
-				buf = outputLine.getBytes();
-				DatagramPacket outpacket = new DatagramPacket(buf, buf.length, address, PORT);
-				socket.send(outpacket);
-			}
+			buf = outputLine.getBytes();
+			DatagramPacket outpacket = new DatagramPacket(buf, buf.length, address, PORT);
+			System.out.println(new String(outpacket.getData()));
+			socket.send(outpacket);
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
