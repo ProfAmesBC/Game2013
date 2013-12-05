@@ -35,7 +35,7 @@ public class ClientSendThread implements PlayerMotionWatcher{
 
 			buf = outputLine.getBytes();
 			DatagramPacket outpacket = new DatagramPacket(buf, buf.length, address, PORT);
-			System.out.println(new String(outpacket.getData()));
+		//	System.out.println(new String(outpacket.getData()));
 			socket.send(outpacket);
 		} catch(IOException e) {
 			e.printStackTrace();

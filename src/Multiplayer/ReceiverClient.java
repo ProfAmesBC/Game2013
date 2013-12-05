@@ -25,7 +25,6 @@ public class ReceiverClient implements Runnable {
 			msock = new MulticastSocket(20000);
 			msock.joinGroup(InetAddress.getByName("234.1.2.3"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

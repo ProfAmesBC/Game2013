@@ -17,23 +17,27 @@ public class GameServer {
 		String inputLine; 
 		String outputLine = ""; 
 		String playerID = ""; 
-		double newX = 0; 
-		double newY = 0; 
-		double newZ = 0; 
+//		float newX = 0; 
+//		float newY = 0; 
+//		float newZ = 0; 
 		
 		while (listening) {
 			DatagramPacket inpacket = new DatagramPacket(buf, buf.length);
 			socket.receive(inpacket); //block and wait for client datagram packet
 			inputLine = new String(inpacket.getData());
+			System.out.println(inputLine);
 			StringTokenizer st = new StringTokenizer(inputLine, ":"); 
-			
-			while(st.hasMoreTokens()){
+		
 				playerID = st.nextToken(); 
-				newX = Float.parseFloat(st.nextToken()); 
-				newY = Float.parseFloat(st.nextToken());
-				newZ = Float.parseFloat(st.nextToken()); 
-			}
-			System.out.println("ID: "+ playerID + " X: "+newX+" Y: "+newY+" Z: "+newZ); 
+//				System.out.println(playerID);
+//				System.out.println("'"+Float.parseFloat(st.nextToken())+"'");
+//				System.out.println(Float.parseFloat(st.nextToken()));
+//				System.out.println(Float.parseFloat(st.nextToken()));
+			float newX = Float.parseFloat(st.nextToken()); 
+			float newY = Float.parseFloat(st.nextToken());
+			float newZ = Float.parseFloat(st.nextToken()); 
+			System.out.println("Finished one");
+		//	System.out.println("ID: "+ playerID + " X: "+newX+" Y: "+newY+" Z: "+newZ); 
 		}
 		socket.close();
 	}
