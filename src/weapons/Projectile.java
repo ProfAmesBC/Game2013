@@ -16,6 +16,7 @@ public abstract class Projectile{
 	public float getLifeSpan() {
 		return lifeSpan;
 	}
+
 	public float getProjX() {return projX;}
 	public void setProjX(float projX) {this.projX = projX;}
 	public float getProjY() {return projY;}
