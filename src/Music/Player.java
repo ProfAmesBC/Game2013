@@ -6,7 +6,7 @@ public class Player {
 	
 	public static void main(String args[]){
 		m	= new JOALSoundMan();
-		String sound1 = "ScoreFirstDraft.wav";
+		String sound1 = "Score 3.wav";
 		m.load(sound1, true);
 		m.setPos(sound1, 0, 0, 1);
 		// or: m.load("fire",  0, 0, 1, true);
