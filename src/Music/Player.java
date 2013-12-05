@@ -11,6 +11,6 @@ public class Player {
 		m.setPos(sound1, 0, 0, 1);
 		m.setListenerPos(0, 0);
 		m.play(sound1);
-		m.cleanUp();
+		//m.cleanUp();
 	}
 }

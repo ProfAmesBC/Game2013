@@ -32,7 +32,8 @@ public class BatsEverywhere implements GLEventListener
     private PlayerMotion playerMotion = new PlayerMotion();
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
-
+    static Player jukebox = new Player();
+    
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
       //drawable.setGL(new TraceGL2(drawable.getGL().getGL2(), System.out)); // to trace every call.  Less useful.
@@ -46,7 +47,7 @@ public class BatsEverywhere implements GLEventListener
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
         town = new Town(gl, glu);
-        Player jukebox = new Player();
+
         jukebox.play();
     }
     
@@ -131,12 +132,15 @@ public class BatsEverywhere implements GLEventListener
          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          frame.pack(); // make just big enough to hold objects inside
          frame.setVisible(true);
+
          renderer.canvas.addKeyListener(renderer.playerMotion);
          renderer.canvas.addMouseMotionListener(renderer.playerMotion);
          renderer.canvas.addKeyListener(renderer.projectileWeapons);
          renderer.canvas.requestFocus(); // so key clicks come here
+         
          FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
          animator.start();
+
     }
 
 }
