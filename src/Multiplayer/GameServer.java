@@ -35,16 +35,7 @@ public class GameServer {
 			inputLine = new String(inpacket.getData());
 
 			G.sendToSocket(inputLine); 
-
-			/*StringTokenizer st = new StringTokenizer(inputLine, ":");
-
-			while(st.hasMoreTokens()){
-				playerID = st.nextToken(); 
-				newX = Float.parseFloat(st.nextToken()); 
-				newY = Float.parseFloat(st.nextToken());
-				newZ = Float.parseFloat(st.nextToken()); 
-			}
-			System.out.println("ID: "+ playerID + " X: "+newX+" Y: "+newY+" Z: "+newZ); */ 
+		
 		}
 		socket.close();
 	}
