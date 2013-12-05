@@ -3,6 +3,7 @@ package game;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.io.File; //For capturing screen shot
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
@@ -12,9 +13,11 @@ import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+
 import weapons.ProjectileWeapons;
 
 import com.jogamp.opengl.util.FPSAnimator;
+import com.jogamp.opengl.util.GLReadBufferUtil;
 
 public class BatsEverywhere implements GLEventListener
 {
@@ -27,6 +30,7 @@ public class BatsEverywhere implements GLEventListener
     private PlayerMotion playerMotion = new PlayerMotion();
     private PlayerLogger logger = new PlayerLogger();
     private int windowWidth, windowHeight;
+    private GLReadBufferUtil bufferUtil = new GLReadBufferUtil(false, false); //For capturing screen shots
 
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
@@ -64,24 +68,17 @@ public class BatsEverywhere implements GLEventListener
 
         playerMotion.setLookAt(gl, glu);
         
-       
+        /// NEED TO FINISH VIEWPORT
+        //
+        gl.glViewport(windowWidth/2, windowHeight/2, windowWidth/2, windowHeight/2);
+        
+                
+        // draw town
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
         projectileWeapons.update(gl, glu);
         // Draw sphere at the point you're looking at
         //gl.glLineWidth(1);
         //double[] location = ReadZBuffer.getOGLPos(gl, glu, 250, 250);	
-        
-        
-        
-        /// NEED TO FINISH VIEWPORT
-        //After draw the town, create viewport in top right hand window
-        gl.glViewport(windowWidth/2, windowHeight/2, windowWidth/2, windowHeight/2);
-        //need to rotate entire town 90 degrees
-        // back away... +100 z   
-        //take screenshot and put into viewport window
-        //rotate back                   
-        // draw town
-        
         
         // check for errors, at least once per frame
         int error = gl.glGetError();
@@ -98,6 +95,19 @@ public class BatsEverywhere implements GLEventListener
                     "   Time per frame: " + runtime/60/1000f);
             runtime = 0;
         }
+        
+     // save the current (finished) buffer to a file
+        if (++framesDrawn == 1) {
+            gl.glFlush(); // ensure all drawing has finished
+            //gl.glReadBuffer(GL2.GL_BACK);
+            boolean success = bufferUtil.readPixels(gl, false);
+            if (success) {
+                bufferUtil.write(new File("minimap.png"));
+                System.out.println("Made Screenshot");
+            } else
+                System.out.println("Unable to grab screen shot");
+        }
+        statusLine.setText("Frames drawn: "  +  framesDrawn);
     }
 
     public void dispose(GLAutoDrawable drawable) { /* not needed */ }
