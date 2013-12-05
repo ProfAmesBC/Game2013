@@ -2,7 +2,6 @@ package game;
 // Fiona Tamburini, and the CS 333 class
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Semaphore;
@@ -82,9 +81,10 @@ public class BatsEverywhere implements GLEventListener
         
         // draw player
         player.draw(gl, glu); 
-        
+        System.out.println("Trying to acquire");
         if(BatsEverywhere.isUpdate.tryAcquire()) {
         	for (Integer i : BatsEverywhere.getPlayers().keySet()) {
+        		System.out.println("Drawing Player " + i);
         		BatsEverywhere.getPlayers().get(i).draw(gl, glu);
         	}
         	try {
