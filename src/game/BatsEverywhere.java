@@ -64,21 +64,24 @@ public class BatsEverywhere implements GLEventListener
 
         playerMotion.setLookAt(gl, glu);
         
-        /// NEED TO FINISH VIEWPORT
-        gl.glViewport(windowWidth/2, windowHeight/2, windowWidth/2, windowHeight/2);
-        //need to rotate entire town 90 degrees
-        // back away... +100 z
-        
-        //do you need to rotate back?
-        
-        
-                
-        // draw town
+       
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
         projectileWeapons.update(gl, glu);
         // Draw sphere at the point you're looking at
         //gl.glLineWidth(1);
         //double[] location = ReadZBuffer.getOGLPos(gl, glu, 250, 250);	
+        
+        
+        
+        /// NEED TO FINISH VIEWPORT
+        //After draw the town, create viewport in top right hand window
+        gl.glViewport(windowWidth/2, windowHeight/2, windowWidth/2, windowHeight/2);
+        //need to rotate entire town 90 degrees
+        // back away... +100 z   
+        //take screenshot and put into viewport window
+        //rotate back                   
+        // draw town
+        
         
         // check for errors, at least once per frame
         int error = gl.glGetError();
