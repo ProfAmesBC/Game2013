@@ -44,13 +44,17 @@ public class ShippBuilding extends Building {
 		
 		renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, fontSize));
 	}
+	
+	@Override
+	public void drawMoving(GL2 gl, GLU glu, float eyeX, float eyeY, float eyeZ) {
+		drawJumbotron(gl, glu);
+	}
 
 	public void draw(GL2 gl, GLU glu) {
 		drawSidewalkAndTrees(gl, glu);
 		drawWalls(gl, glu);
 		drawSign(gl, glu);
 		drawRink(gl, glu);
-		drawJumbotron(gl, glu);
 		drawPool(gl, glu);
 	}
 	
@@ -248,6 +252,18 @@ public class ShippBuilding extends Building {
 
 		gl.glDisable(GL2.GL_TEXTURE_2D);
 		gl.glDisable(GL2.GL_CULL_FACE);
+		
+		
+		gl.glEnable(GL2.GL_TEXTURE_2D);
+			white.bind(gl);
+			gl.glBegin(GL2.GL_QUADS);
+				gl.glTexCoord2f(1f,1f); gl.glVertex3f(10,	-.1f,	90);
+				gl.glTexCoord2f(1f,0f); gl.glVertex3f(10,	-.1f,	40);
+				gl.glTexCoord2f(0f,0f); gl.glVertex3f(90,	-.1f,	40);
+				gl.glTexCoord2f(0f,1f); gl.glVertex3f(90,	-.1f,	90);
+			gl.glEnd();
+		gl.glDisable(GL2.GL_TEXTURE_2D);
+
 	}
 	
 	

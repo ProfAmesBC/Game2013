@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>Microsoft Excel 2010.lnk</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Desktop/Microsoft%20Excel%202010.lnk</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

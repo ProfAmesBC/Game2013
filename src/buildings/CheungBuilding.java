@@ -285,7 +285,9 @@ public class CheungBuilding extends Building{
 		gl.glDisable(GL2.GL_TEXTURE_2D);
 		gl.glDisable(GL2.GL_TEXTURE_GEN_S);
 		gl.glDisable(GL2.GL_TEXTURE_GEN_T);
-		
+	}
+	
+	public void drawMoving(GL2 gl,GLU glu,float x,float y,float z){
 		// hourglass
 		if(fillingHourglass){
 			hourglassFrame+=hgFrameRate;
@@ -372,6 +374,7 @@ public class CheungBuilding extends Building{
 				gl.glColor4f(ballRed(), ballGreen(), ballBlue(), .2f);
 				glu.gluSphere(quadric, RAINBOW_BALL_RADIUS+2, SLICES, STACKS);	// softest glow
 			gl.glDisable(GL2.GL_BLEND);
+			gl.glPopMatrix();
 			// update ball color
 			if(colorState%2==0){
 				if(ballColorFrame>=1f){
@@ -384,9 +387,7 @@ public class CheungBuilding extends Building{
 					updateColorState();
 				}else ballColorFrame-=rainbowFrameRate;
 			}
-		gl.glPopMatrix();
 	}
-	
 	private float ballRed(){
 		switch(colorState){
 			case rToY:

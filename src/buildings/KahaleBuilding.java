@@ -75,6 +75,112 @@ public class KahaleBuilding extends Building{
 	private float frames3 = 0;
 	private float frames4 = 0;
 	private float angle = 90;
+	
+	@Override 
+	public void drawMoving(GL2 gl, GLU glu, float eyeX, float eyeY, float eyeZ){
+	
+		//DRAW INNER WALL TEXTURES OF FRONT, BACK, RIGHT LEFT, AND CEILING
+		innerwallTexture[(int) frames1].bind(gl);
+        gl.glBegin(GL2.GL_QUADS);
+        	frontWallINSIDE(gl, glu);
+        	rightWallINSIDE(gl, glu);
+        	leftWallINSIDE(gl, glu);
+        	backWallINSIDE(gl, glu);
+        	ceilingINSIDE(gl, glu);
+        gl.glEnd();
+
+        outerwallTexture[(int) frames2].bind(gl);
+    	gl.glEnable(GL2.GL_TEXTURE_GEN_S);
+        gl.glEnable(GL2.GL_TEXTURE_GEN_T);
+            gl.glTexGeni(GL2.GL_S, GL2.GL_TEXTURE_GEN_MODE, GL2.GL_OBJECT_LINEAR);
+            gl.glTexGeni(GL2.GL_T, GL2.GL_TEXTURE_GEN_MODE, GL2.GL_OBJECT_LINEAR);
+            
+            //DRAW FRONT AND BACK WALLS WITH AUTO TEXTURING
+            float[] coef_s1 = {0.25f,0,0,0};
+            gl.glTexGenfv(GL2.GL_S, GL2.GL_OBJECT_PLANE, coef_s1, 0);
+            float[] coef_t1 = {0,0.25f,0,0};
+            gl.glTexGenfv(GL2.GL_T, GL2.GL_OBJECT_PLANE, coef_t1, 0);
+        	gl.glBegin(GL2.GL_QUADS);
+        		frontWallOUTSIDE(gl, glu);
+        		backWallOUTSIDE(gl, glu);
+        	gl.glEnd();
+        	
+        	//DRAW RIGHT AND LEFT WALL OUTSIDE WITH AUTO TEXTURE
+        	float[] coef_s2 = {0,0.25f,0,0};
+            gl.glTexGenfv(GL2.GL_S, GL2.GL_OBJECT_PLANE, coef_s2, 0);
+            float[] coef_t2 = {0,0,0.25f,0};
+            gl.glTexGenfv(GL2.GL_T, GL2.GL_OBJECT_PLANE, coef_t2, 0);
+        	gl.glBegin(GL2.GL_QUADS);
+	        	rightWallOUTSIDE(gl, glu);
+        		leftWallOUTSIDE(gl, glu);
+        	gl.glEnd();
+        	
+        	//DRAW CEILING OUTSIDE WITH AUTO TEXTURE
+        	float[] coef_s3 = {0.25f,0,0,0};
+            gl.glTexGenfv(GL2.GL_S, GL2.GL_OBJECT_PLANE, coef_s3, 0);
+            float[] coef_t3 = {0,0,0.25f,0};
+            gl.glTexGenfv(GL2.GL_T, GL2.GL_OBJECT_PLANE, coef_t3, 0);
+        	gl.glBegin(GL2.GL_QUADS);
+        		ceilingOUTSIDE(gl, glu);
+        	gl.glEnd();
+        	
+    	gl.glDisable(GL2.GL_TEXTURE_GEN_S);
+        gl.glDisable(GL2.GL_TEXTURE_GEN_T);
+    	
+        frames1++;
+        frames2++;
+        //RESET TO FIRST FRAME FOR OUTSIDE AND INSIDE WALLS
+        if(frames1 > 3){frames1 = 0;}
+        if(frames2 > 10){frames2 = 0;}
+        
+        //DRAW SPHERE IN MIDDLE OF TABLE
+    	sphereTexture.bind(gl);
+        gl.glPushMatrix();
+	        gl.glTranslatef(50, 4, 50); // 5 feet off of ground
+	        angle+=10;
+	        gl.glRotatef(angle, 1f, 0.25f, 1f);
+	        glu.gluSphere(quadric, 1., 10, 10);
+	    gl.glPopMatrix();
+	    
+	    //DRAW TABLE WITH CYLINDER AND DISK
+	    tableTexture[(int) frames3].bind(gl);
+	    gl.glPushMatrix();
+	    	gl.glTranslatef(50, 4, 50);
+	    	gl.glRotatef(90, 1f, 0 ,0);
+	        glu.gluDisk(quadric, 10, 1, 10, 10);
+	        glu.gluCylinder(quadric, 2, 2, 4, 10, 10);
+	    gl.glPopMatrix();
+	    frames3++;
+	    if(frames3>9){frames3=0;}
+    
+	    gl.glDisable(GL2.GL_TEXTURE_2D);
+	    gl.glDisable(GL2.GL_CULL_FACE);
+
+		
+		gl.glEnable(GL2.GL_TEXTURE_2D);
+    	//DRAW TV WITH STAND
+    	tvTexture.bind(gl);
+    	gl.glBegin(GL2.GL_QUADS);	
+    		TV(gl, glu); //TV WALLS
+    	gl.glEnd();
+    	gl.glPushMatrix();
+    		gl.glTranslatef(14f, 0, 50f);
+    		gl.glRotatef(-90, 1f, 0, 0);
+    		glu.gluCylinder(quadric, 4, 2, 4, 10, 10); //STAND
+		gl.glPopMatrix();	
+		gl.glDisable(GL2.GL_TEXTURE_2D);
+		gl.glEnable(GL2.GL_TEXTURE_2D);
+		//DRAW ANIMATION ON TV
+    	tvAnimation[(int) frames4].bind(gl);
+    	gl.glBegin(GL2.GL_QUADS);
+    		tvAnimation(gl, glu);
+    	gl.glEnd();
+    gl.glDisable(GL2.GL_TEXTURE_2D);
+    frames4++;
+    //RESET TO BEGINNING FRAME FOR TV ANIMATION
+    if(frames4>10){frames4 = 0;}
+	}
+	
 	@Override
 	public void draw(GL2 gl, GLU glu) {
         gl.glEnable(GL2.GL_CULL_FACE);
@@ -89,105 +195,6 @@ public class KahaleBuilding extends Building{
 		        	gl.glTexCoord2f(0f, 100f); gl.glVertex3f(100f, 0f, 0f);
 		        gl.glEnd();
 		                
-		        //DRAW INNER WALL TEXTURES OF FRONT, BACK, RIGHT LEFT, AND CEILING
-				innerwallTexture[(int) frames1].bind(gl);
-		        gl.glBegin(GL2.GL_QUADS);
-		        	frontWallINSIDE(gl, glu);
-		        	rightWallINSIDE(gl, glu);
-		        	leftWallINSIDE(gl, glu);
-		        	backWallINSIDE(gl, glu);
-		        	ceilingINSIDE(gl, glu);
-		        gl.glEnd();
-		
-		        outerwallTexture[(int) frames2].bind(gl);
-	        	gl.glEnable(GL2.GL_TEXTURE_GEN_S);
-	            gl.glEnable(GL2.GL_TEXTURE_GEN_T);
-		            gl.glTexGeni(GL2.GL_S, GL2.GL_TEXTURE_GEN_MODE, GL2.GL_OBJECT_LINEAR);
-		            gl.glTexGeni(GL2.GL_T, GL2.GL_TEXTURE_GEN_MODE, GL2.GL_OBJECT_LINEAR);
-		            
-		            //DRAW FRONT AND BACK WALLS WITH AUTO TEXTURING
-		            float[] coef_s1 = {0.25f,0,0,0};
-		            gl.glTexGenfv(GL2.GL_S, GL2.GL_OBJECT_PLANE, coef_s1, 0);
-		            float[] coef_t1 = {0,0.25f,0,0};
-		            gl.glTexGenfv(GL2.GL_T, GL2.GL_OBJECT_PLANE, coef_t1, 0);
-		        	gl.glBegin(GL2.GL_QUADS);
-		        		frontWallOUTSIDE(gl, glu);
-		        		backWallOUTSIDE(gl, glu);
-		        	gl.glEnd();
-		        	
-		        	//DRAW RIGHT AND LEFT WALL OUTSIDE WITH AUTO TEXTURE
-		        	float[] coef_s2 = {0,0.25f,0,0};
-		            gl.glTexGenfv(GL2.GL_S, GL2.GL_OBJECT_PLANE, coef_s2, 0);
-		            float[] coef_t2 = {0,0,0.25f,0};
-		            gl.glTexGenfv(GL2.GL_T, GL2.GL_OBJECT_PLANE, coef_t2, 0);
-		        	gl.glBegin(GL2.GL_QUADS);
-			        	rightWallOUTSIDE(gl, glu);
-		        		leftWallOUTSIDE(gl, glu);
-		        	gl.glEnd();
-		        	
-		        	//DRAW CEILING OUTSIDE WITH AUTO TEXTURE
-		        	float[] coef_s3 = {0.25f,0,0,0};
-		            gl.glTexGenfv(GL2.GL_S, GL2.GL_OBJECT_PLANE, coef_s3, 0);
-		            float[] coef_t3 = {0,0,0.25f,0};
-		            gl.glTexGenfv(GL2.GL_T, GL2.GL_OBJECT_PLANE, coef_t3, 0);
-		        	gl.glBegin(GL2.GL_QUADS);
-		        		ceilingOUTSIDE(gl, glu);
-		        	gl.glEnd();
-		        	
-	        	gl.glDisable(GL2.GL_TEXTURE_GEN_S);
-	            gl.glDisable(GL2.GL_TEXTURE_GEN_T);
-	        	
-		        frames1++;
-		        frames2++;
-		        //RESET TO FIRST FRAME FOR OUTSIDE AND INSIDE WALLS
-		        if(frames1 > 3){frames1 = 0;}
-		        if(frames2 > 10){frames2 = 0;}
-		        
-		        //DRAW SPHERE IN MIDDLE OF TABLE
-		    	sphereTexture.bind(gl);
-		        gl.glPushMatrix();
-			        gl.glTranslatef(50, 4, 50); // 5 feet off of ground
-			        angle+=10;
-			        gl.glRotatef(angle, 1f, 0.25f, 1f);
-			        glu.gluSphere(quadric, 1., 10, 10);
-			    gl.glPopMatrix();
-			    
-			    //DRAW TABLE WITH CYLINDER AND DISK
-			    tableTexture[(int) frames3].bind(gl);
-			    gl.glPushMatrix();
-			    	gl.glTranslatef(50, 4, 50);
-			    	gl.glRotatef(90, 1f, 0 ,0);
-			        glu.gluDisk(quadric, 10, 1, 10, 10);
-			        glu.gluCylinder(quadric, 2, 2, 4, 10, 10);
-			    gl.glPopMatrix();
-			    frames3++;
-			    if(frames3>9){frames3=0;}
-	        
-		    gl.glDisable(GL2.GL_TEXTURE_2D);
-	    gl.glDisable(GL2.GL_CULL_FACE);
-	    
-	    gl.glEnable(GL2.GL_TEXTURE_2D);
-	    	//DRAW TV WITH STAND
-	    	tvTexture.bind(gl);
-	    	gl.glBegin(GL2.GL_QUADS);	
-	    		TV(gl, glu); //TV WALLS
-	    	gl.glEnd();
-	    	gl.glPushMatrix();
-	    		gl.glTranslatef(14f, 0, 50f);
-	    		gl.glRotatef(-90, 1f, 0, 0);
-	    		glu.gluCylinder(quadric, 4, 2, 4, 10, 10); //STAND
-    		gl.glPopMatrix();	
-    		
-    		//DRAW ANIMATION ON TV
-	    	tvAnimation[(int) frames4].bind(gl);
-	    	gl.glBegin(GL2.GL_QUADS);
-	    		tvAnimation(gl, glu);
-	    	gl.glEnd();
-	    gl.glDisable(GL2.GL_TEXTURE_2D);
-	    frames4++;
-	    //RESET TO BEGINNING FRAME FOR TV ANIMATION
-	    if(frames4>10){frames4 = 0;}
-	    
 	   
 	}
 	private void tvAnimation(GL2 gl, GLU glu){
