@@ -9,6 +9,8 @@ public class WeaponSounds {
 	{
 		System.out.println("NOISE");
 	}
+	
+	// test commit 2  VM
 }
 
 
