@@ -15,7 +15,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import weapons.ProjectileWeapons;
-import Music.Player;
+import Music.MusicPlayer;
 
 import com.jogamp.opengl.util.FPSAnimator;
 
@@ -46,7 +46,7 @@ public class BatsEverywhere implements GLEventListener
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
         town = new Town(gl, glu);
-        Player jukebox = new Player();
+        MusicPlayer jukebox = new MusicPlayer();
         jukebox.play();
     }
     

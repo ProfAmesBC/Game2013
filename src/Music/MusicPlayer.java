@@ -1,7 +1,7 @@
 package Music;
 // Ames Demo Fall 2012
 //
-public class Player {
+public class MusicPlayer {
 	private static JOALSoundMan m=null;
 	
 	public void play(){
