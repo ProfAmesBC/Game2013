@@ -22,11 +22,8 @@ public class GameServer {
 		GameServerTable S = new GameServerTable(); 
 		String inputLine; 
 		String outputLine = ""; 
-		String playerID = ""; 
-		float newX = 0; 
-		float newY = 0; 
-		float newZ = 0; 
-
+		
+		
 		G.joinGroup();
 
 		while (listening) {
@@ -34,8 +31,8 @@ public class GameServer {
 			socket.receive(inpacket); //block and wait for client datagram packet
 			inputLine = new String(inpacket.getData());
 
+			System.out.println(inputLine);
 			G.sendToSocket(inputLine); 
-		
 		}
 		socket.close();
 	}

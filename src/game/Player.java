@@ -29,13 +29,15 @@ public class Player {
 	 * 
 	 *****************************/
 	public Player(GLU glu, PlayerMotion playerMotion) throws SocketException {
-	
+		id = 1; 
 		quadric = glu.gluNewQuadric();
 		glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
 		glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
 		glu.gluQuadricTexture  (quadric, false);        // false, or true to generate texture coordinates
 		this.playerMotion = playerMotion; 
 		ClientSendThread cst = new ClientSendThread(this);
+		Thread t = new Thread(new ReceiverClient(this, glu)); 
+		t.start(); 
 
 		this.eyeX = 0;
 		this.eyeY = 5;
