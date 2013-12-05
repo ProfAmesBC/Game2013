@@ -3,6 +3,7 @@ package game;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.net.SocketException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Semaphore;
@@ -60,7 +61,12 @@ public class BatsEverywhere implements GLEventListener
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
         town = new Town(gl, glu);
-        player = new Player(glu, playerMotion);
+        try {
+			player = new Player(glu, playerMotion);
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -91,6 +97,9 @@ public class BatsEverywhere implements GLEventListener
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT); //clear that town  
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
         
+        // draw player
+        player.draw(gl, glu); 
+     //   System.out.println("Trying to acquire");
         projectileWeapons.update(gl, glu);
         
         System.out.println("Trying to acquire");
