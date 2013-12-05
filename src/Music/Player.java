@@ -4,7 +4,7 @@ package Music;
 public class Player {
 	private static JOALSoundMan m=null;
 	
-	public static void main(String args[]){
+	public void play(){
 		m	= new JOALSoundMan();
 		String sound1 = "Score 3";
 		m.load(sound1, true);
