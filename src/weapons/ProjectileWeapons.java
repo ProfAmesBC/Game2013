@@ -14,10 +14,20 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher{
 	
 	private ArrayList<RainbowBall> bulletsList = new ArrayList<RainbowBall>();
 	private float x, y, z, angle;
+	private float red, green, blue, size, speed;
 	
 	public ProjectileWeapons(){
 		PlayerMotion.registerPlayerWatcher(this);
 	}
+	
+	//each weapon will shoot a bullet of different speed, color, size if desired
+	public void setSpeed(float speed) {this.speed = speed;}
+	public void setRed(float red) {this.red = red;}
+	public void setGreen(float green) {this.green = green;}
+	public void setBlue(float blue) {this.blue = blue;}
+	public void setSize(float size) {this.size = size;}
+	
+	
 	
 	public void update(GL2 gl, GLU glu){
 		
@@ -30,11 +40,28 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher{
 		}
 	}
 	
+	
+	//EXAMPLE OF WHAT WOULD HAPPEN WHEN A NEW WEAPON IS CHOSEN
+	//THIS FUNCTION IS CALLED, ITS PREDETERMINED VALUES ARE APPLIED
+	//WE CAN CHANGE THESE VALUES, THEY'RE BASICALLY RANDOM
+	public void rayGun() {
+		setRed(5);
+		setGreen(4);
+		setBlue(9);
+		setSize(2);
+		setSpeed(5);
+	}
+	
+	
 	public void shootBullet(){
 		RainbowBall bullet = new RainbowBall(x, y, z, angle); //CREATE NEW BULLET AT CURRENT PLAYER POSITION
 		
-		//if(another gun was picked up)
-		//DrawBullet generalBullet = new DrawBullet(x,y,z,angle, red, green, blue, size, speed);
+		
+		//FOR EXAMPLE
+		//if(raygun picked up) {
+		//	rayGun();
+		// }
+		//DrawBullet bullet = new DrawBullet(x,y,z,angle, getRed(), getGreen(), getBlue(), getSize(), getSpeed());
 		
 		bulletsList.add(bullet); //ADD BULLET TO LIST OF BULLETS
 	}
