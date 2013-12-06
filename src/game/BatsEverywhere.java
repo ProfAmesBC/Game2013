@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import weapons.BludgeoningWeapon;
 import weapons.ProjectileWeapons;
 
 import com.jogamp.opengl.util.FPSAnimator;
@@ -27,6 +28,7 @@ public class BatsEverywhere implements GLEventListener
     private Town town;
     private int height, width;
     private ProjectileWeapons projectileWeapons = new ProjectileWeapons();
+    private BludgeoningWeapon bw = new BludgeoningWeapon();
     private long runtime = 0;
     private PlayerMotion playerMotion = new PlayerMotion();
     private GLCanvas canvas = new GLCanvas();
@@ -45,6 +47,8 @@ public class BatsEverywhere implements GLEventListener
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
         town = new Town(gl, glu);
+        bw.init(gl, glu);
+        
     }
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -78,6 +82,7 @@ public class BatsEverywhere implements GLEventListener
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
         
         projectileWeapons.update(gl, glu);
+        bw.update(gl, glu);
  
         // check for errors, at least once per frame
         int error = gl.glGetError();
@@ -131,6 +136,7 @@ public class BatsEverywhere implements GLEventListener
          renderer.canvas.addKeyListener(renderer.playerMotion);
          renderer.canvas.addMouseMotionListener(renderer.playerMotion);
          renderer.canvas.addKeyListener(renderer.projectileWeapons);
+         renderer.canvas.addKeyListener(renderer.bw);	// add key listener to bludgeoning weapons
          renderer.canvas.requestFocus(); // so key clicks come here
          FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
          animator.start();

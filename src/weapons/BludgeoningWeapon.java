@@ -5,7 +5,6 @@ import game.PlayerMotionWatcher;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Iterator;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
@@ -17,9 +16,29 @@ public class BludgeoningWeapon implements KeyListener, PlayerMotionWatcher{
 	
 	private float x, y, z;
 	private GLUquadric quadric;
+	private int frames; // the counter to determine how long the weapon is being swung for
+	private float reach = 5; 
+	private GL2 gl;
+	private GLU glu;
+	private boolean hit;
 	
-	public BludgeoningWeapon(GLU glu){
+	public BludgeoningWeapon(){
+//		this.gl = gl;
+//		this.glu = glu;
+		hit = false;
+				
 		PlayerMotion.registerPlayerWatcher(this);
+		
+//		quadric = glu.gluNewQuadric();
+//        glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
+//        glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
+//        glu.gluQuadricTexture  (quadric, false);
+	}
+	
+	// fix this with keylistener stuff...
+	public void init(GL2 gl, GLU glu){
+		this.gl = gl;
+		this.glu = glu;
 		
 		quadric = glu.gluNewQuadric();
         glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
@@ -28,39 +47,31 @@ public class BludgeoningWeapon implements KeyListener, PlayerMotionWatcher{
 	}
 	
 	public void update(GL2 gl, GLU glu){
-		
+		if (hit){
+		gl.glColor3f(1f,0f,.25f);
 		gl.glPushMatrix();
-        	gl.glRotatef(-90f, 1f, 0f, 0f); // stand upright (Y)
-        	gl.glTranslatef()
-        	glu.gluCylinder(quadric, 1., .5, 5., 10, 1);
-//        glu.gluDisk(quadric, 1.5, 2., 10, 5); // also to be flipped
+        	gl.glTranslatef(x+10, y, z);
+        	glu.gluSphere(quadric, 1, 10, 10);
         gl.glPopMatrix();
-		
-//        //GO THROUGH BULLETS LIST
-//		for(Iterator<RainbowBall> it = bulletsList.iterator(); it.hasNext();){
-//			RainbowBall b = it.next();
-//			b.draw(gl, glu); //DRAW BULLETS
-//			b.updatePosition(); //UPDATE POSITION OF BULLETS
-//			if(b.getLifeSpan() == 0){it.remove();} else {b.updateLife();} //CHECK IF BULLET DONE	
-//		}
+		}
 	}
 	
-	public void hit(){
-		
-	}
-
 	@Override
 	public void playerMoved(float x, float y, float z, float angle) {
-		
+		this.x = x;
+		this.y = y;
+		this.z = z;
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {}
 
+	// this seems like a convoluted way to do things
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_SPACE){
-//			shootBullet();
+		if(e.getKeyCode() == KeyEvent.VK_O){	// add functionality later to toggle between weapons or to have a "current weapon"
+			System.out.println("!!!!");
+			hit = true;
 		}
 	}
 
