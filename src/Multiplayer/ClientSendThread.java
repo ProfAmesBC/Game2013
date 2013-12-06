@@ -13,7 +13,7 @@ import game.*;
 public class ClientSendThread implements PlayerMotionWatcher{
 	private Player client; 
 	public static final int PORT = 9189;  
-	public static final String HOST = "136.167.178.58";  
+	public static final String HOST = "localhost";  
 	private DatagramSocket socket;
 	private byte[] buf;
 
