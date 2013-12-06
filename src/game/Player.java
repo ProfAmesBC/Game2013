@@ -20,7 +20,9 @@ public class Player {
 	private float size; 
 	protected static GLUquadric quadric = null; 
 	private PlayerMotion playerMotion; 
-	
+	private int waeyo = 0;
+	private boolean eotteohke;
+
 	/*****************************
 	 * 
 	 * Constructor for the actual
@@ -47,38 +49,23 @@ public class Player {
 		this.eyeY = 5;
 		this.eyeZ = 0;
 		this.theta = playerMotion.getTheta();
-		
+
 		//random color
 		r = (float)Math.random(); //I would like to make these contingent on a hash of the player's username - Tyler
 		g = (float)Math.random(); 
 		b = (float)Math.random(); 
-	
+
 		//radius of the sphere 
-		size = (float)2.8; 
+		//size = (float)2.8;
+		eotteohke = true;
+
 	}
-	
+
 	/*****************************
 	 * 
 	 * Construct for the other players
 	 * 
 	 *****************************/
-	/*public Player(GLU glu, Integer nid) {
-		id = nid;
-		
-		this.eyeX = 0;
-		this.eyeY = 5;
-		this.eyeZ = 0;
-		//this.theta = playerMotion.getTheta();
-		
-		//random color
-		r = (float)Math.random(); //I would like to make these contingent on a hash of the player's username - Tyler
-		g = (float)Math.random(); 
-		b = (float)Math.random(); 
-	
-		//radius of the sphere 
-		size = (float)2.8; 
-		
-	}*/ 
 
 	public float getX(){
 		return playerMotion.getEyeX(); 
@@ -105,7 +92,7 @@ public class Player {
 	public void setZ(float nz){
 		eyeZ = nz;
 	}
-	
+
 	public float getAngle() {
 		return theta; 
 	}
@@ -113,28 +100,49 @@ public class Player {
 		theta = newTheta; 
 	}
 	
-
 	public void playerBody(GL2 gl, GLU glu, GLUquadric quadric, float x, float y, float z, float r, float g, float b, double size){
 		gl.glPushMatrix();
-			gl.glTranslatef(x, y, z); // start position 
-			gl.glColor3f(r, g, b); //color
-			glu.gluSphere(quadric, size, 10, 10); //sphere for body 
+		gl.glTranslatef(x, y, z); // start position 
+		gl.glColor3f(r, g, b); //color
+
+		{
+			gl.glPushMatrix();
+			Avatar psy = new Avatar(gl,glu,x,y,z);
+
+			if (eotteohke) {gl.glScaled(1,1,-1);}
+			
+			gl.glTranslated(-10,0,0);
+			psy.draw(gl, glu);
+			gl.glPopMatrix();
+			waeyo++;
+			
+			if (waeyo > 10) {
+				waeyo = 0;
+				eotteohke = !eotteohke;
+			}
+		}
+
+
+		//glu.gluSphere(quadric, size, 10, 10); //sphere for body 
 		gl.glPopMatrix();
-		
-//		gl.glPushMatrix();
-//			gl.glTranslatef(0, 0, 10);
-//			gl.glRotatef((float)theta, 0, 1, 0); //angle manipulation
-//		gl.glPopMatrix(); 
+
+
+
+
+		//		gl.glPushMatrix();
+		//			gl.glTranslatef(0, 0, 10);
+		//			gl.glRotatef((float)theta, 0, 1, 0); //angle manipulation
+		//		gl.glPopMatrix(); 
 
 	}
-	
+
 	public void draw(GL2 gl, GLU glu) {
 		//retrieve coordinates from getters (PlayerMotion getters)
 		eyeX = getX(); 
 		eyeY = getY(); 
 		eyeZ = getZ();
+		theta = getTheta(); //get new Theta
 		
-		theta =getTheta();// getTheta(); //get new Theta
 		float sX = eyeX - (float)Math.cos(Math.toRadians(theta));
 		float floatY = eyeY;
 		float sY = (float)(floatY-2.5);
@@ -142,5 +150,7 @@ public class Player {
 		/*System.out.println("sX is: " + sX + ", \n sY is: " + sY + ". \n sZ is: " + sZ + ", and theta is: " + theta);*/
 
 		playerBody(gl, glu, quadric, sX, sY, sZ, r, g, b, size); 
+
+
 	}
 }

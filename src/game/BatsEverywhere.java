@@ -23,18 +23,35 @@ import com.jogamp.opengl.util.FPSAnimator;
 
 public class BatsEverywhere implements GLEventListener
 {
-	private JTextField statusLine = new JTextField(10); // for misc messages at bottom of window
-	private JTextArea controls = new JTextArea("Controls: \n\n", 20, 15);
-	private int framesDrawn=0;
-	private GLU glu = new GLU();
-	private Town town;
-	private int height, width;
-	private ProjectileWeapons projectileWeapons = new ProjectileWeapons();
-	private long runtime = 0;
-	private PlayerMotion playerMotion = new PlayerMotion();
-	private GLCanvas canvas = new GLCanvas();
-	private PlayerLogger logger = new PlayerLogger();
-	private Player player;
+//<<<<<<< HEAD
+//	private JTextField statusLine = new JTextField(10); // for misc messages at bottom of window
+//	private JTextArea controls = new JTextArea("Controls: \n\n", 20, 15);
+//	private int framesDrawn=0;
+//	private GLU glu = new GLU();
+//	private Town town;
+//	private int height, width;
+//	private ProjectileWeapons projectileWeapons = new ProjectileWeapons();
+//	private long runtime = 0;
+//	private PlayerMotion playerMotion = new PlayerMotion();
+//	private GLCanvas canvas = new GLCanvas();
+//	private PlayerLogger logger = new PlayerLogger();
+//	private Player player;
+//=======
+    private JTextField statusLine = new JTextField(10); // for misc messages at bottom of window
+    private JTextArea controls = new JTextArea("Controls: \n\n", 20, 15);
+    private int framesDrawn=0;
+    private GLU glu = new GLU();
+    private Town town;
+    private int height, width;
+    private ProjectileWeapons projectileWeapons = new ProjectileWeapons();
+    private long runtime = 0;
+    private PlayerMotion playerMotion = new PlayerMotion();
+    private GLCanvas canvas = new GLCanvas();
+    private PlayerLogger logger = new PlayerLogger();
+    private Player player;
+  //  private Avatar psy;
+    
+//>>>>>>> branch 'Multiplayer' of https://github.com/ProfAmesBC/Game2013.git
 
 	//For multiplayer
 	private static Map<Integer, Player> playerMap;
@@ -68,8 +85,11 @@ public class BatsEverywhere implements GLEventListener
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
 
+        //psy = new Avatar(gl,glu);
+   // }
 	public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
 		this.width = width;
 		this.height = height;
@@ -99,7 +119,7 @@ public class BatsEverywhere implements GLEventListener
 		town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
 
 		// draw player
-		player.draw(gl, glu); 
+		//player.draw(gl, glu); 
 		//   System.out.println("Trying to acquire");
 		projectileWeapons.update(gl, glu);
 
