@@ -14,7 +14,8 @@ import javax.media.opengl.glu.GLUquadric;
 // make a class that holds list of all projectiles and iter thru to update - called once from main game
 
 public class BludgeoningWeapon implements KeyListener, PlayerMotionWatcher{
-
+	
+	private float x, y, z;
 	private GLUquadric quadric;
 	
 	public BludgeoningWeapon(GLU glu){
@@ -50,7 +51,6 @@ public class BludgeoningWeapon implements KeyListener, PlayerMotionWatcher{
 
 	@Override
 	public void playerMoved(float x, float y, float z, float angle) {
-		// TODO Auto-generated method stub
 		
 	}
 

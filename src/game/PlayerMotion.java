@@ -45,9 +45,18 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     	this.height = height;
     }
     
+    // are you trying to use an observer design pattern here?
     public static void registerPlayerWatcher(PlayerMotionWatcher watcher) {
     	watchers.add(watcher);
     }
+    
+    // please don't damage the function of this method as my weapons code is relying on it.
+    // talk to me if you want to make changes -Fiona
+    
+    public void notifyObservers() {
+    	   for (PlayerMotionWatcher wd : watchers)
+    	      wd.playerMoved(eyeX, eyeY, eyeZ, theta);
+    	}
     
 	@Override
 	public void keyPressed(KeyEvent e) {
