@@ -132,6 +132,8 @@ public class BatsEverywhere implements GLEventListener
          renderer.controls.append("Q: turn left \n");
          renderer.controls.append("E: turn right \n");
          renderer.controls.append("Shift: sprint \n");
+         // shift appears to be bugged
+         // it was causing me to crash into walls
          renderer.controls.append("\n");
          renderer.controls.append("Space: fireball \n");
          renderer.controls.append("P: Use speed item \n");
