@@ -7,7 +7,7 @@ public abstract class Projectile{
 	private float projX, projY, projZ, projAngle;
 	private float speed = 5;
 	private float lifeSpan = 20;
-	private int red, green, blue, size;
+	private float red, green, blue, size;
 	
 	
 	public float getLifeSpan() {return lifeSpan;}
@@ -23,13 +23,14 @@ public abstract class Projectile{
 	//each weapon will shoot a bullet of different speed, color, size if desired
 	public void setSpeed(float speed) {this.speed = speed;}
 	public float getSpeed() {return speed;}
-	public void setRed(int red) {this.red = red;}
-	public int getRed() {return red;}
-	public void setGreen(int green) {this.green = green;}
-	public int getGreen() {return green;}
-	public void setBlue(int blue) {this.blue = blue;}
-	public int getBlue() {return blue;}
-	
+	public void setRed(float red) {this.red = red;}
+	public float getRed() {return red;}
+	public void setGreen(float green) {this.green = green;}
+	public float getGreen() {return green;}
+	public void setBlue(float blue) {this.blue = blue;}
+	public float getBlue() {return blue;}
+	public void setSize(float size) {this.size = size;}
+	public float getSize() {return size;}
 	
 	public abstract void draw(GL2 gl, GLU glu);
 	

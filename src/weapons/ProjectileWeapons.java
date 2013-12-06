@@ -32,6 +32,10 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher{
 	
 	public void shootBullet(){
 		RainbowBall bullet = new RainbowBall(x, y, z, angle); //CREATE NEW BULLET AT CURRENT PLAYER POSITION
+		
+		//if(another gun was picked up)
+		//DrawBullet generalBullet = new DrawBullet(x,y,z,angle, red, green, blue, size, speed);
+		
 		bulletsList.add(bullet); //ADD BULLET TO LIST OF BULLETS
 	}
 	
