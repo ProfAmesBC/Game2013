@@ -4,8 +4,9 @@ import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;import game.*;
 
 public class Cat extends Critter implements PlayerMotionWatcher{
 	private static final float BODY_LENGTH=1.8f,HEAD_HEIGHT=.56f,HEAD_DIST=BODY_LENGTH*.7f,
-			EYE_CENTER_DIST=.52f,EYE_HEIGHT=.35f,
-			WHISKER_COLOR=.82f,TOP_WHISKER_LENGTH=1f,TOP_WHISKER_HEIGHT=.5f,MID_WHISKER_LENGTH=1.25f;
+			EYE_CENTER_DIST=.52f,EYE_HEIGHT=.35f,WHISKER_COLOR=.82f,TOP_WHISKER_LENGTH=1f,TOP_WHISKER_HEIGHT=.5f,
+			MID_WHISKER_LENGTH=1.25f,TAIL_LENGTH=1.83f,TAIL_DIAM=.15f;
+	
 	private int furColor,timeAfterSteppedOn=0;
 	private float eyeGreen=0;
 	private boolean steppedOn=false;
@@ -28,12 +29,13 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 			
 			gl.glTranslatef(0,HEAD_HEIGHT,-HEAD_DIST);
 			drawHead(gl,glu);
-			// TODO gl.glTranslatef(0,-HEAD_HEIGHT,HEAD_DIST);
-
+			gl.glTranslatef(0,-.4f,HEAD_DIST+1.62f);
+			
+			gl.glEnable(GL2.GL_TEXTURE_2D);
+			drawTail(gl,glu);
 			// TODO draw legs
 			
-			// TODO draw tail
-			
+			gl.glDisable(GL2.GL_TEXTURE_2D);
 		gl.glPopMatrix();
 	}
 	
@@ -87,13 +89,17 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 			glu.gluCylinder(textureQuadric, .4, 0, .5, 10, 10);
 		gl.glPopMatrix();
 	}
-	protected void drawFeet(GL2 gl, GLU glu) {
+	protected void drawFeet(GL2 gl, GLU glu){
 		// TODO Auto-generated method stub
 		
 	}
-	protected void drawTail(GL2 gl, GLU glu) {
-		// TODO Auto-generated method stub
-		
+	protected void drawTail(GL2 gl, GLU glu){
+		gl.glPushMatrix();
+			gl.glRotatef(86,-1,0,0);
+			glu.gluCylinder(textureQuadric, TAIL_DIAM, TAIL_DIAM, TAIL_LENGTH, 10, 10);
+			gl.glTranslatef(0, 0, TAIL_LENGTH);
+			glu.gluSphere(textureQuadric,TAIL_DIAM,10,10);
+		gl.glPopMatrix();
 	}
 
 	public void playerMoved(float x, float y, float z, float angle){
