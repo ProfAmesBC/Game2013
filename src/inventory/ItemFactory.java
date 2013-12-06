@@ -1,11 +1,11 @@
 package inventory;
 
+import items.SpeedBox;
+
 import java.util.ArrayList;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
-
-import Usables.SpeedBox;
 
 public class ItemFactory {
 	private GL2 gl;

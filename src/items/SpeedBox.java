@@ -1,4 +1,4 @@
-package Usables;
+package items;
 
 import inventory.Bag;
 import inventory.Item;

@@ -1,4 +1,4 @@
-package powerups;
+package items;
 
 /*
 Class to represent 3D Points for use with OpenGL

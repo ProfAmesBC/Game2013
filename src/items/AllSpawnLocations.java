@@ -1,4 +1,4 @@
-package powerups;
+package items;
 
 import java.util.List;
 import java.util.ArrayList;

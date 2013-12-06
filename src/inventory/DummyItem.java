@@ -1,6 +1,6 @@
 package inventory;
 
-import Usables.SpeedBox;
+import items.SpeedBox;
 
 public class DummyItem {
 
