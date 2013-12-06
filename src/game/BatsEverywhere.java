@@ -28,7 +28,7 @@ public class BatsEverywhere implements GLEventListener
     private Town town;
     private int height, width;
     private ProjectileWeapons projectileWeapons = new ProjectileWeapons();
-    private BludgeoningWeapon bw = new BludgeoningWeapon();
+    private BludgeoningWeapon bw = null;
     private long runtime = 0;
     private PlayerMotion playerMotion = new PlayerMotion();
     private GLCanvas canvas = new GLCanvas();
@@ -47,7 +47,10 @@ public class BatsEverywhere implements GLEventListener
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
         town = new Town(gl, glu);
+        bw = new BludgeoningWeapon();
         bw.init(gl, glu);
+        canvas.addKeyListener(bw);	// add key listener to bludgeoning weapons
+
         
     }
     
@@ -136,7 +139,7 @@ public class BatsEverywhere implements GLEventListener
          renderer.canvas.addKeyListener(renderer.playerMotion);
          renderer.canvas.addMouseMotionListener(renderer.playerMotion);
          renderer.canvas.addKeyListener(renderer.projectileWeapons);
-         renderer.canvas.addKeyListener(renderer.bw);	// add key listener to bludgeoning weapons
+//         renderer.canvas.addKeyListener(renderer.bw);	// add key listener to bludgeoning weapons
          renderer.canvas.requestFocus(); // so key clicks come here
          FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
          animator.start();
