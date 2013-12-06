@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 public class ChatListenThread implements Runnable{
@@ -15,10 +16,15 @@ public class ChatListenThread implements Runnable{
 	private int ttl = 64; /* time to live */
 	private InetAddress group;
 	private Queue<String> msgs;
-	public JTextArea controls; 
-	public boolean listening = true; 
+	public JTextArea chat; 
+	public JTextField chatBox; 
+	public boolean listening = true;
+	public byte[] buf;
+	public String oldMsg; 
+	public int msgCount = 0; 
+	public String controlDefault; 
 
-	public ChatListenThread(JTextArea controls) throws Exception{
+	public ChatListenThread(JTextArea chat, JTextField chatBox) throws Exception{
 		group = InetAddress.getByName("224.3.4.5");
 		MCAST_PORT = 21000; 
 		/* instantiate a MulticastSocket */
@@ -26,7 +32,9 @@ public class ChatListenThread implements Runnable{
 		/* set the time to live */
 		socket.setTimeToLive(ttl);
 		msgs = new LinkedList<String>();
-		this.controls = controls; 	
+		this.chat = chat; 	
+		this.chatBox = chatBox; 
+		oldMsg = ""; 
 	}
 
 	public void joinGroup() throws Exception {
@@ -43,7 +51,7 @@ public class ChatListenThread implements Runnable{
 
 		// get their responses!
 		//byte[] buf is a byte array from the socket
-		byte[] buf = new byte[1000];
+		buf = new byte[1000];
 		DatagramPacket recv = new DatagramPacket(buf, buf.length);
 		socket.receive(recv);
 		socketString = new String(recv.getData(), 0, recv.getLength());
@@ -53,19 +61,24 @@ public class ChatListenThread implements Runnable{
 	public void run() {
 		try {
 			joinGroup();
-			
-				msgs.add(readFromSocket());
+			controlDefault = chat.getText();
+			while (listening){
+				String msgFromSocket = readFromSocket(); 
+				msgs.add(msgFromSocket);
+				oldMsg = msgFromSocket;
+				System.out.println("Received from multicast: "+msgFromSocket);
 				SwingUtilities.invokeLater(new Runnable() {
 					public void run(){
-						String msg = msgs.remove()+"\n"; 
-						try{
-						controls.replaceRange(msg, 150, 200); 
+						if(!msgs.isEmpty())
+							msgs.remove();
+						if(!msgs.isEmpty()){
+							String msg = msgs.remove()+"\n"; 
+							chat.append(msg);
 						}
-						catch(IllegalArgumentException e){
-							controls.append(msg); 
-						}
+						chatBox.setText("");
 					}
 				}); 
+			}
 		}
 		catch (Exception e) {
 			e.printStackTrace();

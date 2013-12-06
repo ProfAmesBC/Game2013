@@ -22,9 +22,9 @@ public class GameServer {
 		String outputLine = ""; 
 		
 		//System.out.println("Starting Chat Thread");
-		//MCastChatThread MCC = new MCastChatThread(); 
-		//Thread MCCT = new Thread(MCC); 
-		//MCCT.start(); 
+		MCastChatThread MCC = new MCastChatThread(); 
+		Thread MCCT = new Thread(MCC); 
+		MCCT.start(); 
 		
 		G.joinGroup();
 
@@ -67,21 +67,4 @@ public class GameServer {
 	public void sendToTerminal(String msg) throws Exception{
 		System.out.println("Multicast text: " + msg);
 	}
-
-	/*public void run() {
-		try {
-			joinGroup(); 
-			String msg = "FileName:"+fileName+" SeqNum:-1"+ " FileLine:"+fileLine; 
-			System.out.println(msg);
-			sendToSocket(msg); 
-			leaveGroup(); 
-
-		}
-		catch (IOException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}*/ 
-
 }

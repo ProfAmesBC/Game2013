@@ -29,15 +29,16 @@ public class MCastChatThread implements Runnable{
 	public void run() {
 		while (listening) {
 			try {
+				buf = new byte[256]; 
 				DatagramPacket inpacket = new DatagramPacket(buf, buf.length);
 				socket.receive(inpacket);
 				//block and wait for client datagram packet
+				newInputLine = ""; 
 				newInputLine = new String(inpacket.getData()); 
 				if(!inputLine.equals(newInputLine)){
-					inputLine = new String(inpacket.getData());
-					//System.out.println(inputLine);
-					sendToSocket(inputLine); 
-					inputLine = ""; 
+					inputLine = newInputLine; 
+					System.out.println(inputLine);
+					sendToSocket(inputLine);
 				}
 			} catch (IOException e) {
 				e.printStackTrace();

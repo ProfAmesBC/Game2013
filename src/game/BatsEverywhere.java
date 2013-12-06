@@ -15,6 +15,7 @@ import javax.media.opengl.GLProfile;
 import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -40,7 +41,7 @@ public class BatsEverywhere implements GLEventListener
 //	private Player player;
 //=======
     private JTextField statusLine = new JTextField(10); // for misc messages at bottom of window
-    private JTextField chatLine = new JTextField(10); // for chat at bottom of window
+    private JTextField chatLine = new JTextField("Please enter your name", 10); // for chat at bottom of window
     private JTextArea controls = new JTextArea("Controls: \n\n", 15, 15);
     private JTextArea chat = new JTextArea("Chat: \n\n", 15, 15);
     private int framesDrawn=0;
@@ -186,13 +187,16 @@ public class BatsEverywhere implements GLEventListener
 
 		frame.setLayout(new BorderLayout());
 		
-		frame.add(renderer.statusLine, BorderLayout.SOUTH);//testing chat
-		//frame.add(renderer.chatLine, BorderLayout.SOUTH);//testing chat 
-		//renderer.chatLine.addActionListener(handler);
-		frame.add(renderer.controls, BorderLayout.EAST);
-		//ChatListenThread chatListener = new ChatListenThread(renderer.controls);
-		//Thread CLT = new Thread(chatListener); 
-		//CLT.start(); 
+		//frame.add(renderer.statusLine, BorderLayout.SOUTH);//testing chat
+		frame.add(renderer.chatLine, BorderLayout.SOUTH);//testing chat 
+		renderer.chatLine.addActionListener(handler);
+		JPanel sliderPanel = new JPanel(new BorderLayout()); 
+		sliderPanel.add(renderer.controls, BorderLayout.NORTH);
+		sliderPanel.add(renderer.chat, BorderLayout.SOUTH);
+		frame.add(sliderPanel, BorderLayout.EAST); 
+		ChatListenThread chatListener = new ChatListenThread(renderer.chat, renderer.chatLine);
+		Thread CLT = new Thread(chatListener); 
+		CLT.start(); 
 		frame.add(renderer.canvas, BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack(); // make just big enough to hold objects inside

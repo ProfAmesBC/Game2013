@@ -18,6 +18,7 @@ public class Player {
 	private float g;
 	private float b; 
 	private float size; 
+	private String name; 
 	protected static GLUquadric quadric = null; 
 	private PlayerMotion playerMotion; 
 	private int waeyo = 0;
@@ -98,6 +99,17 @@ public class Player {
 	}
 	public void setAngle(float newTheta) {
 		theta = newTheta; 
+	}
+	
+	public String getName() {
+		if(name != null){
+			return name;
+		}
+		else return "Anon"; 
+	}
+	
+	public void setName(String name){
+		this.name = name; 
 	}
 	
 	public void playerBody(GL2 gl, GLU glu, GLUquadric quadric, float x, float y, float z, float r, float g, float b, double size){

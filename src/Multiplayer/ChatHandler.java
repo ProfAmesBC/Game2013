@@ -13,9 +13,10 @@ public class ChatHandler implements ActionListener{
 	private final int MCAST_PORT = 21000;
 	private int ttl = 64; /* time to live */
 	private InetAddress group = InetAddress.getByName("224.3.4.5");
+	private int count = 0; 
 
 	public String playerName; 
-	
+
 	public ChatHandler(String playerName) throws Exception{
 		this.playerName = playerName; 
 		/* instantiate a MulticastSocket */
@@ -24,17 +25,31 @@ public class ChatHandler implements ActionListener{
 		socket.setTimeToLive(ttl);
 		joinGroup();
 	}
-	
+
 	public void actionPerformed(ActionEvent e) {
-		String msg = playerName + e.getActionCommand();
-		try {
-			sendToSocket(msg);
-		} 
-		catch (Exception e1) {
-			e1.printStackTrace();
+		if (count == 0){
+			String baseName = e.getActionCommand(); 
+			playerName = baseName+": "; 
+			count++;
+			try {
+				sendToSocket(""+baseName+" has joined!");
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		}
+		else {
+			String msg = playerName + e.getActionCommand();
+			try {
+				sendToSocket(msg);
+				System.out.println("Sent to Multicast: "+msg); 
+				msg=""; 
+			} 
+			catch (Exception e1) {
+				e1.printStackTrace();
+			}
 		}
 	}
-	
+
 	public void joinGroup() throws Exception {
 		socket.joinGroup(group);
 	}
@@ -61,7 +76,7 @@ public class ChatHandler implements ActionListener{
 		socketString = new String(recv.getData(), 0, recv.getLength());
 		return 	socketString;	
 	}
-	
+
 	public void sendToTerminal(String msg) throws Exception{
 		System.out.println("Multicast text: " + msg);
 	}
