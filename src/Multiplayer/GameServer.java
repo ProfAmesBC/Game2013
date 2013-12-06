@@ -3,7 +3,7 @@ import java.net.*;
 
 public class GameServer { 
 	public static final int PORT = 9189;  
-	public static final String HOST = "localhost"; //will change 
+	public static final String HOST = "136.167.251.10"; //will change 
 
 	private MulticastSocket mcastSocket;
 	private int MCAST_PORT = 20000;
@@ -21,6 +21,10 @@ public class GameServer {
 		String inputLine; 
 		String outputLine = ""; 
 		
+		//System.out.println("Starting Chat Thread");
+		//MCastChatThread MCC = new MCastChatThread(); 
+		//Thread MCCT = new Thread(MCC); 
+		//MCCT.start(); 
 		
 		G.joinGroup();
 
