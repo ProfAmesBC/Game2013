@@ -16,7 +16,7 @@ public class BludgeoningWeapon implements KeyListener, PlayerMotionWatcher{
 	
 	private float x, y, z;
 	private GLUquadric quadric;
-	private int frames; // the counter to determine how long the weapon is being swung for
+	private int frames, lengthOfHit; // the counter to determine how long the weapon is being swung for
 	private float reach = 5; 
 	private GL2 gl;
 	private GLU glu;
@@ -39,6 +39,7 @@ public class BludgeoningWeapon implements KeyListener, PlayerMotionWatcher{
 	public void init(GL2 gl, GLU glu){
 		this.gl = gl;
 		this.glu = glu;
+		lengthOfHit = 60;	// 60 frames
 		
 		quadric = glu.gluNewQuadric();
         glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
@@ -48,11 +49,16 @@ public class BludgeoningWeapon implements KeyListener, PlayerMotionWatcher{
 	
 	public void update(GL2 gl, GLU glu){
 		if (hit){
-		gl.glColor3f(1f,0f,.25f);
-		gl.glPushMatrix();
-        	gl.glTranslatef(x+10, y, z);
-        	glu.gluSphere(quadric, 1, 10, 10);
-        gl.glPopMatrix();
+			
+			if (frames < lengthOfHit/2){
+				gl.glColor3f(1f,0f,.25f);
+				gl.glPushMatrix();
+					gl.glTranslatef(x+10, y, z);	// draw at person
+					glu.gluSphere(quadric, 1, 10, 10);
+				gl.glPopMatrix();
+				frames++;
+			}
+			else { hit = false; }
 		}
 	}
 	
