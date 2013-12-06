@@ -1,6 +1,7 @@
 package Multiplayer;
 
 import game.BatsEverywhere;
+import game.Foreigner;
 import game.Player;
 
 import java.io.IOException;
@@ -40,7 +41,8 @@ public class ReceiverClient implements Runnable {
 				Integer id = Integer.parseInt(tk.nextToken());
 				
 				if (BatsEverywhere.getPlayers().get(id) == null) {
-					BatsEverywhere.getPlayers().put(id, new Player(glu2, id));
+					System.out.println("Placing forgeiger");
+					BatsEverywhere.getPlayers().put(id, new Foreigner(glu2, id));
 				}
 				Player toUpdate = BatsEverywhere.getPlayers().get(id);
 				
@@ -48,7 +50,7 @@ public class ReceiverClient implements Runnable {
 				toUpdate.setY(Float.parseFloat(tk.nextToken()));
 				toUpdate.setZ(Float.parseFloat(tk.nextToken()));
 				
-				BatsEverywhere.getSem().release();
+			//	BatsEverywhere.getSem().release();
 			}	
 		} catch (IOException e) {
 			e.printStackTrace();

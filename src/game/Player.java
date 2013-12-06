@@ -9,16 +9,16 @@ import javax.media.opengl.glu.GLUquadric;
 import Multiplayer.*; 
 
 public class Player {
-	private Integer id; 
+	protected Integer id; 
 	private float eyeX;
 	private float eyeY;
 	private float eyeZ; 
-	private double theta;
+	private float theta;
 	private float r;
 	private float g;
 	private float b; 
 	private float size; 
-	private GLUquadric quadric; 
+	protected static GLUquadric quadric = null; 
 	private PlayerMotion playerMotion; 
 	
 	/*****************************
@@ -28,13 +28,16 @@ public class Player {
 	 * @throws SocketException 
 	 * 
 	 *****************************/
+	public Player() {};
 	public Player(GLU glu, PlayerMotion playerMotion) throws SocketException {
-		id = 1; 
+		id = (int)(Math.random()*100); 
 
-		quadric = glu.gluNewQuadric();
-		glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
-		glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
-		glu.gluQuadricTexture  (quadric, false);        // false, or true to generate texture coordinates
+		if(quadric == null){
+			quadric = glu.gluNewQuadric();
+			glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
+			glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
+			glu.gluQuadricTexture  (quadric, false);        // false, or true to generate texture coordinates
+		}
 		this.playerMotion = playerMotion; 
 		ClientSendThread cst = new ClientSendThread(this);
 		Thread t = new Thread(new ReceiverClient(this, glu)); 
@@ -59,18 +62,13 @@ public class Player {
 	 * Construct for the other players
 	 * 
 	 *****************************/
-	public Player(GLU glu, Integer nid) {
-		
+	/*public Player(GLU glu, Integer nid) {
 		id = nid;
-		quadric = glu.gluNewQuadric();
-		glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
-		glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
-		glu.gluQuadricTexture  (quadric, false);        // false, or true to generate texture coordinates
-	
+		
 		this.eyeX = 0;
 		this.eyeY = 5;
 		this.eyeZ = 0;
-		this.theta = playerMotion.getTheta();
+		//this.theta = playerMotion.getTheta();
 		
 		//random color
 		r = (float)Math.random(); //I would like to make these contingent on a hash of the player's username - Tyler
@@ -80,7 +78,7 @@ public class Player {
 		//radius of the sphere 
 		size = (float)2.8; 
 		
-	}
+	}*/ 
 
 	public float getX(){
 		return playerMotion.getEyeX(); 
@@ -108,6 +106,12 @@ public class Player {
 		eyeZ = nz;
 	}
 	
+	public float getAngle() {
+		return theta; 
+	}
+	public void setAngle(float newTheta) {
+		theta = newTheta; 
+	}
 	
 
 	public void playerBody(GL2 gl, GLU glu, GLUquadric quadric, float x, float y, float z, float r, float g, float b, double size){
@@ -130,7 +134,7 @@ public class Player {
 		eyeY = getY(); 
 		eyeZ = getZ();
 		
-		theta = getTheta(); //get new Theta
+		theta =getTheta();// getTheta(); //get new Theta
 		float sX = eyeX - (float)Math.cos(Math.toRadians(theta));
 		float floatY = eyeY;
 		float sY = (float)(floatY-2.5);

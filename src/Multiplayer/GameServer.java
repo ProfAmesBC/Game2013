@@ -1,7 +1,5 @@
 package Multiplayer;
 import java.net.*;
-import java.util.StringTokenizer;
-import java.io.*;
 
 public class GameServer { 
 	public static final int PORT = 9189;  
