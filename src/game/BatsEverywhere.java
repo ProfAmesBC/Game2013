@@ -61,7 +61,8 @@ public class BatsEverywhere implements GLEventListener
         
     }
     
-    public void minimap(){
+    public void minimap(GLAutoDrawable drawable, int width, int height){
+        GL2 gl = drawable.getGL().getGL2();    
     	//This method rotates the eye, takes a screen shot, and returns that image as a texture
     }
 
