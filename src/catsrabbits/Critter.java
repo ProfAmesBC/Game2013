@@ -1,9 +1,7 @@
-package catsrabbits;
 // Diana Cheung, CS333 Class of 2013
 // Superclass for cat and rabbit classes. May also be useful for Bat class
-
-import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;
-import javax.media.opengl.glu.GLUquadric;
+package catsrabbits;
+import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;import javax.media.opengl.glu.GLUquadric;
 import com.jogamp.opengl.util.texture.Texture;
 
 public abstract class Critter{
