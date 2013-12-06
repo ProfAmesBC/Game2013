@@ -48,7 +48,7 @@ public class BatsEverywhere implements GLEventListener
         
         town = new Town(gl, glu);
 
-        jukebox.play();
+        jukebox.playBackground();
     }
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
