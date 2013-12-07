@@ -64,24 +64,40 @@ public class BatsEverywhere implements GLEventListener
         
     }
     
-    public void minimap(GLAutoDrawable drawable){   	   	
+    public void screenshot(GLAutoDrawable drawable){
+    	System.out.println("EYEX: " + playerMotion.getEyeX() + " EYEY: " + playerMotion.getEyeY() + " EYEZ: " + playerMotion.getEyeZ());
+
+    	System.out.println("In screenshot method");
     	
-    	
-    	
-        GL2 gl = drawable.getGL().getGL2(); System.out.println("Frames drawn = 1");
-        gl.glFlush(); // ensure all drawing has finished
+        GL2 gl = drawable.getGL().getGL2();   
+    	gl.glFlush(); // ensure all drawing has finished
         //gl.glReadBuffer(GL2.GL_BACK);
-        boolean success = bufferUtil.readPixels(gl, false);
+    	boolean success = bufferUtil.readPixels(gl, false);
         if (success) {
             bufferUtil.write(new File("minimap.png"));
             System.out.println("Made Screenshot");
         } else
             System.out.println("Unable to grab screen shot");
-        glu.gluLookAt(-655, -5, 323,   // eye location
-                -655 + Math.cos(Math.toRadians(0)), -5, 323 + -Math.sin(Math.toRadians(0)),   // point to look at (near middle of pyramid)
-                 0, -1,  0);
+    }
+    
+    public void minimap(GLAutoDrawable drawable){   	   	
+        GL2 gl = drawable.getGL().getGL2();       
+        System.out.println("Frames drawn = 1");
         
-        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
+        gl.glRotatef((float)90, 0f, 0f, 1f);
+        
+    	playerMotion.setEyeX(-700);
+    	playerMotion.setEyeY(300);
+    	playerMotion.setEyeZ(300);
+    	
+    	  glu.gluLookAt(-655, -5, 323,   // eye location
+                  -655 + Math.cos(Math.toRadians(0)), -5, 323 + -Math.sin(Math.toRadians(0)),   // point to look at (near middle of pyramid)
+                   0, -1,  0);
+       
+    	  screenshot(drawable);
+      
+  	 // town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
+    
     }
 
     public void display(GLAutoDrawable drawable) {
@@ -92,7 +108,7 @@ public class BatsEverywhere implements GLEventListener
         playerMotion.setLookAt(gl, glu);
         
         
-       gl.glRotatef((float)90, 0f, 0f, 1f);
+        gl.glRotatef((float)90, 0f, 0f, 1f);
         
         /// NEED TO FINISH VIEWPORT
         //
@@ -136,7 +152,7 @@ public class BatsEverywhere implements GLEventListener
 
          JFrame frame = new JFrame("Too Many Bats");
          GLCanvas canvas = new GLCanvas();
-         canvas.setPreferredSize(new Dimension(512,512));
+         canvas.setPreferredSize(new Dimension(500,500));
 
          BatsEverywhere renderer = new BatsEverywhere();
          canvas.addGLEventListener(renderer);
