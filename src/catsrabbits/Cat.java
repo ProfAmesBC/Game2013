@@ -98,7 +98,7 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 			gl.glRotatef(86,-1,0,0);
 			glu.gluCylinder(textureQuadric, TAIL_DIAM, TAIL_DIAM, TAIL_LENGTH, 10, 10);
 			gl.glTranslatef(0, 0, TAIL_LENGTH);
-			glu.gluSphere(textureQuadric,TAIL_DIAM,10,10);
+			drawSphere(textureQuadric,TAIL_DIAM,glu);
 		gl.glPopMatrix();
 	}
 
