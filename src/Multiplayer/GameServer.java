@@ -3,7 +3,7 @@ import java.net.*;
 
 public class GameServer { 
 	public static final int PORT = 9189;  
-	public static final String HOST = "localhost"; //will change 
+	//public static final String HOST = "localhost"; //will change 
 
 	private MulticastSocket mcastSocket;
 	private int MCAST_PORT = 20000;
