@@ -3,8 +3,8 @@ import java.net.*;
 
 public class GameServer { 
 	public static final int PORT = 9189;  
-	//public static final String HOST = "localhost"; //will change 
 
+	public static final String HOST = "136.167.251.10"; //will change 
 	private MulticastSocket mcastSocket;
 	private int MCAST_PORT = 20000;
 	private InetAddress group; 
@@ -21,6 +21,10 @@ public class GameServer {
 		String inputLine; 
 		String outputLine = ""; 
 		
+		//System.out.println("Starting Chat Thread");
+		MCastChatThread MCC = new MCastChatThread(); 
+		Thread MCCT = new Thread(MCC); 
+		MCCT.start(); 
 		
 		G.joinGroup();
 
@@ -63,21 +67,4 @@ public class GameServer {
 	public void sendToTerminal(String msg) throws Exception{
 		System.out.println("Multicast text: " + msg);
 	}
-
-	/*public void run() {
-		try {
-			joinGroup(); 
-			String msg = "FileName:"+fileName+" SeqNum:-1"+ " FileLine:"+fileLine; 
-			System.out.println(msg);
-			sendToSocket(msg); 
-			leaveGroup(); 
-
-		}
-		catch (IOException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}*/ 
-
 }

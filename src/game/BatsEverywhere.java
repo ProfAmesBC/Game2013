@@ -7,6 +7,7 @@ import java.net.SocketException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Semaphore;
+
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.GLEventListener;
@@ -14,8 +15,10 @@ import javax.media.opengl.GLProfile;
 import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
 import Multiplayer.*;
 import weapons.ProjectileWeapons;
 
@@ -38,7 +41,9 @@ public class BatsEverywhere implements GLEventListener
 //	private Player player;
 //=======
     private JTextField statusLine = new JTextField(10); // for misc messages at bottom of window
-    private JTextArea controls = new JTextArea("Controls: \n\n", 20, 15);
+    private JTextField chatLine = new JTextField("Please enter your name", 10); // for chat at bottom of window
+    private JTextArea controls = new JTextArea("Controls: \n\n", 15, 15);
+    private JTextArea chat = new JTextArea("Chat: \n\n", 15, 15);
     private int framesDrawn=0;
     private GLU glu = new GLU();
     private Town town;
@@ -70,6 +75,7 @@ public class BatsEverywhere implements GLEventListener
 		//drawable.setGL(new TraceGL2(drawable.getGL().getGL2(), System.out)); // to trace every call.  Less useful.
 		GL2 gl = drawable.getGL().getGL2();
 		statusLine.setEditable(false);
+		chatLine.setEditable(true); //testing chat 
 		gl.setSwapInterval(1); // for animation synchronized to refresh rate
 		gl.glClearColor(.7f,.7f,1f,0f); // background
 		gl.glTexEnvf(GL2.GL_TEXTURE_ENV, GL2.GL_TEXTURE_ENV_MODE, GL2.GL_REPLACE); // or GL_MODULATE
@@ -149,10 +155,12 @@ public class BatsEverywhere implements GLEventListener
 
 	public void dispose(GLAutoDrawable drawable) { /* not needed */ }
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {//added throws excpetion for ChatHandler class - Tyler L
 		GLProfile.initSingleton();
 		System.setProperty("sun.awt.noerasebackground", "true"); // sometimes necessary to avoid erasing over the finished window
 
+		ChatHandler handler = new ChatHandler("Anon: ");
+		
 		JFrame frame = new JFrame("Too Many Bats");
 
 		GLCanvas canvas = new GLCanvas();
@@ -178,8 +186,17 @@ public class BatsEverywhere implements GLEventListener
 		renderer.controls.append("M: toggle mouse \n");
 
 		frame.setLayout(new BorderLayout());
-		frame.add(renderer.statusLine, BorderLayout.SOUTH);
-		frame.add(renderer.controls, BorderLayout.EAST);
+		
+		//frame.add(renderer.statusLine, BorderLayout.SOUTH);//testing chat
+		frame.add(renderer.chatLine, BorderLayout.SOUTH);//testing chat 
+		renderer.chatLine.addActionListener(handler);
+		JPanel sliderPanel = new JPanel(new BorderLayout()); 
+		sliderPanel.add(renderer.controls, BorderLayout.NORTH);
+		sliderPanel.add(renderer.chat, BorderLayout.SOUTH);
+		frame.add(sliderPanel, BorderLayout.EAST); 
+		ChatListenThread chatListener = new ChatListenThread(renderer.chat, renderer.chatLine);
+		Thread CLT = new Thread(chatListener); 
+		CLT.start(); 
 		frame.add(renderer.canvas, BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack(); // make just big enough to hold objects inside
@@ -188,7 +205,7 @@ public class BatsEverywhere implements GLEventListener
 		renderer.canvas.addMouseMotionListener(renderer.playerMotion);
 		renderer.canvas.addKeyListener(renderer.projectileWeapons);
 		renderer.canvas.requestFocus(); // so key clicks come here
-		FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
+		FPSAnimator animator = new FPSAnimator(renderer.canvas, 60);
 		animator.start();
 	}
 
