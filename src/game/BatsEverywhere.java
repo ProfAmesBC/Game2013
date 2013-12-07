@@ -66,29 +66,35 @@ public class BatsEverywhere implements GLEventListener
     	
     	
         GL2 gl = drawable.getGL().getGL2(); System.out.println("Frames drawn = 1");
+        
         gl.glFlush(); // ensure all drawing has finished
         //gl.glReadBuffer(GL2.GL_BACK);
+        
+        playerMotion.setEyeX(-700);
+        playerMotion.setEyeY(300);
+        playerMotion.setEyeZ(300);
+    
+        
+
         boolean success = bufferUtil.readPixels(gl, false);
         if (success) {
             bufferUtil.write(new File("minimap.png"));
             System.out.println("Made Screenshot");
         } else
             System.out.println("Unable to grab screen shot");
-        
-        playerMotion.setEyeX(-700);
-        playerMotion.setEyeY(300);
-        playerMotion.setEyeZ(300);
-  
+
         
         glu.gluLookAt(-655, -5, 323,   // eye location
                 -655 + Math.cos(Math.toRadians(0)), -5, 323 + -Math.sin(Math.toRadians(0)),   // point to look at (near middle of pyramid)
                  0, -1,  0);
+
+       town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
         
-        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
+     //   playerMotion.setEyeX(-5);
+     //   playerMotion.setEyeY(5);
+     //   playerMotion.setEyeZ(50); 
         
-    //    playerMotion.setEyeX(-5);
-    //    playerMotion.setEyeY(5);
-    //    playerMotion.setEyeZ(50); 
+
     }
 
     public void display(GLAutoDrawable drawable) {
