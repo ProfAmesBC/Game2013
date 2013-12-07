@@ -61,9 +61,18 @@ public class BatsEverywhere implements GLEventListener
         
     }
     
-    public void minimap(GLAutoDrawable drawable, int width, int height){
-        GL2 gl = drawable.getGL().getGL2();    
-    	//This method rotates the eye, takes a screen shot, and returns that image as a texture
+    public void minimap(GLAutoDrawable drawable){
+        GL2 gl = drawable.getGL().getGL2(); 
+        
+        System.out.println("Frames drawn = 1");
+        gl.glFlush(); // ensure all drawing has finished
+        //gl.glReadBuffer(GL2.GL_BACK);
+        boolean success = bufferUtil.readPixels(gl, false);
+        if (success) {
+            bufferUtil.write(new File("minimap.png"));
+            System.out.println("Made Screenshot");
+        } else
+            System.out.println("Unable to grab screen shot");
     }
 
     public void display(GLAutoDrawable drawable) {
@@ -75,30 +84,19 @@ public class BatsEverywhere implements GLEventListener
         
         /// NEED TO FINISH VIEWPORT
         //
-        gl.glViewport(windowWidth/2, windowHeight/2, windowWidth/2, windowHeight/2);
-        
+        //gl.glViewport(windowWidth/2, windowHeight/2, windowWidth/2, windowHeight/2);
                 
         // draw town
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
         projectileWeapons.update(gl, glu);
         // Draw sphere at the point you're looking at
         //gl.glLineWidth(1);
-        //double[] location = ReadZBuffer.getOGLPos(gl, glu, 250, 250);	
+        //double[] location = ReadZBuffer.getOGLPos(gl, glu, 250, 250);
         
-        // save the current (finished) buffer to a file
+        
         if (++framesDrawn == 1) {
-        	System.out.println("Frames drawn = 1");
-            gl.glFlush(); // ensure all drawing has finished
-            //gl.glReadBuffer(GL2.GL_BACK);
-            boolean success = bufferUtil.readPixels(gl, false);
-            if (success) {
-                bufferUtil.write(new File("minimap.png"));
-                System.out.println("Made Screenshot");
-            } else
-                System.out.println("Unable to grab screen shot");
-        }
-        statusLine.setText("Frames drawn: "  +  framesDrawn);
-        
+        	minimap(drawable);
+        }       
         
         // check for errors, at least once per frame
         int error = gl.glGetError();
