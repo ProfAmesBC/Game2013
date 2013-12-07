@@ -61,7 +61,7 @@ public class BatsEverywhere implements GLEventListener
         
     }
     
-    public void minimap(GLAutoDrawable drawable){
+    public void minimap(GLAutoDrawable drawable){   	   	
     	
     	
     	
@@ -83,6 +83,9 @@ public class BatsEverywhere implements GLEventListener
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
 
         playerMotion.setLookAt(gl, glu);
+        
+        
+       gl.glRotatef((float)90, 0f, 0f, 1f);
         
         /// NEED TO FINISH VIEWPORT
         //

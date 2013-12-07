@@ -15,7 +15,7 @@ public class PlayerMotion implements KeyListener {
     private static List<PlayerMotionWatcher> watchers = new LinkedList<PlayerMotionWatcher>();
     
     public PlayerMotion() {
-        eyeX = -5; eyeY = 5; eyeZ = 50;
+        eyeX = -655; eyeY = 5; eyeZ = 323;
         theta = 0;
     }
 
