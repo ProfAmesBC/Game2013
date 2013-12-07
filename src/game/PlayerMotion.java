@@ -14,12 +14,14 @@ import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
 public class PlayerMotion implements KeyListener, MouseMotionListener {
+	private static final float step1=.75f,step2=step1*3f;
+	
     private float eyeX, eyeY, eyeZ;
     private float dx, dz;
     private int width, height, xLoc, yLoc;
 	private float theta, dtheta;
 	private float gamma, dgamma;
-    private float step = .75f;
+    private float step = step1;
     private boolean mouseMovement = false;
     private boolean wdown, adown, sdown, ddown, qdown, edown;
     private static List<PlayerMotionWatcher> watchers = new LinkedList<PlayerMotionWatcher>();
@@ -71,7 +73,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
             edown = true;
             break;
         case KeyEvent.VK_SHIFT:
-        	step *= 3;
+        	step = step2;
         	break;
         case KeyEvent.VK_M:
         	mouseMovement = !mouseMovement;
@@ -101,7 +103,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
             edown = false;
             break;
         case KeyEvent.VK_SHIFT:
-        	step /= 3;
+        	step = step1;
         	break;
 	    }
 	}
