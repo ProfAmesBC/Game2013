@@ -31,6 +31,18 @@ public class PlayerMotion implements KeyListener {
     	return eyeZ;
     }
     
+    public void setEyeX(float x) {
+    	eyeX=x;
+    }
+    
+    public void setEyeY(float y) {
+    	eyeY=y;
+    }
+    
+    public void setEyeZ(float z) {
+    	eyeZ=z;
+    }
+    
     public static void registerPlayerWatcher(PlayerMotionWatcher watcher) {
     	watchers.add(watcher);
     }
