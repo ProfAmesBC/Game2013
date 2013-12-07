@@ -105,7 +105,7 @@ public abstract class Critter{
 				z+=dz;
 			}else{	// reached out of bounds
 				tAngle=(float)(360f*Math.random());	// pick random angle to turn
-				angleRate=(tAngle-angle)/60f;	// turn in 1 second
+				angleRate=(tAngle-angle)/30f;	// turn in .5 second
 			}
 		}else angle+=angleRate;
 		
