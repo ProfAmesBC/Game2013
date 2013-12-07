@@ -1,12 +1,14 @@
 // Diana Cheung, CS333 Class of 2013
 package catsrabbits;
-import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;import game.*;
+import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;
+
+import game.*;
 
 public class Cat extends Critter implements PlayerMotionWatcher{
 	private static final float BODY_LENGTH=1.8f,HEAD_HEIGHT=.56f,HEAD_DIST=BODY_LENGTH*.7f,
 			EYE_CENTER_DIST=.52f,EYE_HEIGHT=.35f,WHISKER_COLOR=.82f,TAIL_LENGTH=1.83f,TAIL_DIAM=.15f;
 	
-	private int furColor,timeAfterSteppedOn=0;
+	private int furColor;
 	private float eyeGreen=0;
 	private boolean steppedOn=false;
 	
@@ -96,17 +98,20 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 
 	public void playerMoved(float x, float y, float z, float angle){
 		float dist=(float)Math.sqrt(Math.pow(x-this.x, 2)+Math.pow(z-this.z, 2));
-		if(dist<BODY_LENGTH){	// stepped on cat
-			if(steppedOn)
-				if(timeAfterSteppedOn==180){
+		if(dist<BODY_LENGTH*3f&&!steppedOn){	// stepped on cat
+			steppedOn=true;
+			System.out.println("Stepped on a cat!");
+			// TODO meow, damage player
+			
+			new Thread(new Runnable(){
+				public void run(){
+					try{
+						Thread.sleep(1000);
+					}catch(InterruptedException e){};
+					System.out.println("Cat recovered");
 					steppedOn=false;
-					timeAfterSteppedOn=0;
-				}else timeAfterSteppedOn++;
-			else{
-				steppedOn=true;
-				// TODO meow, damage player
-				
-			}
+				}
+			}).start();
 		}
 	}
 }
