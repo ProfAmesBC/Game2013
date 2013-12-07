@@ -7,12 +7,16 @@ import com.jogamp.opengl.util.texture.Texture;
 public abstract class Critter{
 	public static final String FUR_DIRECTORY="cheungcatrabbitfurs";
 	
-	protected float x,y,z,angle,speed,t=0,tRate;
+	protected float x,y,z,angle,tAngle,angleRate=0,speed,t=0,tRate;
 	protected GLUquadric textureQuadric,quadric;
 	protected Texture texture;
 	
 	protected Critter(float x,float y,float z,float a,float s,float tR, GL2 gl, GLU glu){
-		this.x=x;this.y=y;this.z=z;angle=a;speed=s;tRate=tR;
+		this.x=x;this.y=y;this.z=z;
+		a=a%360;
+		if(a<0)a+=360;
+		tAngle=angle=a;
+		speed=s;tRate=tR;
 		
 		textureQuadric = glu.gluNewQuadric();
         glu.gluQuadricDrawStyle(textureQuadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
@@ -45,29 +49,43 @@ public abstract class Critter{
 	protected void drawTexturedUnitSphere(GLU glu){drawSphere(textureQuadric,1,glu);}
 	protected abstract void drawBody(GL2 gl,GLU glu);
 	protected abstract void drawHead(GL2 gl,GLU glu);
-	protected void drawOneEye(GLU glu,float size){drawSphere(quadric,size,glu);}
-	protected void drawEyes(GL2 gl,GLU glu,float xDist,float size){
+	protected void drawOneEye(GL2 gl,GLU glu,float size,float xDist){
 		gl.glPushMatrix();
 			gl.glTranslatef(xDist, 0, 0);
-			drawOneEye(glu,size);
-			gl.glTranslatef(-2*xDist, 0, 0);
-			drawOneEye(glu,size);
+			drawSphere(quadric,size,glu);
+		gl.glPopMatrix();
+	}
+	protected void drawEyes(GL2 gl,GLU glu,float xDist,float size){
+		gl.glPushMatrix();
+			drawOneEye(gl,glu,size,xDist);
+			gl.glScalef(-1,1,1);
+			drawOneEye(gl,glu,size,xDist);
 		gl.glPopMatrix();
 	}
 	protected abstract void drawNose(GL2 gl,GLU glu);
 	protected abstract void drawOneEar(GL2 gl,GLU glu);
 	protected void drawEars(GL2 gl,GLU glu){
-		drawOneEar(gl,glu);
-		gl.glScalef(-1, 1, 1);
-		drawOneEar(gl,glu);
+		gl.glPushMatrix();
+			drawOneEar(gl,glu);
+			gl.glScalef(-1, 1, 1);
+			drawOneEar(gl,glu);
+		gl.glPopMatrix();
 	}
 	protected abstract void drawTail(GL2 gl,GLU glu);
 	protected abstract void drawFeet(GL2 gl,GLU glu);
 	
 	protected void move(){
-		double radians=Math.toRadians(angle);
-		x-=Math.cos(radians)*speed;
-		z+=Math.sin(radians)*speed;
+		if(Math.abs(tAngle-angle)<.01){
+			float radians=(float)Math.toRadians(angle),
+						dx=(float)-Math.cos(radians)*speed,dz=(float)Math.sin(radians)*speed;
+			if(x+dx>0 && z+dz>0 && x+dx<600 && z+dz<600 && (x+dx<300 || z+dz<500)){
+				x+=dx;
+				z+=dz;
+			}else{	// reached out of bounds
+				tAngle=(float)(360f*Math.random());	// pick random angle to turn
+				angleRate=(tAngle-angle)/60f;	// turn in 1 second
+			}
+		}else angle+=angleRate;
 		
 		if(t>=1f)t=0;
 		else t+=tRate;

@@ -8,6 +8,7 @@ import inventory.PlayerAttributes;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.io.File;
+import java.util.*;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
@@ -21,6 +22,7 @@ import javax.swing.JTextField;
 
 import sketchupModels.Avatar;
 import weapons.ProjectileWeapons;
+import catsrabbits.*;
 
 import com.jogamp.opengl.util.FPSAnimator;
 
@@ -42,6 +44,7 @@ public class BatsEverywhere implements GLEventListener
 	private StatusText writer;
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
+    private List<CritterGroup>critters=new ArrayList<CritterGroup>();
     
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
@@ -59,7 +62,8 @@ public class BatsEverywhere implements GLEventListener
         itemCreator.testCreate();
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
-
+        /*critters.add(new CatGroup(gl,glu));
+        critters.add(new RabbitGroup(gl,glu));*/
     }
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -94,6 +98,7 @@ public class BatsEverywhere implements GLEventListener
         itemCreator.update();
         writer.draw(bag.toString(), 380, 470);
         projectileWeapons.update(gl, glu);
+        //for(CritterGroup critterGroup:critters)critterGroup.draw(gl, glu);
  
         // check for errors, at least once per frame
         int error = gl.glGetError();
