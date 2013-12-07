@@ -1,8 +1,11 @@
 package zombies;
 
-public abstract class Zombie {
+import javax.media.opengl.GL;
+import javax.media.opengl.glu.GLU;
+
+public abstract interface Zombie {
 	
-	void draw(Gl gl,GLU glu);
+	void draw(GL gl,GLU glu);
 	void move();
 	
 }
