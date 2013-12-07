@@ -74,13 +74,21 @@ public class BatsEverywhere implements GLEventListener
             System.out.println("Made Screenshot");
         } else
             System.out.println("Unable to grab screen shot");
-        glu.gluLookAt(-700, -300, 300,   // eye location
+        
+        playerMotion.setEyeX(-700);
+        playerMotion.setEyeY(300);
+        playerMotion.setEyeZ(300);
+  
+        
+        glu.gluLookAt(-655, -5, 323,   // eye location
                 -655 + Math.cos(Math.toRadians(0)), -5, 323 + -Math.sin(Math.toRadians(0)),   // point to look at (near middle of pyramid)
                  0, -1,  0);
         
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
         
-        
+    //    playerMotion.setEyeX(-5);
+    //    playerMotion.setEyeY(5);
+    //    playerMotion.setEyeZ(50); 
     }
 
     public void display(GLAutoDrawable drawable) {
