@@ -62,8 +62,8 @@ public class BatsEverywhere implements GLEventListener
         itemCreator.testCreate();
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
-        /*critters.add(new CatGroup(gl,glu));
-        critters.add(new RabbitGroup(gl,glu));*/
+        critters.add(new CatGroup(gl,glu));
+        critters.add(new RabbitGroup(gl,glu));
     }
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -98,7 +98,7 @@ public class BatsEverywhere implements GLEventListener
         itemCreator.update();
         writer.draw(bag.toString(), 380, 470);
         projectileWeapons.update(gl, glu);
-        //for(CritterGroup critterGroup:critters)critterGroup.draw(gl, glu);
+        for(CritterGroup critterGroup:critters)critterGroup.draw(gl, glu);
  
         // check for errors, at least once per frame
         int error = gl.glGetError();
