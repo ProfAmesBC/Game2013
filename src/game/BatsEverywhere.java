@@ -2,7 +2,7 @@ package game;
 
 
 
-import TextRenderer;
+//import TextRenderer;
 import inventory.Bag;
 import inventory.ItemFactory;
 import inventory.PlayerActions;
@@ -57,7 +57,7 @@ public class BatsEverywhere implements GLEventListener
 
     private int windowWidth, windowHeight;
     private GLReadBufferUtil bufferUtil = new GLReadBufferUtil(false, false); //For capturing screen shots
-    renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, 48));
+    //renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, 48));
 
     private List<CritterGroup>critters=new ArrayList<CritterGroup>();
     
@@ -210,6 +210,7 @@ public class BatsEverywhere implements GLEventListener
             runtime = 0;
         }
     // to make textfields for Weapons and player score
+        /*
         renderer.beginRendering(drawable.getWidth(), drawable.getHeight());
         // optionally set the text color
         renderer.setColor(0.2f, 0.2f, 1f, 0.2f); // Note use of alpha
@@ -220,6 +221,7 @@ public class BatsEverywhere implements GLEventListener
         int error1 = gl.glGetError();
         if (error1 != GL2.GL_NO_ERROR)
         	System.out.println("OpenGL Error: " + glu.gluErrorString(error1));
+        	*/
     }
     
 
@@ -258,7 +260,7 @@ public class BatsEverywhere implements GLEventListener
          frame.add(renderer.statusLine, BorderLayout.SOUTH);
          frame.add(renderer.controls, BorderLayout.EAST);
          frame.add(renderer.canvas, BorderLayout.CENTER);
-         frame.add(renderer.weapons,BorderLayout.WEST);
+         //frame.add(renderer.weapons,BorderLayout.WEST);
          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          frame.pack(); // make just big enough to hold objects inside
          frame.setVisible(true);
