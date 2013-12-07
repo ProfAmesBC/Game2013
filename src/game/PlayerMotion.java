@@ -89,7 +89,7 @@ public class PlayerMotion implements KeyListener {
 	public void setLookAt(GL2 gl, GLU glu) {
         gl.glLoadIdentity();
 //      System.out.println(eyeX + "" + eyeY + "" + eyeZ);
-       // update();
+        update();
         glu.gluLookAt(eyeX, eyeY, eyeZ,   // eye location
                 eyeX + Math.cos(Math.toRadians(theta)), eyeY, eyeZ + -Math.sin(Math.toRadians(theta)),   // point to look at (near middle of pyramid)
                  0, 1,  0); // the "up" direction

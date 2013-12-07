@@ -62,9 +62,10 @@ public class BatsEverywhere implements GLEventListener
     }
     
     public void minimap(GLAutoDrawable drawable){
-        GL2 gl = drawable.getGL().getGL2(); 
-        
-        System.out.println("Frames drawn = 1");
+    	
+    	
+    	
+        GL2 gl = drawable.getGL().getGL2(); System.out.println("Frames drawn = 1");
         gl.glFlush(); // ensure all drawing has finished
         //gl.glReadBuffer(GL2.GL_BACK);
         boolean success = bufferUtil.readPixels(gl, false);
@@ -73,6 +74,7 @@ public class BatsEverywhere implements GLEventListener
             System.out.println("Made Screenshot");
         } else
             System.out.println("Unable to grab screen shot");
+        
     }
 
     public void display(GLAutoDrawable drawable) {
@@ -95,7 +97,7 @@ public class BatsEverywhere implements GLEventListener
         
         
         if (++framesDrawn == 1) {
-        	minimap(drawable);
+        	 minimap(drawable);
         }       
         
         // check for errors, at least once per frame
