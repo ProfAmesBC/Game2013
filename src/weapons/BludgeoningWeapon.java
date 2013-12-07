@@ -14,13 +14,14 @@ import javax.media.opengl.glu.GLUquadric;
 
 public class BludgeoningWeapon implements KeyListener, PlayerMotionWatcher{
 	
-	private float x, y, z;
+	private float x, y, z, weaponX, weaponY, weaponZ;
 	private GLUquadric quadric;
 	private int frames, lengthOfHit; // the counter to determine how long the weapon is being swung for
 	private float reach = 5; 
 	private GL2 gl;
 	private GLU glu;
 	private boolean hit;
+	private PipeWeapon p;
 	
 	public BludgeoningWeapon(){
 //		this.gl = gl;
@@ -39,7 +40,8 @@ public class BludgeoningWeapon implements KeyListener, PlayerMotionWatcher{
 	public void init(GL2 gl, GLU glu){
 		this.gl = gl;
 		this.glu = glu;
-		lengthOfHit = 60;	// 60 frames
+		lengthOfHit = 25;	// duration of hit in frames
+		p = new PipeWeapon(gl, glu);
 		
 		quadric = glu.gluNewQuadric();
         glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
@@ -51,33 +53,54 @@ public class BludgeoningWeapon implements KeyListener, PlayerMotionWatcher{
 		if (hit){
 			
 			if (frames < lengthOfHit/2){
-				gl.glColor3f(1f,0f,.25f);
+//				gl.glColor3f(1f,0f,.25f);
 				gl.glPushMatrix();
-					gl.glTranslatef(x+10, y, z);	// draw at person
-					glu.gluSphere(quadric, 1, 10, 10);
+					gl.glTranslatef(x + weaponX+10, y, z );	// draw at person
+					gl.glRotatef(-90, 1, 0, 0);
+					p.draw(gl, glu);
+//					glu.gluSphere(quadric, 1, 10, 10);
 				gl.glPopMatrix();
+				weaponX++; weaponZ++;
 				frames++;
 			}
-			else { hit = false; }
+			else if (frames >= lengthOfHit/2 && frames < lengthOfHit){
+				gl.glPushMatrix();
+					gl.glTranslatef(x + weaponX+10, y, z );	// draw at person
+					gl.glRotatef(-90, 1, 0, 0);
+					p.draw(gl, glu);
+//					glu.gluSphere(quadric, 1, 10, 10);
+				gl.glPopMatrix();
+				weaponX--; weaponZ--;
+				frames++;
+			}
+//			frames++;
+			else { 
+				System.out.println("ok");
+				weaponX = weaponY = weaponZ = 0;
+				frames = 0;
+				
+				hit = false; }
 		}
 	}
 	
 	@Override
 	public void playerMoved(float x, float y, float z, float angle) {
-		this.x = x;
+		this.x = x-2;
 		this.y = y;
-		this.z = z;
+		this.z = z-2;
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {}
 
 	// this seems like a convoluted way to do things
+	// make sure only one bat at a time
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_O){	// add functionality later to toggle between weapons or to have a "current weapon"
 			System.out.println("!!!!");
 			hit = true;
+			weaponX = 0; weaponY = 0; weaponZ = 10;
 		}
 	}
 
