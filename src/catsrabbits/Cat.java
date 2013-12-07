@@ -72,12 +72,7 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 		drawSphere(quadric, .14f, glu);
 		// draw whiskers
 		gl.glColor3f(WHISKER_COLOR,WHISKER_COLOR,WHISKER_COLOR);
-		gl.glPushMatrix();
-			gl.glRotatef(90,-1,0,0);
-			draw3Whiskers(gl,glu);
-			gl.glScalef(-1,1,1);
-			draw3Whiskers(gl,glu);
-		gl.glPopMatrix();
+		draw6Whiskers(gl,glu);
 	}
 	protected void drawOneEar(GL2 gl, GLU glu){
 		gl.glPushMatrix();

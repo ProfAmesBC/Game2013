@@ -64,10 +64,10 @@ public abstract class Critter{
 		gl.glPopMatrix();
 	}
 	protected abstract void drawNose(GL2 gl,GLU glu);
-	protected void drawWhisker(GLU glu){
+	private void drawWhisker(GLU glu){
 		glu.gluCylinder(quadric, WHISKER_THICKNESS, WHISKER_THICKNESS, 1, 10, 10);
 	}
-	protected void draw3Whiskers(GL2 gl,GLU glu){
+	private void draw3Whiskers(GL2 gl,GLU glu){
 		gl.glPushMatrix();
 			gl.glRotatef(60, 0, 1, 0);
 			drawWhisker(glu);
@@ -75,6 +75,14 @@ public abstract class Critter{
 			drawWhisker(glu);
 			gl.glRotatef(30, 0, 1, 0);
 			drawWhisker(glu);
+		gl.glPopMatrix();
+	}
+	protected void draw6Whiskers(GL2 gl,GLU glu){
+		gl.glPushMatrix();
+			gl.glRotatef(90,-1,0,0);
+			draw3Whiskers(gl,glu);
+			gl.glScalef(-1,1,1);
+			draw3Whiskers(gl,glu);
 		gl.glPopMatrix();
 	}
 	protected abstract void drawOneEar(GL2 gl,GLU glu);
