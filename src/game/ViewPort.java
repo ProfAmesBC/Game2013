@@ -15,6 +15,7 @@ public class ViewPort implements GLEventListener
  private int framesDrawn=0;
  private GLU glu = new GLU();
  private int windowWidth, windowHeight;
+ 
 
  @Override
  public void init(GLAutoDrawable drawable) {
