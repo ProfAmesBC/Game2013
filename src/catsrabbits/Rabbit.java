@@ -4,8 +4,7 @@ import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;import game.Buil
 
 public class Rabbit extends Critter{
 	private static final float BODY_RADIUS=1,BODY_HEIGHT_WIDTH_RATIO=1.7f,EYE_CENTER_HEIGHT=.245f,EYE_ZDIST=-.355f,
-			WHISKER_COLOR=.87f,TOP_WHISKER_LENGTH=1,TOP_WHISKER_HEIGHT=.5f,MID_WHISKER_LENGTH=1.25f,
-			FOOT_CENTER_DISTANCE=.355f;
+			WHISKER_COLOR=.87f,FOOT_CENTER_DISTANCE=.355f;
 	
 	public Rabbit(float x,float y,float z,float a,float s,float tR, GL2 gl,GLU glu){
 		super(x,y,z,a,s,tR,gl,glu);
@@ -72,14 +71,12 @@ public class Rabbit extends Critter{
 		drawSphere(quadric, .13f, glu);
 		// draw whiskers
 		gl.glColor3f(WHISKER_COLOR,WHISKER_COLOR,WHISKER_COLOR);
-		gl.glBegin(GL2.GL_LINES);
-			gl.glVertex3f(TOP_WHISKER_LENGTH, TOP_WHISKER_HEIGHT, 0);
-			gl.glVertex3f(-TOP_WHISKER_LENGTH, -TOP_WHISKER_HEIGHT, 0);
-			gl.glVertex3f(MID_WHISKER_LENGTH, 0, 0);
-			gl.glVertex3f(-MID_WHISKER_LENGTH, 0, 0);
-			gl.glVertex3f(TOP_WHISKER_LENGTH, -TOP_WHISKER_HEIGHT, 0);
-			gl.glVertex3f(-TOP_WHISKER_LENGTH, TOP_WHISKER_HEIGHT, 0);
-		gl.glEnd();
+		gl.glPushMatrix();
+			gl.glRotatef(90,-1,0,0);
+			draw3Whiskers(gl,glu);
+			gl.glScalef(-1,1,1);
+			draw3Whiskers(gl,glu);
+		gl.glPopMatrix();
 	}
 	protected void drawOneEar(GL2 gl,GLU glu){
 		int rotate=(int)(32f*Math.cos(Math.toRadians(t*360)))-10;

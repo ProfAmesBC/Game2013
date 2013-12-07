@@ -5,6 +5,7 @@ import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;import javax.med
 import com.jogamp.opengl.util.texture.Texture;
 
 public abstract class Critter{
+	public static final float WHISKER_THICKNESS=.01f;
 	public static final String FUR_DIRECTORY="cheungcatrabbitfurs";
 	
 	protected float x,y,z,angle,tAngle,angleRate=0,speed,t=0,tRate;
@@ -63,6 +64,19 @@ public abstract class Critter{
 		gl.glPopMatrix();
 	}
 	protected abstract void drawNose(GL2 gl,GLU glu);
+	protected void drawWhisker(GLU glu){
+		glu.gluCylinder(quadric, WHISKER_THICKNESS, WHISKER_THICKNESS, 1, 10, 10);
+	}
+	protected void draw3Whiskers(GL2 gl,GLU glu){
+		gl.glPushMatrix();
+			gl.glRotatef(60, 0, 1, 0);
+			drawWhisker(glu);
+			gl.glRotatef(30, 0, 1, 0);
+			drawWhisker(glu);
+			gl.glRotatef(30, 0, 1, 0);
+			drawWhisker(glu);
+		gl.glPopMatrix();
+	}
 	protected abstract void drawOneEar(GL2 gl,GLU glu);
 	protected void drawEars(GL2 gl,GLU glu){
 		gl.glPushMatrix();

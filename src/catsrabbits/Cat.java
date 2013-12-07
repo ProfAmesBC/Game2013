@@ -4,8 +4,7 @@ import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;import game.*;
 
 public class Cat extends Critter implements PlayerMotionWatcher{
 	private static final float BODY_LENGTH=1.8f,HEAD_HEIGHT=.56f,HEAD_DIST=BODY_LENGTH*.7f,
-			EYE_CENTER_DIST=.52f,EYE_HEIGHT=.35f,WHISKER_COLOR=.82f,TOP_WHISKER_LENGTH=1f,TOP_WHISKER_HEIGHT=.5f,
-			MID_WHISKER_LENGTH=1.25f,TAIL_LENGTH=1.83f,TAIL_DIAM=.15f;
+			EYE_CENTER_DIST=.52f,EYE_HEIGHT=.35f,WHISKER_COLOR=.82f,TAIL_LENGTH=1.83f,TAIL_DIAM=.15f;
 	
 	private int furColor,timeAfterSteppedOn=0;
 	private float eyeGreen=0;
@@ -73,14 +72,12 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 		drawSphere(quadric, .14f, glu);
 		// draw whiskers
 		gl.glColor3f(WHISKER_COLOR,WHISKER_COLOR,WHISKER_COLOR);
-		gl.glBegin(GL2.GL_LINES);
-			gl.glVertex3f(TOP_WHISKER_LENGTH, TOP_WHISKER_HEIGHT, 0);
-			gl.glVertex3f(-TOP_WHISKER_LENGTH, -TOP_WHISKER_HEIGHT, 0);
-			gl.glVertex3f(MID_WHISKER_LENGTH, 0, 0);
-			gl.glVertex3f(-MID_WHISKER_LENGTH, 0, 0);
-			gl.glVertex3f(TOP_WHISKER_LENGTH, -TOP_WHISKER_HEIGHT, 0);
-			gl.glVertex3f(-TOP_WHISKER_LENGTH, TOP_WHISKER_HEIGHT, 0);
-		gl.glEnd();
+		gl.glPushMatrix();
+			gl.glRotatef(90,-1,0,0);
+			draw3Whiskers(gl,glu);
+			gl.glScalef(-1,1,1);
+			draw3Whiskers(gl,glu);
+		gl.glPopMatrix();
 	}
 	protected void drawOneEar(GL2 gl, GLU glu){
 		gl.glPushMatrix();
