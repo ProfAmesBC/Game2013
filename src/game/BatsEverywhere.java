@@ -18,6 +18,7 @@ import weapons.ProjectileWeapons;
 
 import com.jogamp.opengl.util.FPSAnimator;
 import com.jogamp.opengl.util.GLReadBufferUtil;
+import com.jogamp.opengl.util.texture.Texture;
 
 public class BatsEverywhere implements GLEventListener
 {
@@ -31,7 +32,9 @@ public class BatsEverywhere implements GLEventListener
     private PlayerLogger logger = new PlayerLogger();
     private int windowWidth, windowHeight;
     private GLReadBufferUtil bufferUtil = new GLReadBufferUtil(false, false); //For capturing screen shots
-
+    private Texture mapimg; //mini map texture
+    
+    
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
       //drawable.setGL(new TraceGL2(drawable.getGL().getGL2(), System.out)); // to trace every call.  Less useful.
@@ -133,7 +136,7 @@ public class BatsEverywhere implements GLEventListener
 
          JFrame frame = new JFrame("Too Many Bats");
          GLCanvas canvas = new GLCanvas();
-         canvas.setPreferredSize(new Dimension(500,500));
+         canvas.setPreferredSize(new Dimension(512,512));
 
          BatsEverywhere renderer = new BatsEverywhere();
          canvas.addGLEventListener(renderer);
