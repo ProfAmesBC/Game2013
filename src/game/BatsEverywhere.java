@@ -1,14 +1,8 @@
 package game;
 
-import inventory.Bag;
-import inventory.ItemFactory;
-import inventory.PlayerActions;
-import inventory.PlayerAttributes;
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.io.File;
-import java.util.*;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
@@ -22,6 +16,7 @@ import javax.swing.JTextField;
 
 import sketchupModels.Avatar;
 import weapons.ProjectileWeapons;
+import inventory.*;
 import catsrabbits.*;
 
 import com.jogamp.opengl.util.FPSAnimator;
@@ -29,7 +24,7 @@ import com.jogamp.opengl.util.FPSAnimator;
 public class BatsEverywhere implements GLEventListener
 {
     private JTextField statusLine = new JTextField(10); // for misc messages at bottom of window
-    private JTextArea controls = new JTextArea("Controls: \n\n", 20, 15);
+    private JTextArea controls = new JTextArea("Controls:\n\n", 20, 15);
     private int framesDrawn=0;
     private GLU glu = new GLU();
     private Town town;

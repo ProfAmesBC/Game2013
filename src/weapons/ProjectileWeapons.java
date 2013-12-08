@@ -1,17 +1,11 @@
 package weapons;
-import game.PlayerMotion;
-import game.PlayerMotionWatcher;
-
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.Iterator;
-
+import game.*;
+import java.awt.event.*;
+import java.util.*;
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
 public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher{
-	
 	private ArrayList<RainbowBall> bulletsList = new ArrayList<RainbowBall>();
 	private float x, y, z, angle;
 	
