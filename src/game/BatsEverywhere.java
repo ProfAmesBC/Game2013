@@ -139,7 +139,7 @@ public class BatsEverywhere implements GLEventListener
          renderer.controls.append("Shift: sprint\n");
          renderer.controls.append("\n");
          renderer.controls.append("Space: fireball\n");
-         renderer.controls.append("P: Use speed item\n");
+         renderer.controls.append("1: use speed item\n");
          renderer.controls.append("\n");
          renderer.controls.append("M: toggle mouse\n");
          renderer.controls.setEditable(false);	// don't let you edit text once it's established
