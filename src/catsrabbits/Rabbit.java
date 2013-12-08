@@ -104,5 +104,9 @@ public class Rabbit extends Critter{
 			drawTexturedUnitSphere(glu);	// draw foot
 		gl.glPopMatrix();
 	}
+	protected void move(){
+		super.move();
+		y+=.07*(float)Math.cos(Math.toRadians(t*360));
+	}
 	public float size(){return 2f*BODY_RADIUS;}
 }
