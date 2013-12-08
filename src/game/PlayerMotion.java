@@ -31,21 +31,6 @@ public class PlayerMotion implements KeyListener {
     	return eyeZ;
     }
     
-    public float setEyeX(float x){
-    	eyeX = x;
-    	return eyeX;
-    }
-    
-    public float setEyeY(float y){
-    	eyeY = y;
-    	return eyeY;
-    }
-    
-    public float setEyeZ(float z){
-    	eyeZ = z;
-    	return eyeZ;
-    }
-    
     public static void registerPlayerWatcher(PlayerMotionWatcher watcher) {
     	watchers.add(watcher);
     }
@@ -138,4 +123,19 @@ public class PlayerMotion implements KeyListener {
     			watcher.playerMoved(eyeX, eyeY, eyeZ, theta);
     	}
 	}
+	
+	public float setEyeX(float x){
+    	eyeX = x;
+    	return eyeX;
+    }
+    
+    public float setEyeY(float y){
+    	eyeY = y;
+    	return eyeY;
+    }
+    
+    public float setEyeZ(float z){
+    	eyeZ = z;
+    	return eyeZ;
+    }
 }

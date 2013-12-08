@@ -65,13 +65,12 @@ public class BatsEverywhere implements GLEventListener
     }
     
     public void screenshot(GLAutoDrawable drawable){
-    	System.out.println("EYEX: " + playerMotion.getEyeX() + " EYEY: " + playerMotion.getEyeY() + " EYEZ: " + playerMotion.getEyeZ());
-
+    	//System.out.println("EYEX: " + playerMotion.getEyeX() + " EYEY: " + playerMotion.getEyeY() + " EYEZ: " + playerMotion.getEyeZ());
     	System.out.println("In screenshot method");
     	
         GL2 gl = drawable.getGL().getGL2();   
     	gl.glFlush(); // ensure all drawing has finished
-        //gl.glReadBuffer(GL2.GL_BACK);
+        gl.glReadBuffer(GL2.GL_BACK);
     	boolean success = bufferUtil.readPixels(gl, false);
         if (success) {
             bufferUtil.write(new File("minimap.png"));
@@ -84,15 +83,12 @@ public class BatsEverywhere implements GLEventListener
         GL2 gl = drawable.getGL().getGL2();       
         System.out.println("Frames drawn = 1");
         
-        gl.glRotatef((float)90, 0f, 0f, 1f);
-        
-    	playerMotion.setEyeX(-700);
-    	playerMotion.setEyeY(300);
-    	playerMotion.setEyeZ(300);
-    	
-    	  glu.gluLookAt(-655, -5, 323,   // eye location
-                  -655 + Math.cos(Math.toRadians(0)), -5, 323 + -Math.sin(Math.toRadians(0)),   // point to look at (near middle of pyramid)
-                   0, -1,  0);
+//        gl.glRotatef((float)90, 0f, 0f, 1f);
+//        gl.glTranslatef(-665f, 295f, 250f);
+//        
+//    	  glu.gluLookAt(-655, -5, 323,   // eye location
+//                  -655 + Math.cos(Math.toRadians(0)), -5, 323 + -Math.sin(Math.toRadians(0)),   // point to look at (near middle of pyramid)
+//                   0, -1,  0);
        
     	  screenshot(drawable);
       
@@ -107,11 +103,8 @@ public class BatsEverywhere implements GLEventListener
 
         playerMotion.setLookAt(gl, glu);
         
-        
-        gl.glRotatef((float)90, 0f, 0f, 1f);
-        
+    	
         /// NEED TO FINISH VIEWPORT
-        //
         //gl.glViewport(windowWidth/2, windowHeight/2, windowWidth/2, windowHeight/2);
                 
         // draw town
@@ -123,8 +116,25 @@ public class BatsEverywhere implements GLEventListener
         
         
         if (++framesDrawn == 1) {
+        	playerMotion.setEyeX(-700);
+        	playerMotion.setEyeY(300);
+        	playerMotion.setEyeZ(300);
+
+            gl.glRotatef((float)90, 0f, 0f, 1f);
+           // System.out.println("EYE: " + playerMotion.getEyeX() + playerMotion.getEyeY() + playerMotion.getEyeZ());
+            gl.glTranslatef(0, -300, 500);
+            gl.glRotatef((float)190, 0f, 0f, 1f);
+            
+      	  glu.gluLookAt(-5, 5, 50,   // eye location
+                  -5 + Math.cos(Math.toRadians(0)), -5, 50 + -Math.sin(Math.toRadians(0)),   // point to look at (near middle of pyramid)
+                   0, 1,  0);
         	 minimap(drawable);
         }       
+        
+        //Set the eye back to its original coordinates
+        //playerMotion.setEyeX(-5);
+    	//playerMotion.setEyeY(5);
+    	//playerMotion.setEyeZ(50);
         
         // check for errors, at least once per frame
         int error = gl.glGetError();
