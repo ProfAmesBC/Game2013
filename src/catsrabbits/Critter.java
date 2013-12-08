@@ -2,12 +2,8 @@
 // Superclass for cat and rabbit classes. May also be useful for Bat class
 package catsrabbits;
 import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;import javax.media.opengl.glu.GLUquadric;
-
-import weapons.Projectile;
-import weapons.ProjectileWeapons;
-import weapons.WeaponWatcher;
-
 import com.jogamp.opengl.util.texture.Texture;
+import weapons.Projectile;import weapons.WeaponWatcher;
 
 public abstract class Critter implements WeaponWatcher{
 	public static final float WHISKER_THICKNESS=.01f;
