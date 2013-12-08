@@ -34,7 +34,7 @@ public class ItemFactory {
 			item.draw(gl, glu);
 			if (item.grabbed())
 				list.remove(this);
-		}
+		} 
 	}
 
 	public void testCreate() {
