@@ -34,7 +34,7 @@ public class Rabbit extends Critter{
 			gl.glTranslatef(FOOT_CENTER_DISTANCE, -.38f, -1.545f);
 			gl.glRotatef(32.86f,1,0,0);
 			gl.glEnable(GL2.GL_TEXTURE_2D);
-			drawFeet(gl,glu);
+			drawLegs(gl,glu);
 			gl.glDisable(GL2.GL_TEXTURE_2D);
 		gl.glPopMatrix();
 	}
@@ -95,7 +95,7 @@ public class Rabbit extends Critter{
 		gl.glColor3f(1, 1, 1);
 		drawSphere(quadric, .46f, glu);
 	}
-	protected void drawFeet(GL2 gl,GLU glu){
+	protected void drawLegs(GL2 gl,GLU glu){
 		gl.glPushMatrix();
 			float xR=.3f;
 			gl.glScalef(xR*.5f, xR*2.1f, xR);

@@ -94,7 +94,7 @@ public abstract class Critter{
 		gl.glPopMatrix();
 	}
 	protected abstract void drawTail(GL2 gl,GLU glu);
-	protected abstract void drawFeet(GL2 gl,GLU glu);
+	protected abstract void drawLegs(GL2 gl,GLU glu);
 	
 	protected void move(){
 		if(Math.abs(tAngle-angle)<.01){
