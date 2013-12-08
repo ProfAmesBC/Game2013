@@ -1,5 +1,6 @@
 package inventory;
 
+import items.Jetpack;
 import items.SpeedBox;
 
 public class DummyItem {
@@ -11,6 +12,8 @@ public class DummyItem {
 		count = 0;
 		if (type.equals("Speed"))
 			i = new SpeedBox();
+		else if(type.equals("Jetpack"))
+			i = new Jetpack();
 		else
 			i = null;
 	}

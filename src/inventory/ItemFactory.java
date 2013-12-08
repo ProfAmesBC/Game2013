@@ -1,6 +1,7 @@
 package inventory;
 
 import items.BlindItem;
+import items.Jetpack;
 import items.SpeedBox;
 
 import java.util.ArrayList;
@@ -28,6 +29,10 @@ public class ItemFactory {
 		Item flash = new BlindItem(gl, glu, x, y, z, p.getBag(), p);
 		list.add(flash);
 	}
+	public void addJetpackItem(int x, int y, int z) {
+		Item fly = new Jetpack(gl, glu, x, y, z, p.getBag(), p);
+		list.add(fly);
+	}
 
 	public void update() {
 		for (Item item : list) {
@@ -46,5 +51,6 @@ public class ItemFactory {
 		addSpeedItem(400, 0, 400);
 		addBlindItem(30,0,30);
 		addBlindItem(80,0,80);
+		addJetpackItem(80,0,120);
 	}
 }

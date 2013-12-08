@@ -11,7 +11,7 @@ import javax.media.opengl.glu.GLU;
 
 import com.jogamp.opengl.util.texture.Texture;
 
-public class SpeedBox implements Item {
+public class Jetpack implements Item {
 	private Texture textureItem;
 	private float itemX, itemY, itemZ;
 	private float playerX, playerY, playerZ;
@@ -22,7 +22,7 @@ public class SpeedBox implements Item {
 	private static PlayerAttributes p;
 	private int frames;
 
-	public SpeedBox(GL2 gl, GLU glu, float x, float y, float z, Bag bag,
+	public Jetpack(GL2 gl, GLU glu, float x, float y, float z, Bag bag,
 			PlayerAttributes p) {
 		textureItem = Building.setupTexture(gl, "textureItem.png");
 		this.itemX = x;
@@ -30,12 +30,12 @@ public class SpeedBox implements Item {
 		this.itemZ = z;
 		PlayerMotion.registerPlayerWatcher(this);
 		this.bag = bag;
-		SpeedBox.p = p;
+		Jetpack.p = p;
 		grabbed = false;
 		frames = 0;
 	}
 
-	public SpeedBox() {
+	public Jetpack() {
 		// dummy constructor for DummyItem
 	}
 
@@ -92,14 +92,14 @@ public class SpeedBox implements Item {
 	}
 
 	public void use() {
-		float currentSpeed = p.getStepSize();
-		int duration = 60;
+		int height = 100;
+		int duration = 200;
 		// calls PlayerAttributes
-		p.setStepSize(currentSpeed + 1.5f, duration);
+		p.fly(height, duration);
 	}
 
 	public String getType() {
-		return "Speed";
+		return "Jetpack";
 	}
 
 	public void drawItem(GL2 gl, GLU glu) {

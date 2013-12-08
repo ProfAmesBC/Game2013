@@ -96,7 +96,7 @@ public class BatsEverywhere implements GLEventListener
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT); //clear that town  
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
         itemCreator.update();
-        writer.draw(bag.toString(), 380, 470);
+        writer.draw(bag.toString(), 350, 470);
         projectileWeapons.update(gl, glu);
         for(CritterGroup critterGroup:critters)critterGroup.draw(gl, glu);
  
