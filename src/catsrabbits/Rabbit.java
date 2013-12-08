@@ -104,6 +104,5 @@ public class Rabbit extends Critter{
 			drawTexturedUnitSphere(glu);	// draw foot
 		gl.glPopMatrix();
 	}
-	protected float size(){return 2f*BODY_RADIUS;}
-	
+	public float size(){return 2f*BODY_RADIUS;}
 }

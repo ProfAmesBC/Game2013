@@ -113,7 +113,7 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 			drawSphere(textureQuadric,TAIL_DIAM,glu);
 		gl.glPopMatrix();
 	}
-	protected float size(){return BODY_LENGTH*2f;}
+	public float size(){return BODY_LENGTH*2f;}
 	
 	public void playerMoved(float x, float y, float z, float angle){
 		float dist=(float)Math.sqrt(Math.pow(x-this.x, 2)+Math.pow(z-this.z, 2));

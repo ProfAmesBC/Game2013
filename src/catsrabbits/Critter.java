@@ -117,6 +117,8 @@ public abstract class Critter implements WeaponWatcher{
 		else t+=tRate;
 	}
 	
+	public abstract float size();
+	
 	public void checkShot(Projectile p){
 		float dist=(float)Math.sqrt(Math.pow(p.getProjX()-x, 2)+Math.pow(p.getProjY()-y, 2)+Math.pow(p.getProjZ()-z, 2));
 		if(dist<size()&&!shot){
@@ -135,6 +137,4 @@ public abstract class Critter implements WeaponWatcher{
 			}).start();
 		}
 	}
-	
-	protected abstract float size();
 }
