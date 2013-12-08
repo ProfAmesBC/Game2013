@@ -16,7 +16,7 @@ public class StatusText {
 		renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, 32));
 	}
 	public void draw(String text, int x, int y) {		        	
-		renderer.beginRendering(drawable.getWidth(), drawable.getHeight());
+		renderer.beginRendering(drawable.getWidth(), drawable.getHeight());		
 		// optionally set the text color
 		renderer.setColor(0f, 0f, 0f, 0.8f); // Note use of alpha
 		renderer.draw(text, x, y);  // pixels, from lower left

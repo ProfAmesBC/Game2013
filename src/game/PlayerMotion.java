@@ -26,6 +26,8 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     private boolean wdown, adown, sdown, ddown, qdown, edown;
     private static List<PlayerMotionWatcher> watchers = new LinkedList<PlayerMotionWatcher>();
     private Robot robot;
+    private int frames = 0; 
+    private int duration = 0;
     
     public PlayerMotion() {
         eyeX = 1; eyeY = 5; eyeZ = 50;
@@ -137,6 +139,10 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
 	}
 	
 	public void update(GL2 gl, GLU glu) {
+		frames++;
+		if(frames  == duration){
+			step = step1;
+		}
 		dx = 0;
 		dz = 0;
 		if(adown) {
@@ -207,6 +213,8 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
 	
 	public void setStep(float step, int duration) {
 		this.step = step;
+		this.duration = this.duration + duration;
+		frames = 0;
 	}
 
 	public float getStep() {
