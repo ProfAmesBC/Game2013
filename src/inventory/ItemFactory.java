@@ -35,7 +35,7 @@ public class ItemFactory {
 			if (item.grabbed())
 				list.remove(this);
 		} 
-	}
+	} 
 
 	public void testCreate() {
 		addSpeedItem(70, 0, 70);
