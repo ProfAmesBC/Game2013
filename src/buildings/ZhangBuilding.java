@@ -6,6 +6,8 @@ import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 import javax.media.opengl.glu.GLUquadric;
 
+import sketchupModels.Avatar;
+
 import com.jogamp.opengl.util.texture.Texture;
 
 public class ZhangBuilding extends Building {
@@ -16,6 +18,8 @@ public class ZhangBuilding extends Building {
 	private Texture tiledRoofTexture;
 	private Texture woodTexture;
 	private Texture woodWallTexture;
+	
+    private Avatar psy;
 
 	public ZhangBuilding (GL2 gl, GLU glu) {
 		//rammedEarthTexture = setupTexture(gl, "rammedEarth.jpg");
@@ -24,6 +28,9 @@ public class ZhangBuilding extends Building {
 		tiledRoofTexture = setupTexture(gl, "tiledRoof.jpg");
 		woodTexture = setupTexture(gl, "wood003.jpg");
 		woodWallTexture = setupTexture(gl, "wood033.gif");
+		
+		//JIANG NAN STYLE
+        psy = new Avatar(gl, glu);
 	}
 
 	//some constants
@@ -136,6 +143,8 @@ public class ZhangBuilding extends Building {
 			}
 		}
 		gl.glDisable(GL2.GL_TEXTURE_2D); //disable textures
+	
+        psy.draw(gl, glu);
 	}
 }
 

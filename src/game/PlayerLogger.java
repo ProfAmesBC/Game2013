@@ -20,5 +20,5 @@ public class PlayerLogger implements PlayerMotionWatcher {
 		System.out.println("Player is now at location (" + formatter.format(x) + "," +
 	                       formatter.format(y) + "," + formatter.format(z) + "), angle is " +
 		                   formatter.format(angle) + degreeSymbol);
-	}
+	}	
 }

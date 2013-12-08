@@ -1,3 +1,4 @@
+
 package weapons;
 
 public class WeaponSounds {
@@ -12,5 +13,4 @@ public class WeaponSounds {
 	
 	// test commit 2  VM
 }
-
 
