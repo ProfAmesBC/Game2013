@@ -113,10 +113,12 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 			drawSphere(textureQuadric,TAIL_DIAM,glu);
 		gl.glPopMatrix();
 	}
-
+	protected float size(){return BODY_LENGTH*2f;}
+	
 	public void playerMoved(float x, float y, float z, float angle){
 		float dist=(float)Math.sqrt(Math.pow(x-this.x, 2)+Math.pow(z-this.z, 2));
-		if(dist<BODY_LENGTH*3f&&!steppedOn){	// stepped on cat
+		// will NOT happen if you're just standing still. you have to move to trigger this
+		if(dist<size()&&!steppedOn){	// stepped on cat
 			steppedOn=true;
 			System.out.println("Stepped on a cat!");
 			// TODO meow, damage player
