@@ -44,7 +44,7 @@ public class BatsEverywhere implements GLEventListener
 	private StatusText writer;
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
-    private List<CritterGroup>critters=new ArrayList<CritterGroup>();
+    private CritterGroup catGroup,rabbitGroup;
     
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
@@ -62,8 +62,8 @@ public class BatsEverywhere implements GLEventListener
         itemCreator.testCreate();
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
-        critters.add(new CatGroup(gl,glu));
-        critters.add(new RabbitGroup(gl,glu));
+        catGroup=new CatGroup(gl,glu);
+        rabbitGroup=new RabbitGroup(gl,glu);
     }
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -98,7 +98,8 @@ public class BatsEverywhere implements GLEventListener
         itemCreator.update();
         writer.draw(bag.toString(), 380, 470);
         projectileWeapons.update(gl, glu);
-        for(CritterGroup critterGroup:critters)critterGroup.draw(gl, glu);
+        catGroup.draw(gl, glu);
+        rabbitGroup.draw(gl, glu);
  
         // check for errors, at least once per frame
         int error = gl.glGetError();
