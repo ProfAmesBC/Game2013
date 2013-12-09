@@ -1,17 +1,14 @@
 package game;
 
-import java.awt.AWTException;
-import java.awt.Point;
-import java.awt.Robot;
+import javax.media.opengl.GL2;
+import javax.media.opengl.glu.GLU;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.util.LinkedList;
 import java.util.List;
-
-import javax.media.opengl.GL2;
-import javax.media.opengl.glu.GLU;
 
 public class PlayerMotion implements KeyListener, MouseMotionListener {
 	private static final float step1=.75f,step2=step1*3f;
@@ -132,7 +129,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
                  0, 1, 0); // the "up" direction
         if(moved!=0 || qdown || edown || dgamma!=0 || dtheta!=0) {
         	for (PlayerMotionWatcher watcher: watchers)
-    			watcher.playerMoved(eyeX, eyeY, eyeZ, theta);
+    			watcher.playerMoved(eyeX, eyeY, eyeZ, theta, gamma);
         }
 	}
 	
@@ -163,7 +160,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     	}
     	if(adown || ddown || sdown || wdown || qdown || edown) {
     		for (PlayerMotionWatcher watcher: watchers)
-    			watcher.playerMoved(eyeX, eyeY, eyeZ, theta);
+    			watcher.playerMoved(eyeX, eyeY, eyeZ, theta, gamma);
     	}
     	if(mouseMovement) {
     		theta += dtheta;
@@ -171,11 +168,8 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     		if(gamma<=-90) {gamma = -89;}
     		if(gamma>=90) {gamma = 89;}
     		robot.mouseMove(width/2+xLoc, height/2+yLoc);
-    	} else {
-    		gamma = 0;
     	}
-    	
-    	
+
     	dx *= step; //net x-motion
     	dz *= step; //net z-motion
     	if((wdown || sdown) && (adown || ddown)) {

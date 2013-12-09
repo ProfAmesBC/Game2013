@@ -1,8 +1,11 @@
 // Diana Cheung, CS333 Class of 2013
 package catsrabbits;
-import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;
+import game.Building;
+import game.PlayerMotion;
+import game.PlayerMotionWatcher;
 
-import game.*;
+import javax.media.opengl.GL2;
+import javax.media.opengl.glu.GLU;
 
 public class Cat extends Critter implements PlayerMotionWatcher{
 	private static final float BODY_LENGTH=1.8f,HEAD_HEIGHT=.56f,HEAD_DIST=BODY_LENGTH*.7f,
@@ -115,7 +118,7 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 	}
 	public float size(){return BODY_LENGTH*2f;}
 	
-	public void playerMoved(float x, float y, float z, float angle){
+	public void playerMoved(float x, float y, float z, float angle, float y_angle){
 		float dist=(float)Math.sqrt(Math.pow(x-this.x, 2)+Math.pow(z-this.z, 2));
 		// will NOT happen if you're just standing still. you have to move to trigger this
 		if(dist<size()&&!steppedOn){	// stepped on cat
