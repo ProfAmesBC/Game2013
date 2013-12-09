@@ -158,7 +158,7 @@ public class BatsEverywhere implements GLEventListener
             System.out.println("Unable to grab screen shot");
         
         if (minimap == null){
-        	System.out.println("minimap is null help");
+        	System.out.println("minimap is null");
         }
         if(minimap != null){
         	System.out.println("minimap is not null");
