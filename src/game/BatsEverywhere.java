@@ -72,7 +72,7 @@ public class BatsEverywhere implements GLEventListener
         GL2 gl = drawable.getGL().getGL2();
         controls.setForeground(Color.DARK_GRAY);
         controls.setBackground(Color.LIGHT_GRAY);
-        controls.setFont(new Font("Serif", Font.ITALIC, 12));
+        controls.setFont(new Font("Serif", Font.ITALIC, 13));
         statusLine.setEditable(false);
         gl.setSwapInterval(1); // for animation synchronized to refresh rate
         gl.glClearColor(.7f,.7f,1f,0f); // background
