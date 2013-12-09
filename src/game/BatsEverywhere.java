@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.io.File; //For capturing screen shot
+import java.io.IOException;
 import java.util.*;
 
 import javax.media.opengl.GL2;
@@ -35,6 +36,7 @@ import catsrabbits.*;
 import com.jogamp.opengl.util.FPSAnimator;
 import com.jogamp.opengl.util.GLReadBufferUtil;
 import com.jogamp.opengl.util.texture.Texture;
+import com.jogamp.opengl.util.texture.TextureIO;
 
 public class BatsEverywhere implements GLEventListener
 {
@@ -106,6 +108,28 @@ public class BatsEverywhere implements GLEventListener
         
     }
     
+    public static Texture setupTexture(GL2 gl, String filename) {
+        Texture texture=null;
+        try {
+            texture = TextureIO.newTexture(new File(filename), false);
+        } catch (IOException e) {
+            System.out.println("Unable to read texture file: " + e);
+            e.printStackTrace();
+            System.exit(1);
+        }
+        // consider using ImageUtil.flipImageVertically(BufferedImage image)
+        boolean flip = texture.getMustFlipVertically();
+//      if (flip)
+//          ImageUtil.flipImageVertically(texture);
+        texture.setTexParameteri(gl, GL2.GL_TEXTURE_MAG_FILTER,GL2.GL_LINEAR); // or GL_NEAREST
+        texture.setTexParameteri(gl, GL2.GL_TEXTURE_MIN_FILTER,GL2.GL_LINEAR); // or GL_NEAREST
+        texture.setTexParameteri(gl, GL2.GL_TEXTURE_WRAP_S,GL2.GL_REPEAT); // or GL_CLAMP
+        texture.setTexParameteri(gl, GL2.GL_TEXTURE_WRAP_T,GL2.GL_REPEAT); // or GL_CLAMP
+
+            System.out.println(filename + " texture loaded, size is "
+                               + texture.getImageWidth() + "," + texture.getImageHeight());
+        return texture;
+    }
     public void screenshot(GLAutoDrawable drawable){
     	//System.out.println("EYEX: " + playerMotion.getEyeX() + " EYEY: " + playerMotion.getEyeY() + " EYEZ: " + playerMotion.getEyeZ());
     	
@@ -122,14 +146,26 @@ public class BatsEverywhere implements GLEventListener
 
         boolean success = bufferUtil.readPixels(gl, false);
         
+
         minimaptexture=bufferUtil.getTexture();
         
         //for debugging
         if (success) {
            // bufferUtil.write(new File("minimap.png"));
             System.out.println("Made Screenshot");
+           // minimaptexture = setupTexture(gl, "minimap.png");
         } else
             System.out.println("Unable to grab screen shot");
+<<<<<<< HEAD
+=======
+        
+        if (minimaptexture == null){
+        	System.out.println("minimap is null");
+        }
+        if(minimaptexture != null){
+        	System.out.println("minimap is not null");
+        }
+>>>>>>> branch 'DisplayFeatures' of https://github.com/ProfAmesBC/Game2013.git
     }
     
     public void minimap(GLAutoDrawable drawable){
@@ -269,8 +305,15 @@ public class BatsEverywhere implements GLEventListener
       
         gl.glEnable(GL2.GL_TEXTURE_2D);
        //if (minimaptexture != null){
+<<<<<<< HEAD
+=======
+        //
+>>>>>>> branch 'DisplayFeatures' of https://github.com/ProfAmesBC/Game2013.git
         minimaptexture.bind(gl);
+<<<<<<< HEAD
         //System.out.println("Minimap texture is here!");
+=======
+>>>>>>> branch 'DisplayFeatures' of https://github.com/ProfAmesBC/Game2013.git
        //}
     	gl.glEnable(GL2.GL_TEXTURE_GEN_S);
         gl.glEnable(GL2.GL_TEXTURE_GEN_T);
@@ -303,7 +346,7 @@ public class BatsEverywhere implements GLEventListener
 
          BatsEverywhere renderer = new BatsEverywhere();
          renderer.canvas.addGLEventListener(renderer);
-         renderer.canvas.setPreferredSize(new Dimension(500,500));
+         renderer.canvas.setPreferredSize(new Dimension(512,512));
 
          renderer.controls.append("W: move forward\n");
          renderer.controls.append("A: move left\n");
