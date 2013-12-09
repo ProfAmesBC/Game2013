@@ -61,7 +61,7 @@ public class BatsEverywhere implements GLEventListener
     
 
     private int windowWidth, windowHeight;
-    private GLReadBufferUtil bufferUtil = new GLReadBufferUtil(false, false); //For capturing screen shots
+    private GLReadBufferUtil bufferUtil = new GLReadBufferUtil(false, true); //For capturing screen shots
     
     //renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, 48));
 
@@ -146,24 +146,23 @@ public class BatsEverywhere implements GLEventListener
 
         boolean success = bufferUtil.readPixels(gl, false);
         
-     //   minimap = bufferUtil.getTexture();
 
         minimaptexture=bufferUtil.getTexture();
         
         //for debugging
-       /* if (success) {
-            bufferUtil.write(new File("minimap.png"));
+        if (success) {
+           // bufferUtil.write(new File("minimap.png"));
             System.out.println("Made Screenshot");
-            minimap = setupTexture(gl, "minimap.png");
+           // minimaptexture = setupTexture(gl, "minimap.png");
         } else
             System.out.println("Unable to grab screen shot");
         
-        if (minimap == null){
+        if (minimaptexture == null){
         	System.out.println("minimap is null");
         }
-        if(minimap != null){
+        if(minimaptexture != null){
         	System.out.println("minimap is not null");
-        }*/
+        }
     }
     
     public void minimap(GLAutoDrawable drawable){
@@ -302,9 +301,9 @@ public class BatsEverywhere implements GLEventListener
         gl.glLoadIdentity();       
         
         gl.glEnable(GL2.GL_TEXTURE_2D);
-       if (minimaptexture != null){
+       //if (minimaptexture != null){
         minimaptexture.bind(gl);
-       }
+       //}
     	gl.glEnable(GL2.GL_TEXTURE_GEN_S);
         gl.glEnable(GL2.GL_TEXTURE_GEN_T);
         
