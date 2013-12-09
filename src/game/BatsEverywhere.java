@@ -296,14 +296,6 @@ public class BatsEverywhere implements GLEventListener
 
         minimaptexture.bind(gl);
 
-
-        //System.out.println("Minimap texture is here!");
-
-
-       //}
-    	gl.glEnable(GL2.GL_TEXTURE_GEN_S);
-        gl.glEnable(GL2.GL_TEXTURE_GEN_T);
-
         
         gl.glBegin(GL2.GL_QUADS);
         gl.glTexCoord2f(0f,0f);gl.glVertex2f(-1f, -1f);
