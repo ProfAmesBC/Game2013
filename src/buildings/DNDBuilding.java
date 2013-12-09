@@ -47,14 +47,6 @@ public class DNDBuilding extends Building {
                 ground.create(gl);
                 specialItem.create(gl, glu);
                 
-                machine1.create(gl);
-                gl.glTranslated(16, 0, 0);
-                machine2.create(gl);
-                gl.glTranslated(0, 0, -36);
-                machine3.create(gl);
-                gl.glTranslated(-16, 0, 0);
-                machine4.create(gl);
-                
                 gl.glDisable(GL2.GL_TEXTURE_2D);
             gl.glPopMatrix();
         gl.glDisable(GL2.GL_CULL_FACE);
@@ -62,6 +54,25 @@ public class DNDBuilding extends Building {
 	
 	@Override
 	public void drawMoving(GL2 gl, GLU glu, float eyeX, float eyeY, float eyeZ) {
+        gl.glEnable(GL2.GL_CULL_FACE);
+        gl.glPushMatrix();
+            gl.glEnable(GL2.GL_TEXTURE_2D);
+            
+            uchi.create(gl);
+            ground.create(gl);
+            specialItem.create(gl, glu);
+            
+            machine1.create(gl);
+            gl.glTranslated(16, 0, 0);
+            machine2.create(gl);
+            gl.glTranslated(0, 0, -36);
+            machine3.create(gl);
+            gl.glTranslated(-16, 0, 0);
+            machine4.create(gl);
+            
+            gl.glDisable(GL2.GL_TEXTURE_2D);
+        gl.glPopMatrix();
+    gl.glDisable(GL2.GL_CULL_FACE);
 	}
 
 }
