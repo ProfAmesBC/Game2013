@@ -133,6 +133,7 @@ public class BatsEverywhere implements GLEventListener
     	float originaleyez=playerMotion.getEyeZ();
     	
         GL2 gl = drawable.getGL().getGL2();       
+
         System.out.println("Frames drawn = 1");
 
         
@@ -141,6 +142,7 @@ public class BatsEverywhere implements GLEventListener
                  0, 0,  -1);
         
         //gl.glRotatef((float)90, 0f, 0f, 1f);
+
 
        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
        //Set the eye back to its original coordinates
@@ -156,6 +158,7 @@ public class BatsEverywhere implements GLEventListener
         long startTime = System.currentTimeMillis();
         GL2 gl  = drawable.getGL().getGL2();
    
+
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
 //minimap must be done first
         if (++framesDrawn == 1) {
@@ -163,16 +166,31 @@ public class BatsEverywhere implements GLEventListener
         	gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
         	
         }       
+
+          
+
+
         playerMotion.setLookAt(gl, glu);
         
+
         this.playerMotion.setScreenLocation(
         		this.canvas.getLocationOnScreen());
+
     	
+       
+
+        
+        /// NEED TO FINISH VIEWPORT
+        //gl.glViewport(windowWidth/2, windowHeight/2, windowWidth/2, windowHeight/2);
+
                 
         // draw town
-       
-        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
 
+       
+       
+
+        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
+     	
         playerMotion.update(gl, glu);//draw town looking in the direction we're moving in
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ()); 
             
@@ -184,7 +202,7 @@ public class BatsEverywhere implements GLEventListener
 
         projectileWeapons.update(gl, glu);
         
-        
+     	
         
         // Draw sphere at the point you're looking at
         //gl.glLineWidth(1);
@@ -202,7 +220,7 @@ public class BatsEverywhere implements GLEventListener
        renderer.draw("LifeSpan"+Projectile.getLifeSpan();, 25, 250);  // pixels, from lower left
        renderer.endRendering();
        */ 
-        
+
         
         //Set the eye back to its original coordinates
         //playerMotion.setEyeX(-5);
