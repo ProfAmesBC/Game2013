@@ -12,6 +12,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.io.File; //For capturing screen shot
 import java.io.IOException;
 import java.util.*;
@@ -22,6 +23,7 @@ import javax.media.opengl.GLEventListener;
 import javax.media.opengl.GLProfile;
 import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -41,7 +43,9 @@ import com.jogamp.opengl.util.texture.TextureIO;
 public class BatsEverywhere implements GLEventListener
 {
     private JTextField statusLine = new JTextField(10); // for misc messages at bottom of window
-    private JTextArea controls = new JTextArea("Controls: \n\n", 20, 15);
+    private static JPanel controlPanel= new JPanel();
+    private static JTextArea controls = new JTextArea("Controls: \n\n", 20, 15);
+   // private JComponent weaponPanel= new JComponent();
     private int framesDrawn=0;
     private GLU glu = new GLU();
     private Town town;
@@ -356,17 +360,27 @@ public class BatsEverywhere implements GLEventListener
          renderer.controls.append("P: Use speed item\n");
          renderer.controls.append("\n");
          renderer.controls.append("M: toggle mouse\n");
+          // don't let you edit text once it's established
+         renderer.controls.setEditable(false);
+         
+         // now need to make weapon panel with pictures of weapons and text on the weapons
+         //displaying life of weapons
+          
+         controlPanel.setLayout(new GridLayout(2,1));
+         renderer.controlPanel.add(controls);
+         //renderer.controlPanel.add(weaponPanel);
+         
          //renderer.controls.append()
          
          
-         renderer.controls.setEditable(false);	// don't let you edit text once it's established
+        	
          
      
          
          
          frame.setLayout(new BorderLayout());
          //frame.add(renderer.statusLine, BorderLayout.SOUTH);
-         frame.add(renderer.controls, BorderLayout.EAST);
+         frame.add(renderer.controlPanel, BorderLayout.EAST);
          frame.add(renderer.canvas, BorderLayout.CENTER);
          //frame.add(renderer.weapons,BorderLayout.WEST);
          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
