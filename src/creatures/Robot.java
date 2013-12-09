@@ -168,7 +168,7 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 		gl.glPopMatrix();
 	}
 	
-	public void playerMoved(float x, float y, float z, float angle) {
+	public void playerMoved(float x, float y, float z, float angle, float yAngle) {
 		playerX = x;
 		playerZ = z;
 		double distance = Math.sqrt(Math.pow(zombieLocationX-x,2) + Math.pow(zombieLocationZ-z,2));

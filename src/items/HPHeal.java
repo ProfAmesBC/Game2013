@@ -8,7 +8,7 @@ import javax.media.opengl.glu.GLU;
 public class HPHeal implements Item {
 
 	@Override
-	public void playerMoved(float x, float y, float z, float angle) {
+	public void playerMoved(float x, float y, float z, float angle, float y_angle) {
 		// TODO Auto-generated method stub
 		
 	}

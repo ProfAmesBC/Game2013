@@ -1,14 +1,14 @@
 package items;
 
+import inventory.Item;
+
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
-
-import inventory.Item;
 
 public class AmmoRefill implements Item {
 
 	@Override
-	public void playerMoved(float x, float y, float z, float angle) {
+	public void playerMoved(float x, float y, float z, float angle, float y_angle) {
 		// TODO Auto-generated method stub
 		
 	}

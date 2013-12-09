@@ -15,7 +15,7 @@ public class PlayerActions extends KeyAdapter {
 
 	public void keyPressed(KeyEvent e) {
 		switch (e.getKeyCode()) {
-		case KeyEvent.VK_P:
+		case KeyEvent.VK_1:
 			// calls the DummyItem from the Bag
 			b.useItem("Speed");
 			break;

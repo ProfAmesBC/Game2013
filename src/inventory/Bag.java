@@ -35,8 +35,8 @@ public class Bag {
 
 	public String toString() {
 		String listOfItems = "";
-		listOfItems = "P:" + speedBoxes.getCount();
-		listOfItems = listOfItems + " O:" + damageBoxes.getCount();
+		listOfItems = "S:" + speedBoxes.getCount();
+		listOfItems = listOfItems + " D:" + damageBoxes.getCount();
 		return listOfItems;
 	}
 }
