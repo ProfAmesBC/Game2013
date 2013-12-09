@@ -177,12 +177,7 @@ public class BatsEverywhere implements GLEventListener
 
         this.playerMotion.setScreenLocation(
         		this.canvas.getLocationOnScreen());
-
-        
-        /// NEED TO FINISH VIEWPORT
-        //gl.glViewport(windowWidth/2, windowHeight/2, windowWidth/2, windowHeight/2);
-
-                
+       
         // draw town
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
      	
