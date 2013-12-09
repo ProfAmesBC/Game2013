@@ -73,7 +73,9 @@ public class Bat {
 		angle+=SPEED/2;
 		vert_rotate -= (float) 1*Math.sin(t/ANIMATION_SPEED+3.14)/ANIMATION_SPEED;
 		z+=.1*SPEED*Math.cos(Math.toRadians(angle));
+		// z += (float) (.1*SPEED*Math.random() * 10);
 		x+=.1*SPEED*Math.sin(Math.toRadians(angle));
+		// x += (float) (.1*SPEED*Math.random() * 10);
 		y+= (float) .1*Math.sin(t/ANIMATION_SPEED+4.5)/ANIMATION_SPEED;
 		if(angle>360) angle-=360;
 	}
