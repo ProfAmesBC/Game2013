@@ -1,7 +1,12 @@
 package weapons;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
+
+import creatures.ProjectileWatcher;
 
 public abstract class Projectile{
 	private float projX, projY, projZ, projAngle;
@@ -11,7 +16,7 @@ public abstract class Projectile{
 	public int red = 0;
 	public int green = 0;
 	public int blue = 0;
-	
+	private static List<ProjectileWatcher> projectileWatchers = new LinkedList<ProjectileWatcher>();
 	
 	public float getLifeSpan() {
 		return lifeSpan;
@@ -58,8 +63,12 @@ public abstract class Projectile{
 	public void updatePosition(){
 		projX = (float) (projX + speed*Math.cos(Math.toRadians(projAngle)));
 		projZ = (float) (projZ - speed*Math.sin(Math.toRadians(projAngle)));
+		for(ProjectileWatcher watcher:projectileWatchers){
+			watcher.projectileMoved(projX,projZ);
+		}
 	}
 	
-
-
+	public static void registerProjectileWatcher(ProjectileWatcher watcher){
+		projectileWatchers.add(watcher);
+	}
 }
