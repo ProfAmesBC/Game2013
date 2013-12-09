@@ -40,6 +40,8 @@ public class BatsEverywhere implements GLEventListener
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
     private CritterGroup catGroup,rabbitGroup;
+    private Dragon dragon;
+    private static int FPS = 60;
     
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
@@ -59,6 +61,7 @@ public class BatsEverywhere implements GLEventListener
         town = new Town(gl, glu);
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
+        dragon = new Dragon(gl, glu, this.FPS);
     }
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -85,11 +88,13 @@ public class BatsEverywhere implements GLEventListener
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
 
         playerMotion.update(gl, glu);//draw town looking in the direction we're moving in
-        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ()); 
+        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
             
         playerMotion.setLookAt(gl, glu);//figure out if we can move and, if so, move    
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT); //clear that town  
-        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
+//        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
+        dragon.draw(gl, glu);
+        
         itemCreator.update();
         writer.draw(bag.toString(), 380, 470);
         projectileWeapons.update(gl, glu);
@@ -152,7 +157,7 @@ public class BatsEverywhere implements GLEventListener
          renderer.canvas.addMouseMotionListener(renderer.playerMotion);
          renderer.canvas.addKeyListener(renderer.projectileWeapons);
          renderer.canvas.requestFocus(); // so key clicks come here
-         FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
+         FPSAnimator animator = new FPSAnimator( renderer.canvas, FPS);
          animator.start();
     }
 
