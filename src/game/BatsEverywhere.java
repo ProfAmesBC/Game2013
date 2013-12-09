@@ -328,7 +328,7 @@ public class BatsEverywhere implements GLEventListener
         
         gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glLoadIdentity();
-        gl.glOrtho(0,1,0,1,-1,1);
+        gl.glOrtho(-1,1,-1,1,-1,1);
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();       
       
@@ -337,19 +337,19 @@ public class BatsEverywhere implements GLEventListener
 
         minimaptexture.bind(gl);
        //}
-    	gl.glEnable(GL2.GL_TEXTURE_GEN_S);
-        gl.glEnable(GL2.GL_TEXTURE_GEN_T);
+    	//gl.glEnable(GL2.GL_TEXTURE_GEN_S);
+        //gl.glEnable(GL2.GL_TEXTURE_GEN_T);
         
         gl.glBegin(GL2.GL_QUADS);
-        gl.glTexCoord2f(0f,0f);gl.glVertex2f(0f, 0f);
-        gl.glTexCoord2f(1f,0f);gl.glVertex2f(1f, 0f);
+        gl.glTexCoord2f(0f,0f);gl.glVertex2f(-1f, -1f);
+        gl.glTexCoord2f(1f,0f);gl.glVertex2f(1f, -1f);
         gl.glTexCoord2f(1f,1f);gl.glVertex2f(1f, 1f);
-        gl.glTexCoord2f(0f,1f);gl.glVertex2f(0f, 1f);
+        gl.glTexCoord2f(0f,1f);gl.glVertex2f(-1f, 1f);
         gl.glEnd();
         
         gl.glDisable(GL2.GL_TEXTURE_2D);
-    	gl.glDisable(GL2.GL_TEXTURE_GEN_S);
-        gl.glDisable(GL2.GL_TEXTURE_GEN_T);
+    	//gl.glDisable(GL2.GL_TEXTURE_GEN_S);
+        //gl.glDisable(GL2.GL_TEXTURE_GEN_T);
         
         gl.glViewport(0, 0, windowWidth, windowHeight);
         reshape( drawable, 0, 0, windowWidth, windowHeight);
