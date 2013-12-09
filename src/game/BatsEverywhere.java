@@ -262,8 +262,12 @@ public class BatsEverywhere implements GLEventListener
         //gl.glLineWidth(1);
         //double[] location = ReadZBuffer.getOGLPos(gl, glu, 250, 250);
         
-       
-       /*RainbowBall.draw(gl,glu);
+        //GL VIEWPORT FOR THE WEAPONS
+        // glViewport wants x,y of lower left corner, then width and height (all in pixels)
+        //gl.glViewport(0,0, windowWidth/2, windowHeight/2);
+        //trying to figure out how to put weapon in and show lifespan
+       /* 
+       RainbowBall.draw(gl,glu);
        renderer.beginRendering(drawable.getWidth(), drawable.getHeight());
        // optionally set the text color
        renderer.setColor(0.2f, 0.2f, 1f, 0.2f); // Note use of alpha
@@ -284,7 +288,16 @@ public class BatsEverywhere implements GLEventListener
         	System.out.println("OpenGL Error: " + glu.gluErrorString(error1));
          */
 
+        
+        //Set the eye back to its original coordinates
+        //playerMotion.setEyeX(-5);
+    	//playerMotion.setEyeY(5);
+    	//playerMotion.setEyeZ(50);
+
         for(CritterGroup critterGroup:critters)critterGroup.draw(gl, glu);
+ 
+        /// NEED TO FINISH VIEWPORT
+        //this must be drawn last
 
         setupViewport(drawable);
 
@@ -315,22 +328,28 @@ public class BatsEverywhere implements GLEventListener
         
         gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glLoadIdentity();
-        gl.glOrtho(-1,1,-1,1,-1,1);
+        gl.glOrtho(0,1,0,1,-1,1);
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();       
       
         gl.glEnable(GL2.GL_TEXTURE_2D);
+       //if (minimaptexture != null){
 
         minimaptexture.bind(gl);
+       //}
+    	gl.glEnable(GL2.GL_TEXTURE_GEN_S);
+        gl.glEnable(GL2.GL_TEXTURE_GEN_T);
         
         gl.glBegin(GL2.GL_QUADS);
-        gl.glTexCoord2f(0f,0f);gl.glVertex2f(-1f, -1f);
-        gl.glTexCoord2f(1f,0f);gl.glVertex2f(1f, -1f);
+        gl.glTexCoord2f(0f,0f);gl.glVertex2f(0f, 0f);
+        gl.glTexCoord2f(1f,0f);gl.glVertex2f(1f, 0f);
         gl.glTexCoord2f(1f,1f);gl.glVertex2f(1f, 1f);
-        gl.glTexCoord2f(0f,1f);gl.glVertex2f(-1f, 1f);
+        gl.glTexCoord2f(0f,1f);gl.glVertex2f(0f, 1f);
         gl.glEnd();
         
         gl.glDisable(GL2.GL_TEXTURE_2D);
+    	gl.glDisable(GL2.GL_TEXTURE_GEN_S);
+        gl.glDisable(GL2.GL_TEXTURE_GEN_T);
         
         gl.glViewport(0, 0, windowWidth, windowHeight);
         reshape( drawable, 0, 0, windowWidth, windowHeight);
