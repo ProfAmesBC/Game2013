@@ -12,7 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 public class BaseballBatWeapon
 {
-    /*
 private int displayList = -1;
 private Map<String, com.jogamp.opengl.util.texture.Texture> imageMap = new HashMap<String, com.jogamp.opengl.util.texture.Texture>(); // map of ID's to textures
 public BaseballBatWeapon(GL2 gl, GLU glu) {
@@ -91,5 +90,4 @@ gl.glDisableClientState(GL2.GL_VERTEX_ARRAY);
 gl.glDisableClientState(GL2.GL_NORMAL_ARRAY);
 gl.glDisableClientState(GL2.GL_TEXTURE_COORD_ARRAY);
 }
-*/
 }
