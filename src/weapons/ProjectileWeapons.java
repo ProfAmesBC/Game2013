@@ -33,7 +33,7 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher{
 	public void shootBullet(){
 		RainbowBall bullet = new RainbowBall(x, y, z, angle); //CREATE NEW BULLET AT CURRENT PLAYER POSITION
 		bulletsList.add(bullet); //ADD BULLET TO LIST OF BULLETS
-		WeaponSounds.weaponNoise();
+		WeaponSounds.projectileNoise();
 	}
 	
 	@Override

@@ -6,7 +6,7 @@ public class WeaponSounds {
 	//a test commit
 	
 	
-	public static void weaponNoise()
+	public static void projectileNoise()
 	{
 		System.out.println("NOISE");
 	}
