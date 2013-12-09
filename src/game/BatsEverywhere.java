@@ -134,7 +134,7 @@ public class BatsEverywhere implements GLEventListener
         renderer.controls.append("K: look down\n");
          renderer.controls.append("Shift: sprint\n");
          renderer.controls.append("\n");
-         renderer.controls.append("Space: fireball\n");
+         renderer.controls.append("Space/MouseClick: fireball\n");
          renderer.controls.append("1: use speed item\n");
          renderer.controls.append("\n");
          renderer.controls.append("M: toggle mouse\n");
@@ -151,6 +151,7 @@ public class BatsEverywhere implements GLEventListener
          renderer.canvas.addKeyListener(renderer.playerMotion);
          renderer.canvas.addMouseMotionListener(renderer.playerMotion);
          renderer.canvas.addKeyListener(renderer.projectileWeapons);
+         renderer.canvas.addMouseListener(renderer.projectileWeapons);
          renderer.canvas.requestFocus(); // so key clicks come here
          FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
          animator.start();

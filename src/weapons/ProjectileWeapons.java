@@ -6,10 +6,12 @@ import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher{
+public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher, MouseListener {
 	private ArrayList<RainbowBall> bulletsList = new ArrayList<RainbowBall>();
 	private float x, y, z, angle, y_angle;
 	
@@ -29,7 +31,7 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher{
 	}
 	
 	public void shootBullet(){
-		RainbowBall bullet = new RainbowBall(x, y, z, angle); //CREATE NEW BULLET AT CURRENT PLAYER POSITION
+		RainbowBall bullet = new RainbowBall(x, y, z, angle, y_angle); //CREATE NEW BULLET AT CURRENT PLAYER POSITION
 		bulletsList.add(bullet); //ADD BULLET TO LIST OF BULLETS
 	}
 	
@@ -52,4 +54,20 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher{
         this.y_angle = y_angle;
 	}
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        shootBullet();
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) { }
+
+    @Override
+    public void mouseReleased(MouseEvent e) { }
+
+    @Override
+    public void mouseEntered(MouseEvent e) { }
+
+    @Override
+    public void mouseExited(MouseEvent e) { }
 }

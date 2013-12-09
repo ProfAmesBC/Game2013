@@ -1,15 +1,14 @@
 package weapons;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Projectile{
 	private static List<WeaponWatcher>watchers=new ArrayList<WeaponWatcher>();
 	
-	private float projX, projY, projZ, projAngle;
+	private float projX, projY, projZ, projAngle, projYAngle;
 	private float speed = 5;
 	private float lifeSpan = 50;
 	public int size = 0;
@@ -30,9 +29,14 @@ public abstract class Projectile{
 	public float getProjZ() {return projZ;}
 	public void setProjZ(float projZ) {	this.projZ = projZ;}
 	public void setProjAngle(float projAngle) {this.projAngle = projAngle;}
+    public float getProjYAngle() {
+        return projYAngle;
+    }
+    public void setProjYAngle(float projYAngle) {
+        this.projYAngle = projYAngle;
+    }
 
-	
-	//These would be different for each gun
+    //These would be different for each gun
 	public int getBulletSize(){return size;}
 	public void setBulletSize(int size) {this.size = size;}
 	public int getBulletRed() {return red;}
@@ -63,6 +67,7 @@ public abstract class Projectile{
 	public void updatePosition(){
 		projX = (float) (projX + speed*Math.cos(Math.toRadians(projAngle)));
 		projZ = (float) (projZ - speed*Math.sin(Math.toRadians(projAngle)));
+        projY = (float) (projY + speed*Math.sin(Math.toRadians(projYAngle)));
 		for(WeaponWatcher watcher:watchers)
 			watcher.checkShot(this);
 	}
