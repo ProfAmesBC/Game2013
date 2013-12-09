@@ -14,10 +14,12 @@ import javax.media.opengl.glu.GLUquadric;
 
 public class BludgeoningWeapon implements KeyListener, PlayerMotionWatcher{
 	
-	private float x, y, z, weaponX, weaponY, weaponZ;
+	private float x, y, z, angle;	// where player is
+	private float weaponX, weaponY, weaponZ;	// position of weapon
 	private GLUquadric quadric;
 	private int frames, lengthOfHit; // the counter to determine how long the weapon is being swung for
 	private float reach = 5; 
+	private float dist = 0;
 	private GL2 gl;
 	private GLU glu;
 	private boolean hit;
@@ -50,44 +52,88 @@ public class BludgeoningWeapon implements KeyListener, PlayerMotionWatcher{
 	}
 	
 	public void update(GL2 gl, GLU glu){
+//		weaponX = (float) (x + speed*Math.cos(Math.toRadians(angle)));
+//		weaponZ = (float) (z - speed*Math.sin(Math.toRadians(angle)));
+		
 		if (hit){
 			
+			weaponX =  (float) (Math.cos(Math.toRadians(angle)));
+			weaponZ = -(float) (Math.sin(Math.toRadians(angle)));
+			
 			if (frames < lengthOfHit/2){
-//				gl.glColor3f(1f,0f,.25f);
+				
 				gl.glPushMatrix();
-					gl.glTranslatef(x + weaponX+10, y, z );	// draw at person
+					gl.glTranslatef(x+weaponX * dist/5, y, z+ weaponZ * dist/5);	// draw at person
 					gl.glRotatef(-90, 1, 0, 0);
 					p.draw(gl, glu);
-//					glu.gluSphere(quadric, 1, 10, 10);
 				gl.glPopMatrix();
-				weaponX++; weaponZ++;
+
+//				weaponX++; weaponZ++;
+				dist++;
 				frames++;
-			}
+		}
 			else if (frames >= lengthOfHit/2 && frames < lengthOfHit){
 				gl.glPushMatrix();
-					gl.glTranslatef(x + weaponX+10, y, z );	// draw at person
+					gl.glTranslatef(x+weaponX * dist/5, y, z+ weaponZ * dist/5);	// draw at person
 					gl.glRotatef(-90, 1, 0, 0);
 					p.draw(gl, glu);
-//					glu.gluSphere(quadric, 1, 10, 10);
 				gl.glPopMatrix();
-				weaponX--; weaponZ--;
+				
+//				weaponX--; weaponZ--;
+				dist --;
 				frames++;
 			}
-//			frames++;
 			else { 
 				System.out.println("ok");
 				weaponX = weaponY = weaponZ = 0;
 				frames = 0;
+				dist = 0;
 				
 				hit = false; }
 		}
 	}
 	
+//	public void update(GL2 gl, GLU glu){
+//		if (hit){
+//			
+//			if (frames < lengthOfHit/2){
+////				gl.glColor3f(1f,0f,.25f);
+//				gl.glPushMatrix();
+//					gl.glTranslatef(x + weaponX+10, y, z );	// draw at person
+//					gl.glRotatef(-90, 1, 0, 0);
+//					p.draw(gl, glu);
+////					glu.gluSphere(quadric, 1, 10, 10);
+//				gl.glPopMatrix();
+//				weaponX++; weaponZ++;
+//				frames++;
+//			}
+//			else if (frames >= lengthOfHit/2 && frames < lengthOfHit){
+//				gl.glPushMatrix();
+//					gl.glTranslatef(x + weaponX+10, y, z );	// draw at person
+//					gl.glRotatef(-90, 1, 0, 0);
+//					p.draw(gl, glu);
+////					glu.gluSphere(quadric, 1, 10, 10);
+//				gl.glPopMatrix();
+//				weaponX--; weaponZ--;
+//				frames++;
+//			}
+////			frames++;
+//			else { 
+//				System.out.println("ok");
+//				weaponX = weaponY = weaponZ = 0;
+//				frames = 0;
+//				
+//				hit = false; }
+//		}
+//	}
+	
+	// figure out where player is looking, also!
 	@Override
 	public void playerMoved(float x, float y, float z, float angle) {
-		this.x = x-2;
+		this.x = x;
 		this.y = y;
-		this.z = z-2;
+		this.z = z;
+		this.angle = angle;
 	}
 
 	@Override
@@ -100,7 +146,9 @@ public class BludgeoningWeapon implements KeyListener, PlayerMotionWatcher{
 		if(e.getKeyCode() == KeyEvent.VK_O){	// add functionality later to toggle between weapons or to have a "current weapon"
 			System.out.println("!!!!");
 			hit = true;
-			weaponX = 0; weaponY = 0; weaponZ = 10;
+//			weaponX = 0; weaponY = 0; weaponZ = 10;
+//			weaponX = (float) (x + speed*Math.cos(Math.toRadians(angle)));
+//			weaponZ = (float) (z - speed*Math.sin(Math.toRadians(angle)));
 		}
 	}
 

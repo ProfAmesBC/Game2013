@@ -26,6 +26,7 @@ public abstract class Projectile{
 		lifeSpan--;
 	}
 	
+	// USE THIS
 	public void updatePosition(){
 		projX = (float) (projX + speed*Math.cos(Math.toRadians(projAngle)));
 		projZ = (float) (projZ - speed*Math.sin(Math.toRadians(projAngle)));
