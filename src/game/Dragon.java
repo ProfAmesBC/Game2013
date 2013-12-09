@@ -5,5 +5,6 @@ public class Dragon {
 	
 	public Dragon(){
 		new SketchupModelJAXB("DragonLegsUp.dae", gl, glu);
+		//just a comment
 	}
 }
