@@ -9,6 +9,7 @@ import inventory.ItemFactory;
 import inventory.PlayerActions;
 import inventory.PlayerAttributes;
 import weapons.ProjectileWeapons;
+import Enemies.Bat;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
@@ -38,6 +39,7 @@ public class BatsEverywhere implements GLEventListener
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
     private CritterGroup catGroup,rabbitGroup;
+    private Bat bat;
     
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
@@ -57,6 +59,7 @@ public class BatsEverywhere implements GLEventListener
         town = new Town(gl, glu);
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
+        bat = new Bat(gl, glu);
     }
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -93,6 +96,7 @@ public class BatsEverywhere implements GLEventListener
         projectileWeapons.update(gl, glu);
         catGroup.draw(gl, glu);
         rabbitGroup.draw(gl, glu);
+        bat.draw(gl, glu);
  
         // check for errors, at least once per frame
         int error = gl.glGetError();
