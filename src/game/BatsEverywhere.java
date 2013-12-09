@@ -1,14 +1,14 @@
 package game;
 
+import catsrabbits.CatGroup;
+import catsrabbits.CritterGroup;
+import catsrabbits.RabbitGroup;
+import com.jogamp.opengl.util.FPSAnimator;
 import inventory.Bag;
 import inventory.ItemFactory;
 import inventory.PlayerActions;
 import inventory.PlayerAttributes;
-
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.io.File;
-import java.util.*;
+import weapons.ProjectileWeapons;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
@@ -16,20 +16,13 @@ import javax.media.opengl.GLEventListener;
 import javax.media.opengl.GLProfile;
 import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
-import javax.swing.JFrame;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-
-import sketchupModels.Avatar;
-import weapons.ProjectileWeapons;
-import catsrabbits.*;
-
-import com.jogamp.opengl.util.FPSAnimator;
+import javax.swing.*;
+import java.awt.*;
 
 public class BatsEverywhere implements GLEventListener
 {
     private JTextField statusLine = new JTextField(10); // for misc messages at bottom of window
-    private JTextArea controls = new JTextArea("Controls: \n\n", 20, 15);
+    private JTextArea controls = new JTextArea("Controls:\n\n", 20, 15);
     private int framesDrawn=0;
     private GLU glu = new GLU();
     private Town town;
@@ -44,7 +37,7 @@ public class BatsEverywhere implements GLEventListener
 	private StatusText writer;
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
-    private List<CritterGroup>critters=new ArrayList<CritterGroup>();
+    private CritterGroup catGroup,rabbitGroup;
     
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
@@ -62,8 +55,8 @@ public class BatsEverywhere implements GLEventListener
         itemCreator.testCreate();
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
-        critters.add(new CatGroup(gl,glu));
-        critters.add(new RabbitGroup(gl,glu));
+        catGroup=new CatGroup(gl,glu);
+        rabbitGroup=new RabbitGroup(gl,glu);
     }
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -98,7 +91,8 @@ public class BatsEverywhere implements GLEventListener
         itemCreator.update();
         writer.draw(bag.toString(), 380, 470);
         projectileWeapons.update(gl, glu);
-        for(CritterGroup critterGroup:critters)critterGroup.draw(gl, glu);
+        catGroup.draw(gl, glu);
+        rabbitGroup.draw(gl, glu);
  
         // check for errors, at least once per frame
         int error = gl.glGetError();
@@ -132,13 +126,16 @@ public class BatsEverywhere implements GLEventListener
 
          renderer.controls.append("W: move forward\n");
          renderer.controls.append("A: move left\n");
-         renderer.controls.append("S: move right\n");
-         renderer.controls.append("D: move backward\n");
+         renderer.controls.append("D: move right\n");
+         renderer.controls.append("S: move backward\n");
          renderer.controls.append("Q: turn left\n");
          renderer.controls.append("E: turn right\n");
-         renderer.controls.append("Shift: sprint\n");
+        renderer.controls.append("I: look up\n");
+        renderer.controls.append("K: look down\n");
+        renderer.controls.append("J: jump\n");
+                 renderer.controls.append("Shift: sprint\n");
          renderer.controls.append("\n");
-         renderer.controls.append("Space: fireball\n");
+         renderer.controls.append("Space/MouseClick: fireball\n");
          renderer.controls.append("1: use speed item\n");
          renderer.controls.append("\n");
          renderer.controls.append("M: toggle mouse\n");
@@ -155,6 +152,7 @@ public class BatsEverywhere implements GLEventListener
          renderer.canvas.addKeyListener(renderer.playerMotion);
          renderer.canvas.addMouseMotionListener(renderer.playerMotion);
          renderer.canvas.addKeyListener(renderer.projectileWeapons);
+         renderer.canvas.addMouseListener(renderer.projectileWeapons);
          renderer.canvas.requestFocus(); // so key clicks come here
          FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
          animator.start();
