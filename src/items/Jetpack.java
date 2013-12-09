@@ -24,7 +24,7 @@ public class Jetpack implements Item {
 
 	public Jetpack(GL2 gl, GLU glu, float x, float y, float z, Bag bag,
 			PlayerAttributes p) {
-		textureItem = Building.setupTexture(gl, "textureItem.png");
+		textureItem = Building.setupTexture(gl, "jetpack.png");
 		this.itemX = x;
 		this.itemY = y;
 		this.itemZ = z;
@@ -41,7 +41,7 @@ public class Jetpack implements Item {
 
 	public void draw(GL2 gl, GLU glu) {
 		frames++;
-		T = T + 0.05;
+		T = T + 0.5;
 		if (grabConditions()) {
 			grabbed = true;
 			bag.addItem(this);
@@ -114,6 +114,7 @@ public class Jetpack implements Item {
 		// gl.glTranslated(-itemX, -(Math.sin(Math.toRadians(T*360+180 ))+2),
 		// -itemZ);
 		textureItem.bind(gl);
+		gl.glRotated(5*T,1,5*T,1);
 
 		gl.glBegin(GL2.GL_QUADS);
 		gl.glTexCoord2f(0f, 2f);

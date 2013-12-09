@@ -51,7 +51,7 @@ public class Cripple implements Item {
 	public void draw(GL2 gl, GLU glu) {
 		counter++;
 		frames++;
-		T = T + 0.05;
+		T = T + 0.5;
 		if (grabConditions()) {
 			grabbed = true;
 			counter = 0;
@@ -122,6 +122,7 @@ public class Cripple implements Item {
 		gl.glPushMatrix();
 		gl.glTranslated(itemX, Math.sin(Math.toRadians(T * 360 + 180)) + 2,
 				itemZ);
+		gl.glRotated(5*T,1,5*T,1);
 		// gl.glRotated(Math.toRadians(15*frames), Math.toRadians(15*frames),
 		// Math.toRadians(15*frames), 1);
 		// gl.glTranslated(-itemX, -(Math.sin(Math.toRadians(T*360+180 ))+2),
