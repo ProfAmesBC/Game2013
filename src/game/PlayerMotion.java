@@ -38,26 +38,29 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
             ;
         }
     }
-
+    
+    public float getEyeX() {return eyeX;} 
+    public float getEyeY() {return eyeY;}
+    public float getEyeZ() {return eyeZ;}
+    public void setDim(int width, int height) {
+    	this.width = width;
+    	this.height = height;
+    }
+    
+    public void setEyeX(float x) {
+    	eyeX=x;
+    }
+    
+    public void setEyeY(float y) {
+    	eyeY=y;
+    }
+    
+    public void setEyeZ(float z) {
+    	eyeZ=z;
+    }
+    
     public static void registerPlayerWatcher(PlayerMotionWatcher watcher) {
         watchers.add(watcher);
-    }
-
-    public float getEyeX() {
-        return eyeX;
-    }
-
-    public float getEyeY() {
-        return eyeY;
-    }
-
-    public float getEyeZ() {
-        return eyeZ;
-    }
-
-    public void setDim(int width, int height) {
-        this.width = width;
-        this.height = height;
     }
 
     @Override
