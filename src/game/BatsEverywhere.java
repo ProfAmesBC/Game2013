@@ -125,12 +125,7 @@ public class BatsEverywhere implements GLEventListener
     
     public void minimap(GLAutoDrawable drawable){   	   	
         GL2 gl = drawable.getGL().getGL2();       
-        System.out.println("Frames drawn = 1");
-
-        
-        glu.gluLookAt(-655, -5, 323,   // eye location
-                -655 + Math.cos(Math.toRadians(0)), -5, 323 + -Math.sin(Math.toRadians(0)),   // point to look at (near middle of pyramid)
-                 0, -1,  0);
+        System.out.println("in minimap");
 
        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
 
@@ -144,18 +139,26 @@ public class BatsEverywhere implements GLEventListener
         this.playerMotion.setScreenLocation(
         		this.canvas.getLocationOnScreen());
    
-        gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
-
+        gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);    
 
         playerMotion.setLookAt(gl, glu);
         
+    	//playerMotion.setEyeX(-700);
+    	//playerMotion.setEyeY(300);
+    	//playerMotion.setEyeZ(300);
+       
+    	 glu.gluLookAt(-655, -5, 323,   // eye location
+                 -655 + Math.cos(Math.toRadians(0)), -5, 323 + -Math.sin(Math.toRadians(0)),   // point to look at (near middle of pyramid)
+                  0, -1,  0);
     	
+
+        
         /// NEED TO FINISH VIEWPORT
         //gl.glViewport(windowWidth/2, windowHeight/2, windowWidth/2, windowHeight/2);
                 
         // draw town
-        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
-
+        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
+     	
         playerMotion.update(gl, glu);//draw town looking in the direction we're moving in
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ()); 
             
@@ -167,7 +170,7 @@ public class BatsEverywhere implements GLEventListener
 
         projectileWeapons.update(gl, glu);
         
-        
+     	gl.glRotatef((float)(90), 0f, 0f, 1f);
         
         // Draw sphere at the point you're looking at
         //gl.glLineWidth(1);
@@ -185,10 +188,10 @@ public class BatsEverywhere implements GLEventListener
        renderer.draw("LifeSpan"+Projectile.getLifeSpan();, 25, 250);  // pixels, from lower left
        renderer.endRendering();
        */ 
-        
+       
         if (++framesDrawn == 1) {
-        	 minimap(drawable);
-        }       
+         	 minimap(drawable);
+         }
         
         //Set the eye back to its original coordinates
         //playerMotion.setEyeX(-5);
