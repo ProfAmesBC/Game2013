@@ -1,21 +1,20 @@
 package items;
 
+import com.jogamp.opengl.util.texture.Texture;
+import game.Building;
+import game.PlayerMotion;
 import inventory.Bag;
 import inventory.Item;
 import inventory.PlayerAttributes;
-import game.Building;
-import game.PlayerMotion;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
-
-import com.jogamp.opengl.util.texture.Texture;
 
 public class SpeedBox implements Item {
 	private Texture textureItem;
 	private float itemX, itemY, itemZ;
 	private float playerX, playerY, playerZ;
-	private float angle;
+	private float angle, y_angle;
 	private boolean grabbed;
 	private double T;
 	private Bag bag;
@@ -256,7 +255,7 @@ public class SpeedBox implements Item {
 	}
 
 	@Override
-	public void playerMoved(float x, float y, float z, float angle) {
+	public void playerMoved(float x, float y, float z, float angle, float y_angle) {
 		// GET CURRENT POSITION OF PLAYER
 		this.playerX = x;
 		this.playerY = y;
