@@ -231,24 +231,7 @@ public class BatsEverywhere implements GLEventListener
  
         /// NEED TO FINISH VIEWPORT
         //this must be drawn last
-        gl.glViewport(0, windowHeight*2/3, windowWidth/3, windowHeight/3);
-        gl.glClear(GL2.GL_DEPTH_BUFFER_BIT);
-        
-        gl.glMatrixMode(GL2.GL_PROJECTION);
-        gl.glLoadIdentity();
-        gl.glOrtho(0,1,0,1,-1,1);
-        gl.glMatrixMode(GL2.GL_MODELVIEW);
-        gl.glLoadIdentity();
-        
-        gl.glBegin(GL2.GL_QUADS);
-        gl.glTexCoord2f(0f,0f);gl.glVertex2f(0f, 0f);
-        gl.glTexCoord2f(1f,0f);gl.glVertex2f(1f, 0f);
-        gl.glTexCoord2f(1f,1f);gl.glVertex2f(1f, 1f);
-        gl.glTexCoord2f(0f,1f);gl.glVertex2f(0f, 1f);
-        gl.glEnd();
-        
-        gl.glViewport(0, 0, windowWidth, windowHeight);
-        reshape( drawable, 0, 0, windowWidth, windowHeight);
+        setupViewport(drawable);
         
         
         // check for errors, at least once per frame
@@ -279,6 +262,29 @@ public class BatsEverywhere implements GLEventListener
         if (error1 != GL2.GL_NO_ERROR)
         	System.out.println("OpenGL Error: " + glu.gluErrorString(error1));
         	*/
+    }
+    
+    public void setupViewport(GLAutoDrawable drawable)
+    {
+        GL2 gl = drawable.getGL().getGL2();
+        gl.glViewport(0, windowHeight*2/3, windowWidth/3, windowHeight/3);
+        gl.glClear(GL2.GL_DEPTH_BUFFER_BIT);
+        
+        gl.glMatrixMode(GL2.GL_PROJECTION);
+        gl.glLoadIdentity();
+        gl.glOrtho(0,1,0,1,-1,1);
+        gl.glMatrixMode(GL2.GL_MODELVIEW);
+        gl.glLoadIdentity();
+        
+        gl.glBegin(GL2.GL_QUADS);
+        gl.glTexCoord2f(0f,0f);gl.glVertex2f(0f, 0f);
+        gl.glTexCoord2f(1f,0f);gl.glVertex2f(1f, 0f);
+        gl.glTexCoord2f(1f,1f);gl.glVertex2f(1f, 1f);
+        gl.glTexCoord2f(0f,1f);gl.glVertex2f(0f, 1f);
+        gl.glEnd();
+        
+        gl.glViewport(0, 0, windowWidth, windowHeight);
+        reshape( drawable, 0, 0, windowWidth, windowHeight);
     }
     
 
