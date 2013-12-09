@@ -9,6 +9,7 @@ import inventory.PlayerActions;
 import inventory.PlayerAttributes;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.io.File; //For capturing screen shot
@@ -69,6 +70,9 @@ public class BatsEverywhere implements GLEventListener
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
       //drawable.setGL(new TraceGL2(drawable.getGL().getGL2(), System.out)); // to trace every call.  Less useful.
         GL2 gl = drawable.getGL().getGL2();
+        controls.setForeground(Color.DARK_GRAY);
+        controls.setBackground(Color.LIGHT_GRAY);
+        controls.setFont(new Font("Serif", Font.ITALIC, 12));
         statusLine.setEditable(false);
         gl.setSwapInterval(1); // for animation synchronized to refresh rate
         gl.glClearColor(.7f,.7f,1f,0f); // background
@@ -211,6 +215,19 @@ public class BatsEverywhere implements GLEventListener
        renderer.draw("LifeSpan"+Projectile.getLifeSpan();, 25, 250);  // pixels, from lower left
        renderer.endRendering();
        */ 
+        // to make textfields for Weapons and player score
+        /*
+        renderer.beginRendering(drawable.getWidth(), drawable.getHeight());
+        // optionally set the text color
+        renderer.setColor(0.2f, 0.2f, 1f, 0.2f); // Note use of alpha
+        renderer.draw("Transparent Text", 25, 250);  // pixels, from lower left
+        renderer.endRendering();
+        
+        // check for errors
+        int error1 = gl.glGetError();
+        if (error1 != GL2.GL_NO_ERROR)
+        	System.out.println("OpenGL Error: " + glu.gluErrorString(error1));
+         */
 
         
         //Set the eye back to its original coordinates
@@ -241,19 +258,6 @@ public class BatsEverywhere implements GLEventListener
                     "   Time per frame: " + runtime/60/1000f);
             runtime = 0;
         }
-    // to make textfields for Weapons and player score
-        /*
-        renderer.beginRendering(drawable.getWidth(), drawable.getHeight());
-        // optionally set the text color
-        renderer.setColor(0.2f, 0.2f, 1f, 0.2f); // Note use of alpha
-        renderer.draw("Transparent Text", 25, 250);  // pixels, from lower left
-        renderer.endRendering();
-        
-        // check for errors
-        int error1 = gl.glGetError();
-        if (error1 != GL2.GL_NO_ERROR)
-        	System.out.println("OpenGL Error: " + glu.gluErrorString(error1));
-        	*/
     }
     
     public void setupViewport(GLAutoDrawable drawable)
@@ -317,13 +321,16 @@ public class BatsEverywhere implements GLEventListener
          renderer.controls.append("P: Use speed item\n");
          renderer.controls.append("\n");
          renderer.controls.append("M: toggle mouse\n");
+         //renderer.controls.append()
+         
+         
          renderer.controls.setEditable(false);	// don't let you edit text once it's established
          
      
          
          
          frame.setLayout(new BorderLayout());
-         frame.add(renderer.statusLine, BorderLayout.SOUTH);
+         //frame.add(renderer.statusLine, BorderLayout.SOUTH);
          frame.add(renderer.controls, BorderLayout.EAST);
          frame.add(renderer.canvas, BorderLayout.CENTER);
          //frame.add(renderer.weapons,BorderLayout.WEST);
