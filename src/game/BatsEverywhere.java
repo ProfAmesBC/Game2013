@@ -15,7 +15,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import weapons.ProjectileWeapons;
-import Enemies.Bat;
 
 import com.jogamp.opengl.util.FPSAnimator;
 
@@ -30,7 +29,6 @@ public class BatsEverywhere implements GLEventListener
     private long runtime = 0;
     private PlayerMotion playerMotion = new PlayerMotion();
     private PlayerLogger logger = new PlayerLogger();
-    private Bat bat;
 
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
@@ -44,7 +42,6 @@ public class BatsEverywhere implements GLEventListener
         
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
-        bat = new Bat(gl, glu);
         town = new Town(gl, glu);
     }
 
@@ -73,8 +70,6 @@ public class BatsEverywhere implements GLEventListener
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
         
         projectileWeapons.update(gl, glu);
-        
-        bat.draw(gl, glu);
  
         // check for errors, at least once per frame
         int error = gl.glGetError();
