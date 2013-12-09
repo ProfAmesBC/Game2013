@@ -156,16 +156,13 @@ public class BatsEverywhere implements GLEventListener
            // minimaptexture = setupTexture(gl, "minimap.png");
         } else
             System.out.println("Unable to grab screen shot");
-<<<<<<< HEAD
-=======
-        
+
         if (minimaptexture == null){
         	System.out.println("minimap is null");
         }
         if(minimaptexture != null){
         	System.out.println("minimap is not null");
         }
->>>>>>> branch 'DisplayFeatures' of https://github.com/ProfAmesBC/Game2013.git
     }
     
     public void minimap(GLAutoDrawable drawable){
@@ -305,15 +302,8 @@ public class BatsEverywhere implements GLEventListener
       
         gl.glEnable(GL2.GL_TEXTURE_2D);
        //if (minimaptexture != null){
-<<<<<<< HEAD
-=======
-        //
->>>>>>> branch 'DisplayFeatures' of https://github.com/ProfAmesBC/Game2013.git
+
         minimaptexture.bind(gl);
-<<<<<<< HEAD
-        //System.out.println("Minimap texture is here!");
-=======
->>>>>>> branch 'DisplayFeatures' of https://github.com/ProfAmesBC/Game2013.git
        //}
     	gl.glEnable(GL2.GL_TEXTURE_GEN_S);
         gl.glEnable(GL2.GL_TEXTURE_GEN_T);
