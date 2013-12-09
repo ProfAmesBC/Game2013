@@ -52,5 +52,6 @@ public class ItemFactory {
 		addBlindItem(30,0,30);
 		addBlindItem(80,0,80);
 		addJetpackItem(80,0,120);
+		addJetpackItem(100,0,50);
 	}
 }
