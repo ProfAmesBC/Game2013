@@ -28,7 +28,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     private Robot robot;
     
     public PlayerMotion() {
-        eyeX = 1; eyeY = 5; eyeZ = 50;
+        eyeX = -5; eyeY = 5; eyeZ = 50;
         theta = 0;
         try {
 			robot = new Robot();

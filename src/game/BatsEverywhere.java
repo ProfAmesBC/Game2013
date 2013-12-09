@@ -175,7 +175,7 @@ public class BatsEverywhere implements GLEventListener
         
         //GL VIEWPORT FOR THE WEAPONS
         // glViewport wants x,y of lower left corner, then width and height (all in pixels)
-        gl.glViewport(0,0, windowWidth/2, windowHeight/2);
+        //gl.glViewport(0,0, windowWidth/2, windowHeight/2);
         //trying to figure out how to put weapon in and show lifespan
        /* 
        RainbowBall.draw(gl,glu);
