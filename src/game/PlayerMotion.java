@@ -20,8 +20,10 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     private float gamma, dgamma;
     private float step = step1;
     private boolean mouseMovement = false;
-    private boolean wdown, adown, sdown, ddown, qdown, edown, idown, kdown;
+    private boolean wdown, adown, sdown, ddown, qdown, edown, idown, kdown, jdown;
+    private boolean jumping, falling;
     private Robot robot;
+    private final double G = 32.1740;
 
     public PlayerMotion() {
         eyeX = 1;
@@ -85,6 +87,9 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
             case KeyEvent.VK_K:
                 kdown = true;
                 break;
+            case KeyEvent.VK_J:
+                jdown = true;
+                break;
             case KeyEvent.VK_SHIFT:
                 step = step2;
                 break;
@@ -120,6 +125,9 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
                 break;
             case KeyEvent.VK_K:
                 kdown = false;
+                break;
+            case KeyEvent.VK_J:
+                jdown = false;
                 break;
             case KeyEvent.VK_SHIFT:
                 step = step1;
@@ -187,7 +195,24 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
         if (kdown) {
             gamma -= 2;
         }
-        if (adown || ddown || sdown || wdown || qdown || edown || idown || kdown) {
+        if (jdown) {
+            jumping = true;
+        }
+        if (jumping) {
+            eyeY += 0.7;
+        }
+        if (falling) {
+            eyeY -= 0.7;
+        }
+        if (jumping && eyeY > 10) {
+            jumping = false;
+            falling = true;
+        }
+        if (falling && eyeY <= 5) {
+            eyeY = 5;
+            falling = false;
+        }
+        if (adown || ddown || sdown || wdown || qdown || edown || idown || kdown || jdown) {
             for (PlayerMotionWatcher watcher : watchers)
                 watcher.playerMoved(eyeX, eyeY, eyeZ, theta, gamma);
         }
