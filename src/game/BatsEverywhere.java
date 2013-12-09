@@ -1,8 +1,14 @@
 package game;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.io.File;
+import catsrabbits.CatGroup;
+import catsrabbits.CritterGroup;
+import catsrabbits.RabbitGroup;
+import com.jogamp.opengl.util.FPSAnimator;
+import inventory.Bag;
+import inventory.ItemFactory;
+import inventory.PlayerActions;
+import inventory.PlayerAttributes;
+import weapons.ProjectileWeapons;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
@@ -10,16 +16,8 @@ import javax.media.opengl.GLEventListener;
 import javax.media.opengl.GLProfile;
 import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
-import javax.swing.JFrame;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-
-import sketchupModels.Avatar;
-import weapons.ProjectileWeapons;
-import inventory.*;
-import catsrabbits.*;
-
-import com.jogamp.opengl.util.FPSAnimator;
+import javax.swing.*;
+import java.awt.*;
 
 public class BatsEverywhere implements GLEventListener
 {
@@ -128,10 +126,12 @@ public class BatsEverywhere implements GLEventListener
 
          renderer.controls.append("W: move forward\n");
          renderer.controls.append("A: move left\n");
-         renderer.controls.append("S: move right\n");
-         renderer.controls.append("D: move backward\n");
+         renderer.controls.append("D: move right\n");
+         renderer.controls.append("S: move backward\n");
          renderer.controls.append("Q: turn left\n");
          renderer.controls.append("E: turn right\n");
+        renderer.controls.append("I: look up\n");
+        renderer.controls.append("K: look down\n");
          renderer.controls.append("Shift: sprint\n");
          renderer.controls.append("\n");
          renderer.controls.append("Space: fireball\n");
