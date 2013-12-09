@@ -5,36 +5,20 @@ import inventory.Item;
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
-public class AbstractPowerUp implements Item {
+public abstract class AbstractPowerUp implements Item {
 
 	@Override
-	public void playerMoved(float x, float y, float z, float angle, float y_angle) {
-		// TODO Auto-generated method stub
-		
-	}
+	public abstract void playerMoved(float x, float y, float z, float angle, float y_angle);
+	
 
 	@Override
-	public void draw(GL2 gl, GLU glu) {
-		// TODO Auto-generated method stub
-		
-	}
+	public abstract void draw(GL2 gl, GLU glu);
 
 	@Override
-	public void use() {
-		// TODO Auto-generated method stub
-		
-	}
+	public abstract void use();
 
 	@Override
-	public boolean grabbed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
+	public abstract boolean grabbed();
 	@Override
-	public String getType() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	public abstract String getType();
 }
