@@ -24,7 +24,7 @@ public class Cripple implements Item {
 	private double T;
 	private Bag bag;
 	private static PlayerAttributes p;
-	private int frames;
+	private int frames; 
 	private int counter;
 	private boolean used;	
 	private TextRenderer renderer;

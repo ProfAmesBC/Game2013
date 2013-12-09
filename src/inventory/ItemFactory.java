@@ -1,7 +1,6 @@
 package inventory;
 
 import items.BlindItem;
-import items.Cripple;
 import items.Jetpack;
 import items.SpeedBox;
 
@@ -34,12 +33,7 @@ public class ItemFactory {
 		Item fly = new Jetpack(gl, glu, x, y, z, p.getBag(), p);
 		list.add(fly);
 	}
-	public void addCrippleItem(int x, int y, int z) {
-		Item oldMan = new Cripple(gl, glu, x, y, z, p.getBag(), p);
-		list.add(oldMan);
-	}
-
-
+ 
 	public void update() {
 		for (Item item : list) {
 			item.draw(gl, glu);
@@ -58,6 +52,5 @@ public class ItemFactory {
 		addBlindItem(30,0,30);
 		addBlindItem(80,0,80);
 		addJetpackItem(80,0,120);
-		addCrippleItem(120,0,100);
 	}
 }
