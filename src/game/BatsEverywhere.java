@@ -53,6 +53,7 @@ public class BatsEverywhere implements GLEventListener
 	private StatusText writer;
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
+    private Texture minimap;
     //private TextRenderer renderer;
     
 
@@ -88,12 +89,12 @@ public class BatsEverywhere implements GLEventListener
     	this.width = width;
     	this.height = height;
     	playerMotion.setDim(width, height);
-        System.out.println("reshaping to " + width + "x" + height);
+        //System.out.println("reshaping to " + width + "x" + height);
 
         GL2 gl = drawable.getGL().getGL2();
         gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glLoadIdentity();
-        glu.gluPerspective(50, 1, .5, 1000);
+        glu.gluPerspective(50, 1, .5, 1500);
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();
         windowWidth  = width;
@@ -103,6 +104,7 @@ public class BatsEverywhere implements GLEventListener
     
     public void screenshot(GLAutoDrawable drawable){
     	//System.out.println("EYEX: " + playerMotion.getEyeX() + " EYEY: " + playerMotion.getEyeY() + " EYEZ: " + playerMotion.getEyeZ());
+    	
     	System.out.println("In screenshot method");
     	
     	
@@ -111,11 +113,13 @@ public class BatsEverywhere implements GLEventListener
         gl.glFlush(); // ensure all drawing has finished
         //gl.glReadBuffer(GL2.GL_BACK);
         
-        playerMotion.setEyeX(-700);
-        playerMotion.setEyeY(300);
-        playerMotion.setEyeZ(300);           
+        //playerMotion.setEyeX(-700);
+        //playerMotion.setEyeY(300);
+        //playerMotion.setEyeZ(300);           
 
         boolean success = bufferUtil.readPixels(gl, false);
+        minimap=bufferUtil.getTexture();
+        //for debugging
         if (success) {
             bufferUtil.write(new File("minimap.png"));
             System.out.println("Made Screenshot");
@@ -123,37 +127,50 @@ public class BatsEverywhere implements GLEventListener
             System.out.println("Unable to grab screen shot");
     }
     
-    public void minimap(GLAutoDrawable drawable){   	   	
+    public void minimap(GLAutoDrawable drawable){
+    	float originaleyex=playerMotion.getEyeX();
+    	float originaleyey=playerMotion.getEyeY();
+    	float originaleyez=playerMotion.getEyeZ();
+    	
         GL2 gl = drawable.getGL().getGL2();       
         System.out.println("Frames drawn = 1");
 
         
-        glu.gluLookAt(-655, -5, 323,   // eye location
-                -655 + Math.cos(Math.toRadians(0)), -5, 323 + -Math.sin(Math.toRadians(0)),   // point to look at (near middle of pyramid)
-                 0, -1,  0);
+        glu.gluLookAt(300, 800, 300,   // eye location
+                300,0,300,   // point to look at (near middle of pyramid)
+                 0, 0,  -1);
+        
+        //gl.glRotatef((float)90, 0f, 0f, 1f);
 
        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
+       //Set the eye back to its original coordinates
+       screenshot(drawable);
+       playerMotion.setEyeX(originaleyex);
+   	  playerMotion.setEyeY(originaleyey);
+   	playerMotion.setEyeZ(originaleyez);
 
        
-    	  screenshot(drawable);
     }
 
     public void display(GLAutoDrawable drawable) {
         long startTime = System.currentTimeMillis();
         GL2 gl  = drawable.getGL().getGL2();
-        this.playerMotion.setScreenLocation(
-        		this.canvas.getLocationOnScreen());
    
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
-
-
+//minimap must be done first
+        if (++framesDrawn == 1) {
+        	minimap(drawable);
+        	gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+        	
+        }       
         playerMotion.setLookAt(gl, glu);
         
+        this.playerMotion.setScreenLocation(
+        		this.canvas.getLocationOnScreen());
     	
-        /// NEED TO FINISH VIEWPORT
-        //gl.glViewport(windowWidth/2, windowHeight/2, windowWidth/2, windowHeight/2);
                 
         // draw town
+       
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
 
         playerMotion.update(gl, glu);//draw town looking in the direction we're moving in
@@ -186,9 +203,6 @@ public class BatsEverywhere implements GLEventListener
        renderer.endRendering();
        */ 
         
-        if (++framesDrawn == 1) {
-        	 minimap(drawable);
-        }       
         
         //Set the eye back to its original coordinates
         //playerMotion.setEyeX(-5);
@@ -197,7 +211,28 @@ public class BatsEverywhere implements GLEventListener
 
         for(CritterGroup critterGroup:critters)critterGroup.draw(gl, glu);
  
-
+        /// NEED TO FINISH VIEWPORT
+        //this must be drawn last
+        gl.glViewport(0, windowHeight*2/3, windowWidth/3, windowHeight/3);
+        gl.glClear(GL2.GL_DEPTH_BUFFER_BIT);
+        
+        gl.glMatrixMode(GL2.GL_PROJECTION);
+        gl.glLoadIdentity();
+        gl.glOrtho(0,1,0,1,-1,1);
+        gl.glMatrixMode(GL2.GL_MODELVIEW);
+        gl.glLoadIdentity();
+        
+        gl.glBegin(GL2.GL_QUADS);
+        gl.glTexCoord2f(0f,0f);gl.glVertex2f(0f, 0f);
+        gl.glTexCoord2f(1f,0f);gl.glVertex2f(1f, 0f);
+        gl.glTexCoord2f(1f,1f);gl.glVertex2f(1f, 1f);
+        gl.glTexCoord2f(0f,1f);gl.glVertex2f(0f, 1f);
+        gl.glEnd();
+        
+        gl.glViewport(0, 0, windowWidth, windowHeight);
+        reshape( drawable, 0, 0, windowWidth, windowHeight);
+        
+        
         // check for errors, at least once per frame
         int error = gl.glGetError();
         if (error != GL2.GL_NO_ERROR) {
