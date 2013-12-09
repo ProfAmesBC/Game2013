@@ -56,7 +56,7 @@ public class BatsEverywhere implements GLEventListener
 	private StatusText writer;
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
-    private Texture minimap;
+    private Texture minimaptexture;
     //private TextRenderer renderer;
     
 
@@ -134,9 +134,8 @@ public class BatsEverywhere implements GLEventListener
     	//System.out.println("EYEX: " + playerMotion.getEyeX() + " EYEY: " + playerMotion.getEyeY() + " EYEZ: " + playerMotion.getEyeZ());
     	
     	System.out.println("In screenshot method");
-    	
-    	
-        GL2 gl = drawable.getGL().getGL2(); System.out.println("Frames drawn = 1");
+
+    	GL2 gl = drawable.getGL().getGL2(); System.out.println("Frames drawn = 1");
         
         gl.glFlush(); // ensure all drawing has finished
         //gl.glReadBuffer(GL2.GL_BACK);
@@ -149,8 +148,10 @@ public class BatsEverywhere implements GLEventListener
         
      //   minimap = bufferUtil.getTexture();
 
+        minimaptexture=bufferUtil.getTexture();
+        
         //for debugging
-        if (success) {
+       /* if (success) {
             bufferUtil.write(new File("minimap.png"));
             System.out.println("Made Screenshot");
             minimap = setupTexture(gl, "minimap.png");
@@ -162,7 +163,7 @@ public class BatsEverywhere implements GLEventListener
         }
         if(minimap != null){
         	System.out.println("minimap is not null");
-        }
+        }*/
     }
     
     public void minimap(GLAutoDrawable drawable){
@@ -205,28 +206,13 @@ public class BatsEverywhere implements GLEventListener
         	
         }       
 
-          
-
-
         playerMotion.setLookAt(gl, glu);
         
 
         this.playerMotion.setScreenLocation(
         		this.canvas.getLocationOnScreen());
-
-    	
        
-
-        
-        /// NEED TO FINISH VIEWPORT
-        //gl.glViewport(windowWidth/2, windowHeight/2, windowWidth/2, windowHeight/2);
-
-                
         // draw town
-
-       
-       
-
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
      	
         playerMotion.update(gl, glu);//draw town looking in the direction we're moving in
@@ -316,9 +302,9 @@ public class BatsEverywhere implements GLEventListener
         gl.glLoadIdentity();       
         
         gl.glEnable(GL2.GL_TEXTURE_2D);
-      // if (minimap != null){
-        minimap.bind(gl);
-      // }
+       if (minimaptexture != null){
+        minimaptexture.bind(gl);
+       }
     	gl.glEnable(GL2.GL_TEXTURE_GEN_S);
         gl.glEnable(GL2.GL_TEXTURE_GEN_T);
         
