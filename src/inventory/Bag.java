@@ -11,6 +11,9 @@ public class Bag {
 
 	public void addItem(Item i) {
 		String checkType = i.getType();
+		
+		InventorySounds.pickupNoise();
+		
 		if (checkType.equals("Speed"))
 			speedBoxes.incrementCount();
 		if (checkType.equals("Damage"))
@@ -18,6 +21,9 @@ public class Bag {
 	}
 
 	public void useItem(String i) {
+		
+		InventorySounds.useItemNoise();
+		
 		if (i.equals("Speed")) {
 			if (speedBoxes.getCount() > 0) {
 				speedBoxes.decrementCount();
