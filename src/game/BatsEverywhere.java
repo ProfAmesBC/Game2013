@@ -302,6 +302,7 @@ public class BatsEverywhere implements GLEventListener
         
         gl.glEnable(GL2.GL_TEXTURE_2D);
        //if (minimaptexture != null){
+        //
         minimaptexture.bind(gl);
        //}
     	gl.glEnable(GL2.GL_TEXTURE_GEN_S);
