@@ -118,13 +118,15 @@ public class BatsEverywhere implements GLEventListener
         //playerMotion.setEyeZ(300);           
 
         boolean success = bufferUtil.readPixels(gl, false);
+        
         minimap=bufferUtil.getTexture();
+        
         //for debugging
-        if (success) {
+      /*  if (success) {
             bufferUtil.write(new File("minimap.png"));
             System.out.println("Made Screenshot");
         } else
-            System.out.println("Unable to grab screen shot");
+            System.out.println("Unable to grab screen shot");*/
     }
     
     public void minimap(GLAutoDrawable drawable){
@@ -240,12 +242,22 @@ public class BatsEverywhere implements GLEventListener
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();
         
+        gl.glEnable(GL2.GL_TEXTURE_2D);
+        minimap.bind(gl);
+    	gl.glEnable(GL2.GL_TEXTURE_GEN_S);
+        gl.glEnable(GL2.GL_TEXTURE_GEN_T);
+        
+
         gl.glBegin(GL2.GL_QUADS);
         gl.glTexCoord2f(0f,0f);gl.glVertex2f(0f, 0f);
         gl.glTexCoord2f(1f,0f);gl.glVertex2f(1f, 0f);
         gl.glTexCoord2f(1f,1f);gl.glVertex2f(1f, 1f);
         gl.glTexCoord2f(0f,1f);gl.glVertex2f(0f, 1f);
         gl.glEnd();
+        
+        gl.glDisable(GL2.GL_TEXTURE_2D);
+        gl.glDisable(GL2.GL_TEXTURE_GEN_S);
+        gl.glDisable(GL2.GL_TEXTURE_GEN_T);
         
         gl.glViewport(0, 0, windowWidth, windowHeight);
         reshape( drawable, 0, 0, windowWidth, windowHeight);
