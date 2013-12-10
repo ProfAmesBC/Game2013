@@ -38,15 +38,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-
 import weapons.BludgeoningWeapon;
 import weapons.PopulateWeapons;
-
-
 import creatures.Robot;
 import sketchupModels.Avatar;
+import weapons.PipeWeapon;
 import weapons.Projectile;
-
 import weapons.ProjectileWeapons;
 import weapons.RainbowBall;
 
@@ -64,7 +61,7 @@ public class BatsEverywhere implements GLEventListener
     private GLU glu = new GLU();
     private Town town;
     private int height, width;
-    private BludgeoningWeapon bw = null;
+    private BludgeoningWeapon pipe = null;
     private PlayerMotion playerMotion = new PlayerMotion();
     private PlayerStats stats=new PlayerStats(playerMotion);
     private ProjectileWeapons projectileWeapons = new ProjectileWeapons(stats);
@@ -110,9 +107,9 @@ public class BatsEverywhere implements GLEventListener
         itemCreator.testCreate();
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
-        bw = new BludgeoningWeapon();
-        bw.init(gl, glu);	pw.init(gl, glu);
-        canvas.addKeyListener(bw);	// add key listener to bludgeoning weapons
+        pipe = new PipeWeapon();
+        pipe.init(gl, glu);	pw.init(gl, glu);
+        canvas.addKeyListener(pipe);	// add key listener to bludgeoning weapons
 
         Robot.addZombie(new Robot(60,60,glu));
         Robot.addZombie(new Robot(100,100,glu));
@@ -257,7 +254,7 @@ public class BatsEverywhere implements GLEventListener
         writer.draw(stats.honorString(), 10, 10);
 
         projectileWeapons.update(gl, glu);
-        bw.update(gl, glu);
+        pipe.update(gl, glu);
         pw.draw(gl, glu);
  
         Robot.drawZombies(gl, glu);

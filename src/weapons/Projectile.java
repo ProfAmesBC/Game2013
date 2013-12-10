@@ -13,12 +13,10 @@ import creatures.ProjectileWatcher;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Projectile{
+public abstract class Projectile {
 
 	private static List<WeaponWatcher>watchers=new ArrayList<WeaponWatcher>();
 	
-
-
 	private float projX, projY, projZ, projAngle, projYAngle;
 	private float speed = 5;
 	private float lifeSpan = 50;

@@ -14,7 +14,7 @@ public class PopulateWeapons {
 	}
 	
 	public void init(GL2 gl, GLU glu){
-		Weapon w = new BludgeoningWeapon();
+		Weapon w = new PipeWeapon();
 		w.init(gl, glu);
 
 //		DisplayedWeapon dw = new DisplayedWeapon(w, Math.random()*600, Math.random()*600);

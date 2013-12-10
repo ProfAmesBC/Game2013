@@ -7,10 +7,8 @@ import javax.media.opengl.glu.GLU;
 
 public interface Weapon extends KeyListener, PlayerMotionWatcher{
 
-	public void update(GL2 gl, GLU glu);
-
-	public void draw();
-
+	public void update(GL2 gl, GLU glu); // per frame
+	public void draw(GL2 gl, GLU glu);	// for drawing on the ground to pick up
 	public void init(GL2 gl, GLU glu);
 
 }

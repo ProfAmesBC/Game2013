@@ -14,12 +14,12 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher, MouseListener {
+
+public class ProjectileWeapons implements MouseListener, Weapon{
 	private ArrayList<Projectile> bulletsList = new ArrayList<Projectile>();
 	private float x, y, z, angle, y_angle;
 	private PlayerStats stats;
 
-	
 	public ProjectileWeapons(PlayerStats s){
 		PlayerMotion.registerPlayerWatcher(this);
 		stats=s;
@@ -36,10 +36,6 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher, Mous
 		}
 	}
 	
-	
-	
-	
-	
 	public void shootBullet(){
 
 		if(stats.noHonor())return;
@@ -50,14 +46,15 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher, Mous
 	}
 	
 	@Override
-	public void keyTyped(KeyEvent e) {}
+	public void keyTyped(KeyEvent e) {}	// not used
+	
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_SPACE){
 			shootBullet();} 	//SHOOT BULLET WHEN PRESSED
 	}
 	@Override
-	public void keyReleased(KeyEvent e) {}
+	public void keyReleased(KeyEvent e) {}	// not used
 
 	@Override
 	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {
@@ -69,21 +66,7 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher, Mous
         this.y_angle = y_angle;
 	}
 
-/*
 	@Override
-	public void draw() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void init(GL2 gl, GLU glu) {
-		// TODO Auto-generated method stub
-		
-	}
-
-*/
-    @Override
     public void mouseClicked(MouseEvent e) {
         shootBullet();
     }
@@ -99,5 +82,17 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher, Mous
 
     @Override
     public void mouseExited(MouseEvent e) { }
+
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void init(GL2 gl, GLU glu) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

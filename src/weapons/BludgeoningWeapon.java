@@ -2,6 +2,7 @@ package weapons;
 
 import game.PlayerMotion;
 import game.PlayerMotionWatcher;
+import game.PlayerStats;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -12,7 +13,7 @@ import javax.media.opengl.glu.GLUquadric;
 
 // make a class that holds list of all projectiles and iter thru to update - called once from main game
 
-public class BludgeoningWeapon implements Weapon{
+public abstract class BludgeoningWeapon implements Weapon{
 	
 	private float x, y, z, angle;	// where player is
 	private float weaponX, weaponY, weaponZ;	// position of weapon
@@ -23,7 +24,7 @@ public class BludgeoningWeapon implements Weapon{
 	private GL2 gl;
 	private GLU glu;
 	private boolean hit;
-	private PipeWeapon p;
+//	private HittingWeapon p;
 	
 	public BludgeoningWeapon(){
 //		this.gl = gl;
@@ -39,11 +40,11 @@ public class BludgeoningWeapon implements Weapon{
 	}
 	
 	// fix this with keylistener stuff...
-	public void init(GL2 gl, GLU glu){
+	public void initialize(GL2 gl, GLU glu){
 		this.gl = gl;
 		this.glu = glu;
 		lengthOfHit = 25;	// duration of hit in frames
-		p = new PipeWeapon(gl, glu);
+//		p = new PipeWeapon(gl, glu);
 		
 		quadric = glu.gluNewQuadric();
         glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
@@ -51,9 +52,7 @@ public class BludgeoningWeapon implements Weapon{
         glu.gluQuadricTexture  (quadric, false);
 	}
 	
-	public void draw(){
-		p.draw(gl, glu);
-	}
+	public abstract void draw(GL2 gl, GLU glu);
 	
 //	public void drawStationary(GL2 gl, GLU glu){
 //		gl.glPushMatrix();
@@ -74,7 +73,7 @@ public class BludgeoningWeapon implements Weapon{
 				gl.glPushMatrix();
 					gl.glTranslatef(x+weaponX * dist/5, y, z+ weaponZ * dist/5);	// draw at person
 //					gl.glRotatef(-90, 1, 0, 0);
-					p.draw(gl, glu);
+					draw(gl, glu);
 				gl.glPopMatrix();
 
 				dist++;
@@ -84,7 +83,7 @@ public class BludgeoningWeapon implements Weapon{
 				gl.glPushMatrix();
 					gl.glTranslatef(x+weaponX * dist/5, y, z+ weaponZ * dist/5);	// draw at person
 //					gl.glRotatef(-90, 1, 0, 0);
-					p.draw(gl, glu);
+					draw(gl, glu);
 				gl.glPopMatrix();
 				
 				dist --;
@@ -140,7 +139,7 @@ public class BludgeoningWeapon implements Weapon{
 	
 	// figure out where player is looking, also!
 	@Override
-	public void playerMoved(float x, float y, float z, float angle) {
+	public void playerMoved(float x, float y, float z, float angle, float y_angle, PlayerStats s) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
@@ -161,4 +160,11 @@ public class BludgeoningWeapon implements Weapon{
 
 	@Override
 	public void keyReleased(KeyEvent e) {}
+
+//	@Override
+//	public void playerMoved(float x, float y, float z, float angle,
+//			float y_angle, PlayerStats s) {
+//		// TODO Auto-generated method stub
+		
+//	}
 }

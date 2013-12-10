@@ -37,7 +37,7 @@ public class DisplayedWeapon {
 			gl.glTranslatef(x, 5, z);
 			gl.glRotatef(theta, 0, 1, 0);
 //			System.out.println("okokok");
-			w.draw();
+			w.draw(gl, glu);
 		gl.glPopMatrix();
 		
 		theta += 2;
