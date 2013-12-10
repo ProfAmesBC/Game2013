@@ -183,14 +183,19 @@ public class HPHeal extends AbstractPowerUp {
 
 		gl.glDisable(GL2.GL_CULL_FACE);
 		gl.glDisable(GL2.GL_TEXTURE_2D);
+		
 	}
 
 	@Override
 	public boolean grabbed() {
 		// TODO Auto-generated method stub
-		return false;
+		return grabbed;
 	}
 
+	public void activate() {
+		stats.changeHealth(1);
+		grabbed=true;
+	}
 	@Override
 	public String getType() {
 		// TODO Auto-generated method stub

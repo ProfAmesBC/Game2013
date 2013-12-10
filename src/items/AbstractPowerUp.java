@@ -22,15 +22,15 @@ public abstract class AbstractPowerUp implements Item {
 	protected static PlayerAttributes p;
 	protected int frames;
 	protected int counter;
+	protected PlayerStats stats;
 	
 	@Override
 	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {
-		
 			this.playerX = x;
 			this.playerY = y;
 			this.playerZ = z;
-			this.angle = angle;
-		
+			this.angle = angle;		
+			stats = s;
 	}
 	
 
@@ -41,11 +41,22 @@ public abstract class AbstractPowerUp implements Item {
 	public void use(){ //not used
 		}
 
+	private boolean grabConditions() {
+		if ((itemX - 3 < playerX && itemZ - 3 < playerZ)
+				&& (itemX + 5 > playerX) && (itemZ + 5 > playerZ)
+				&& (grabbed == false))
+			return true;
+		else
+			return false;
+	}
+	
 	@Override
 	public abstract boolean grabbed();
 	@Override
 	public abstract String getType();
 	
+	public abstract void activate();
+		
 	public float getLocationX() {
 		return itemX;
 	}
