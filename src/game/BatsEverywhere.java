@@ -101,7 +101,7 @@ public class BatsEverywhere implements GLEventListener
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
         itemCreator = new ItemFactory(gl, glu, playerAttributes);
-        itemCreator.testCreate();
+//        itemCreator.testCreate();
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
         Robot.addZombie(new Robot(60,60,glu));
