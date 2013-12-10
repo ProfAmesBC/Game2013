@@ -151,18 +151,18 @@ public class Player {
 
 	public void draw(GL2 gl, GLU glu) {
 		//retrieve coordinates from getters (PlayerMotion getters)
-		eyeX = getX(); 
-		eyeY = getY(); 
-		eyeZ = getZ();
-		theta = getTheta(); //get new Theta
-
-		float sX = eyeX - (float)Math.cos(Math.toRadians(theta));
-		float floatY = eyeY;
-		float sY = (float)(floatY-2.5);
-		float sZ = eyeZ + (float)Math.sin(Math.toRadians(theta));
-		/*System.out.println("sX is: " + sX + ", \n sY is: " + sY + ". \n sZ is: " + sZ + ", and theta is: " + theta);*/
-
-		playerBody(gl, glu, quadric, sX, sY, sZ, r, g, b, size); 
+//		eyeX = getX(); 
+//		eyeY = getY(); 
+//		eyeZ = getZ();
+//		theta = getTheta(); //get new Theta
+//
+//		float sX = eyeX - (float)Math.cos(Math.toRadians(theta));
+//		float floatY = eyeY;
+//		float sY = (float)(floatY-2.5);
+//		float sZ = eyeZ + (float)Math.sin(Math.toRadians(theta));
+//		/*System.out.println("sX is: " + sX + ", \n sY is: " + sY + ". \n sZ is: " + sZ + ", and theta is: " + theta);*/
+//
+//		playerBody(gl, glu, quadric, sX, sY, sZ, r, g, b, size); 
 
 
 	}

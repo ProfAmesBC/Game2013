@@ -68,10 +68,11 @@ public class Foreigner extends Player{
 		
 	} 
 	
-	public void playerBody(GL2 gl, GLU glu, GLUquadric quadric, float x, float y, float z, float r, float g, float b, double size){
+	public void playerBody(GL2 gl, GLU glu, GLUquadric quadric, float x, float y, float z, float theta, float r, float g, float b, double size){
 		psy = new Avatar(gl,glu,x,y,z);
 		gl.glPushMatrix();
 			gl.glTranslatef(x, 0, z); // start position 
+			gl.glRotatef(theta, 0,1,0);
 			gl.glColor3f(r, g, b); //color
 			psy.draw(gl, glu);
 		//	glu.gluSphere(quadric, size, 10, 10); //sphere for body 

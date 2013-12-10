@@ -52,6 +52,7 @@ public class ReceiverClient implements Runnable {
 				toUpdate.setX(Float.parseFloat(tk.nextToken()));
 				toUpdate.setY(Float.parseFloat(tk.nextToken()));
 				toUpdate.setZ(Float.parseFloat(tk.nextToken()));
+				toUpdate.setAngle(Float.parseFloat(tk.nextToken()));
 				
 			//	BatsEverywhere.getSem().release();
 			}	

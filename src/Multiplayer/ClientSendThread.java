@@ -31,6 +31,7 @@ public class ClientSendThread implements PlayerMotionWatcher{
 			outputLine += client.getX()+":";
 			outputLine += client.getY()+":";
 			outputLine += client.getZ()+":";
+			outputLine +=client.getAngle()+":";
 
 			buf = outputLine.getBytes();
 			DatagramPacket outpacket = new DatagramPacket(buf, buf.length, address, PORT);

@@ -19,7 +19,7 @@ public class GameServer {
 		G.group = InetAddress.getByName("234.1.2.3"); 
 		byte[] buf = new byte[256];
 		boolean listening = true;
-		GameServerTable S = new GameServerTable(); 
+		//GameServerTable S = new GameServerTable(); 
 		String inputLine; 
 		String outputLine = ""; 
 		
@@ -35,7 +35,7 @@ public class GameServer {
 			socket.receive(inpacket); //block and wait for client datagram packet
 			inputLine = new String(inpacket.getData());
 
-			System.out.println(inputLine);
+		//	System.out.println(inputLine);
 			G.sendToSocket(inputLine); 
 		}
 		socket.close();
