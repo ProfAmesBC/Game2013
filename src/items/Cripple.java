@@ -7,6 +7,7 @@ import inventory.Item;
 import inventory.PlayerAttributes;
 import game.Building;
 import game.PlayerMotion;
+import game.PlayerStats;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
@@ -15,7 +16,7 @@ import javax.media.opengl.glu.GLU;
 import com.jogamp.opengl.util.awt.TextRenderer;
 import com.jogamp.opengl.util.texture.Texture;
 
-public class Cripple implements Item {
+public class Cripple extends AbstractPowerUp {
 	private Texture textureItem;
 	private float itemX, itemY, itemZ;
 	private float playerX, playerY, playerZ;
@@ -270,7 +271,8 @@ public class Cripple implements Item {
 	}
 
 	@Override
-	public void playerMoved(float x, float y, float z, float angle) {
+	public void playerMoved(float x, float y, float z, float angle,
+			float y_angle, PlayerStats s) {
 		// GET CURRENT POSITION OF PLAYER
 		this.playerX = x;
 		this.playerY = y;

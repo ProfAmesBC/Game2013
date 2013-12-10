@@ -7,6 +7,7 @@ import inventory.Item;
 import inventory.PlayerAttributes;
 import game.Building;
 import game.PlayerMotion;
+import game.PlayerStats;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
@@ -282,8 +283,7 @@ public class BlindItem implements Item {
 	}
 
 	@Override
-	public void playerMoved(float x, float y, float z, float angle) {
-		// GET CURRENT POSITION OF PLAYER
+	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s){		// GET CURRENT POSITION OF PLAYER
 		this.playerX = x;
 		this.playerY = y;
 		this.playerZ = z;
