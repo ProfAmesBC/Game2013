@@ -229,7 +229,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     	}
     	if(adown || ddown || sdown || wdown || qdown || edown) {
     		for (PlayerMotionWatcher watcher: watchers)
-    			watcher.playerMoved(eyeX, eyeY, eyeZ, theta);//missing Y-angle
+    			watcher.playerMoved(eyeX, eyeY, eyeZ, theta, a, stats);//missing Y-angle
     	}
     	if(mouseMovement) {
     		theta += dtheta;

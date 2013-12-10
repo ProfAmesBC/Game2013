@@ -79,15 +79,15 @@ public class Cripple extends AbstractPowerUp {
 		return grabbed;
 	}
 
-	public double getLocationX() {
+	public float getLocationX() {
 		return itemX;
 	}
 
-	public double getLocationY() {
+	public float getLocationY() {
 		return itemY;
 	}
 
-	public double getLocationZ() {
+	public float getLocationZ() {
 		return itemZ;
 	}
 
@@ -101,7 +101,7 @@ public class Cripple extends AbstractPowerUp {
 		this.angle = angle;
 	}
 
-	public double getAngle() {
+	public float getAngle() {
 		return angle;
 	}
 
@@ -278,6 +278,12 @@ public class Cripple extends AbstractPowerUp {
 		this.playerY = y;
 		this.playerZ = z;
 		this.angle = angle;
+	}
+
+	@Override
+	public void activate() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
