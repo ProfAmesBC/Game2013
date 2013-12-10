@@ -83,14 +83,15 @@ public class ProjectileWeapons implements MouseListener, Weapon{
     @Override
     public void mouseExited(MouseEvent e) { }
 
+
 	@Override
-	public void draw() {
+	public void init(GL2 gl, GLU glu) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void init(GL2 gl, GLU glu) {
+	public void draw(GL2 gl, GLU glu) {
 		// TODO Auto-generated method stub
 		
 	}
