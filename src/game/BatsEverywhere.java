@@ -100,8 +100,8 @@ public class BatsEverywhere implements GLEventListener
         Robot.addZombie(new Robot(100,100,glu));
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
-        bat = new Bat(gl, glu);
-        moveSwarm = new MoveSwarm(gl, glu);
+    //    bat = new Bat(gl, glu);
+    //    moveSwarm = new MoveSwarm(gl, glu);
     }
     
     
@@ -243,9 +243,9 @@ public class BatsEverywhere implements GLEventListener
         Robot.drawZombies(gl, glu);
         catGroup.draw(gl, glu);
         rabbitGroup.draw(gl, glu);
-        bat.draw(gl, glu);
+      //  bat.draw(gl, glu);
         mummy.draw(gl, glu);
-        moveSwarm.draw(gl, glu);
+    //    moveSwarm.draw(gl, glu);
         // check for errors, at least once per frame
 
         
