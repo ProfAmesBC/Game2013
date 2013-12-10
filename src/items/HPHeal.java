@@ -6,6 +6,7 @@ import game.Building;
 import game.PlayerMotion;
 import game.PlayerStats;
 import inventory.Bag;
+
 import inventory.Item;
 import inventory.PlayerAttributes;
 
@@ -19,7 +20,7 @@ public class HPHeal extends AbstractPowerUp {
 	//Instant HP Heal
 	
 	public HPHeal(GL2 gl, GLU glu, Point3f p3d, PlayerStats s) {
-		texture = Building.setupTexture(gl, "textureItem.png");//change this later
+		//texture = Building.setupTexture(gl, "texturechair.png");//change this later
 		PlayerMotion.registerPlayerWatcher(this);
 		grabbed = false;
 		this.p = p;
@@ -27,6 +28,7 @@ public class HPHeal extends AbstractPowerUp {
 		pY = (float)p3d.getY();
 		pZ = (float)p3d.getZ();
 		frames = 0;		
+		type = "HP Heal";
 	}
 
 	@Override
@@ -35,6 +37,7 @@ public class HPHeal extends AbstractPowerUp {
 		gl.glEnable(GL2.GL_CULL_FACE);
 		gl.glEnable(GL2.GL_TEXTURE_2D);
 		gl.glPushMatrix();
+		gl.glColor3d(255,255,255);
 		gl.glTranslated(pX, Math.sin(Math.toRadians(T * 360 + 180)) + 2,
 				pZ);
 		gl.glRotated(5*T,1,5*T,1);
@@ -42,7 +45,7 @@ public class HPHeal extends AbstractPowerUp {
 		// Math.toRadians(15*frames), 1);
 		// gl.glTranslated(-itemX, -(Math.sin(Math.toRadians(T*360+180 ))+2),
 		// -itemZ);
-		texture.bind(gl);
+		//texture.bind(gl);
 
 		gl.glBegin(GL2.GL_QUADS);
 		gl.glTexCoord2f(0f, 2f);

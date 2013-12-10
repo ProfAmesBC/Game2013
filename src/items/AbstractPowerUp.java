@@ -24,6 +24,7 @@ public abstract class AbstractPowerUp implements Item {
 	protected int frames;
 	protected int counter;
 	protected PlayerStats stats;
+	protected String type;
 	
 	@Override
 	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {
@@ -87,6 +88,9 @@ public abstract class AbstractPowerUp implements Item {
 		pZ = f.getZ();
 	}
 	
+	public void bugtest() {
+		System.out.println(type);
+	}
 	
 	
 }
