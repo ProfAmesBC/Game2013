@@ -361,6 +361,7 @@ public class BatsEverywhere implements GLEventListener
         }
     }
     
+    
     public void setupViewport(GLAutoDrawable drawable)
     {
         GL2 gl = drawable.getGL().getGL2();
@@ -378,10 +379,10 @@ public class BatsEverywhere implements GLEventListener
         gl.glDisable(GL2.GL_TEXTURE_GEN_S);
        //if (minimaptexture != null){
 
-
         minimaptexture.bind(gl);
-
-
+       //}
+    	//gl.glEnable(GL2.GL_TEXTURE_GEN_S);
+        //gl.glEnable(GL2.GL_TEXTURE_GEN_T);
         
         gl.glBegin(GL2.GL_QUADS);
         gl.glTexCoord2f(0f,0f);gl.glVertex2f(-1f, -1f);
@@ -403,13 +404,13 @@ public class BatsEverywhere implements GLEventListener
         
         gl.glDisable(GL2.GL_DEPTH_TEST);
         gl.glEnable(GL2.GL_POINT_SMOOTH);
-        gl.glColor3f(0.5f, 0.5f, 0.5f);
-        gl.glPointSize(10);
+        gl.glColor3f(1f, 1f, 1f);
+        gl.glPointSize(12);
         gl.glBegin(GL2.GL_POINTS);
         	gl.glVertex3f(playerMotion.getEyeX(), 100, playerMotion.getEyeZ());
         gl.glEnd();
-        gl.glColor3f(1f, 1f, 1f);
-        gl.glPointSize(5);
+        gl.glColor3f(1f, 0f, 0f);
+        gl.glPointSize(10);
         gl.glBegin(GL2.GL_POINTS);
         	gl.glVertex3f(playerMotion.getEyeX(), 100, playerMotion.getEyeZ());
         gl.glEnd();
@@ -421,35 +422,6 @@ public class BatsEverywhere implements GLEventListener
         
         gl.glViewport(0, 0, windowWidth, windowHeight);
         reshape( drawable, 0, 0, windowWidth, windowHeight);
-    }
-    
-    public void setupSplashScreen(GLAutoDrawable drawable){
-    	
-    	 GL2 gl = drawable.getGL().getGL2();
-    	 gl.glViewport(0, 0, windowWidth, windowHeight);
-    	 gl.glClear(GL2.GL_DEPTH_BUFFER_BIT);
-    	 gl.glMatrixMode(GL2.GL_PROJECTION);
-         gl.glLoadIdentity();
-         gl.glOrtho(-1,1,-1,1,-1,1);
-         gl.glMatrixMode(GL2.GL_MODELVIEW);
-         gl.glLoadIdentity();       
-       
-         
-         
-         gl.glEnable(GL2.GL_TEXTURE_2D);
-         BatsLogo2.bind(gl);
-         gl.glBegin(GL2.GL_QUADS);
-         gl.glTexCoord2f(0f,0f);gl.glVertex2f(-1f, -1f);
-         gl.glTexCoord2f(1f,0f);gl.glVertex2f(1f, -1f);
-         gl.glTexCoord2f(1f,1f);gl.glVertex2f(1f, 1f);
-         gl.glTexCoord2f(0f,1f);gl.glVertex2f(-1f, 1f);
-         gl.glEnd();
-         
-         gl.glDisable(GL2.GL_TEXTURE_2D);
-         
-         gl.glViewport(0, 0, windowWidth, windowHeight);
-         reshape( drawable, 0, 0, windowWidth, windowHeight);
-    	
     }
     
 
