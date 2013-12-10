@@ -10,6 +10,7 @@ import javax.media.opengl.glu.GLUquadric;
 import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureIO;
 
+import game.Building;
 import game.PlayerMotionWatcher;
 import game.PlayerStats;
 
@@ -17,8 +18,8 @@ public class Mummy implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 	
 	float locx, locy, locz;
 	float eyeAngle = 0;
-	final float moveSpeed = 0.1f;
-	final float runSpeed = 0.2f;
+	final float moveSpeed = 1f;
+	final float runSpeed = 2f;
 	final float rotateSpeed = 2f;
 	final float sightRadius = 20;
 	private Texture bodyTexture;
@@ -32,12 +33,12 @@ public class Mummy implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 		locx = x;
 		locy = 0;
 		locz = z;
-		bodyTexture = setupTexture(gl, "liangmummy.jpg");
+		bodyTexture = Building.setupTexture(gl, "liangmummy.jpg");
 		bodyQuadric = glu.gluNewQuadric();
         glu.gluQuadricDrawStyle(bodyQuadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
         glu.gluQuadricNormals  (bodyQuadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
         glu.gluQuadricTexture  (bodyQuadric, true);        // false, or true to generate texture coordinates
-        agro = true;
+        agro = false;
         dead = false;
 		
 	}
@@ -240,7 +241,7 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 
 	public void move(){
 		float speed;
-		if (agro) {speed = runSpeed;
+		if (!agro) {speed = moveSpeed;
 		
 		
 		if (eyeAngle == 360) eyeAngle = 0;
@@ -268,7 +269,7 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 	    	}
 		}
 	    
-	    else {speed = moveSpeed;
+	    else {speed = runSpeed;
 	    	//if player within range, turn and face player
 	    	locz +=speed*Math.cos(Math.toRadians(eyeAngle));
     		locx -=speed*Math.sin(Math.toRadians(eyeAngle));
@@ -307,45 +308,13 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 	}
 
 	@Override
-	public void playerMoved(float x, float y, float z, float angle,
-			float y_angle, PlayerStats s) {
-		// TODO Auto-generated method stub
+	public void playerMoved(float x, float y, float z, float angle, float y_angle, PlayerStats s) {
+		float distance  = (float) Math.sqrt(Math.pow((x-locx),2) + Math.pow((y-locy),2));
+		if (distance < sightRadius) {agro = true;}
+		if(distance < 2){s.changeHealth(-1);
+			
+		};
 		
 	}
-
-	
-	public static Texture setupTexture(GL2 gl, String filename) {
-        Texture texture=null;
-        try {
-            texture = TextureIO.newTexture(new File(filename), false);
-        } catch (IOException e) {
-            System.out.println("Unable to read texture file: " + e);
-            e.printStackTrace();
-            System.exit(1);
-        }
-        // consider using ImageUtil.flipImageVertically(BufferedImage image)
-        boolean flip = texture.getMustFlipVertically();
-//      if (flip)
-//          ImageUtil.flipImageVertically(texture);
-        System.out.println("Flip: " + flip);
-        texture.setTexParameteri(gl, GL2.GL_TEXTURE_MAG_FILTER,GL2.GL_LINEAR); // or GL_NEAREST
-        texture.setTexParameteri(gl, GL2.GL_TEXTURE_MIN_FILTER,GL2.GL_LINEAR); // or GL_NEAREST
-        texture.setTexParameteri(gl, GL2.GL_TEXTURE_WRAP_S,GL2.GL_REPEAT); // or GL_CLAMP
-        texture.setTexParameteri(gl, GL2.GL_TEXTURE_WRAP_T,GL2.GL_REPEAT); // or GL_CLAMP
-
-        if (!isPowerOf2(texture.getImageWidth()) || !isPowerOf2(texture.getImageHeight())) {
-            System.out.println(filename + " texture is not power of 2! Size is "
-                               + texture.getImageWidth() + "x" + texture.getImageHeight());
-            System.exit(1);
-        } else {
-            System.out.println(filename + " texture loaded, size is "
-                               + texture.getImageWidth() + "," + texture.getImageHeight());
-        }
-        return texture;
-    }
-    private static boolean isPowerOf2(int n) {
-        return n == (n & -n);
-    }
-
 
 }
