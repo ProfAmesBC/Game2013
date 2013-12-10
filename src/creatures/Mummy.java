@@ -67,10 +67,7 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 		gl.glDisable(GL2.GL_TEXTURE_2D);
 		
 		drawBody(gl,glu);
-		
-		
-		
-		
+	
 		drawEye(gl,glu);
 		
 		gl.glPushMatrix();
@@ -92,8 +89,6 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 	
 
 	private void drawPassive(GL2 gl, GLU glu, float T) {
-		
-		//Head
 		gl.glEnable(GL2.GL_TEXTURE_2D);
 		bodyTexture.bind(gl);
 			drawHead(gl, glu);
@@ -271,16 +266,11 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 	
 	    	}
 	    }
-	
-	
-		
-	    
     
 	
 	public void draw(GL2 gl, GLU glu) {
 		
-		//move();
-		
+		move();
 		
 		gl.glTranslatef(locx, (float) (locy + 0.1*Math.sin(Math.toRadians((T/60)*360))), locz);
 		gl.glRotatef(eyeAngle, 0, 1, 0);
