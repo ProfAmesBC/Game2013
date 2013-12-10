@@ -9,5 +9,8 @@ public interface Weapon extends KeyListener, PlayerMotionWatcher{
 
 	public void update(GL2 gl, GLU glu);
 
-	public void drawStationary(GL2 gl, GLU glu);
+	public void draw();
+
+	public void init(GL2 gl, GLU glu);
+
 }

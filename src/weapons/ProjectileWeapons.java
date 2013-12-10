@@ -86,7 +86,13 @@ public class ProjectileWeapons implements Weapon{
 	}
 
 	@Override
-	public void drawStationary(GL2 gl, GLU glu) {
+	public void draw() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void init(GL2 gl, GLU glu) {
 		// TODO Auto-generated method stub
 		
 	}
