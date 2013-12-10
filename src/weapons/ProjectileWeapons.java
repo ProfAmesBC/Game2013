@@ -35,11 +35,11 @@ public class ProjectileWeapons implements Weapon{
 	
 	
 	public void shootBullet(){
-		//RainbowBall bullet = new RainbowBall(x, y, z, angle); //CREATE NEW BULLET AT CURRENT PLAYER POSITION
-		SphereBullet ball = new SphereBullet(x, y, z, angle, 2, 3, 4, 2, 2);
+		RainbowBall bullet = new RainbowBall(x, y, z, angle); //CREATE NEW BULLET AT CURRENT PLAYER POSITION
+		SphereBullet ball = new SphereBullet(x, y, z, angle, 2, 3, 4, 2);
 		
 		bulletsList.add(ball);
-		//bulletsList.add(bullet); //ADD BULLET TO LIST OF BULLETS
+		bulletsList.add(bullet); //ADD BULLET TO LIST OF BULLETS
 	}
 	
 	@Override

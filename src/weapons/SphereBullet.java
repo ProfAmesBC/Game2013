@@ -7,9 +7,9 @@ import javax.media.opengl.glu.GLUquadric;
 public class SphereBullet extends Projectile {
 
 	private GLUquadric sphereQuadric;
-	private float red, green, blue, size, speed;
+	private float red, green, blue, size;
 	
-	public SphereBullet(float x, float y, float z, float angle, float red, float green, float blue, float size, float speed){
+	public SphereBullet(float x, float y, float z, float angle, float red, float green, float blue, float size){
 		setProjX(x);
 		setProjY(y);
 		setProjZ(z);
@@ -18,7 +18,6 @@ public class SphereBullet extends Projectile {
 		setGreen(green);
 		setBlue(blue);
 		setSize(size);
-		setSpeed(speed);
 	}
 	
 	@Override
