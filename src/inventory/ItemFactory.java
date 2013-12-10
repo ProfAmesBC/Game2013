@@ -54,9 +54,9 @@ public class ItemFactory {
 		addSpeedItem(300, 0, 300);
 		addSpeedItem(350, 0, 350);
 		addSpeedItem(400, 0, 400);
-		addBlindItem(30,0,30);
-		addBlindItem(80,0,80);
-		addJetpackItem(80,0,120);
-		addCrippleItem(100,0,120);
+		//addBlindItem(30,0,30);
+		//addBlindItem(80,0,80);
+		//addJetpackItem(80,0,120);
+		//addCrippleItem(100,0,120);
 	}
 }

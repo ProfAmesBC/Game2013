@@ -15,13 +15,13 @@ import game.PlayerMotionWatcher;
 import game.PlayerStats;
 
 public class Mummy implements Creature, PlayerMotionWatcher, ProjectileWatcher{
-	float spawnx, spawny, spawnz;
+	
 	float locx, locy, locz;
 	float eyeAngle = 0;
-	final float moveSpeed = 0.5f;
+	final float moveSpeed = 1f;
 	final float runSpeed = 2f;
-	final float rotateSpeed = 3f;
-	final float sightRadius = 40;
+	final float rotateSpeed = 2f;
+	final float sightRadius = 20;
 	private Texture bodyTexture;
 	private GLUquadric bodyQuadric;
 	boolean facingFront = true;
@@ -30,12 +30,9 @@ public class Mummy implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 	
 
 	public Mummy(float x, float z, GL2 gl, GLU glu){
-		spawnx = x;
-		spawny = 0;
-		spawnz = z;
-		locx = spawnx;
-		locy = spawny;
-		locz = spawnz;
+		locx = x;
+		locy = 0;
+		locz = z;
 		bodyTexture = Building.setupTexture(gl, "liangmummy.jpg");
 		bodyQuadric = glu.gluNewQuadric();
         glu.gluQuadricDrawStyle(bodyQuadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
@@ -247,25 +244,25 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 		if (!agro) {
 			speed = moveSpeed;
 			if (eyeAngle == 360) eyeAngle = 0;
-			if (locz < spawnz-10 ) {
+			if (locz < -20 ) {
 				if (!facingFront)eyeAngle-=rotateSpeed;
 					if (eyeAngle == 0) {facingFront = true;
 					locz +=speed*Math.cos(Math.toRadians(eyeAngle));
 					locx -=speed*Math.sin(Math.toRadians(eyeAngle));
 					}
 				}		
-			else if (locz > spawnz + 10){
+			else if (locz > 20){
 				if (facingFront) eyeAngle+=rotateSpeed;
 				if (eyeAngle == 180) {facingFront = false;
 	    			locz +=speed*Math.cos(Math.toRadians(eyeAngle));
 	    			locx -=speed*Math.sin(Math.toRadians(eyeAngle));
-				}
 			}
-			else {
-				locz +=speed*Math.cos(Math.toRadians(eyeAngle));
-				locx -=speed*Math.sin(Math.toRadians(eyeAngle));
-				}
-			}
+	    }
+	    else {
+	    	locz +=speed*Math.cos(Math.toRadians(eyeAngle));
+	    	locx -=speed*Math.sin(Math.toRadians(eyeAngle));
+	    	}
+		}
 	    
 	    else {speed = runSpeed;
 	    	//if player within range, turn and face player
@@ -282,7 +279,7 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 	
 	public void draw(GL2 gl, GLU glu) {
 		
-		move();
+		//move();
 		
 		
 		gl.glTranslatef(locx, (float) (locy + 0.1*Math.sin(Math.toRadians((T/60)*360))), locz);
@@ -307,10 +304,10 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 
 	@Override
 	public void playerMoved(float x, float y, float z, float angle, float y_angle, PlayerStats s) {
-		float distance  = (float) Math.sqrt(Math.pow((locx-x),2) + Math.pow((locy-y),2));
-		if (distance <= sightRadius) {agro = true; }
-		else agro  = false;
-		if(distance <= 2){s.changeHealth(-1);		
+		float distance  = (float) Math.sqrt(Math.pow((x-locx),2) + Math.pow((y-locy),2));
+		if (distance < sightRadius) {agro = true;}
+		if(distance < 2){s.changeHealth(-1);
+			
 		};
 		
 	}

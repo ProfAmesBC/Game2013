@@ -39,6 +39,7 @@ import com.jogamp.opengl.util.texture.TextureIO;
 
 import creatures.Mummy;
 import creatures.Robot;
+import creatures.PacManGhost;
 
 
 public class BatsEverywhere implements GLEventListener
@@ -63,6 +64,7 @@ public class BatsEverywhere implements GLEventListener
     private CritterGroup catGroup,rabbitGroup;
     private Bat bat;
     private Mummy mummy;
+    private PacManGhost pacManGhost;
     private Texture minimaptexture;
     private MoveSwarm moveSwarm;
     //private TextRenderer renderer;
@@ -92,12 +94,15 @@ public class BatsEverywhere implements GLEventListener
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
         itemCreator = new ItemFactory(gl, glu, playerAttributes);
-//        itemCreator.testCreate();
+
+        itemCreator.testCreate();
+
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
         mummy = new Mummy(30, 100, gl, glu);
-        Robot.addZombie(new Robot(60,60,glu));
-        Robot.addZombie(new Robot(100,100,glu));
+        pacManGhost = new PacManGhost(25, 95, gl, glu);
+        Robot.addZombie(new Robot(60,60,gl,glu));
+        Robot.addZombie(new Robot(100,100,gl,glu));
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
     //    bat = new Bat(gl, glu);
@@ -114,7 +119,7 @@ public class BatsEverywhere implements GLEventListener
         GL2 gl = drawable.getGL().getGL2();
         gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glLoadIdentity();
-        glu.gluPerspective(50, 1, .5, 1500);
+        glu.gluPerspective(50, 1, .5, 1500); // also done in setupViewport
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();
         windowWidth  = width;
@@ -165,7 +170,7 @@ public class BatsEverywhere implements GLEventListener
         
         //for debugging
         if (success) {
-           // bufferUtil.write(new File("minimap.png"));
+           bufferUtil.write(new File("minimap.png"));
             System.out.println("Made Screenshot");
            // minimaptexture = setupTexture(gl, "minimap.png");
         } else
@@ -189,6 +194,7 @@ public class BatsEverywhere implements GLEventListener
         System.out.println("Frames drawn = 1");
 
         
+        // also appears where minimap is drawn
         glu.gluLookAt(300, 800, 300,   // eye location
                 300,0,300,   // point to look at (near middle of pyramid)
                  0, 0,  -1);
@@ -219,20 +225,25 @@ public class BatsEverywhere implements GLEventListener
         	
         }       
 
-        playerMotion.setLookAt(gl, glu);
+        //playerMotion.setLookAt(gl, glu);
         
 
         this.playerMotion.setScreenLocation(
         		this.canvas.getLocationOnScreen());
        
         // draw town
-        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
+        // town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
      	
         playerMotion.update(gl, glu);//draw town looking in the direction we're moving in
+        
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());  
-        playerMotion.setLookAt(gl, glu);//figure out if we can move and, if so, move    
+        
+        
+        playerMotion.setLookAt(gl, glu);//figure out if we can move and, if so, move  
+        
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT); //clear that town  
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
+        
         itemCreator.update();
         writer.draw(bag.toString(), 380, 470);
         writer.draw(stats.healthString(), 10, 45);
@@ -326,6 +337,8 @@ public class BatsEverywhere implements GLEventListener
         gl.glLoadIdentity();       
       
         gl.glEnable(GL2.GL_TEXTURE_2D);
+        gl.glDisable(GL2.GL_TEXTURE_GEN_T);
+        gl.glDisable(GL2.GL_TEXTURE_GEN_S);
        //if (minimaptexture != null){
 
         minimaptexture.bind(gl);
@@ -339,6 +352,31 @@ public class BatsEverywhere implements GLEventListener
         gl.glTexCoord2f(1f,1f);gl.glVertex2f(1f, 1f);
         gl.glTexCoord2f(0f,1f);gl.glVertex2f(-1f, 1f);
         gl.glEnd();
+        gl.glDisable(GL2.GL_TEXTURE_2D);
+        
+        // also appears where minimap is created
+        gl.glMatrixMode(GL2.GL_PROJECTION);
+        gl.glLoadIdentity();
+        glu.gluPerspective(60, 1, .5, 1500); // also done in setupViewport
+        gl.glMatrixMode(GL2.GL_MODELVIEW);
+        gl.glLoadIdentity();
+        glu.gluLookAt(300, 800, 300,   // eye location
+                300,0,300,   // point to look at (near middle of pyramid)
+                 0, 0,  -1);
+        
+        gl.glDisable(GL2.GL_DEPTH_TEST);
+        gl.glEnable(GL2.GL_POINT_SMOOTH);
+        gl.glColor3f(0.5f, 0.5f, 0.5f);
+        gl.glPointSize(10);
+        gl.glBegin(GL2.GL_POINTS);
+        	gl.glVertex3f(playerMotion.getEyeX(), 100, playerMotion.getEyeZ());
+        gl.glEnd();
+        gl.glColor3f(1f, 1f, 1f);
+        gl.glPointSize(5);
+        gl.glBegin(GL2.GL_POINTS);
+        	gl.glVertex3f(playerMotion.getEyeX(), 100, playerMotion.getEyeZ());
+        gl.glEnd();
+        gl.glEnable(GL2.GL_DEPTH_TEST);
         
         gl.glDisable(GL2.GL_TEXTURE_2D);
     	//gl.glDisable(GL2.GL_TEXTURE_GEN_S);
@@ -403,5 +441,4 @@ public class BatsEverywhere implements GLEventListener
          FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
          animator.start();
     }
-
 }
