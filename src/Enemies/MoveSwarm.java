@@ -13,11 +13,16 @@ public class MoveSwarm {
 	public MoveSwarm(GL2 gl, GLU glu) {
 		swarm = new ArrayList<BasicBat>();
 		
+		/*swarm.add(new BasicBat(gl, glu, 10, 50));
+		swarm.add(new BasicBat(gl, glu, 8, 52));
+		swarm.add(new BasicBat(gl, glu, 9, 53));
+		swarm.add(new BasicBat(gl, glu, 7, 48));*/
+		
 		for (int i = 0; i < 50; i++) {
 			int j = (int) (Math.random()*20) - 10;
 			int k = (int) (Math.random()*20) - 10;
 			swarm.add(new BasicBat(gl, glu, 10+j, 50+k));
-		}
+		} 
 	}
 
 	public MoveSwarm(List<BasicBat> swarm){
@@ -36,6 +41,8 @@ public class MoveSwarm {
 			}
 		}
 		
+		System.out.println("First bat is at loc " + swarm.get(0).getX() + "," + swarm.get(0).getZ());
+		
 		for (BasicBat b: swarm) {
 			for (BasicBat t: swarm) {
 				if(b != t) {
@@ -45,15 +52,19 @@ public class MoveSwarm {
 
 					//calc force
 					float distancesq = (xdist*xdist + zdist*zdist);
-					float force = (float) (.04/distancesq);
+					if (distancesq < 0.1f)
+						distancesq = 0.1f;
+					float force = .001f/distancesq;
 
 					//update velocity vectors
 					b.setDX(b.getDX()+(force*xdist));
 					b.setDZ(b.getDZ()+(force*zdist));
-				}
-				float hypotenuse = (float) Math.sqrt((float) (b.getDX()*b.getDX() + b.getDZ()*b.getDZ()));
-				b.setDirection((float) Math.toDegrees(Math.acos(b.getDX()/hypotenuse)));
-				
+					float hypotenuse = (float) Math.sqrt((float) (b.getDX()*b.getDX() + b.getDZ()*b.getDZ()));
+					if (b.getDZ() == 0 && b.getDX() == 0) 
+						b.setDirection(0);
+					else	
+						b.setDirection((float) Math.toDegrees(Math.atan2(-b.getDZ(), b.getDX())));
+				}				
 			}
 		}
 	}

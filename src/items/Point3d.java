@@ -1,9 +1,5 @@
 package items;
 
-/*
-Class to represent 3D Points for use with OpenGL
-William Ames, Fall 2013
-*/
 import javax.media.opengl.*;
 
 //Immutable
