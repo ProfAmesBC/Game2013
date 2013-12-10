@@ -364,7 +364,7 @@ public class BatsEverywhere implements GLEventListener
         // also appears where minimap is created
         gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glLoadIdentity();
-        glu.gluPerspective(50, 1, .5, 1500); // also done in setupViewport
+        glu.gluPerspective(60, 1, .5, 1500); // also done in setupViewport
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();
         glu.gluLookAt(300, 800, 300,   // eye location
