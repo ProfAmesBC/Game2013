@@ -16,6 +16,11 @@ public class WeaponSounds {
 		System.out.println("THUMP");
 	}
 	
+	public static void changeWeaponNoise()
+	{
+		System.out.println("changeWeaponNoise");
+	}
+	
 	// test commit 2  VM
 }
 

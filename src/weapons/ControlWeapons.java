@@ -17,11 +17,13 @@ public class ControlWeapons {
 	private void displayBaseballBat(GL2 gl, GLU glu){
 		bat.setPresent(true);
 		bat.draw(gl, glu); //need to transform to right in front of player
+		WeaponSounds.changeWeaponNoise();
 	}
 	
 	private void displayLaserGun(GL2 gl, GLU glu){
 		gun.setPresent(true);
 		gun.draw(gl, glu); //need to transform to right in front of player
+		WeaponSounds.changeWeaponNoise();
 	}
 	
 	private void removeBaseballBat(GL2 gl, GLU glu){
