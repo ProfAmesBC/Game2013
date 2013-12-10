@@ -2,6 +2,7 @@ package items;
 
 import game.PlayerMotion;
 import game.PlayerMotionWatcher;
+import game.PlayerStats;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -76,31 +77,33 @@ public class PowerUpManager implements PlayerMotionWatcher {
 			
 			emptySpawns.clear();
 		}
-		
-		
+				
 	}
 	
-	public void collision() {
-		//if collision, remove the spawn at that location and move it to the empty spawn
-	}
 
 	@Override
-	public void playerMoved(float x, float y, float z, float angle, float y_angle) {
+	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {
 		// TODO Auto-generated method stub
 		DecimalFormat formatter = new DecimalFormat("#,##0.0");
 		System.out.println("Player is now at location (" + formatter.format(x) + "," +
                 formatter.format(y) + "," + formatter.format(z));
 		
 		for (int t=0; t<spawns.size(); t++) {
-			if (x == spawns.get(t).getLocation().getX() && y == spawns.get(t).getLocation().getY() && z == spawns.get(t).getLocation().getZ()) {
+			if (Math.abs(spawns.get(t).getLocation().getX()-x)<1 && Math.abs(spawns.get(t).getLocation().getY()-y)<1 && Math.abs(spawns.get(t).getLocation().getZ()-z)<1) {
+				//has collision
 				System.out.println("POWER UP!");
 				
+				//store corresponding powerup
 				AbstractPowerUp temp = spawns.get(t).getPowerUp();
 				
+				//move used location to used list
 				emptySpawns.add(new Spawn3d(spawns.get(t).getLocation()));
+				
+				//remove from active list
 				spawns.remove(t);
 				
-				temp.grabbed();
+				//implement
+				temp.activate();
 			}
 		}
 	}
