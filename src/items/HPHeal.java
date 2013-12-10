@@ -1,14 +1,15 @@
 package items;
 
+import game.PlayerStats;
 import inventory.Item;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
-public class HPHeal implements Item {
+public class HPHeal extends AbstractPowerUp {
 
 	@Override
-	public void playerMoved(float x, float y, float z, float angle) {
+	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -36,5 +37,4 @@ public class HPHeal implements Item {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

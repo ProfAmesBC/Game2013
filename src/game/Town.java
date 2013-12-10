@@ -1,10 +1,13 @@
 package game;
+
 import java.util.LinkedList;
 import java.util.List;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.*;
 
+import creatures.Robot;
+import creatures.Creature;
 import sketchupModels.Avatar;
 import buildings.*;
 
@@ -54,7 +57,6 @@ public class Town {
             System.out.println(glu.gluErrorString(error));
             System.exit(1);
         }
-
         int buildingCounter = 0;
         int buildingsPerRow = 6;
         for (Building building: buildings) {	

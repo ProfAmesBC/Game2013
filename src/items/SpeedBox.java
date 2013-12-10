@@ -1,21 +1,23 @@
+
 package items;
 
+import com.jogamp.opengl.util.texture.Texture;
+
+import game.Building;
+import game.PlayerMotion;
+import game.PlayerStats;
 import inventory.Bag;
 import inventory.Item;
 import inventory.PlayerAttributes;
-import game.Building;
-import game.PlayerMotion;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
-
-import com.jogamp.opengl.util.texture.Texture;
 
 public class SpeedBox implements Item {
 	private Texture textureItem;
 	private float itemX, itemY, itemZ;
 	private float playerX, playerY, playerZ;
-	private float angle;
+	private float angle, y_angle;
 	private boolean grabbed;
 	private double T;
 	private Bag bag;
@@ -41,7 +43,7 @@ public class SpeedBox implements Item {
 
 	public void draw(GL2 gl, GLU glu) {
 		frames++;
-		T = T + 0.5;
+		T = T + 0.05;
 		if (grabConditions()) {
 			grabbed = true;
 			bag.addItem(this);
@@ -93,7 +95,7 @@ public class SpeedBox implements Item {
 
 	public void use() {
 		float currentSpeed = p.getStepSize();
-		int duration = 60;
+		int duration = 30;
 		// calls PlayerAttributes
 		p.setStepSize(currentSpeed + 1.5f, duration);
 	}
@@ -109,8 +111,10 @@ public class SpeedBox implements Item {
 		gl.glPushMatrix();
 		gl.glTranslated(itemX, Math.sin(Math.toRadians(T * 360 + 180)) + 2,
 				itemZ);
-		gl.glRotated(5*T,1,5*T,1);
-				
+		// gl.glRotated(Math.toRadians(15*frames), Math.toRadians(15*frames),
+		// Math.toRadians(15*frames), 1);
+		// gl.glTranslated(-itemX, -(Math.sin(Math.toRadians(T*360+180 ))+2),
+		// -itemZ);
 		textureItem.bind(gl);
 
 		gl.glBegin(GL2.GL_QUADS);
@@ -254,12 +258,11 @@ public class SpeedBox implements Item {
 	}
 
 	@Override
-	public void playerMoved(float x, float y, float z, float angle) {
+	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {
 		// GET CURRENT POSITION OF PLAYER
 		this.playerX = x;
 		this.playerY = y;
 		this.playerZ = z;
 		this.angle = angle;
 	}
-
 }

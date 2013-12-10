@@ -13,7 +13,7 @@ public class StatusText {
 	
 	public StatusText(GLAutoDrawable drawable){
 		this.drawable = drawable;
-		renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, 32));
+		renderer = new TextRenderer(new Font("Serif", Font.BOLD, 32));
 	}
 	public void draw(String text, int x, int y) {		        	
 		renderer.beginRendering(drawable.getWidth(), drawable.getHeight());		

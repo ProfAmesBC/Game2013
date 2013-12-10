@@ -1,14 +1,20 @@
 // Diana Cheung, CS333 Class of 2013
 // Superclass for cat and rabbit classes. May also be useful for Bat class
 package catsrabbits;
+import game.PlayerStats;
+
 import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;import javax.media.opengl.glu.GLUquadric;
+
 import com.jogamp.opengl.util.texture.Texture;
 
-public abstract class Critter{
+import weapons.Projectile;import weapons.WeaponWatcher;
+
+public abstract class Critter implements WeaponWatcher{
 	public static final float WHISKER_THICKNESS=.01f;
 	public static final String FUR_DIRECTORY="cheungcatrabbitfurs";
 	
 	protected float x,y,z,angle,tAngle,angleRate=0,speed,t=0,tRate;
+	private boolean shot=false;
 	protected GLUquadric textureQuadric,quadric;
 	protected Texture texture;
 	
@@ -28,6 +34,8 @@ public abstract class Critter{
         glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL);
         glu.gluQuadricNormals  (quadric, GLU.GLU_NONE);
         glu.gluQuadricTexture  (quadric, false);
+        
+        Projectile.registerWeaponWatcher(this);
 	}
 	
 	public float getX(){return x;}
@@ -94,7 +102,7 @@ public abstract class Critter{
 		gl.glPopMatrix();
 	}
 	protected abstract void drawTail(GL2 gl,GLU glu);
-	protected abstract void drawFeet(GL2 gl,GLU glu);
+	protected abstract void drawLegs(GL2 gl,GLU glu);
 	
 	protected void move(){
 		if(Math.abs(tAngle-angle)<.01){
@@ -111,5 +119,26 @@ public abstract class Critter{
 		
 		if(t>=1f)t=0;
 		else t+=tRate;
+	}
+	
+	public abstract float size();
+	
+	public void checkShot(Projectile p,PlayerStats s){
+		float dist=(float)Math.sqrt(Math.pow(p.getProjX()-x, 2)+Math.pow(p.getProjY()-y, 2)+Math.pow(p.getProjZ()-z, 2));
+		if(dist<size()&&!shot){
+			shot=true;
+			//System.out.println("Shot a critter!");
+			// TODO
+			s.changeHonor(-1);
+			new Thread(new Runnable(){
+				public void run(){
+					try{
+						Thread.sleep(1000);
+					}catch(InterruptedException e){};
+					//System.out.println("Will take damage from shots again");
+					shot=false;
+				}
+			}).start();
+		}
 	}
 }
