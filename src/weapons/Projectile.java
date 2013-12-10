@@ -1,11 +1,15 @@
 package weapons;
 
+import game.PlayerStats;
+
 import java.util.LinkedList;
 import java.util.List;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
+
 import creatures.ProjectileWatcher;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +24,12 @@ public abstract class Projectile{
 	public int green = 0;
 	public int blue = 0;
 	private static List<ProjectileWatcher> projectileWatchers = new LinkedList<ProjectileWatcher>();
+	private PlayerStats source;
+	
+	public Projectile(PlayerStats s){
+		source=s;
+	}
+	
 	public static void registerWeaponWatcher(WeaponWatcher w){watchers.add(w);}
 	
 	public float getLifeSpan() {
@@ -76,7 +86,7 @@ public abstract class Projectile{
 		}
         projY = (float) (projY + speed*Math.sin(Math.toRadians(projYAngle)));
 		for(WeaponWatcher watcher:watchers)
-			watcher.checkShot(this);
+			watcher.checkShot(this,source);
 	}
 	
 	public static void registerProjectileWatcher(ProjectileWatcher watcher){
