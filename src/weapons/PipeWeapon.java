@@ -18,7 +18,12 @@ public PipeWeapon(GL2 gl, GLU glu) {
     generate(gl, glu);
 }
 public void draw(GL2 gl, GLU glu) {
-  gl.glCallList(displayList);
+	gl.glPushMatrix();
+		gl.glScalef(.5f, .5f, .5f);
+		gl.glRotatef(-90, 1, 0, 0);
+		gl.glRotatef(40, 1, 0, 0);
+		gl.glCallList(displayList);
+	gl.glPopMatrix();
 }
 private void generate(GL2 gl, GLU glu){
 

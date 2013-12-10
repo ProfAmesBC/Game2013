@@ -10,7 +10,7 @@ import java.util.Iterator;
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
-public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher{
+public class ProjectileWeapons implements Weapon{
 	
 	private ArrayList<RainbowBall> bulletsList = new ArrayList<RainbowBall>();
 	private float x, y, z, angle;

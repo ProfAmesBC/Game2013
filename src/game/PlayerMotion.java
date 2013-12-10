@@ -45,13 +45,9 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     	this.height = height;
     }
     
-    // are you trying to use an observer design pattern here?
     public static void registerPlayerWatcher(PlayerMotionWatcher watcher) {
     	watchers.add(watcher);
     }
-    
-    // please don't damage the function of this method as my weapons code is relying on it.
-    // talk to me if you want to make changes -Fiona
     
     public void notifyObservers() {
     	   for (PlayerMotionWatcher wd : watchers)
@@ -138,8 +134,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
                 eyeX + Math.cos(Math.toRadians(theta))*Math.cos(Math.toRadians(gamma)), eyeY + Math.sin(Math.toRadians(gamma)), eyeZ + -Math.sin(Math.toRadians(theta))*Math.cos(Math.toRadians(gamma)),   // point to look at (near middle of pyramid)
                  0, 1, 0); // the "up" direction
         if(moved!=0 || qdown || edown || dgamma!=0 || dtheta!=0) {
-        	for (PlayerMotionWatcher watcher: watchers)
-    			watcher.playerMoved(eyeX, eyeY, eyeZ, theta);
+        	notifyObservers();
         }
 	}
 	
