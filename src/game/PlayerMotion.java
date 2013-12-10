@@ -25,6 +25,14 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     private Robot robot;
     private final double G = 32.1740;
     private PlayerStats stats;
+    
+    private int speedCounter = 0;
+    private int flyCounter =0;
+    private int speedDuration = 0;
+    private int flyDuration = 0;
+    private boolean fly = false;
+    private int flyHeight = 0;
+
 
     public PlayerMotion() {
         eyeX = 1;
@@ -179,6 +187,28 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     }
 
     public void update(GL2 gl, GLU glu) {
+    	
+    	speedCounter++;
+    	flyCounter++;
+    	
+    	if(fly == true){
+			if(eyeY < flyHeight)
+				eyeY = eyeY + 1;
+			else{
+				fly = false;
+				flyCounter = 0;
+			}
+		}
+
+		if(eyeY>5 && fly == false && flyCounter>flyDuration){
+			eyeY = eyeY-1;
+		}
+		
+		if(speedCounter  == speedDuration){
+			step = step1;
+		}
+
+    	
         dx = 0;
         dz = 0;
         if (adown) {
@@ -273,11 +303,23 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     }
 
     public void setStep(float step, int duration) {
-        this.step = step;
+		this.step = step;
+		this.speedDuration = this.speedDuration + duration;
+		speedCounter = 0;
+
+        
     }
 
+	public void fly(int height, int duration){
+		flyDuration = duration;
+		flyHeight = height;
+		fly = true;
+	}
+
+    
     public float getStep() {
         return step;
     }
 
+    
 }
