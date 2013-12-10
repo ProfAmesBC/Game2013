@@ -1,12 +1,11 @@
 package game;
 
 
-
-//import TextRenderer;
 import inventory.Bag;
 import inventory.ItemFactory;
 import inventory.PlayerActions;
 import inventory.PlayerAttributes;
+import items.PowerUpManager;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -15,7 +14,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.io.File; //For capturing screen shot
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
@@ -29,30 +29,39 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import sketchupModels.Avatar;
-import weapons.Projectile;
 import weapons.ProjectileWeapons;
-import weapons.RainbowBall;
-import catsrabbits.*;
+import Enemies.Bat;
+import Enemies.MoveSwarm;
+import catsrabbits.CatGroup;
+import catsrabbits.CritterGroup;
+import catsrabbits.RabbitGroup;
 
 import com.jogamp.opengl.util.FPSAnimator;
 import com.jogamp.opengl.util.GLReadBufferUtil;
 import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureIO;
 
+import creatures.Mummy;
+import creatures.Robot;
+import creatures.PacManGhost;
+
+
 public class BatsEverywhere implements GLEventListener
 {
     private JTextField statusLine = new JTextField(10); // for misc messages at bottom of window
+
     private static JPanel controlPanel= new JPanel();
     private static JTextArea controls = new JTextArea("Controls: \n\n", 20, 15);
    // private JComponent weaponPanel= new JComponent();
+   
     private int framesDrawn=0;
     private GLU glu = new GLU();
     private Town town;
     private int height, width;
-    private ProjectileWeapons projectileWeapons = new ProjectileWeapons();
-    private long runtime = 0;
     private PlayerMotion playerMotion = new PlayerMotion();
+    private PlayerStats stats=new PlayerStats(playerMotion);
+    private ProjectileWeapons projectileWeapons = new ProjectileWeapons(stats);
+    private long runtime = 0;
     private Bag bag  = new Bag();
     private PlayerAttributes playerAttributes = new PlayerAttributes(playerMotion, bag);
     private PlayerActions playerActions = new PlayerActions(playerAttributes);
@@ -60,8 +69,17 @@ public class BatsEverywhere implements GLEventListener
 	private StatusText writer;
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
+    private CritterGroup catGroup,rabbitGroup;
+    private Bat bat;
+    private Mummy mummy;
+    private PacManGhost pacManGhost;
     private Texture minimaptexture;
+
     private Texture BatsLogo2;
+
+    private MoveSwarm moveSwarm;
+    private PowerUpManager powerUpManager;
+
     //private TextRenderer renderer;
     
 
@@ -89,13 +107,28 @@ public class BatsEverywhere implements GLEventListener
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
         itemCreator = new ItemFactory(gl, glu, playerAttributes);
+
         itemCreator.testCreate();
+        BatsLogo2=setupTexture(gl,"BatsLogo2.jpg");
+
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
+
         critters.add(new CatGroup(gl,glu));
         critters.add(new RabbitGroup(gl,glu));
-        BatsLogo2=setupTexture(gl,"BatsLogo2.jpg");
+
+        mummy = new Mummy(30, 100, gl, glu);
+        pacManGhost = new PacManGhost(25, 95, gl, glu);
+        Robot.addZombie(new Robot(60,60,gl,glu));
+        Robot.addZombie(new Robot(100,100,gl,glu));
+        catGroup=new CatGroup(gl,glu);
+        rabbitGroup=new RabbitGroup(gl,glu);
+        bat = new Bat(gl, glu);
+        moveSwarm = new MoveSwarm(gl, glu);
+
+        //powerUpManager = new PowerUpManager(gl, glu);
     }
+
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
     	this.width = width;
@@ -106,7 +139,7 @@ public class BatsEverywhere implements GLEventListener
         GL2 gl = drawable.getGL().getGL2();
         gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glLoadIdentity();
-        glu.gluPerspective(50, 1, .5, 1500);
+        glu.gluPerspective(50, 1, .5, 1500); // also done in setupViewport
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();
         windowWidth  = width;
@@ -157,7 +190,7 @@ public class BatsEverywhere implements GLEventListener
         
         //for debugging
         if (success) {
-           // bufferUtil.write(new File("minimap.png"));
+           bufferUtil.write(new File("minimap.png"));
             System.out.println("Made Screenshot");
            // minimaptexture = setupTexture(gl, "minimap.png");
         } else
@@ -181,6 +214,7 @@ public class BatsEverywhere implements GLEventListener
         System.out.println("Frames drawn = 1");
 
         
+        // also appears where minimap is drawn
         glu.gluLookAt(300, 800, 300,   // eye location
                 300,0,300,   // point to look at (near middle of pyramid)
                  0, 0,  -1);
@@ -215,25 +249,42 @@ public class BatsEverywhere implements GLEventListener
         
         
 
-        playerMotion.setLookAt(gl, glu);
+        //playerMotion.setLookAt(gl, glu);
         
 
         this.playerMotion.setScreenLocation(
         		this.canvas.getLocationOnScreen());
        
         // draw town
-        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
+        // town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
      	
         playerMotion.update(gl, glu);//draw town looking in the direction we're moving in
-        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ()); 
-            
-        playerMotion.setLookAt(gl, glu);//figure out if we can move and, if so, move    
+        
+        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());  
+        
+        
+        playerMotion.setLookAt(gl, glu);//figure out if we can move and, if so, move  
+        
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT); //clear that town  
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
+        
         itemCreator.update();
         writer.draw(bag.toString(), 380, 470);
+        writer.draw(stats.healthString(), 10, 45);
+        writer.draw(stats.honorString(), 10, 10);
+        
+
 
         projectileWeapons.update(gl, glu);
+
+        Robot.drawZombies(gl, glu);
+        catGroup.draw(gl, glu);
+        rabbitGroup.draw(gl, glu);
+        bat.draw(gl, glu);
+        mummy.draw(gl, glu);
+        moveSwarm.draw(gl, glu);
+        // check for errors, at least once per frame
+
         
      	
         
@@ -241,8 +292,12 @@ public class BatsEverywhere implements GLEventListener
         //gl.glLineWidth(1);
         //double[] location = ReadZBuffer.getOGLPos(gl, glu, 250, 250);
         
-       
-       /*RainbowBall.draw(gl,glu);
+        //GL VIEWPORT FOR THE WEAPONS
+        // glViewport wants x,y of lower left corner, then width and height (all in pixels)
+        //gl.glViewport(0,0, windowWidth/2, windowHeight/2);
+        //trying to figure out how to put weapon in and show lifespan
+       /* 
+       RainbowBall.draw(gl,glu);
        renderer.beginRendering(drawable.getWidth(), drawable.getHeight());
        // optionally set the text color
        renderer.setColor(0.2f, 0.2f, 1f, 0.2f); // Note use of alpha
@@ -263,9 +318,19 @@ public class BatsEverywhere implements GLEventListener
         	System.out.println("OpenGL Error: " + glu.gluErrorString(error1));
          */
 
+        
+        //Set the eye back to its original coordinates
+        //playerMotion.setEyeX(-5);
+    	//playerMotion.setEyeY(5);
+    	//playerMotion.setEyeZ(50);
+
         for(CritterGroup critterGroup:critters)critterGroup.draw(gl, glu);
+ 
+        /// NEED TO FINISH VIEWPORT
+        //this must be drawn last
 
         setupViewport(drawable);
+
 // alternate splash screen do not turn on unless other splash screen does not work
         /*
         if (framesDrawn<=300) {
@@ -275,8 +340,11 @@ public class BatsEverywhere implements GLEventListener
         	
         }
         */
-        
+
+        //powerUpManager.draw(gl, glu);
+
         // check for errors, at least once per frame
+
         int error = gl.glGetError();
         if (error != GL2.GL_NO_ERROR) {
             System.out.println("OpenGL Error: " + glu.gluErrorString(error));
@@ -306,9 +374,13 @@ public class BatsEverywhere implements GLEventListener
         gl.glLoadIdentity();       
       
         gl.glEnable(GL2.GL_TEXTURE_2D);
+        gl.glDisable(GL2.GL_TEXTURE_GEN_T);
+        gl.glDisable(GL2.GL_TEXTURE_GEN_S);
+       //if (minimaptexture != null){
 
 
         minimaptexture.bind(gl);
+
 
         
         gl.glBegin(GL2.GL_QUADS);
@@ -317,8 +389,35 @@ public class BatsEverywhere implements GLEventListener
         gl.glTexCoord2f(1f,1f);gl.glVertex2f(1f, 1f);
         gl.glTexCoord2f(0f,1f);gl.glVertex2f(-1f, 1f);
         gl.glEnd();
+        gl.glDisable(GL2.GL_TEXTURE_2D);
+        
+        // also appears where minimap is created
+        gl.glMatrixMode(GL2.GL_PROJECTION);
+        gl.glLoadIdentity();
+        glu.gluPerspective(60, 1, .5, 1500); // also done in setupViewport
+        gl.glMatrixMode(GL2.GL_MODELVIEW);
+        gl.glLoadIdentity();
+        glu.gluLookAt(300, 800, 300,   // eye location
+                300,0,300,   // point to look at (near middle of pyramid)
+                 0, 0,  -1);
+        
+        gl.glDisable(GL2.GL_DEPTH_TEST);
+        gl.glEnable(GL2.GL_POINT_SMOOTH);
+        gl.glColor3f(0.5f, 0.5f, 0.5f);
+        gl.glPointSize(10);
+        gl.glBegin(GL2.GL_POINTS);
+        	gl.glVertex3f(playerMotion.getEyeX(), 100, playerMotion.getEyeZ());
+        gl.glEnd();
+        gl.glColor3f(1f, 1f, 1f);
+        gl.glPointSize(5);
+        gl.glBegin(GL2.GL_POINTS);
+        	gl.glVertex3f(playerMotion.getEyeX(), 100, playerMotion.getEyeZ());
+        gl.glEnd();
+        gl.glEnable(GL2.GL_DEPTH_TEST);
         
         gl.glDisable(GL2.GL_TEXTURE_2D);
+    	//gl.glDisable(GL2.GL_TEXTURE_GEN_S);
+        //gl.glDisable(GL2.GL_TEXTURE_GEN_T);
         
         gl.glViewport(0, 0, windowWidth, windowHeight);
         reshape( drawable, 0, 0, windowWidth, windowHeight);
@@ -370,14 +469,17 @@ public class BatsEverywhere implements GLEventListener
 
          renderer.controls.append("W: move forward\n");
          renderer.controls.append("A: move left\n");
-         renderer.controls.append("S: move right\n");
-         renderer.controls.append("D: move backward\n");
+         renderer.controls.append("D: move right\n");
+         renderer.controls.append("S: move backward\n");
          renderer.controls.append("Q: turn left\n");
          renderer.controls.append("E: turn right\n");
-         renderer.controls.append("Shift: sprint\n");
+        renderer.controls.append("I: look up\n");
+        renderer.controls.append("K: look down\n");
+        renderer.controls.append("J: jump\n");
+                 renderer.controls.append("Shift: sprint\n");
          renderer.controls.append("\n");
-         renderer.controls.append("Space: fireball\n");
-         renderer.controls.append("P: Use speed item\n");
+         renderer.controls.append("Space/MouseClick: fireball\n");
+         renderer.controls.append("1: use speed item\n");
          renderer.controls.append("\n");
          renderer.controls.append("M: toggle mouse\n");
           // don't let you edit text once it's established
@@ -407,9 +509,9 @@ public class BatsEverywhere implements GLEventListener
          renderer.canvas.addKeyListener(renderer.playerMotion);
          renderer.canvas.addMouseMotionListener(renderer.playerMotion);
          renderer.canvas.addKeyListener(renderer.projectileWeapons);
+         renderer.canvas.addMouseListener(renderer.projectileWeapons);
          renderer.canvas.requestFocus(); // so key clicks come here
          FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
          animator.start();
     }
-
 }

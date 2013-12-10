@@ -1,12 +1,16 @@
 // Diana Cheung, CS333 Class of 2013
 package catsrabbits;
-import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;
+import game.Building;
+import game.PlayerMotion;
+import game.PlayerMotionWatcher;
+import game.PlayerStats;
 
-import game.*;
+import javax.media.opengl.GL2;
+import javax.media.opengl.glu.GLU;
 
 public class Cat extends Critter implements PlayerMotionWatcher{
 	private static final float BODY_LENGTH=1.8f,HEAD_HEIGHT=.56f,HEAD_DIST=BODY_LENGTH*.7f,
-			EYE_CENTER_DIST=.52f,EYE_HEIGHT=.35f,WHISKER_COLOR=.82f,TAIL_LENGTH=1.83f,TAIL_DIAM=.15f;
+			EYE_CENTER_DIST=.52f,EYE_HEIGHT=.35f,WHISKER_COLOR=.82f,SWIM_ANGLE=26.74f,TAIL_LENGTH=1.83f,TAIL_DIAM=.15f;
 	
 	private int furColor;
 	private float eyeGreen=0;
@@ -34,8 +38,7 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 			
 			gl.glEnable(GL2.GL_TEXTURE_2D);
 			drawTail(gl,glu);
-			// TODO draw legs
-			
+			drawLegs(gl,glu);
 			gl.glDisable(GL2.GL_TEXTURE_2D);
 		gl.glPopMatrix();
 	}
@@ -83,9 +86,28 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 			glu.gluCylinder(textureQuadric, .4, 0, .5, 10, 10);
 		gl.glPopMatrix();
 	}
-	protected void drawFeet(GL2 gl, GLU glu){
-		// TODO Auto-generated method stub
-		
+	private void drawOneLeg(GL2 gl,GLU glu,float rotate){
+		gl.glPushMatrix();
+			gl.glRotatef(rotate, 0, 1, 0);
+			gl.glTranslatef(1, 0, 0);
+			gl.glScalef(3, 1, 1);
+			drawSphere(textureQuadric,.2f,glu);
+		gl.glPopMatrix();
+	}
+	protected void drawLegs(GL2 gl, GLU glu){
+		int rotate=(int)(SWIM_ANGLE*Math.sin(Math.toRadians(t*360-45)));
+		gl.glPushMatrix();
+			// front legs
+			gl.glTranslatef(0,-.43f,-2.47f);
+			drawOneLeg(gl,glu,rotate);
+			gl.glScalef(-1, 1, 1);
+			drawOneLeg(gl,glu,rotate);
+			// back legs
+			gl.glTranslatef(0, 0, 1.88f);
+			drawOneLeg(gl,glu,-rotate);
+			gl.glScalef(-1, 1, 1);
+			drawOneLeg(gl,glu,-rotate);
+		gl.glPopMatrix();
 	}
 	protected void drawTail(GL2 gl, GLU glu){
 		gl.glPushMatrix();
@@ -95,20 +117,23 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 			drawSphere(textureQuadric,TAIL_DIAM,glu);
 		gl.glPopMatrix();
 	}
-
-	public void playerMoved(float x, float y, float z, float angle){
+	public float size(){return BODY_LENGTH*2f;}
+	
+	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s){
 		float dist=(float)Math.sqrt(Math.pow(x-this.x, 2)+Math.pow(z-this.z, 2));
-		if(dist<BODY_LENGTH*3f&&!steppedOn){	// stepped on cat
+		// will NOT happen if you're just standing still. you have to move to trigger this
+		if(dist<size()&&!steppedOn){	// stepped on cat
 			steppedOn=true;
-			System.out.println("Stepped on a cat!");
-			// TODO meow, damage player
+			//System.out.println("Stepped on a cat!");
+			// TODO meow
 			
+			s.changeHealth(-2);s.changeHonor(-1);
 			new Thread(new Runnable(){
 				public void run(){
 					try{
 						Thread.sleep(1000);
 					}catch(InterruptedException e){};
-					System.out.println("Cat recovered");
+					//System.out.println("Cat recovered");
 					steppedOn=false;
 				}
 			}).start();

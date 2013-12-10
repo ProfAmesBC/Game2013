@@ -3,6 +3,7 @@ package game;
 //Viewport demo, William Ames, Fall 2013
 
 import java.awt.*;
+
 import javax.swing.*;
 import javax.media.opengl.*;
 import javax.media.opengl.awt.*;
@@ -15,7 +16,7 @@ public class ViewPort implements GLEventListener
  private int framesDrawn=0;
  private GLU glu = new GLU();
  private int windowWidth, windowHeight;
- 
+ private PlayerMotion playerMotion = new PlayerMotion();
 
  @Override
  public void init(GLAutoDrawable drawable) {
@@ -43,6 +44,7 @@ public class ViewPort implements GLEventListener
  }
  
  private void drawBox(GL2 gl, double xmin, double xmax) {
+	 gl.glColor3f(1, 1, 1);
      gl.glBegin(GL2.GL_LINE_LOOP);
          gl.glVertex2d(xmin,xmin);
          gl.glVertex2d(xmin,xmax);
@@ -77,6 +79,12 @@ public class ViewPort implements GLEventListener
      gl.glBegin(GL2.GL_LINES);
          gl.glVertex2f(8,2);
          gl.glVertex2f(2,8);
+     gl.glEnd();
+     
+     gl.glColor3f(1,1,1);
+     gl.glPointSize(50);
+     gl.glBegin(GL2.GL_POINT);
+     	gl.glVertex3f(playerMotion.getEyeX(), 100, playerMotion.getEyeZ());
      gl.glEnd();
      
      // check for errors, at least once per frame

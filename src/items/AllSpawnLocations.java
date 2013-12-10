@@ -5,10 +5,19 @@ import java.util.ArrayList;
 
 public class AllSpawnLocations {
 	
-	private List<Point3d> spawns;
+	private List<Point3f> spawns;
 	
 	public AllSpawnLocations() {
-		spawns = new ArrayList<Point3d>();
-		spawns.add(new Point3d(0,0,0)); //test location; populate with working locations later
+		for (int x =0; x<600; x+=100) {
+			for (int z =0; z<500; z+=100) {
+				spawns = new ArrayList<Point3f>();
+				spawns.add(new Point3f(x,2,z));
+			}
+				
+		}
+	}
+	
+	public List<Point3f> getAllSpawnsPossible() {
+		return spawns;
 	}
 }
