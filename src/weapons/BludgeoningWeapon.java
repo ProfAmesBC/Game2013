@@ -29,7 +29,7 @@ public class BludgeoningWeapon implements Weapon{
 //		this.gl = gl;
 //		this.glu = glu;
 		hit = false;
-				
+		
 		PlayerMotion.registerPlayerWatcher(this);
 		
 //		quadric = glu.gluNewQuadric();
@@ -51,12 +51,16 @@ public class BludgeoningWeapon implements Weapon{
         glu.gluQuadricTexture  (quadric, false);
 	}
 	
-	public void drawStationary(GL2 gl, GLU glu){
-		gl.glPushMatrix();
-			gl.glTranslated(Math.random()*600, Math.random()*600, Math.random()*600);
-			p.draw(gl, glu);
-		gl.glPopMatrix();
+	public void draw(){
+		p.draw(gl, glu);
 	}
+	
+//	public void drawStationary(GL2 gl, GLU glu){
+//		gl.glPushMatrix();
+//			gl.glTranslated(Math.random()*600, y, Math.random()*600);
+//			p.draw(gl, glu);
+//		gl.glPopMatrix();
+//	}
 	
 	public void update(GL2 gl, GLU glu){
 		
