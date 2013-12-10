@@ -3,18 +3,20 @@ package inventory;
 public class Bag {
 	private DummyItem speedBoxes;
 	private DummyItem damageBoxes;
+	private DummyItem jetpackBoxes;
 
 	public Bag() {
 		speedBoxes = new DummyItem("Speed");
 		damageBoxes = new DummyItem("Damage");
+		jetpackBoxes = new DummyItem("Jetpack");
 	}
 
 	public void addItem(Item i) {
 		String checkType = i.getType();
 		if (checkType.equals("Speed"))
 			speedBoxes.incrementCount();
-		if (checkType.equals("Damage"))
-			speedBoxes.incrementCount();
+		if (checkType.equals("Jetpack"))
+			jetpackBoxes.incrementCount();
 	}
 
 	public void useItem(String i) {
@@ -22,6 +24,12 @@ public class Bag {
 			if (speedBoxes.getCount() > 0) {
 				speedBoxes.decrementCount();
 				speedBoxes.use();
+			}
+		}
+		if (i.equals("Jetpack")) {
+			if (jetpackBoxes.getCount() > 0) {
+				jetpackBoxes.decrementCount();
+				jetpackBoxes.use();
 			}
 		}
 
@@ -37,6 +45,7 @@ public class Bag {
 		String listOfItems = "";
 		listOfItems = "S:" + speedBoxes.getCount();
 		listOfItems = listOfItems + " D:" + damageBoxes.getCount();
+		listOfItems = listOfItems + "J:" + jetpackBoxes.getCount();
 		return listOfItems;
 	}
 }
