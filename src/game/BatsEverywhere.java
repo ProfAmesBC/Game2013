@@ -39,6 +39,7 @@ import com.jogamp.opengl.util.texture.TextureIO;
 
 import creatures.Mummy;
 import creatures.Robot;
+import creatures.PacManGhost;
 
 
 public class BatsEverywhere implements GLEventListener
@@ -63,6 +64,7 @@ public class BatsEverywhere implements GLEventListener
     private CritterGroup catGroup,rabbitGroup;
     private Bat bat;
     private Mummy mummy;
+    private PacManGhost pacManGhost;
     private Texture minimaptexture;
     private MoveSwarm moveSwarm;
     //private TextRenderer renderer;
@@ -96,6 +98,7 @@ public class BatsEverywhere implements GLEventListener
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
         mummy = new Mummy(30, 100, gl, glu);
+        pacManGhost = new PacManGhost(25, 95, gl, glu);
         Robot.addZombie(new Robot(60,60,glu));
         Robot.addZombie(new Robot(100,100,glu));
         catGroup=new CatGroup(gl,glu);
