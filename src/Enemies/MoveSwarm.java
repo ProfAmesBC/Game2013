@@ -2,21 +2,14 @@ package Enemies;
 
 //import java.awt.List;
 import java.util.*;
-
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
-
 
 public class MoveSwarm {
 	private List<BasicBat> swarm;
 
 	public MoveSwarm(GL2 gl, GLU glu) {
 		swarm = new ArrayList<BasicBat>();
-		
-		/*swarm.add(new BasicBat(gl, glu, 10, 50));
-		swarm.add(new BasicBat(gl, glu, 8, 52));
-		swarm.add(new BasicBat(gl, glu, 9, 53));
-		swarm.add(new BasicBat(gl, glu, 7, 48));*/
 		
 		for (int i = 0; i < 50; i++) {
 			int j = (int) (Math.random()*20) - 10;
@@ -41,8 +34,6 @@ public class MoveSwarm {
 			}
 		}
 		
-		System.out.println("First bat is at loc " + swarm.get(0).getX() + "," + swarm.get(0).getZ());
-		
 		for (BasicBat b: swarm) {
 			for (BasicBat t: swarm) {
 				if(b != t) {
@@ -59,7 +50,6 @@ public class MoveSwarm {
 					//update velocity vectors
 					b.setDX(b.getDX()+(force*xdist));
 					b.setDZ(b.getDZ()+(force*zdist));
-					float hypotenuse = (float) Math.sqrt((float) (b.getDX()*b.getDX() + b.getDZ()*b.getDZ()));
 					if (b.getDZ() == 0 && b.getDX() == 0) 
 						b.setDirection(0);
 					else	
