@@ -3,6 +3,7 @@ package catsrabbits;
 import game.Building;
 import game.PlayerMotion;
 import game.PlayerMotionWatcher;
+import game.PlayerStats;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
@@ -118,20 +119,21 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 	}
 	public float size(){return BODY_LENGTH*2f;}
 	
-	public void playerMoved(float x, float y, float z, float angle, float y_angle){
+	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s){
 		float dist=(float)Math.sqrt(Math.pow(x-this.x, 2)+Math.pow(z-this.z, 2));
 		// will NOT happen if you're just standing still. you have to move to trigger this
 		if(dist<size()&&!steppedOn){	// stepped on cat
 			steppedOn=true;
-			System.out.println("Stepped on a cat!");
-			// TODO meow, damage player
+			//System.out.println("Stepped on a cat!");
+			// TODO meow
 			
+			s.changeHealth(-2);
 			new Thread(new Runnable(){
 				public void run(){
 					try{
 						Thread.sleep(1000);
 					}catch(InterruptedException e){};
-					System.out.println("Cat recovered");
+					//System.out.println("Cat recovered");
 					steppedOn=false;
 				}
 			}).start();

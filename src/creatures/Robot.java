@@ -2,12 +2,17 @@ package creatures;
 
 import java.util.LinkedList;
 import java.util.List;
+
 import game.PlayerMotion;
 import game.PlayerMotionWatcher;
+import game.PlayerStats;
+
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 import javax.media.opengl.glu.GLUquadric;
+
 import com.jogamp.opengl.util.gl2.GLUT;
+
 import weapons.Projectile;
 
 public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
@@ -168,7 +173,7 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 		gl.glPopMatrix();
 	}
 	
-	public void playerMoved(float x, float y, float z, float angle, float yAngle) {
+	public void playerMoved(float x, float y, float z, float angle, float yAngle,PlayerStats s) {
 		playerX = x;
 		playerZ = z;
 		double distance = Math.sqrt(Math.pow(zombieLocationX-x,2) + Math.pow(zombieLocationZ-z,2));

@@ -1,9 +1,11 @@
 package weapons;
 import game.PlayerMotion;
 import game.PlayerMotionWatcher;
+import game.PlayerStats;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -14,9 +16,11 @@ import java.util.Iterator;
 public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher, MouseListener {
 	private ArrayList<RainbowBall> bulletsList = new ArrayList<RainbowBall>();
 	private float x, y, z, angle, y_angle;
+	private PlayerStats stats;
 	
-	public ProjectileWeapons(){
+	public ProjectileWeapons(PlayerStats s){
 		PlayerMotion.registerPlayerWatcher(this);
+		stats=s;
 	}
 	
 	public void update(GL2 gl, GLU glu){
@@ -31,7 +35,8 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher, Mous
 	}
 	
 	public void shootBullet(){
-		RainbowBall bullet = new RainbowBall(x, y, z, angle, y_angle); //CREATE NEW BULLET AT CURRENT PLAYER POSITION
+		if(!stats.alive())return;
+		RainbowBall bullet = new RainbowBall(x, y, z, angle, y_angle,stats); //CREATE NEW BULLET AT CURRENT PLAYER POSITION
 		bulletsList.add(bullet); //ADD BULLET TO LIST OF BULLETS
 	}
 	
@@ -45,7 +50,7 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher, Mous
 	public void keyReleased(KeyEvent e) {}
 
 	@Override
-	public void playerMoved(float x, float y, float z, float angle, float y_angle) {
+	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {
 		//GET CURRENT POSITION OF PLAYER TO USE TO MAKE BULLET
 		this.x = x;
 		this.y = y;

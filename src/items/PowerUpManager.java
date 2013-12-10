@@ -2,6 +2,7 @@ package items;
 
 import game.PlayerMotion;
 import game.PlayerMotionWatcher;
+import game.PlayerStats;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -85,7 +86,7 @@ public class PowerUpManager implements PlayerMotionWatcher {
 	}
 
 	@Override
-	public void playerMoved(float x, float y, float z, float angle, float y_angle) {
+	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {
 		// TODO Auto-generated method stub
 		DecimalFormat formatter = new DecimalFormat("#,##0.0");
 		System.out.println("Player is now at location (" + formatter.format(x) + "," +
