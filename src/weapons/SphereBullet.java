@@ -2,9 +2,13 @@ package weapons;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
+import javax.media.opengl.glu.GLUquadric;
 
 public class SphereBullet extends Projectile {
 
+	private GLUquadric sphereQuadric;
+	private float red, green, blue, size, speed;
+	
 	public SphereBullet(float x, float y, float z, float angle, float red, float green, float blue, float size, float speed){
 		setProjX(x);
 		setProjY(y);
@@ -19,8 +23,11 @@ public class SphereBullet extends Projectile {
 	
 	@Override
 	public void draw(GL2 gl, GLU glu) {
-		// TODO Auto-generated method stub
-		
+		gl.glColor3f(red, green, blue);
+		gl.glPushMatrix();
+		gl.glTranslatef(getProjX(), getProjY(), getProjZ());
+		glu.gluSphere(sphereQuadric, size, 10,10);
+		gl.glPopMatrix();
 	}
 
 }
