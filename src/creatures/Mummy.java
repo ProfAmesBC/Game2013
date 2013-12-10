@@ -28,10 +28,10 @@ public class Mummy implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 	static float T = 0;
 	
 
-	public Mummy(GL2 gl, GLU glu){
-		locx = 0;
+	public Mummy(float x, float z, GL2 gl, GLU glu){
+		locx = x;
 		locy = 0;
-		locz = 0;
+		locz = z;
 		bodyTexture = setupTexture(gl, "liangmummy.jpg");
 		bodyQuadric = glu.gluNewQuadric();
         glu.gluQuadricDrawStyle(bodyQuadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE

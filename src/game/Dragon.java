@@ -4,6 +4,6 @@ public class Dragon {
 	private SketchupModelJAXB[] frames = new SketchupModelJAXB[10];
 	
 	public Dragon(){
-		new SketchupModelJAXB("DragonLegsUp.dae", gl, glu);
+		//new SketchupModelJAXB("DragonLegsUp.dae", gl, glu);
 	}
 }
