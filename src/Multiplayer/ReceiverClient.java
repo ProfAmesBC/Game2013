@@ -11,16 +11,19 @@ import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.util.StringTokenizer;
 
+import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 //this is a comment
 public class ReceiverClient implements Runnable {
 	private Player p1;
 	private byte [] inbuf = new byte[1024];
+	private GL2 gl;
 	private GLU glu2;
 	private MulticastSocket msock;
 	
-	public ReceiverClient(Player play1, GLU glu) {
+	public ReceiverClient(Player play1, GL2 gl, GLU glu) {
 		p1 = play1;
+		this.gl = gl;
 		glu2 = glu;
 		try {
 			msock = new MulticastSocket(20000);
@@ -42,7 +45,7 @@ public class ReceiverClient implements Runnable {
 				
 				if (BatsEverywhere.getPlayers().get(id) == null) {
 					System.out.println("Placing forgeiger");
-					BatsEverywhere.getPlayers().put(id, new Foreigner(glu2, id));
+					BatsEverywhere.getPlayers().put(id, new Foreigner(gl, glu2, id));
 				}
 				Player toUpdate = BatsEverywhere.getPlayers().get(id);
 				

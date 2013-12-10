@@ -4,7 +4,9 @@ import java.net.*;
 public class GameServer { 
 	public static final int PORT = 9189;  
 
-	public static final String HOST = "136.167.251.10"; //will change 
+	public static final String HOST = "localhost"; //will change 
+
+	//public static final String HOST = "136.167.251.10"; //will change 
 	private MulticastSocket mcastSocket;
 	private int MCAST_PORT = 20000;
 	private InetAddress group; 

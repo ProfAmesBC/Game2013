@@ -85,7 +85,7 @@ public class BatsEverywhere implements GLEventListener
 
 		town = new Town(gl, glu);
 		try {
-			player = new Player(glu, playerMotion);
+			player = new Player(gl, glu, playerMotion);
 			BatsEverywhere.getPlayers().put(player.getID(), player); 
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
