@@ -25,7 +25,7 @@ public class Jetpack implements Item {
 
 	public Jetpack(GL2 gl, GLU glu, float x, float y, float z, Bag bag,
 			PlayerAttributes p) {
-		textureItem = Building.setupTexture(gl, "jetpack.png");
+		textureItem = Building.setupTexture(gl, "textureItem.png");
 		this.itemX = x;
 		this.itemY = y;
 		this.itemZ = z;
