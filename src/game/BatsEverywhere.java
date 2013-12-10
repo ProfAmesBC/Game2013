@@ -373,13 +373,13 @@ public class BatsEverywhere implements GLEventListener
         
         gl.glDisable(GL2.GL_DEPTH_TEST);
         gl.glEnable(GL2.GL_POINT_SMOOTH);
-        gl.glColor3f(0.5f, 0.5f, 0.5f);
-        gl.glPointSize(10);
+        gl.glColor3f(1f, 1f, 1f);
+        gl.glPointSize(12);
         gl.glBegin(GL2.GL_POINTS);
         	gl.glVertex3f(playerMotion.getEyeX(), 100, playerMotion.getEyeZ());
         gl.glEnd();
-        gl.glColor3f(1f, 1f, 1f);
-        gl.glPointSize(5);
+        gl.glColor3f(1f, 0f, 0f);
+        gl.glPointSize(10);
         gl.glBegin(GL2.GL_POINTS);
         	gl.glVertex3f(playerMotion.getEyeX(), 100, playerMotion.getEyeZ());
         gl.glEnd();
