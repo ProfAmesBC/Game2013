@@ -23,6 +23,7 @@ public class PowerUpManager {
 	private List<Object> weaponsList;
 	private int initialSize;
 	private PlayerStats ps;
+	private static int DESIRED_SPAWNS = 10;
 	
 	AllSpawnLocations poss = new AllSpawnLocations();
 	//Should be able to listen
@@ -42,7 +43,7 @@ public class PowerUpManager {
 	
 	
 	private void populateSpawns() {
-		for (int x = 0; x < 10; x++) { //entering 10 spawns into the spawnList
+		for (int x = 0; x < DESIRED_SPAWNS; x++) { //entering 10 spawns into the spawnList
 			Point3f temp = new Point3f(0,0,0); //arbitrary point
 			boolean mark = false;
 			
