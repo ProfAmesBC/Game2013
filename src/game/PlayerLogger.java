@@ -17,8 +17,8 @@ public class PlayerLogger implements PlayerMotionWatcher {
 	    angle %= 360; // normalize to 0..359 degrees, for a human to read
 	    if (angle<0)
 	        angle += 360;
-	//	System.out.println("Player is now at location (" + formatter.format(x) + "," +
-	  //                     formatter.format(y) + "," + formatter.format(z) + "), angle is " +
-		//                   formatter.format(angle) + degreeSymbol);
+		System.out.println("Player is now at location (" + formatter.format(x) + "," +
+	                       formatter.format(y) + "," + formatter.format(z) + "), angle is " +
+		                   formatter.format(angle) + degreeSymbol);
 	}
 }

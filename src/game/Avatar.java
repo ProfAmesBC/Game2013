@@ -18,13 +18,13 @@ public class Avatar
 	//<<<<<<< HEAD
 	private int displayList = -1;
 	private Map<String, com.jogamp.opengl.util.texture.Texture> imageMap = new HashMap<String, com.jogamp.opengl.util.texture.Texture>(); // map of ID's to textures
-	public Avatar(GL2 gl, GLU glu,float x, float y, float z) {
-		generate(gl, glu,  x,  y,  z);
+	public Avatar(GL2 gl, GLU glu) {
+		generate(gl, glu);
 	}
 	public void draw(GL2 gl, GLU glu) {
 		gl.glCallList(displayList);
 	}
-	private void generate(GL2 gl, GLU glu, float x, float y, float z){
+	private void generate(GL2 gl, GLU glu){
 		/*=======
 private int displayList = -1;
 private Map<String, com.jogamp.opengl.util.texture.Texture> imageMap = new HashMap<String, com.jogamp.opengl.util.texture.Texture>(); // map of ID's to textures

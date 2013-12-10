@@ -80,7 +80,7 @@ public class BatsEverywhere implements GLEventListener
 		gl.glClearColor(.7f,.7f,1f,0f); // background
 		gl.glTexEnvf(GL2.GL_TEXTURE_ENV, GL2.GL_TEXTURE_ENV_MODE, GL2.GL_REPLACE); // or GL_MODULATE
 		gl.glHint(GL2.GL_PERSPECTIVE_CORRECTION_HINT, GL2.GL_NICEST); // or GL_FASTEST
-
+		//PlayerMotion.registerPlayerWatcher(logger);
 		gl.glEnable(GL2.GL_DEPTH_TEST);
 
 		town = new Town(gl, glu);

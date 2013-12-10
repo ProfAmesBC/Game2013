@@ -5,7 +5,7 @@ import javax.media.opengl.glu.GLU;
 import javax.media.opengl.glu.GLUquadric;
 
 public class Foreigner extends Player{
-	private float x=0, y=0, z=0, r,g,b,angle;
+	private float x=0, y=0, z=0, r,g,b,angle =0;
 	private GL2 gl;
 	private GLU glu;
 	private Avatar psy;
@@ -69,13 +69,13 @@ public class Foreigner extends Player{
 	} 
 	
 	public void playerBody(GL2 gl, GLU glu, GLUquadric quadric, float x, float y, float z, float theta, float r, float g, float b, double size){
-		psy = new Avatar(gl,glu,x,y,z);
+		psy = new Avatar(gl,glu);
 		gl.glPushMatrix();
 			gl.glTranslatef(x, 0, z); // start position 
-			gl.glRotatef(theta, 0,1,0);
+			gl.glRotatef(theta, 0, 1, 0);
 			gl.glColor3f(r, g, b); //color
 			psy.draw(gl, glu);
-			gl.glRotated(angle, 0, 1, 0);
+			
 		//	glu.gluSphere(quadric, size, 10, 10); //sphere for body 
 		gl.glPopMatrix();
 		
@@ -87,7 +87,7 @@ public class Foreigner extends Player{
 	}
 	
 	public void draw(GL2 gl, GLU glu) {
-		playerBody(gl, glu, quadric, x,y,z,r,g,b,10);
+		playerBody(gl, glu, quadric, x,y,z,r,angle,g,b,10);
 	//	a =  new Avatar(gl, glu,x,y,z);
 	//	a.draw(gl, glu);
 	}

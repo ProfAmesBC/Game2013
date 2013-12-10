@@ -28,10 +28,11 @@ public class ClientSendThread implements PlayerMotionWatcher{
 			InetAddress address = InetAddress.getByName(HOST); 
 			String outputLine = new String("");
 			outputLine +=  client.getID()+":";
-			outputLine += client.getX()+":";
-			outputLine += client.getY()+":";
-			outputLine += client.getZ()+":";
-			outputLine +=client.getAngle()+":";
+			outputLine += x+":";
+			outputLine += y+":";
+			outputLine += z+":";
+			System.out.println("angle " + angle);
+			outputLine += angle+":";
 
 			buf = outputLine.getBytes();
 			DatagramPacket outpacket = new DatagramPacket(buf, buf.length, address, PORT);

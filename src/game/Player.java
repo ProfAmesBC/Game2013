@@ -61,7 +61,7 @@ public class Player {
 		//size = (float)2.8;
 		eotteohke = true;
 
-		psy = new Avatar(gl,glu,0,0,0);
+		psy = new Avatar(gl,glu);
 
 
 	}
