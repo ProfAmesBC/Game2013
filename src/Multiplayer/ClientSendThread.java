@@ -23,7 +23,10 @@ public class ClientSendThread implements PlayerMotionWatcher{
 		socket = new DatagramSocket();
 		buf = new byte[256];
 	}
-	public void playerMoved(float x, float y, float z, float angle) {
+	
+	public void playerMoved(float x, float y, float z, float angle,
+			float y_angle, PlayerStats s) {	
+
 		try {
 			InetAddress address = InetAddress.getByName(HOST); 
 			String outputLine = new String("");
@@ -41,5 +44,12 @@ public class ClientSendThread implements PlayerMotionWatcher{
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
+	
+		//public void playerMoved(float x, float y, float z, float angle) {}
+		//@Override
+		// STUCK THE CODE OF OUR PLAYERMOVED INTO THE NEW BODY
+		
+		
+		
 	}
 }

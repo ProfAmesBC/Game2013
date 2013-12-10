@@ -9,6 +9,7 @@ import com.jogamp.opengl.util.texture.Texture;
 public class LiptonBuilding extends Building {
 	private Texture brickTexture, brick2Texture, wallTexture, floorTexture, grassTexture, doorTexture, waterTexture, bridgeTexture;
 	private GLUquadric quadric;  // to control properties of quadric-based objects here
+	private LiptonFurniture furniture;
 	
 	public LiptonBuilding(GL2 gl, GLU glu) {
 		wallTexture = setupTexture(gl, "LiptonWall.gif");
@@ -19,6 +20,8 @@ public class LiptonBuilding extends Building {
 		doorTexture = setupTexture(gl, "LiptonTable.gif"); 
 		waterTexture = setupTexture(gl, "LiptonWater.gif"); 
 		bridgeTexture = setupTexture(gl, "LiptonBridge.jpg"); 
+		
+		furniture = new LiptonFurniture(gl, glu);
         
 		quadric = glu.gluNewQuadric();
         glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
@@ -31,7 +34,7 @@ public class LiptonBuilding extends Building {
     
 	public void draw(GL2 gl, GLU glu) {
 		++frames;
-
+		furniture.draw(gl, glu);
 // _ _ _ _ _ _ _ _ _ _ _ _ _ _ GROUND _ _ _ _ _ _ _ _ _ _ _ _ _ _
     gl.glEnable(GL2.GL_TEXTURE_2D);
       grassTexture.bind(gl);
