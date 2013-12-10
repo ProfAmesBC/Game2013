@@ -266,13 +266,15 @@ public class BatsEverywhere implements GLEventListener
         for(CritterGroup critterGroup:critters)critterGroup.draw(gl, glu);
 
         setupViewport(drawable);
-
+// alternate splash screen do not turn on unless other splash screen does not work
+        /*
         if (framesDrawn<=300) {
         	setupSplashScreen(drawable);
         	//gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
         	System.out.println("went through splash screen!");
         	
         }
+        */
         
         // check for errors, at least once per frame
         int error = gl.glGetError();
@@ -389,10 +391,7 @@ public class BatsEverywhere implements GLEventListener
          //renderer.controlPanel.add(weaponPanel);
          
          //renderer.controls.append()
-         
-         
-        	
-         
+       
      
          
          
