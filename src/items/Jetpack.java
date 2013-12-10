@@ -105,7 +105,17 @@ public class Jetpack implements Item {
 
 	public void drawItem(GL2 gl, GLU glu) {
 
-		gl.glEnable(GL2.GL_CULL_FACE);
+	sketchupModels.JetpackDrawing jp = new sketchupModels.JetpackDrawing(gl, glu);
+	
+	gl.glPushMatrix();
+	gl.glTranslated(itemX, Math.sin(Math.toRadians(T * 360 + 180)),
+			itemZ);
+
+		jp.draw(gl, glu);
+	
+	gl.glPopMatrix();
+	}
+	/*	gl.glEnable(GL2.GL_CULL_FACE);
 		gl.glEnable(GL2.GL_TEXTURE_2D);
 		gl.glPushMatrix();
 		gl.glTranslated(itemX, Math.sin(Math.toRadians(T * 360 + 180)) + 2,
@@ -255,7 +265,7 @@ public class Jetpack implements Item {
 
 		gl.glDisable(GL2.GL_CULL_FACE);
 		gl.glDisable(GL2.GL_TEXTURE_2D);
-	}
+	}*/
 
 	@Override
 	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {		// GET CURRENT POSITION OF PLAYER
