@@ -380,6 +380,7 @@ public class BatsEverywhere implements GLEventListener
 
         minimaptexture.bind(gl);
  
+        //
         gl.glBegin(GL2.GL_QUADS);
         gl.glTexCoord2f(0f,0f);gl.glVertex2f(-1f, -1f);
         gl.glTexCoord2f(1f,0f);gl.glVertex2f(1f, -1f);
