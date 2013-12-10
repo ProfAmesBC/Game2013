@@ -24,7 +24,7 @@ public class PowerUpManager {
 	private int initialSize;
 	private PlayerStats ps;
 	private HPHeal hp;
-	private static int DESIRED_SPAWNS = 15;
+	private static int DESIRED_SPAWNS = 10;
 	
 	AllSpawnLocations poss = new AllSpawnLocations();
 	//Should be able to listen
@@ -72,7 +72,8 @@ public class PowerUpManager {
 			 */
 			
 			while (mark!=true) {	
-				temp = spawnSelectionList.get((int)(Math.random())*spawnSelectionList.size());
+				int tracking1 = (int)(((1000*Math.random())/1000)*spawnSelectionList.size());
+				temp = spawnSelectionList.get((int)(((1000*Math.random())/1000)*spawnSelectionList.size()));
 				if (spawns.contains(temp)) {
 					break;
 				
@@ -80,8 +81,9 @@ public class PowerUpManager {
 					mark = true;
 				}
 			}		
-			Spawn3f newSpawn = new Spawn3f(temp,randomPowerUp());
-			//newSpawn.getPowerUp().linkLocation(temp);
+			//Spawn3f newSpawn = new Spawn3f(temp,randomPowerUp());
+			AbstractPowerUp temp2 = randomPowerUp();
+			temp2.linkLocation(temp);
 			spawns.add(new Spawn3f(temp, randomPowerUp()));
 			
 		}
@@ -94,8 +96,7 @@ public class PowerUpManager {
 			System.out.println("11 type: " + powerUpList.get(x).getType());
 		}
 		*/
-		
-		int factor = (int) (Math.random() * (powerUpList.size()));
+		int factor = (int) (((1000*Math.random())/1000) * powerUpList.size());
 		//System.out.println("List size: " + powerUpList.size() + " " + "Factor: " + factor);
 		return powerUpList.get(factor);
 	}
