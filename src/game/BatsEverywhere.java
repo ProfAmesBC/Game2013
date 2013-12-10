@@ -88,7 +88,7 @@ public class BatsEverywhere implements GLEventListener
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
 
         playerMotion.update(gl, glu);//draw town looking in the direction we're moving in
-        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
+//        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
             
         playerMotion.setLookAt(gl, glu);//figure out if we can move and, if so, move    
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT); //clear that town  

@@ -8,7 +8,7 @@ public class Dragon {
 	private SketchupModelJAXB[] frames = new SketchupModelJAXB[10];
 	private int currentFrame = 0;
 	private int frameDirection = 1;
-	private double x = 400;
+	private double x = 200;
 	private double z = 0;
 	private double direction = 1;
 	private double angle = 0;
