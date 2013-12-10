@@ -75,6 +75,7 @@ public class Foreigner extends Player{
 			gl.glRotatef(theta, 0,1,0);
 			gl.glColor3f(r, g, b); //color
 			psy.draw(gl, glu);
+			gl.glRotated(angle, 0, 1, 0);
 		//	glu.gluSphere(quadric, size, 10, 10); //sphere for body 
 		gl.glPopMatrix();
 		
