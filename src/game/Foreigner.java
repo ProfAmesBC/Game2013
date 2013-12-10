@@ -87,7 +87,7 @@ public class Foreigner extends Player{
 	}
 	
 	public void draw(GL2 gl, GLU glu) {
-		playerBody(gl, glu, quadric, x,y,z,r,angle,g,b,10);
+		playerBody(gl, glu, quadric, x,y,z,angle,r,g,b,10);
 	//	a =  new Avatar(gl, glu,x,y,z);
 	//	a.draw(gl, glu);
 	}
