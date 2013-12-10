@@ -67,28 +67,29 @@ public abstract class AbstractPowerUp implements Item {
 	
 	public abstract void activate();
 		
-	public float getLocationX() {
+	private float getLocationX() {
 		return pX;
 	}
-	public float getLocationY() {
+	private float getLocationY() {
 		return pY;
 	}
-	public float getLocationZ() {
+	private float getLocationZ() {
 		return pZ;
 	}
-	public Point3f getLocation() {
+	private Point3f getLocation() {
 		return location;
 	}
-	public float getAngle() {
+	private float getAngle() {
 		return angle;
 	}
-	public void linkLocation(Point3f f) {
+	private void linkLocation(Point3f f) {
 		pX = f.getX();
 		pY = f.getY();
 		pZ = f.getZ();
+		location = f;
 	}
 	
-	public void bugtest() {
+	private void bugtest() {
 		System.out.println(type);
 	}
 	

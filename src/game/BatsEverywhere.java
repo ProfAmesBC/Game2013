@@ -110,7 +110,7 @@ public class BatsEverywhere implements GLEventListener
         bat = new Bat(gl, glu);
         moveSwarm = new MoveSwarm(gl, glu);
         
-        //powerUpManager = new PowerUpManager(gl, glu);
+        powerUpManager = new PowerUpManager(gl, glu);
     }
     
     
@@ -311,7 +311,7 @@ public class BatsEverywhere implements GLEventListener
 
         setupViewport(drawable);
 
-        //powerUpManager.draw(gl, glu);
+        powerUpManager.draw(gl, glu);
         
         // check for errors, at least once per frame
 

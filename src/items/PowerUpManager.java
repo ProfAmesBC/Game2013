@@ -23,13 +23,13 @@ public class PowerUpManager {
 	private List<Object> weaponsList;
 	private int initialSize;
 	private PlayerStats ps;
+	private HPHeal hp;
 	private static int DESIRED_SPAWNS = 15;
 	
 	AllSpawnLocations poss = new AllSpawnLocations();
 	//Should be able to listen
 	
 	public PowerUpManager(GL2 gl, GLU glu) {
-
 		//weaponsList = new ArrayList<Weapons>(); //weaponslist does not get refreshed
 		powerUpList = new ArrayList<AbstractPowerUp>();
 		spawnSelectionList = poss.getAllSpawnsPossible();
@@ -72,14 +72,16 @@ public class PowerUpManager {
 			 */
 			
 			while (mark!=true) {	
-				if (spawns.contains(temp)) { //if location already was selected
-					temp = spawnSelectionList.get((int)(Math.random())*spawnSelectionList.size());
+				temp = spawnSelectionList.get((int)(Math.random())*spawnSelectionList.size());
+				if (spawns.contains(temp)) {
+					break;
+				
 				} else {
 					mark = true;
 				}
 			}		
 			Spawn3f newSpawn = new Spawn3f(temp,randomPowerUp());
-			newSpawn.getPowerUp().linkLocation(temp);
+			//newSpawn.getPowerUp().linkLocation(temp);
 			spawns.add(new Spawn3f(temp, randomPowerUp()));
 			
 		}
