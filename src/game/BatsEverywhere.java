@@ -227,20 +227,25 @@ public class BatsEverywhere implements GLEventListener
         	
         }       
 
-        playerMotion.setLookAt(gl, glu);
+        //playerMotion.setLookAt(gl, glu);
         
 
         this.playerMotion.setScreenLocation(
         		this.canvas.getLocationOnScreen());
        
         // draw town
-        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
+        // town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
      	
         playerMotion.update(gl, glu);//draw town looking in the direction we're moving in
+        
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());  
-        playerMotion.setLookAt(gl, glu);//figure out if we can move and, if so, move    
+        
+        
+        playerMotion.setLookAt(gl, glu);//figure out if we can move and, if so, move  
+        
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT); //clear that town  
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
+        
         itemCreator.update();
         writer.draw(bag.toString(), 380, 470);
         writer.draw(stats.healthString(), 10, 45);
