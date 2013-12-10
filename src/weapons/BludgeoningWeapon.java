@@ -51,6 +51,13 @@ public class BludgeoningWeapon implements Weapon{
         glu.gluQuadricTexture  (quadric, false);
 	}
 	
+	public void drawStationary(GL2 gl, GLU glu){
+		gl.glPushMatrix();
+			gl.glTranslated(Math.random()*600, Math.random()*600, Math.random()*600);
+			p.draw(gl, glu);
+		gl.glPopMatrix();
+	}
+	
 	public void update(GL2 gl, GLU glu){
 		
 		if (hit){

@@ -85,4 +85,10 @@ public class ProjectileWeapons implements Weapon{
 		this.angle = angle;
 	}
 
+	@Override
+	public void drawStationary(GL2 gl, GLU glu) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

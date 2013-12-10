@@ -15,6 +15,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import weapons.BludgeoningWeapon;
+import weapons.PopulateWeapons;
 import weapons.ProjectileWeapons;
 
 import com.jogamp.opengl.util.FPSAnimator;
@@ -33,6 +34,7 @@ public class BatsEverywhere implements GLEventListener
     private PlayerMotion playerMotion = new PlayerMotion();
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
+    private PopulateWeapons pw = new PopulateWeapons();
 
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
@@ -48,7 +50,7 @@ public class BatsEverywhere implements GLEventListener
         
         town = new Town(gl, glu);
         bw = new BludgeoningWeapon();
-        bw.init(gl, glu);
+        bw.init(gl, glu);	pw.init(gl, glu);
         canvas.addKeyListener(bw);	// add key listener to bludgeoning weapons
 
         
@@ -86,6 +88,7 @@ public class BatsEverywhere implements GLEventListener
         
         projectileWeapons.update(gl, glu);
         bw.update(gl, glu);
+        pw.draw(gl, glu);
  
         // check for errors, at least once per frame
         int error = gl.glGetError();
