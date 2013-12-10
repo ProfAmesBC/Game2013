@@ -279,7 +279,7 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 	
 	public void draw(GL2 gl, GLU glu) {
 		
-		//move();
+		move();
 		
 		
 		gl.glTranslatef(locx, (float) (locy + 0.1*Math.sin(Math.toRadians((T/60)*360))), locz);
