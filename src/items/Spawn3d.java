@@ -1,10 +1,13 @@
-package powerups;
+package items;
+
+import items.Point3d;
+import items.AbstractPowerUp;
 
 public class Spawn3d {
 	Point3d spawnLocation;
-	PowerUp power;
+	AbstractPowerUp power;
 	
-	public Spawn3d(Point3d l, PowerUp p) {
+	public Spawn3d(Point3d l, AbstractPowerUp p) {
 		spawnLocation = l;
 		
 	}
@@ -22,7 +25,7 @@ public class Spawn3d {
 		return spawnLocation;
 	}
 	
-	public PowerUp getPowerUp() {
+	public AbstractPowerUp getPowerUp() {
 		return power;
 	}
 }

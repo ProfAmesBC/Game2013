@@ -1,8 +1,10 @@
 package items;
 
 import com.jogamp.opengl.util.texture.Texture;
+
 import game.Building;
 import game.PlayerMotion;
+import game.PlayerStats;
 import inventory.Bag;
 import inventory.Item;
 import inventory.PlayerAttributes;
@@ -255,12 +257,11 @@ public class SpeedBox implements Item {
 	}
 
 	@Override
-	public void playerMoved(float x, float y, float z, float angle, float y_angle) {
+	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {
 		// GET CURRENT POSITION OF PLAYER
 		this.playerX = x;
 		this.playerY = y;
 		this.playerZ = z;
 		this.angle = angle;
 	}
-
 }

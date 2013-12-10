@@ -7,16 +7,12 @@ import catsrabbits.RabbitGroup;
 
 import com.jogamp.opengl.util.FPSAnimator;
 
-
-
-
-
 import inventory.Bag;
 import inventory.ItemFactory;
 import inventory.PlayerActions;
 import inventory.PlayerAttributes;
 import weapons.ProjectileWeapons;
-import Enemies.Bat;
+import Enemies.*;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -43,14 +39,11 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 
-
-
 import creatures.Robot;
 import sketchupModels.Avatar;
 import weapons.Projectile;
 import weapons.ProjectileWeapons;
 import weapons.RainbowBall;
-import catsrabbits.*;
 
 import com.jogamp.opengl.util.FPSAnimator;
 import com.jogamp.opengl.util.GLReadBufferUtil;
@@ -66,9 +59,10 @@ public class BatsEverywhere implements GLEventListener
     private GLU glu = new GLU();
     private Town town;
     private int height, width;
-    private ProjectileWeapons projectileWeapons = new ProjectileWeapons();
-    private long runtime = 0;
     private PlayerMotion playerMotion = new PlayerMotion();
+    private PlayerStats stats=new PlayerStats(playerMotion);
+    private ProjectileWeapons projectileWeapons = new ProjectileWeapons(stats);
+    private long runtime = 0;
     private Bag bag  = new Bag();
     private PlayerAttributes playerAttributes = new PlayerAttributes(playerMotion, bag);
     private PlayerActions playerActions = new PlayerActions(playerAttributes);
@@ -79,6 +73,7 @@ public class BatsEverywhere implements GLEventListener
     private CritterGroup catGroup,rabbitGroup;
     private Bat bat;
     private Texture minimaptexture;
+    private MoveSwarm moveSwarm;
     //private TextRenderer renderer;
     
 
@@ -114,7 +109,9 @@ public class BatsEverywhere implements GLEventListener
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
         bat = new Bat(gl, glu);
+        moveSwarm = new MoveSwarm(gl, glu);
     }
+    
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
     	this.width = width;
@@ -246,6 +243,8 @@ public class BatsEverywhere implements GLEventListener
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
         itemCreator.update();
         writer.draw(bag.toString(), 380, 470);
+        writer.draw(stats.healthString(), 10, 45);
+        writer.draw(stats.honorString(), 10, 10);
 
         projectileWeapons.update(gl, glu);
 
@@ -253,7 +252,8 @@ public class BatsEverywhere implements GLEventListener
         catGroup.draw(gl, glu);
         rabbitGroup.draw(gl, glu);
         bat.draw(gl, glu);
-         // check for errors, at least once per frame
+        moveSwarm.draw(gl, glu);
+        // check for errors, at least once per frame
 
         
      	
@@ -328,7 +328,7 @@ public class BatsEverywhere implements GLEventListener
         
         gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glLoadIdentity();
-        gl.glOrtho(0,1,0,1,-1,1);
+        gl.glOrtho(-1,1,-1,1,-1,1);
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();       
       
@@ -337,19 +337,19 @@ public class BatsEverywhere implements GLEventListener
 
         minimaptexture.bind(gl);
        //}
-    	gl.glEnable(GL2.GL_TEXTURE_GEN_S);
-        gl.glEnable(GL2.GL_TEXTURE_GEN_T);
+    	//gl.glEnable(GL2.GL_TEXTURE_GEN_S);
+        //gl.glEnable(GL2.GL_TEXTURE_GEN_T);
         
         gl.glBegin(GL2.GL_QUADS);
-        gl.glTexCoord2f(0f,0f);gl.glVertex2f(0f, 0f);
-        gl.glTexCoord2f(1f,0f);gl.glVertex2f(1f, 0f);
+        gl.glTexCoord2f(0f,0f);gl.glVertex2f(-1f, -1f);
+        gl.glTexCoord2f(1f,0f);gl.glVertex2f(1f, -1f);
         gl.glTexCoord2f(1f,1f);gl.glVertex2f(1f, 1f);
-        gl.glTexCoord2f(0f,1f);gl.glVertex2f(0f, 1f);
+        gl.glTexCoord2f(0f,1f);gl.glVertex2f(-1f, 1f);
         gl.glEnd();
         
         gl.glDisable(GL2.GL_TEXTURE_2D);
-    	gl.glDisable(GL2.GL_TEXTURE_GEN_S);
-        gl.glDisable(GL2.GL_TEXTURE_GEN_T);
+    	//gl.glDisable(GL2.GL_TEXTURE_GEN_S);
+        //gl.glDisable(GL2.GL_TEXTURE_GEN_T);
         
         gl.glViewport(0, 0, windowWidth, windowHeight);
         reshape( drawable, 0, 0, windowWidth, windowHeight);
