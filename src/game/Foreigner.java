@@ -87,6 +87,7 @@ public class Foreigner extends Player{
 		}
 		
 		gl.glColor3f(r, g, b); //color
+		gl.glDisable(GL2.GL_CULL_FACE);
 		psy.draw(gl, glu);
 
 		//	glu.gluSphere(quadric, size, 10, 10); //sphere for body 
