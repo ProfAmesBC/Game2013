@@ -241,27 +241,22 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 
 	public void move(){
 		float speed;
-		if (!agro) {speed = moveSpeed;
-		
-		
-		if (eyeAngle == 360) eyeAngle = 0;
-		
-	    if (locz < -10 ) {
-	    	if (!facingFront)eyeAngle-=rotateSpeed;
-	    	if (eyeAngle == 0) {facingFront = true;
-	    	 locz +=speed*Math.cos(Math.toRadians(eyeAngle));
-	    	locx -=speed*Math.sin(Math.toRadians(eyeAngle));
-	    	}
-	    }
-	    	
-	    else if (locz > 10){
-	    	if (facingFront) eyeAngle+=rotateSpeed;
-	    	if (eyeAngle == 180) {facingFront = false;
-	    	
+		if (!agro) {
+			speed = moveSpeed;
+			if (eyeAngle == 360) eyeAngle = 0;
+			if (locz < -20 ) {
+				if (!facingFront)eyeAngle-=rotateSpeed;
+					if (eyeAngle == 0) {facingFront = true;
+					locz +=speed*Math.cos(Math.toRadians(eyeAngle));
+					locx -=speed*Math.sin(Math.toRadians(eyeAngle));
+					}
+				}		
+			else if (locz > 20){
+				if (facingFront) eyeAngle+=rotateSpeed;
+				if (eyeAngle == 180) {facingFront = false;
 	    			locz +=speed*Math.cos(Math.toRadians(eyeAngle));
 	    			locx -=speed*Math.sin(Math.toRadians(eyeAngle));
-	    	
-	    	}
+			}
 	    }
 	    else {
 	    	locz +=speed*Math.cos(Math.toRadians(eyeAngle));
@@ -293,7 +288,7 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 		
 		System.out.println("Position: " + locx + " " + locz);
 		
-		 T+=0.5f;
+		 T+=1f;
 		 if (T > 60) T = 0;
 		
 		
