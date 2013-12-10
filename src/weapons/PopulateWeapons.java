@@ -14,13 +14,18 @@ public class PopulateWeapons {
 	}
 	
 	public void init(GL2 gl, GLU glu){
-		Weapon w = new PipeWeapon();
-		w.init(gl, glu);
+		Weapon pw = new PipeWeapon();
+		Weapon ow = new OarWeapon();
+		
+		pw.init(gl, glu);
+		ow.init(gl, glu);
 
 //		DisplayedWeapon dw = new DisplayedWeapon(w, Math.random()*600, Math.random()*600);
 //		w.init(gl, glu);
-		for (int i=0; i<100; i++)
-			weapons.add(new DisplayedWeapon(w, (float) Math.random()*600, (float) Math.random()*600));
+		for (int i=0; i<20; i++){
+			weapons.add(new DisplayedWeapon(pw, (float) Math.random()*600, (float) Math.random()*600));
+			weapons.add(new DisplayedWeapon(ow, (float) Math.random()*600, (float) Math.random()*600));
+		}
 //		System.out.println(weapons.size());
 	}
 	

@@ -10,13 +10,19 @@ import java.nio.IntBuffer;
 import com.jogamp.opengl.util.GLBuffers;
 import java.util.HashMap;
 import java.util.Map;
-public class OarWeapon
-{
+public class OarWeapon extends BludgeoningWeapon{
 private int displayList = -1;
 private Map<String, com.jogamp.opengl.util.texture.Texture> imageMap = new HashMap<String, com.jogamp.opengl.util.texture.Texture>(); // map of ID's to textures
-public OarWeapon(GL2 gl, GLU glu) {
-    generate(gl, glu);
+
+public OarWeapon() {
+	super();
 }
+
+public void init(GL2 gl, GLU glu){
+	initialize(gl, glu);
+	generate(gl, glu);
+}
+
 public void draw(GL2 gl, GLU glu) {
   gl.glCallList(displayList);
 }
