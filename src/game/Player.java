@@ -23,6 +23,7 @@ public class Player {
 	private PlayerMotion playerMotion; 
 	private int waeyo = 0;
 	private boolean eotteohke;
+	private Avatar psy;
 
 	/*****************************
 	 * 
@@ -32,7 +33,7 @@ public class Player {
 	 * 
 	 *****************************/
 	public Player() {};
-	public Player(GLU glu, PlayerMotion playerMotion) throws SocketException {
+	public Player(GL2 gl, GLU glu, PlayerMotion playerMotion) throws SocketException {
 		id = (int)(Math.random()*100); 
 
 		if(quadric == null){
@@ -43,7 +44,7 @@ public class Player {
 		}
 		this.playerMotion = playerMotion; 
 		ClientSendThread cst = new ClientSendThread(this);
-		Thread t = new Thread(new ReceiverClient(this, glu)); 
+		Thread t = new Thread(new ReceiverClient(this, gl, glu)); 
 		t.start(); 
 
 		this.eyeX = 0;
@@ -59,6 +60,9 @@ public class Player {
 		//radius of the sphere 
 		//size = (float)2.8;
 		eotteohke = true;
+
+		psy = new Avatar(gl,glu,0,0,0);
+
 
 	}
 
@@ -100,47 +104,44 @@ public class Player {
 	public void setAngle(float newTheta) {
 		theta = newTheta; 
 	}
-	
+
 	public String getName() {
 		if(name != null){
 			return name;
 		}
 		else return "Anon"; 
 	}
-	
+
 	public void setName(String name){
 		this.name = name; 
 	}
-	
+
 	public void playerBody(GL2 gl, GLU glu, GLUquadric quadric, float x, float y, float z, float r, float g, float b, double size){
-		gl.glPushMatrix();
-		gl.glTranslatef(x, y, z); // start position 
-		gl.glColor3f(r, g, b); //color
-
 		{
-			gl.glPushMatrix();
-			Avatar psy = new Avatar(gl,glu,x,y,z);
+			{
+				gl.glPushMatrix();
+				gl.glTranslatef(x, y, z); // start position 
+				gl.glColor3f(r, g, b); //color
 
-			if (eotteohke) {gl.glScaled(1,1,-1);}
-			
-			gl.glTranslated(-10,0,0);
-			psy.draw(gl, glu);
-			gl.glPopMatrix();
-			waeyo++;
-			
-			if (waeyo > 10) {
-				waeyo = 0;
-				eotteohke = !eotteohke;
+				{
+					gl.glPushMatrix();
+
+					if (eotteohke) {gl.glScaled(1,1,-1);}
+
+					gl.glTranslated(-10,0,0);
+					psy.draw(gl, glu);
+					gl.glPopMatrix();
+				}
+				waeyo++;
+
+				if (waeyo > 10) {
+					waeyo = 0;
+					eotteohke = !eotteohke;
+				}
+				gl.glPopMatrix();
 			}
+			//glu.gluSphere(quadric, size, 10, 10); //sphere for body 
 		}
-
-
-		//glu.gluSphere(quadric, size, 10, 10); //sphere for body 
-		gl.glPopMatrix();
-
-
-
-
 		//		gl.glPushMatrix();
 		//			gl.glTranslatef(0, 0, 10);
 		//			gl.glRotatef((float)theta, 0, 1, 0); //angle manipulation
@@ -154,7 +155,7 @@ public class Player {
 		eyeY = getY(); 
 		eyeZ = getZ();
 		theta = getTheta(); //get new Theta
-		
+
 		float sX = eyeX - (float)Math.cos(Math.toRadians(theta));
 		float floatY = eyeY;
 		float sY = (float)(floatY-2.5);
