@@ -8,12 +8,18 @@ import com.jogamp.opengl.util.texture.Texture;
 
 public class LinnehanBuilding extends Building{
     private Texture exteriorTexture, interiorTexture, floorTexture, grassTexture;
+    private LinnehanTable table;
+    private LinnehanBall flag;
+    private LinnehanCouch couch;
 
     public LinnehanBuilding(GL2 gl, GLU glu) {
         interiorTexture = setupTexture(gl, "LinnehanRed024.jpg");
         exteriorTexture     = setupTexture(gl, "LinnehanBlue056.gif");
         floorTexture     = setupTexture(gl, "LinnehanWood058.jpg");
         grassTexture    = setupTexture(gl, "LinnehanGreen019.jpg");
+        table=new LinnehanTable(gl, glu);
+        flag=new LinnehanBall(gl, glu);
+        couch=new LinnehanCouch(gl,glu);
     }
 
     public void draw(GL2 gl, GLU glu) {
@@ -210,6 +216,10 @@ public class LinnehanBuilding extends Building{
         gl.glTexCoord2f(9f,0f); gl.glVertex3f(90, 0, 10);
     gl.glEnd();
     gl.glDisable(GL2.GL_TEXTURE_2D);
+    
+    flag.draw(gl,glu);
+    couch.draw(gl,glu);
+    table.draw(gl,glu);
     
     }
 }
