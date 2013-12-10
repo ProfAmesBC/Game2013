@@ -44,7 +44,7 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher, Mous
 
 		if(stats.noHonor())return;
 		RainbowBall bullet = new RainbowBall(x, y, z, angle, y_angle,stats); //CREATE NEW BULLET AT CURRENT PLAYER POSITION
-		SphereBullet ball = new SphereBullet(x, y, z, angle, 2, 3, 4, 2);
+		SphereBullet ball = new SphereBullet(x, y, z, angle, 2, 3, 4, 2, y_angle,stats);
 
 		bulletsList.add(bullet); //ADD BULLET TO LIST OF BULLETS
 	}
