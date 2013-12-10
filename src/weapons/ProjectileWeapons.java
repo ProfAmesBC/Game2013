@@ -25,6 +25,11 @@ public class ProjectileWeapons implements MouseListener, Weapon{
 		stats=s;
 	}
 	
+	public ProjectileWeapons() {
+		PlayerMotion.registerPlayerWatcher(this);
+		stats = null; // This needs to be fixed some day TODO
+	}
+	
 	public void update(GL2 gl, GLU glu){
 		
         //GO THROUGH BULLETS LIST
