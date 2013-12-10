@@ -108,5 +108,5 @@ public class Rabbit extends Critter{
 		super.move();
 		y+=.07*(float)Math.cos(Math.toRadians(t*360));
 	}
-	public float size(){return 2*BODY_HEIGHT_WIDTH_RATIO;}
+	public float size(){return 3*BODY_HEIGHT_WIDTH_RATIO;}
 }

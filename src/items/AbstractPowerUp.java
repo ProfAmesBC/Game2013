@@ -1,5 +1,6 @@
 package items;
 
+import game.PlayerStats;
 import inventory.Item;
 
 import javax.media.opengl.GL2;
@@ -8,7 +9,7 @@ import javax.media.opengl.glu.GLU;
 public abstract class AbstractPowerUp implements Item {
 
 	@Override
-	public abstract void playerMoved(float x, float y, float z, float angle, float y_angle);
+	public abstract void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s);
 	
 
 	@Override
