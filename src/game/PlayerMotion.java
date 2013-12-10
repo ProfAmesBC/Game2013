@@ -154,7 +154,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     public void keyTyped(KeyEvent e) {
     }
 
-    public void setLookAt(GL2 gl, GLU glu) {
+    public void setLookAt(GL2 gl, GLU glu){
         double moved = 0;
         double location[] = ReadZBuffer.getOGLPos(gl, glu, width / 2, height / 2); //what you're moving towards
         if (alive&&eyeX + dx > 0 && eyeZ + dz > 0 && eyeX + dx < 600 && eyeZ + dz < 600 && (eyeX + dx < 300 || eyeZ + dz < 500)) {
