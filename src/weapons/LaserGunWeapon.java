@@ -1,42 +1,20 @@
 package weapons;
 
-import game.PlayerMotion;
-import game.PlayerMotionWatcher;
-import game.PlayerStats;
-import game.Building;
-
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
-import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
 import com.jogamp.opengl.util.GLBuffers;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ArrayList;
-import java.util.Iterator;
-
-public class LaserGunWeapon extends ProjectileWeapons {
-	private boolean present=false;
+public class LaserGunWeapon {
 	private int displayList = -1;
-	private Map<String, com.jogamp.opengl.util.texture.Texture> imageMap = new HashMap<String, com.jogamp.opengl.util.texture.Texture>(); // map of ID's to textures
 	
 		//Compiled from LazerGun by SketchupModelJAXB
-	public LaserGunWeapon() {
-		super();
-	}
-		
+	
 		public LaserGunWeapon(GL2 gl, GLU glu) {
 			generate(gl, glu);
-			draw(gl,glu);
 		}
 		public void draw(GL2 gl, GLU glu) {
 		  gl.glCallList(displayList);
@@ -400,10 +378,6 @@ public class LaserGunWeapon extends ProjectileWeapons {
 		gl.glDisableClientState(GL2.GL_VERTEX_ARRAY);
 		gl.glDisableClientState(GL2.GL_NORMAL_ARRAY);
 		gl.glDisableClientState(GL2.GL_TEXTURE_COORD_ARRAY);
-		}
-		
-		public void setPresent(boolean present){
-			this.present=present;
 		}
 	
 }
