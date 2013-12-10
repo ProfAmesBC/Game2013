@@ -1,8 +1,27 @@
 package game;
 
 
+import catsrabbits.CatGroup;
+import catsrabbits.CritterGroup;
+import catsrabbits.RabbitGroup;
+
+import com.jogamp.opengl.util.FPSAnimator;
+
+import inventory.Bag;
+import inventory.ItemFactory;
+import inventory.PlayerActions;
+import inventory.PlayerAttributes;
+import weapons.ProjectileWeapons;
+import Enemies.*;
+
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.io.File; //For capturing screen shot
+import java.io.IOException;
+import java.util.*;
+import java.util.List;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
@@ -10,36 +29,75 @@ import javax.media.opengl.GLEventListener;
 import javax.media.opengl.GLProfile;
 import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
+import javax.swing.*;
+
+import java.awt.*;
+
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+
 import weapons.BludgeoningWeapon;
 import weapons.PopulateWeapons;
+
+
+import creatures.Robot;
+import sketchupModels.Avatar;
+import weapons.Projectile;
+
 import weapons.ProjectileWeapons;
+import weapons.RainbowBall;
 
 import com.jogamp.opengl.util.FPSAnimator;
+import com.jogamp.opengl.util.GLReadBufferUtil;
+import com.jogamp.opengl.util.texture.Texture;
+import com.jogamp.opengl.util.texture.TextureIO;
+
 
 public class BatsEverywhere implements GLEventListener
 {
     private JTextField statusLine = new JTextField(10); // for misc messages at bottom of window
-    private JTextArea controls = new JTextArea("Controls: \n\n", 20, 15);
+    private JTextArea controls = new JTextArea("Controls:\n\n", 20, 15);
     private int framesDrawn=0;
     private GLU glu = new GLU();
     private Town town;
     private int height, width;
-    private ProjectileWeapons projectileWeapons = new ProjectileWeapons();
     private BludgeoningWeapon bw = null;
-    private long runtime = 0;
     private PlayerMotion playerMotion = new PlayerMotion();
+    private PlayerStats stats=new PlayerStats(playerMotion);
+    private ProjectileWeapons projectileWeapons = new ProjectileWeapons(stats);
+    private long runtime = 0;
+    private Bag bag  = new Bag();
+    private PlayerAttributes playerAttributes = new PlayerAttributes(playerMotion, bag);
+    private PlayerActions playerActions = new PlayerActions(playerAttributes);
+	private ItemFactory itemCreator;
+	private StatusText writer;
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
     private PopulateWeapons pw = new PopulateWeapons();
+    private CritterGroup catGroup,rabbitGroup;
+    private Bat bat;
+    private Texture minimaptexture;
+    private MoveSwarm moveSwarm;
+    //private TextRenderer renderer;
+    
 
+    private int windowWidth, windowHeight;
+    private GLReadBufferUtil bufferUtil = new GLReadBufferUtil(false, true); //For capturing screen shots
+    
+    //renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, 48));
+
+    private List<CritterGroup>critters=new ArrayList<CritterGroup>();
+    
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
       //drawable.setGL(new TraceGL2(drawable.getGL().getGL2(), System.out)); // to trace every call.  Less useful.
         GL2 gl = drawable.getGL().getGL2();
+        controls.setForeground(Color.DARK_GRAY);
+        controls.setBackground(Color.LIGHT_GRAY);
+        controls.setFont(new Font("Serif", Font.ITALIC, 13));
         statusLine.setEditable(false);
         gl.setSwapInterval(1); // for animation synchronized to refresh rate
         gl.glClearColor(.7f,.7f,1f,0f); // background
@@ -48,49 +106,216 @@ public class BatsEverywhere implements GLEventListener
         
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
+        itemCreator = new ItemFactory(gl, glu, playerAttributes);
+        itemCreator.testCreate();
+        writer = new StatusText(drawable);
         town = new Town(gl, glu);
         bw = new BludgeoningWeapon();
         bw.init(gl, glu);	pw.init(gl, glu);
         canvas.addKeyListener(bw);	// add key listener to bludgeoning weapons
 
-        
+        Robot.addZombie(new Robot(60,60,glu));
+        Robot.addZombie(new Robot(100,100,glu));
+        catGroup=new CatGroup(gl,glu);
+        rabbitGroup=new RabbitGroup(gl,glu);
+        bat = new Bat(gl, glu);
+        moveSwarm = new MoveSwarm(gl, glu);
     }
+    
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
     	this.width = width;
     	this.height = height;
     	playerMotion.setDim(width, height);
-        System.out.println("reshaping to " + width + "x" + height);
+        //System.out.println("reshaping to " + width + "x" + height);
 
         GL2 gl = drawable.getGL().getGL2();
         gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glLoadIdentity();
-        glu.gluPerspective(50, 1, .5, 1000);
+        glu.gluPerspective(50, 1, .5, 1500);
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();
+        windowWidth  = width;
+        windowHeight = height;
         
+    }
+    
+    public static Texture setupTexture(GL2 gl, String filename) {
+        Texture texture=null;
+        try {
+            texture = TextureIO.newTexture(new File(filename), false);
+        } catch (IOException e) {
+            System.out.println("Unable to read texture file: " + e);
+            e.printStackTrace();
+            System.exit(1);
+        }
+        // consider using ImageUtil.flipImageVertically(BufferedImage image)
+        boolean flip = texture.getMustFlipVertically();
+//      if (flip)
+//          ImageUtil.flipImageVertically(texture);
+        texture.setTexParameteri(gl, GL2.GL_TEXTURE_MAG_FILTER,GL2.GL_LINEAR); // or GL_NEAREST
+        texture.setTexParameteri(gl, GL2.GL_TEXTURE_MIN_FILTER,GL2.GL_LINEAR); // or GL_NEAREST
+        texture.setTexParameteri(gl, GL2.GL_TEXTURE_WRAP_S,GL2.GL_REPEAT); // or GL_CLAMP
+        texture.setTexParameteri(gl, GL2.GL_TEXTURE_WRAP_T,GL2.GL_REPEAT); // or GL_CLAMP
+
+            System.out.println(filename + " texture loaded, size is "
+                               + texture.getImageWidth() + "," + texture.getImageHeight());
+        return texture;
+    }
+    public void screenshot(GLAutoDrawable drawable){
+    	//System.out.println("EYEX: " + playerMotion.getEyeX() + " EYEY: " + playerMotion.getEyeY() + " EYEZ: " + playerMotion.getEyeZ());
+    	
+    	System.out.println("In screenshot method");
+
+    	GL2 gl = drawable.getGL().getGL2(); System.out.println("Frames drawn = 1");
+        
+        gl.glFlush(); // ensure all drawing has finished
+        //gl.glReadBuffer(GL2.GL_BACK);
+        
+        //playerMotion.setEyeX(-700);
+        //playerMotion.setEyeY(300);
+        //playerMotion.setEyeZ(300);           
+
+        boolean success = bufferUtil.readPixels(gl, false);
+        
+
+        minimaptexture=bufferUtil.getTexture();
+        
+        //for debugging
+        if (success) {
+           // bufferUtil.write(new File("minimap.png"));
+            System.out.println("Made Screenshot");
+           // minimaptexture = setupTexture(gl, "minimap.png");
+        } else
+            System.out.println("Unable to grab screen shot");
+
+        if (minimaptexture == null){
+        	System.out.println("minimap is null");
+        }
+        if(minimaptexture != null){
+        	System.out.println("minimap is not null");
+        }
+    }
+    
+    public void minimap(GLAutoDrawable drawable){
+    	float originaleyex=playerMotion.getEyeX();
+    	float originaleyey=playerMotion.getEyeY();
+    	float originaleyez=playerMotion.getEyeZ();
+    	
+        GL2 gl = drawable.getGL().getGL2();       
+
+        System.out.println("Frames drawn = 1");
+
+        
+        glu.gluLookAt(300, 800, 300,   // eye location
+                300,0,300,   // point to look at (near middle of pyramid)
+                 0, 0,  -1);
+        
+        //gl.glRotatef((float)90, 0f, 0f, 1f);
+
+
+       town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
+       //Set the eye back to its original coordinates
+       screenshot(drawable);
+       playerMotion.setEyeX(originaleyex);
+   	  playerMotion.setEyeY(originaleyey);
+   	playerMotion.setEyeZ(originaleyez);
+
+       
     }
 
     public void display(GLAutoDrawable drawable) {
         long startTime = System.currentTimeMillis();
         GL2 gl  = drawable.getGL().getGL2();
+   
+
+        gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+//minimap must be done first
+        if (++framesDrawn == 1) {
+        	minimap(drawable);
+        	gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+        	
+        }       
+
+        playerMotion.setLookAt(gl, glu);
+        
+
         this.playerMotion.setScreenLocation(
         		this.canvas.getLocationOnScreen());
-   
-        gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
-
+       
+        // draw town
+        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
+     	
         playerMotion.update(gl, glu);//draw town looking in the direction we're moving in
-        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ()); 
-            
+        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());  
         playerMotion.setLookAt(gl, glu);//figure out if we can move and, if so, move    
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT); //clear that town  
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
-        
+        itemCreator.update();
+        writer.draw(bag.toString(), 380, 470);
+        writer.draw(stats.healthString(), 10, 45);
+        writer.draw(stats.honorString(), 10, 10);
+
         projectileWeapons.update(gl, glu);
         bw.update(gl, glu);
         pw.draw(gl, glu);
  
+        Robot.drawZombies(gl, glu);
+        catGroup.draw(gl, glu);
+        rabbitGroup.draw(gl, glu);
+        bat.draw(gl, glu);
+        moveSwarm.draw(gl, glu);
         // check for errors, at least once per frame
+
+        
+     	
+        
+        // Draw sphere at the point you're looking at
+        //gl.glLineWidth(1);
+        //double[] location = ReadZBuffer.getOGLPos(gl, glu, 250, 250);
+        
+        //GL VIEWPORT FOR THE WEAPONS
+        // glViewport wants x,y of lower left corner, then width and height (all in pixels)
+        //gl.glViewport(0,0, windowWidth/2, windowHeight/2);
+        //trying to figure out how to put weapon in and show lifespan
+       /* 
+       RainbowBall.draw(gl,glu);
+       renderer.beginRendering(drawable.getWidth(), drawable.getHeight());
+       // optionally set the text color
+       renderer.setColor(0.2f, 0.2f, 1f, 0.2f); // Note use of alpha
+       renderer.draw("LifeSpan"+Projectile.getLifeSpan();, 25, 250);  // pixels, from lower left
+       renderer.endRendering();
+       */ 
+        // to make textfields for Weapons and player score
+        /*
+        renderer.beginRendering(drawable.getWidth(), drawable.getHeight());
+        // optionally set the text color
+        renderer.setColor(0.2f, 0.2f, 1f, 0.2f); // Note use of alpha
+        renderer.draw("Transparent Text", 25, 250);  // pixels, from lower left
+        renderer.endRendering();
+        
+        // check for errors
+        int error1 = gl.glGetError();
+        if (error1 != GL2.GL_NO_ERROR)
+        	System.out.println("OpenGL Error: " + glu.gluErrorString(error1));
+         */
+
+        
+        //Set the eye back to its original coordinates
+        //playerMotion.setEyeX(-5);
+    	//playerMotion.setEyeY(5);
+    	//playerMotion.setEyeZ(50);
+
+        for(CritterGroup critterGroup:critters)critterGroup.draw(gl, glu);
+ 
+        /// NEED TO FINISH VIEWPORT
+        //this must be drawn last
+
+        setupViewport(drawable);
+
+        
+        // check for errors, at least once per frame
+
         int error = gl.glGetError();
         if (error != GL2.GL_NO_ERROR) {
             System.out.println("OpenGL Error: " + glu.gluErrorString(error));
@@ -106,6 +331,43 @@ public class BatsEverywhere implements GLEventListener
             runtime = 0;
         }
     }
+    
+    public void setupViewport(GLAutoDrawable drawable)
+    {
+        GL2 gl = drawable.getGL().getGL2();
+        gl.glViewport(0, windowHeight*2/3, windowWidth/3, windowHeight/3);
+        gl.glClear(GL2.GL_DEPTH_BUFFER_BIT);
+        
+        gl.glMatrixMode(GL2.GL_PROJECTION);
+        gl.glLoadIdentity();
+        gl.glOrtho(-1,1,-1,1,-1,1);
+        gl.glMatrixMode(GL2.GL_MODELVIEW);
+        gl.glLoadIdentity();       
+      
+        gl.glEnable(GL2.GL_TEXTURE_2D);
+       //if (minimaptexture != null){
+
+        minimaptexture.bind(gl);
+       //}
+    	//gl.glEnable(GL2.GL_TEXTURE_GEN_S);
+        //gl.glEnable(GL2.GL_TEXTURE_GEN_T);
+        
+        gl.glBegin(GL2.GL_QUADS);
+        gl.glTexCoord2f(0f,0f);gl.glVertex2f(-1f, -1f);
+        gl.glTexCoord2f(1f,0f);gl.glVertex2f(1f, -1f);
+        gl.glTexCoord2f(1f,1f);gl.glVertex2f(1f, 1f);
+        gl.glTexCoord2f(0f,1f);gl.glVertex2f(-1f, 1f);
+        gl.glEnd();
+        
+        gl.glDisable(GL2.GL_TEXTURE_2D);
+    	//gl.glDisable(GL2.GL_TEXTURE_GEN_S);
+        //gl.glDisable(GL2.GL_TEXTURE_GEN_T);
+        
+        gl.glViewport(0, 0, windowWidth, windowHeight);
+        reshape( drawable, 0, 0, windowWidth, windowHeight);
+    }
+    
+
 
     public void dispose(GLAutoDrawable drawable) { /* not needed */ }
 
@@ -118,31 +380,45 @@ public class BatsEverywhere implements GLEventListener
 
          BatsEverywhere renderer = new BatsEverywhere();
          renderer.canvas.addGLEventListener(renderer);
-         renderer.canvas.setPreferredSize(new Dimension(500,500));
+         renderer.canvas.setPreferredSize(new Dimension(512,512));
 
-         renderer.controls.append("W: move forward \n");
-         renderer.controls.append("A: move left \n");
-         renderer.controls.append("S: move right \n");
-         renderer.controls.append("D: move backward \n");
-         renderer.controls.append("Q: turn left \n");
-         renderer.controls.append("E: turn right \n");
-         renderer.controls.append("Shift: sprint \n");
+         renderer.controls.append("W: move forward\n");
+         renderer.controls.append("A: move left\n");
+         renderer.controls.append("D: move right\n");
+         renderer.controls.append("S: move backward\n");
+         renderer.controls.append("Q: turn left\n");
+         renderer.controls.append("E: turn right\n");
+        renderer.controls.append("I: look up\n");
+        renderer.controls.append("K: look down\n");
+        renderer.controls.append("J: jump\n");
+                 renderer.controls.append("Shift: sprint\n");
          renderer.controls.append("\n");
-         renderer.controls.append("Space: fireball \n");
+         renderer.controls.append("Space/MouseClick: fireball\n");
+         renderer.controls.append("1: use speed item\n");
          renderer.controls.append("\n");
-         renderer.controls.append("M: toggle mouse \n");
+         renderer.controls.append("M: toggle mouse\n");
+         //renderer.controls.append()
+         
+         
+         renderer.controls.setEditable(false);	// don't let you edit text once it's established
+         
+     
+         
          
          frame.setLayout(new BorderLayout());
-         frame.add(renderer.statusLine, BorderLayout.SOUTH);
+         //frame.add(renderer.statusLine, BorderLayout.SOUTH);
          frame.add(renderer.controls, BorderLayout.EAST);
          frame.add(renderer.canvas, BorderLayout.CENTER);
+         //frame.add(renderer.weapons,BorderLayout.WEST);
          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          frame.pack(); // make just big enough to hold objects inside
          frame.setVisible(true);
+         renderer.canvas.addKeyListener(renderer.playerActions);
          renderer.canvas.addKeyListener(renderer.playerMotion);
          renderer.canvas.addMouseMotionListener(renderer.playerMotion);
          renderer.canvas.addKeyListener(renderer.projectileWeapons);
 //         renderer.canvas.addKeyListener(renderer.bw);	// add key listener to bludgeoning weapons
+         renderer.canvas.addMouseListener(renderer.projectileWeapons);
          renderer.canvas.requestFocus(); // so key clicks come here
          FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
          animator.start();

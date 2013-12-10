@@ -33,8 +33,7 @@ public class FMPBuilding extends Building{
 	private float frames = 0;
 	public void draw(GL2 gl, GLU glu) {
 		++frames;
-		addTV(gl);	
-		addTable(gl);	
+		addTable(gl);
 		addLeg(gl,0,0,0, matArea);
 		addLeg(gl,0,0,-4,matArea);
 		addLeg(gl,4,0,-4,matArea);
@@ -45,6 +44,12 @@ public class FMPBuilding extends Building{
 		newFloor(gl);
 		addField(gl);
 	}
+	
+	@Override
+	public void drawMoving(GL2 gl, GLU glu, float eyeX, float eyeY, float eyeZ) {
+		addTV(gl);
+	}
+	
 	private void addTable(GL2 gl){
 		gl.glEnable(GL2.GL_CULL_FACE);
 		gl.glEnable(GL2.GL_TEXTURE_2D);	
