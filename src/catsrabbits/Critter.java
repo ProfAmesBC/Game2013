@@ -128,8 +128,7 @@ public abstract class Critter implements WeaponWatcher{
 		if(dist<size()&&!shot){
 			shot=true;
 			//System.out.println("Shot a critter!");
-			// TODO
-			//s.changeHonor(-1);
+			s.changeHonor(-1);
 			new Thread(new Runnable(){
 				public void run(){
 					try{

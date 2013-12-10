@@ -92,7 +92,7 @@ public class BatsEverywhere implements GLEventListener
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
         itemCreator = new ItemFactory(gl, glu, playerAttributes);
-        itemCreator.testCreate();
+//        itemCreator.testCreate();
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
         mummy = new Mummy(30, 100, gl, glu);
@@ -235,8 +235,8 @@ public class BatsEverywhere implements GLEventListener
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
         itemCreator.update();
         writer.draw(bag.toString(), 380, 470);
-        //writer.draw(stats.healthString(), 20, 70);
-        //writer.draw(stats.honorString(), 20, 35);
+        writer.draw(stats.healthString(), 10, 45);
+        writer.draw(stats.honorString(), 10, 10);
 
         projectileWeapons.update(gl, glu);
 
