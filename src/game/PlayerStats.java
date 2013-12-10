@@ -12,6 +12,7 @@ public class PlayerStats{
 	}
 	
 	public boolean alive(){return health>0;}
+	public boolean noHonor(){return honor<1;}
 	
 	public void changeHealth(int i){
 		health+=i;
@@ -20,18 +21,16 @@ public class PlayerStats{
 			motion.setMobile(false);
 		}
 	}
-	public void changeHonor(int i){
-		honor+=i;
-		if(honor<=0){
-			motion.setMobile(false);
-		}
-	}
+	public void changeHonor(int i){honor+=i;}
+	
 	public String healthString(){
-		return health>0?("Health: "+health+"/"+MAX_HEALTH):"You died";
+		String s="Health: "+health+"/"+MAX_HEALTH;
+		if(health<=0)s+=" - you died";
+		return s;
 	}
 	public String honorString(){
 		String s="Honor: "+honor;
-		if(honor<1)s+=" - can't move anymore";
+		if(honor<1)s+=" - can't shoot";
 		return s;
 	}
 }
