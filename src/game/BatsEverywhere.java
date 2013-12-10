@@ -61,6 +61,7 @@ public class BatsEverywhere implements GLEventListener
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
     private Texture minimaptexture;
+    private Texture BatsLogo2;
     //private TextRenderer renderer;
     
 
@@ -93,6 +94,7 @@ public class BatsEverywhere implements GLEventListener
         town = new Town(gl, glu);
         critters.add(new CatGroup(gl,glu));
         critters.add(new RabbitGroup(gl,glu));
+        BatsLogo2=setupTexture(gl,"BatsLogo2.jpg");
     }
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -207,7 +209,11 @@ public class BatsEverywhere implements GLEventListener
         	minimap(drawable);
         	gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
         	
-        }       
+        }
+        
+        //splash screen must come after minimap before town is drawn
+        
+        
 
         playerMotion.setLookAt(gl, glu);
         
@@ -261,6 +267,12 @@ public class BatsEverywhere implements GLEventListener
 
         setupViewport(drawable);
 
+        if (framesDrawn<=300) {
+        	setupSplashScreen(drawable);
+        	//gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+        	System.out.println("went through splash screen!");
+        	
+        }
         
         // check for errors, at least once per frame
         int error = gl.glGetError();
@@ -308,6 +320,35 @@ public class BatsEverywhere implements GLEventListener
         
         gl.glViewport(0, 0, windowWidth, windowHeight);
         reshape( drawable, 0, 0, windowWidth, windowHeight);
+    }
+    
+    public void setupSplashScreen(GLAutoDrawable drawable){
+    	
+    	 GL2 gl = drawable.getGL().getGL2();
+    	 gl.glViewport(0, 0, windowWidth, windowHeight);
+    	 gl.glClear(GL2.GL_DEPTH_BUFFER_BIT);
+    	 gl.glMatrixMode(GL2.GL_PROJECTION);
+         gl.glLoadIdentity();
+         gl.glOrtho(-1,1,-1,1,-1,1);
+         gl.glMatrixMode(GL2.GL_MODELVIEW);
+         gl.glLoadIdentity();       
+       
+         
+         
+         gl.glEnable(GL2.GL_TEXTURE_2D);
+         BatsLogo2.bind(gl);
+         gl.glBegin(GL2.GL_QUADS);
+         gl.glTexCoord2f(0f,0f);gl.glVertex2f(-1f, -1f);
+         gl.glTexCoord2f(1f,0f);gl.glVertex2f(1f, -1f);
+         gl.glTexCoord2f(1f,1f);gl.glVertex2f(1f, 1f);
+         gl.glTexCoord2f(0f,1f);gl.glVertex2f(-1f, 1f);
+         gl.glEnd();
+         
+         gl.glDisable(GL2.GL_TEXTURE_2D);
+         
+         gl.glViewport(0, 0, windowWidth, windowHeight);
+         reshape( drawable, 0, 0, windowWidth, windowHeight);
+    	
     }
     
 
