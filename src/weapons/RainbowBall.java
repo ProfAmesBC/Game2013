@@ -3,8 +3,11 @@
 package weapons;
 import com.jogamp.opengl.util.GLBuffers;
 
+import game.PlayerStats;
+
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
+
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.HashMap;
@@ -13,7 +16,8 @@ public class RainbowBall extends Projectile
 {
 private int displayList = -1;
 private Map<String, com.jogamp.opengl.util.texture.Texture> imageMap = new HashMap<String, com.jogamp.opengl.util.texture.Texture>(); // map of ID's to textures
-public RainbowBall(float x, float y, float z, float angle, float y_angle){
+public RainbowBall(float x, float y, float z, float angle, float y_angle,PlayerStats s){
+	super(s);
 	setProjX(x);
 	setProjY(y);
 	setProjZ(z);

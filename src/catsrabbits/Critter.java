@@ -1,8 +1,12 @@
 // Diana Cheung, CS333 Class of 2013
 // Superclass for cat and rabbit classes. May also be useful for Bat class
 package catsrabbits;
+import game.PlayerStats;
+
 import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;import javax.media.opengl.glu.GLUquadric;
+
 import com.jogamp.opengl.util.texture.Texture;
+
 import weapons.Projectile;import weapons.WeaponWatcher;
 
 public abstract class Critter implements WeaponWatcher{
@@ -119,19 +123,18 @@ public abstract class Critter implements WeaponWatcher{
 	
 	public abstract float size();
 	
-	public void checkShot(Projectile p){
+	public void checkShot(Projectile p,PlayerStats s){
 		float dist=(float)Math.sqrt(Math.pow(p.getProjX()-x, 2)+Math.pow(p.getProjY()-y, 2)+Math.pow(p.getProjZ()-z, 2));
 		if(dist<size()&&!shot){
 			shot=true;
-			System.out.println("Shot a critter!");
-			// TODO
-			
+			//System.out.println("Shot a critter!");
+			s.changeHonor(-1);
 			new Thread(new Runnable(){
 				public void run(){
 					try{
 						Thread.sleep(1000);
 					}catch(InterruptedException e){};
-					System.out.println("Will take damage from shots again");
+					//System.out.println("Will take damage from shots again");
 					shot=false;
 				}
 			}).start();

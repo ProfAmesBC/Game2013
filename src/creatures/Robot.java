@@ -2,12 +2,17 @@ package creatures;
 
 import java.util.LinkedList;
 import java.util.List;
+
 import game.PlayerMotion;
 import game.PlayerMotionWatcher;
+import game.PlayerStats;
+
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 import javax.media.opengl.glu.GLUquadric;
+
 import com.jogamp.opengl.util.gl2.GLUT;
+
 import weapons.Projectile;
 
 public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
@@ -24,8 +29,9 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 	private double theta = 0;
 	private boolean chasing = false;
 	private static GLUquadric quadric;
+	private static int displayListChasing=-1, displayListNotChasing=-1;
 	
-	public Robot(double startX,double startZ,GLU glu){
+	public Robot(double startX,double startZ,GL2 gl, GLU glu){
 		this.zombieLocationX = startX;
 		this.zombieLocationZ = startZ;
 		eyeVectorX = 0.2;
@@ -37,16 +43,40 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 		PlayerMotion.registerPlayerWatcher(this);
 		Projectile.registerProjectileWatcher(this);
 		swampZombies.add(this);
+		
+		// create the two display lists
+		if (displayListNotChasing == -1) {
+            displayListNotChasing = gl.glGenLists(1);
+            gl.glNewList(displayListNotChasing, GL2.GL_COMPILE);
+            setupDraw(gl, glu);
+            gl.glEndList();
+		}
+        
+		if (displayListChasing == -1) {
+            displayListChasing = gl.glGenLists(1);
+            gl.glNewList(displayListChasing, GL2.GL_COMPILE);
+                chasing = true;
+                setupDraw(gl, glu);
+                chasing = false;
+            gl.glEndList();
+		}
 	}
 
 	public void draw(GL2 gl, GLU glu) {
-		if(chasing){
-			move();
-			turn();
-		}
-		gl.glPushMatrix();
-		gl.glTranslated(zombieLocationX,0,zombieLocationZ);
-		gl.glRotated(theta,0,1,0);
+        gl.glPushMatrix();
+            gl.glTranslated(zombieLocationX,0,zombieLocationZ);
+            gl.glRotated(theta,0,1,0);
+    		if(chasing){
+    			move();
+    			turn();
+    			gl.glCallList(displayListChasing);
+    		} else {
+    		    gl.glCallList(displayListNotChasing);
+    		}
+        gl.glPopMatrix();
+	}
+	
+	public void setupDraw(GL2 gl, GLU glu){
         drawHead(gl,glu);
 		drawTorso(gl,glu);
 		drawWheels(gl,glu);
@@ -56,7 +86,6 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 		drawHands(gl,glu);
 		drawBrain(gl,glu);
 		//drawMouth(gl,glu);
-        gl.glPopMatrix();
 	}
 	
 	private void drawHead(GL2 gl,GLU glu){
@@ -168,7 +197,7 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 		gl.glPopMatrix();
 	}
 	
-	public void playerMoved(float x, float y, float z, float angle, float yAngle) {
+	public void playerMoved(float x, float y, float z, float angle, float yAngle,PlayerStats s) {
 		playerX = x;
 		playerZ = z;
 		double distance = Math.sqrt(Math.pow(zombieLocationX-x,2) + Math.pow(zombieLocationZ-z,2));

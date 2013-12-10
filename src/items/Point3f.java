@@ -1,30 +1,26 @@
 package items;
 
-/*
-Class to represent 3D Points for use with OpenGL
-William Ames, Fall 2013
-*/
 import javax.media.opengl.*;
 
 //Immutable
-public class Point3d
+public class Point3f
 {
-private final double x, y, z; // the public coordinates
+private final float x, y, z; // the public coordinates
 
-public Point3d() {
+public Point3f() {
     this(0,0,0);
 }
 
-public Point3d(double x, double y, double z) {
+public Point3f(float x, float y, float z) {
     this.x = x;
     this.y = y;
     this.z = z;
 }
 
 // Getters
-public double getX() { return x; }
-public double getY() { return y; }
-public double getZ() { return z; }
+public float getX() { return x; }
+public float getY() { return y; }
+public float getZ() { return z; }
 
 // Draw the point; assumes we're inside of glBegin(GL_POINTS)/glEnd()
 public void draw(GL2 gl) {
