@@ -4,13 +4,13 @@ import game.PlayerMotion;
 import game.PlayerMotionWatcher;
 import game.PlayerStats;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.LinkedList;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
-import com.jogamp.newt.event.KeyEvent;
-import com.jogamp.newt.event.KeyListener;
 
 // populates game with weapons and tracks the current bludgeoining weapon the player is holding
 public class WeaponManager implements KeyListener, PlayerMotionWatcher{
@@ -66,6 +66,7 @@ public class WeaponManager implements KeyListener, PlayerMotionWatcher{
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_P){	// add functionality later to toggle between weapons or to have a "current weapon"
 			try{ setWeapon(scanWeapons());
+//			System.out.println("weapon changed");
 			}
 			catch (NullPointerException exception){}
 			}
@@ -82,6 +83,12 @@ public class WeaponManager implements KeyListener, PlayerMotionWatcher{
 			float y_angle, PlayerStats s) {
 		this.x = x;
 		this.z = z;
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

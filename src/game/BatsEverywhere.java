@@ -10,6 +10,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.KeyListener;
 import java.io.File; //For capturing screen shot
 import java.io.IOException;
 import java.util.ArrayList;
@@ -68,7 +69,7 @@ public class BatsEverywhere implements GLEventListener
 	private StatusText writer;
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
-    private WeaponManager weaponManager = new WeaponManager();
+    private WeaponManager weaponManager = null;
     private CritterGroup catGroup,rabbitGroup;
     private Bat bat;
     private Mummy mummy;
@@ -106,10 +107,13 @@ public class BatsEverywhere implements GLEventListener
 
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
+        
+        weaponManager = new WeaponManager();
         weaponManager.init(gl, glu);
         weapon = weaponManager.getWeapon();
         weapon.init(gl, glu);
         canvas.addKeyListener(weapon);	// add key listener to bludgeoning weapons
+        canvas.addKeyListener(weaponManager);
         mummy = new Mummy(30, 100, gl, glu);
         pacManGhost = new PacManGhost(25, 95, gl, glu);
 
@@ -433,12 +437,8 @@ public class BatsEverywhere implements GLEventListener
          renderer.controls.append("M: toggle mouse\n");
          //renderer.controls.append()
          
-         
          renderer.controls.setEditable(false);	// don't let you edit text once it's established
-         
      
-         
-         
          frame.setLayout(new BorderLayout());
          //frame.add(renderer.statusLine, BorderLayout.SOUTH);
          frame.add(renderer.controls, BorderLayout.EAST);
@@ -449,6 +449,7 @@ public class BatsEverywhere implements GLEventListener
          frame.setVisible(true);
          renderer.canvas.addKeyListener(renderer.playerActions);
          renderer.canvas.addKeyListener(renderer.playerMotion);
+//         renderer.canvas.addKeyListener((KeyListener) renderer.weaponManager);
          renderer.canvas.addMouseMotionListener(renderer.playerMotion);
          renderer.canvas.addKeyListener(renderer.projectileWeapons);
 //         renderer.canvas.addKeyListener(renderer.bw);	// add key listener to bludgeoning weapons

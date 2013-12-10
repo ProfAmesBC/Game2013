@@ -286,7 +286,7 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 		gl.glRotatef(eyeAngle, 0, 1, 0);
 		drawMoving(gl, glu, T/60);
 		
-		System.out.println("Position: " + locx + " " + locz);
+//		System.out.println("Position: " + locx + " " + locz);
 		
 		 T+=1f;
 		 if (T > 60) T = 0;
