@@ -11,12 +11,13 @@ import com.jogamp.opengl.util.FPSAnimator;
 
 
 
+
 import inventory.Bag;
 import inventory.ItemFactory;
 import inventory.PlayerActions;
 import inventory.PlayerAttributes;
 import weapons.ProjectileWeapons;
-import Enemies.Bat;
+import Enemies.*;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -41,6 +42,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
 
 
 
@@ -79,6 +81,7 @@ public class BatsEverywhere implements GLEventListener
     private CritterGroup catGroup,rabbitGroup;
     private Bat bat;
     private Texture minimaptexture;
+    private MoveSwarm moveSwarm;
     //private TextRenderer renderer;
     
 
@@ -114,7 +117,9 @@ public class BatsEverywhere implements GLEventListener
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
         bat = new Bat(gl, glu);
+        moveSwarm = new MoveSwarm(gl, glu);
     }
+    
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
     	this.width = width;
@@ -253,7 +258,8 @@ public class BatsEverywhere implements GLEventListener
         catGroup.draw(gl, glu);
         rabbitGroup.draw(gl, glu);
         bat.draw(gl, glu);
-         // check for errors, at least once per frame
+        moveSwarm.draw(gl, glu);
+        // check for errors, at least once per frame
 
         
      	
