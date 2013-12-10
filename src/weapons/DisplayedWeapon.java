@@ -18,6 +18,10 @@ public class DisplayedWeapon {
 		this.z = z;
 	}
 	
+	public float getX(){ return x; }
+	public float getZ(){ return z; }
+	public Weapon getWeapon(){ return w; }
+	
 	public void draw(GL2 gl, GLU glu){
 		// quadric to draw cylindrical pedestal
 		quadric = glu.gluNewQuadric();

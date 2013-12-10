@@ -24,19 +24,12 @@ public abstract class BludgeoningWeapon implements Weapon{
 	private GL2 gl;
 	private GLU glu;
 	private boolean hit;
-//	private HittingWeapon p;
 	
 	public BludgeoningWeapon(){
-//		this.gl = gl;
-//		this.glu = glu;
 		hit = false;
 		
 		PlayerMotion.registerPlayerWatcher(this);
 		
-//		quadric = glu.gluNewQuadric();
-//        glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
-//        glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
-//        glu.gluQuadricTexture  (quadric, false);
 	}
 	
 	// fix this with keylistener stuff...
@@ -44,7 +37,6 @@ public abstract class BludgeoningWeapon implements Weapon{
 		this.gl = gl;
 		this.glu = glu;
 		lengthOfHit = 25;	// duration of hit in frames
-//		p = new PipeWeapon(gl, glu);
 		
 		quadric = glu.gluNewQuadric();
         glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
@@ -54,12 +46,6 @@ public abstract class BludgeoningWeapon implements Weapon{
 	
 	public abstract void draw(GL2 gl, GLU glu);
 	
-//	public void drawStationary(GL2 gl, GLU glu){
-//		gl.glPushMatrix();
-//			gl.glTranslated(Math.random()*600, y, Math.random()*600);
-//			p.draw(gl, glu);
-//		gl.glPopMatrix();
-//	}
 	
 	public void update(GL2 gl, GLU glu){
 		
@@ -99,43 +85,6 @@ public abstract class BludgeoningWeapon implements Weapon{
 		}
 	}
 	
-//	public void update(GL2 gl, GLU glu){
-//		
-//		if (hit){
-//			
-//			weaponX =  (float) (2*Math.cos(Math.toRadians(angle)));
-//			weaponZ = -(float) (2*Math.sin(Math.toRadians(angle)));
-//			
-//			if (frames < lengthOfHit/2){
-//				
-//				gl.glPushMatrix();
-//					gl.glTranslatef(x+weaponX * dist/5, y, z+ weaponZ * dist/5);	// draw at person
-//					gl.glRotatef(-90, 1, 0, 0);
-//					p.draw(gl, glu);
-//				gl.glPopMatrix();
-//
-//				dist++;
-//				frames++;
-//		}
-//			else if (frames >= lengthOfHit/2 && frames < lengthOfHit){
-//				gl.glPushMatrix();
-//					gl.glTranslatef(x+weaponX * dist/5, y, z+ weaponZ * dist/5);	// draw at person
-//					gl.glRotatef(-90, 1, 0, 0);
-//					p.draw(gl, glu);
-//				gl.glPopMatrix();
-//				
-//				dist --;
-//				frames++;
-//			}
-//			else { 
-//				System.out.println("ok");
-//				weaponX = weaponY = weaponZ = 0;
-//				frames = 0;
-//				dist = 0;
-//				
-//				hit = false; }
-//		}
-//	}
 	
 	// figure out where player is looking, also!
 	@Override

@@ -24,7 +24,11 @@ public void init(GL2 gl, GLU glu){
 }
 
 public void draw(GL2 gl, GLU glu) {
-  gl.glCallList(displayList);
+	gl.glPushMatrix();
+		gl.glTranslatef(0, 1, 0);
+		gl.glRotatef(-90, 1, 0, 0);
+		gl.glCallList(displayList);
+	gl.glPopMatrix();
 }
 private com.jogamp.opengl.util.texture.Texture ID5;
 private void generate(GL2 gl, GLU glu){
