@@ -53,8 +53,8 @@ public class Foreigner extends Player{
 
 	public Foreigner(GL2 gl, GLU glu, Integer nid) {
 		
-		this.gl = gl;
-		this.glu = glu;
+		//this.gl = gl;
+		//this.glu = glu;
 		
 		//random color
 			id = nid;
@@ -64,16 +64,17 @@ public class Foreigner extends Player{
 			b = (float)Math.random(); 
 			*/
 			
-		psy = new Avatar(gl,glu,x,y,z);
+	
 		
 	} 
 	
 	public void playerBody(GL2 gl, GLU glu, GLUquadric quadric, float x, float y, float z, float r, float g, float b, double size){
+		psy = new Avatar(gl,glu,x,y,z);
 		gl.glPushMatrix();
-			gl.glTranslatef(x, y, z); // start position 
+			gl.glTranslatef(x, 0, z); // start position 
 			gl.glColor3f(r, g, b); //color
 			psy.draw(gl, glu);
-			glu.gluSphere(quadric, size, 10, 10); //sphere for body 
+		//	glu.gluSphere(quadric, size, 10, 10); //sphere for body 
 		gl.glPopMatrix();
 		
 //		gl.glPushMatrix();
