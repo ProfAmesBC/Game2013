@@ -5,6 +5,7 @@ import inventory.Bag;
 import inventory.ItemFactory;
 import inventory.PlayerActions;
 import inventory.PlayerAttributes;
+import items.PowerUpManager;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -67,6 +68,7 @@ public class BatsEverywhere implements GLEventListener
     private PacManGhost pacManGhost;
     private Texture minimaptexture;
     private MoveSwarm moveSwarm;
+    private PowerUpManager powerUpManager;
     //private TextRenderer renderer;
     
 
@@ -107,6 +109,8 @@ public class BatsEverywhere implements GLEventListener
         rabbitGroup=new RabbitGroup(gl,glu);
         bat = new Bat(gl, glu);
         moveSwarm = new MoveSwarm(gl, glu);
+        
+        //powerUpManager = new PowerUpManager(gl, glu);
     }
     
     
@@ -248,6 +252,8 @@ public class BatsEverywhere implements GLEventListener
         writer.draw(bag.toString(), 380, 470);
         writer.draw(stats.healthString(), 10, 45);
         writer.draw(stats.honorString(), 10, 10);
+        
+
 
         projectileWeapons.update(gl, glu);
 
@@ -305,6 +311,7 @@ public class BatsEverywhere implements GLEventListener
 
         setupViewport(drawable);
 
+        //powerUpManager.draw(gl, glu);
         
         // check for errors, at least once per frame
 

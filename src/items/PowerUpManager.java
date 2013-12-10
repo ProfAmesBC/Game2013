@@ -23,12 +23,12 @@ public class PowerUpManager {
 	private List<Object> weaponsList;
 	private int initialSize;
 	private PlayerStats ps;
-	private static int DESIRED_SPAWNS = 10;
+	private static int DESIRED_SPAWNS = 15;
 	
 	AllSpawnLocations poss = new AllSpawnLocations();
 	//Should be able to listen
 	
-	public PowerUpManager() {
+	public PowerUpManager(GL2 gl, GLU glu) {
 
 		//weaponsList = new ArrayList<Weapons>(); //weaponslist does not get refreshed
 		powerUpList = new ArrayList<AbstractPowerUp>();
@@ -36,9 +36,26 @@ public class PowerUpManager {
 		spawns = new ArrayList<Spawn3f>(); //list of all spawn locations possible; currently @ 0,0,0
 		emptySpawns = new ArrayList<Spawn3f>();
 		initialSize = spawns.size();
-		populateSpawns();
 		
 		powerUpList.add(new HPHeal(gl, glu, new Point3f(0,0,0), ps));
+		powerUpList.add(new HPHeal(gl, glu, new Point3f(0,0,0), ps));
+
+		powerUpList.add(new HPHeal(gl, glu, new Point3f(0,0,0), ps));
+
+		powerUpList.add(new HPHeal(gl, glu, new Point3f(0,0,0), ps));
+
+		powerUpList.add(new HPHeal(gl, glu, new Point3f(0,0,0), ps));
+
+		powerUpList.add(new HPHeal(gl, glu, new Point3f(0,0,0), ps));
+
+		for(int x=0; x<powerUpList.size();x++ ) {
+			System.out.println("00 type: " + powerUpList.get(x).getType());
+			
+			
+		}
+		
+		populateSpawns();
+
 	}
 	
 	
@@ -69,7 +86,13 @@ public class PowerUpManager {
 	}
 	
 	private AbstractPowerUp randomPowerUp() {
-		int factor = (int) (Math.random() * powerUpList.size());
+
+		for(int x=0; x<powerUpList.size();x++ ) {
+			System.out.println("11 type: " + powerUpList.get(x).getType());
+		}
+		
+		int factor = (int) (Math.random() * (powerUpList.size()));
+		System.out.println("List size: " + powerUpList.size() + " " + "Factor: " + factor);
 		return powerUpList.get(factor);
 	}
 	
@@ -85,8 +108,8 @@ public class PowerUpManager {
 				
 	}
 	
-	public void draw() { //runs every frame
-		updateLists();
+	public void draw(GL2 gl, GLU glu) { //runs every frame
+		//updateLists();
 		for (int t=0; t<spawns.size(); t++) {
 			spawns.get(t).getPowerUp().draw(gl, glu);
 			}
@@ -94,6 +117,8 @@ public class PowerUpManager {
 	
 	
 	public void updateLists() {
+		checkList();
+
 		for (int t=0; t<spawns.size(); t++) {
 			if (spawns.get(t).getPowerUp().grabbed()) {
 				emptySpawns.add(new Spawn3f(spawns.get(t).getLocation()));
@@ -101,6 +126,7 @@ public class PowerUpManager {
 				System.out.println("POWERUP!");
 			}
 		}
+		
 	}
 	
 }
