@@ -24,6 +24,7 @@ public class WeaponManager implements KeyListener, PlayerMotionWatcher{
 	public WeaponManager(){
 		weapons = new LinkedList<DisplayedWeapon>();
 		PlayerMotion.registerPlayerWatcher(this);
+		w = new OarWeapon();
 	}
 	
 	public BludgeoningWeapon getWeapon(){
@@ -41,7 +42,7 @@ public class WeaponManager implements KeyListener, PlayerMotionWatcher{
 		pw.init(gl, glu);
 		ow.init(gl, glu);
 		
-		w = pw;
+		w.init(gl, glu);;
 
 		for (int i=0; i<20; i++){
 			weapons.add(new DisplayedWeapon(pw, (float) Math.random()*600, (float) Math.random()*600));
@@ -52,11 +53,12 @@ public class WeaponManager implements KeyListener, PlayerMotionWatcher{
 	public void draw(GL2 gl, GLU glu){
 		for (DisplayedWeapon dw: weapons)
 			dw.draw(gl, glu);
+		w.update(gl, glu);
 	}
 	
 	public BludgeoningWeapon scanWeapons(){
 		for (DisplayedWeapon dw: weapons){
-			if (Math.abs(dw.getX() - x) < 3 && Math.abs(dw.getZ() - z) < 3)	// if close enough
+			if (Math.abs(dw.getX() - x) < 8 && Math.abs(dw.getZ() - z) < 8)	// if close enough
 				return (BludgeoningWeapon) dw.getWeapon();
 		}
 		return null;
@@ -65,12 +67,13 @@ public class WeaponManager implements KeyListener, PlayerMotionWatcher{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_P){	// add functionality later to toggle between weapons or to have a "current weapon"
-			try{ setWeapon(scanWeapons());
-//			System.out.println("weapon changed");
-			}
-			catch (NullPointerException exception){}
-			}
+			BludgeoningWeapon weapon = scanWeapons();
+			if (weapon != null){
+				setWeapon(weapon);
+				System.out.println("weapon changed");
 		}
+		}
+	}
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {

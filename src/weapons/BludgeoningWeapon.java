@@ -50,7 +50,6 @@ public abstract class BludgeoningWeapon implements Weapon{
 	public void update(GL2 gl, GLU glu){
 		
 		if (hit){
-			
 			weaponX =  (float) (2*Math.cos(Math.toRadians(angle)));
 			weaponZ = -(float) (2*Math.sin(Math.toRadians(angle)));
 			

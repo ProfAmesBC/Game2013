@@ -25,8 +25,9 @@ public void init(GL2 gl, GLU glu){
 
 public void draw(GL2 gl, GLU glu) {
 	gl.glPushMatrix();
-		gl.glTranslatef(0, 1, 0);
-		gl.glRotatef(-90, 1, 0, 0);
+//		gl.glScalef(.5f, .5f, .5f);
+		gl.glTranslatef(0, -3, 0);
+		gl.glRotatef(90, 1, 0, 0);
 		gl.glCallList(displayList);
 	gl.glPopMatrix();
 }
