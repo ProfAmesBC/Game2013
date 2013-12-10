@@ -37,7 +37,7 @@ public abstract class AbstractPowerUp implements Item {
 		stats = s;
 
 		if (distance<2) {
-			activate();//grabbed now = true
+			use();//grabbed now = true
 		}
 
 		
@@ -48,8 +48,7 @@ public abstract class AbstractPowerUp implements Item {
 	public abstract void draw(GL2 gl, GLU glu);
 
 	@Override
-	public void use(){ //not used
-		}
+	public abstract void use();
 
 	private boolean grabConditions() {
 		if ((pX - 3 < playerX && pZ - 3 < playerZ)
@@ -64,9 +63,7 @@ public abstract class AbstractPowerUp implements Item {
 	public abstract boolean grabbed();
 	@Override
 	public abstract String getType();
-	
-	public abstract void activate();
-		
+			
 	private float getLocationX() {
 		return pX;
 	}

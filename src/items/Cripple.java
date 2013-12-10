@@ -269,10 +269,5 @@ public class Cripple extends AbstractPowerUp {
 		this.angle = angle;
 	}
 
-	@Override
-	public void activate() {
-		// TODO Auto-generated method stub
-
-	}
 
 }
