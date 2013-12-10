@@ -190,7 +190,7 @@ public class BatsEverywhere implements GLEventListener
         
         //for debugging
         if (success) {
-           bufferUtil.write(new File("minimap.png"));
+           //bufferUtil.write(new File("minimap.png"));
             System.out.println("Made Screenshot");
            // minimaptexture = setupTexture(gl, "minimap.png");
         } else
@@ -376,12 +376,8 @@ public class BatsEverywhere implements GLEventListener
         gl.glEnable(GL2.GL_TEXTURE_2D);
         gl.glDisable(GL2.GL_TEXTURE_GEN_T);
         gl.glDisable(GL2.GL_TEXTURE_GEN_S);
-       //if (minimaptexture != null){
-
 
         minimaptexture.bind(gl);
-
-
         
         gl.glBegin(GL2.GL_QUADS);
         gl.glTexCoord2f(0f,0f);gl.glVertex2f(-1f, -1f);
