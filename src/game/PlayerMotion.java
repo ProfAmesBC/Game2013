@@ -21,7 +21,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     private float step = step1;
     private boolean mouseMovement = false;
     private boolean wdown, adown, sdown, ddown, qdown, edown, idown, kdown, jdown;
-    private boolean jumping, falling,alive;
+    private boolean jumping, falling,mobile=true;
     private Robot robot;
     private int speedCounter = 0;
     private int flyCounter =0;
@@ -38,7 +38,6 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
         eyeY = 5;
         eyeZ = 50;
         theta = 0;
-        alive=true;
         try {
             robot = new Robot();
         } catch (AWTException e) {
@@ -70,7 +69,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     	eyeZ=z;
     }
     public void setMobile(boolean b){
-    	alive=b;
+    	mobile=b;
     	if(b==false){
     		adown=false;ddown=false;sdown=false;wdown=false;
     		jdown=false;
@@ -83,7 +82,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-    	if(alive)
+    	if(mobile)
 	        switch (e.getKeyCode()) {
 	            case KeyEvent.VK_A:
 	                adown = true;
@@ -164,8 +163,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     public void setLookAt(GL2 gl, GLU glu){
         double moved = 0;
         double location[] = ReadZBuffer.getOGLPos(gl, glu, width / 2, height / 2); //what you're moving towards
-        for(int i=0;i<location.length;i++)if(location[i]<0)return;
-        if (alive&&eyeX + dx > 0 && eyeZ + dz > 0 && eyeX + dx < 600 && eyeZ + dz < 600 && (eyeX + dx < 300 || eyeZ + dz < 500)) {
+        if (mobile&&eyeX + dx > 0 && eyeZ + dz > 0 && eyeX + dx < 600 && eyeZ + dz < 600 && (eyeX + dx < 300 || eyeZ + dz < 500)) {
             if (Math.abs(location[0] - eyeX) > Math.abs(dx) + 1) {
                 eyeX += dx;
                 moved += dx;
@@ -181,7 +179,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
         glu.gluLookAt(eyeX, eyeY, eyeZ,   // eye location
                 eyeX + Math.cos(Math.toRadians(theta)) * Math.cos(Math.toRadians(gamma)), eyeY + Math.sin(Math.toRadians(gamma)), eyeZ + -Math.sin(Math.toRadians(theta)) * Math.cos(Math.toRadians(gamma)),   // point to look at (near middle of pyramid)
                 0, 1, 0); // the "up" direction
-        if (alive&&(moved != 0 || qdown || edown || idown || kdown || dgamma != 0 || dtheta != 0)) {
+        if (mobile&&(moved != 0 || qdown || edown || idown || kdown || dgamma != 0 || dtheta != 0)) {
             for (PlayerMotionWatcher watcher : watchers)
                 watcher.playerMoved(eyeX, eyeY, eyeZ, theta, gamma,stats);
         }
