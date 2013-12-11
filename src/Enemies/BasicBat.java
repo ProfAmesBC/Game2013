@@ -48,6 +48,7 @@ public class BasicBat implements Enemies {
 	
 	//Drawing methods
 	public void drawWing(GL2 gl, boolean rightWing){
+		
 		float flip = 1;
 		if(rightWing){flip = -1;}
 		
@@ -161,7 +162,7 @@ public class BasicBat implements Enemies {
 	public void setDZ(float dz){this.dz=dz;}
 	public void setSpeed(float speed) {this.speed = speed;}
 	public void setScale(float scale) {this.scale = scale;}
-	public void kill(){ dead = true;}
+	public void kill(){dead = true;}
 	
 	//status setters
 	public void setCurrentHealth(float currentHP){this.currentHP = currentHP;}
