@@ -22,9 +22,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 			The InputLocal type is used to represent inputs that can only reference resources declared in the same document.
  * 			
  * 
- * <p>Java class for InputLocal complex type.
+ * <playerA>Java class for InputLocal complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="InputLocal">

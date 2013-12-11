@@ -13,10 +13,10 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for fx_surface_format_hint_range_enum.
+ * <playerA>Java class for fx_surface_format_hint_range_enum.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>
  * <pre>
  * &lt;simpleType name="fx_surface_format_hint_range_enum">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
