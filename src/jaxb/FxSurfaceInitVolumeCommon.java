@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for fx_surface_init_volume_common complex type.
+ * <playerA>Java class for fx_surface_init_volume_common complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="fx_surface_init_volume_common">
@@ -112,9 +112,9 @@ public class FxSurfaceInitVolumeCommon {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <playerA>Java class for anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <playerA>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>
@@ -165,9 +165,9 @@ public class FxSurfaceInitVolumeCommon {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <playerA>Java class for anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <playerA>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>

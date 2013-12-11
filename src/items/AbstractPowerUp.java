@@ -20,10 +20,11 @@ public abstract class AbstractPowerUp implements Item {
 	protected float playerX, playerY, playerZ;
 	protected boolean grabbed;
 	protected double T;
-	protected static PlayerAttributes p;
+	protected static PlayerAttributes playerA;
 	protected int frames;
 	protected int counter;
 	protected PlayerStats stats;
+	protected String type;
 	
 	@Override
 	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {
@@ -36,7 +37,7 @@ public abstract class AbstractPowerUp implements Item {
 		stats = s;
 
 		if (distance<2) {
-			activate();//grabbed now = true
+			use();//grabbed now = true
 		}
 
 		
@@ -47,10 +48,9 @@ public abstract class AbstractPowerUp implements Item {
 	public abstract void draw(GL2 gl, GLU glu);
 
 	@Override
-	public void use(){ //not used
-		}
+	public abstract void use();
 
-	private boolean grabConditions() {
+	public boolean grabConditions() {
 		if ((pX - 3 < playerX && pZ - 3 < playerZ)
 				&& (pX + 5 > playerX) && (pZ + 5 > playerZ)
 				&& (grabbed == false))
@@ -63,9 +63,7 @@ public abstract class AbstractPowerUp implements Item {
 	public abstract boolean grabbed();
 	@Override
 	public abstract String getType();
-	
-	public abstract void activate();
-		
+			
 	public float getLocationX() {
 		return pX;
 	}
@@ -85,8 +83,12 @@ public abstract class AbstractPowerUp implements Item {
 		pX = f.getX();
 		pY = f.getY();
 		pZ = f.getZ();
+		location = f;
 	}
 	
+	public void bugtest() {
+		System.out.println(type);
+	}
 	
 	
 }
