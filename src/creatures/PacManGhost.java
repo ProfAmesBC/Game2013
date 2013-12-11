@@ -173,7 +173,7 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 		}
 	}
 	
-	public void playerMoved(float x, float y, float z, float angle, float yAngle) {
+	public void playerMoved(float x, float y, float z, float angle, float yAngle,PlayerStats s) {
 		playerX = x;
 		playerZ = z;
 		playerAngle = angle;
@@ -231,11 +231,4 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 			}
 		}
 	}
-
-	@Override
-	public void playerMoved(float x, float y, float z, float angle, float y_angle, PlayerStats s) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
