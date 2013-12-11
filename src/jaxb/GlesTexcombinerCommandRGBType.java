@@ -22,9 +22,9 @@ import javax.xml.bind.annotation.XmlType;
  * 			Defines the RGB portion of a texture_pipeline command. This is a combiner-mode texturing operation.
  * 			
  * 
- * <p>Java class for gles_texcombiner_commandRGB_type complex type.
+ * <playerA>Java class for gles_texcombiner_commandRGB_type complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="gles_texcombiner_commandRGB_type">
@@ -58,20 +58,20 @@ public class GlesTexcombinerCommandRGBType {
     /**
      * Gets the value of the arguments property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the arguments property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getArguments().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link GlesTexcombinerArgumentRGBType }
      * 

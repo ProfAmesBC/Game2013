@@ -64,7 +64,7 @@ public class Bag {
 	public String toString() {
 		String listOfItems = "";
 		listOfItems = "S:" + speedBoxes.getCount();
-		listOfItems = listOfItems + "J:" + jetpackBoxes.getCount();
+		listOfItems = listOfItems + " J:" + jetpackBoxes.getCount();
 		listOfItems = listOfItems + " T: " + teleportBoxes.getCount();
 		return listOfItems;
 	}
