@@ -60,9 +60,9 @@ public class PlusHonor extends AbstractPowerUp {
 	}
 
 	public void use() {
+		if (!grabbed)
 		stats.changeHonor(1);
-		grabbed=true;
-		System.out.println("ACTIVATED");
+		//System.out.println("ACTIVATED");
 	}
 	@Override
 	public String getType() {

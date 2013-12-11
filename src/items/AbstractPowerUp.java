@@ -39,6 +39,7 @@ public abstract class AbstractPowerUp implements Item {
 
 		if (distance<2) {
 			use();//grabbed now = true
+			grabbed = true;
 		}
 
 		

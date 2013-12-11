@@ -116,7 +116,9 @@ public class PowerUpManager {
 		return powerUpList.get(factor);
 	}
 	
-	public void checkList() {
+	public void checkList(int time) {
+		
+		if (time>=25) {
 		//every 90 seconds, if there is room in the array, put random powerup
 		if (emptySpawns.size()>0) {
 			for (int x = 0; x < emptySpawns.size(); x++) {
@@ -125,11 +127,11 @@ public class PowerUpManager {
 			
 			emptySpawns.clear();
 		}
-				
+		}
 	}
 	
 	public void draw(GL2 gl, GLU glu) { //runs every frame
-		//updateLists();
+		updateLists();
 		for (int t=0; t<spawns.size(); t++) {
 			
 			gl.glPushMatrix();
@@ -147,16 +149,18 @@ public class PowerUpManager {
 	
 	
 	public void updateLists() {
-		checkList();
+		int z = 0;
+		checkList(z);
 
 		for (int t=0; t<spawns.size(); t++) {
-			if (spawns.get(t).getPowerUp().grabbed()) {
+			if (spawns.get(t).getPowerUp().grabbed() == true) {
 				emptySpawns.add(new Spawn3f(spawns.get(t).getLocation()));
 				spawns.remove(t);
-				//System.out.println("POWERUP!");
+				System.out.println("Removed from spawn list. Empty Spawns: " + emptySpawns.size() + " Spawns filled: " + spawns.size());
 			}
 		}
 		
+		z+=.5;
 	}
 	
 }
