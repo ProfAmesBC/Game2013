@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
-
 public class ItemFactory {
 	private GL2 gl;
 	private GLU glu;
