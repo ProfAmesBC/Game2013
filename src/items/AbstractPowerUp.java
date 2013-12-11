@@ -6,6 +6,7 @@ import inventory.PlayerAttributes;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
+import javax.media.opengl.glu.GLUquadric;
 
 import com.jogamp.opengl.util.texture.Texture;
 
@@ -59,13 +60,6 @@ public abstract class AbstractPowerUp implements Item {
 			return false;
 	}
 	
-	private AbstractPowerUp morph(GL2 gl, GLU glu, String type) {
-		if (type == "HP Heal") {
-			return new HPHeal(gl, glu, location, stats);
-		}
-		
-		return null;
-	}
 	
 	@Override
 	public abstract boolean grabbed();
@@ -88,12 +82,7 @@ public abstract class AbstractPowerUp implements Item {
 		return angle;
 	}
 	
-	public void linkLocation(Point3f f) {
-		pX = f.getX();
-		pY = f.getY();
-		pZ = f.getZ();
-		location = f;
-	}
+	public abstract void linkLocation(Point3f f);
 	
 	public void bugtest() {
 		System.out.println(type);

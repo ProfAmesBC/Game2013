@@ -269,6 +269,10 @@ public class BatsEverywhere implements GLEventListener
         Robot.drawRobots(gl, glu);
         catGroup.draw(gl, glu);
         rabbitGroup.draw(gl, glu);
+        
+        powerUpManager.draw(gl, glu);
+
+        
       //  bat.draw(gl, glu);
         //mummy.draw(gl, glu);
     //    moveSwarm.draw(gl, glu);
@@ -318,7 +322,6 @@ public class BatsEverywhere implements GLEventListener
 
         setupViewport(drawable);
 
-        powerUpManager.draw(gl, glu);
         
         // check for errors, at least once per frame
 
