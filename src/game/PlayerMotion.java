@@ -310,11 +310,11 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
         yLoc = locationOnScreen.y;
     }
 
-
-	public float getStep() {
-		return step;
-	}
-	
+//
+//	public float getStep() {
+//		return step;
+//	}
+//	
 
 
     public void setStep(float step, int duration) {
@@ -333,7 +333,11 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
 	}
 
     
-//    public float getStep() {
-//        return step;
-//    }
+	public void teleport(int i) {
+		eyeX = eyeX + i;        
+        eyeZ = eyeZ + i;
+	}
+
+    
 }
+

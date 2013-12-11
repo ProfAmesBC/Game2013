@@ -62,6 +62,7 @@ public class BlindItem implements Item {
 		}
 		else if(!used){			
 			use();
+			used= true;
 		}					
 	}
 

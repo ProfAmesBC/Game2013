@@ -24,7 +24,13 @@ public class PlayerActions extends KeyAdapter {
 			// calls the DummyItem from the Bag
 			b.useItem("Jetpack");
 			break;
+		case KeyEvent.VK_3:
+			// calls the DummyItem from the Bag
+			b.useItem("Teleporter");
+			break;
+
 		}
+		
 	}
 
 }
