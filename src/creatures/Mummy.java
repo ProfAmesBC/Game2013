@@ -1,25 +1,24 @@
 package creatures;
 
-import java.io.File;
-import java.io.IOException;
+import game.Building;
+import game.PlayerMotionWatcher;
+import game.PlayerStats;
+import game.ReadZBuffer;
+
+import java.util.Random;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 import javax.media.opengl.glu.GLUquadric;
 
 import com.jogamp.opengl.util.texture.Texture;
-import com.jogamp.opengl.util.texture.TextureIO;
-
-import game.Building;
-import game.PlayerMotionWatcher;
-import game.PlayerStats;
 
 public class Mummy implements Creature, PlayerMotionWatcher, ProjectileWatcher{
-	
+	float spawnx, spawny, spawnz;
 	float locx, locy, locz;
 	float eyeAngle = 0;
-	final float moveSpeed = 1f;
-	final float runSpeed = 2f;
+	final float moveSpeed = 0.5f;
+	final float runSpeed = 1f;
 	final float rotateSpeed = 2f;
 	final float sightRadius = 20;
 	private Texture bodyTexture;
@@ -27,9 +26,15 @@ public class Mummy implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 	boolean facingFront = true;
 	boolean agro, dead;
 	static float T = 0;
-	
+	private Random rand = new Random();
+	private double d = rand.nextDouble();
+	float dx, dz;
+	int width, height;
 
 	public Mummy(float x, float z, GL2 gl, GLU glu){
+		spawnx = x;
+		spawny = 0;
+		spawnz = z;
 		locx = x;
 		locy = 0;
 		locz = z;
@@ -40,6 +45,7 @@ public class Mummy implements Creature, PlayerMotionWatcher, ProjectileWatcher{
         glu.gluQuadricTexture  (bodyQuadric, true);        // false, or true to generate texture coordinates
         agro = false;
         dead = false;
+        
 		
 	}
 	
@@ -233,30 +239,63 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 			glu.gluSphere(bodyQuadric, .3f, 20, 10);
 		gl.glPopMatrix();
 	}
-
-	public void move(){
+	
+	public void move(GL2 gl, GLU glu){
 		float speed;
+		if (T==0){
+		d = rand.nextDouble();}
+		
 		if (!agro) {
 			speed = moveSpeed;
-			if (eyeAngle == 360) eyeAngle = 0;
-			if (locz < -20 ) {
-				if (!facingFront)eyeAngle-=rotateSpeed;
-					if (eyeAngle == 0) {facingFront = true;
-					locz +=speed*Math.cos(Math.toRadians(eyeAngle));
-					locx -=speed*Math.sin(Math.toRadians(eyeAngle));
-					}
-				}		
-			else if (locz > 20){
-				if (facingFront) eyeAngle+=rotateSpeed;
-				if (eyeAngle == 180) {facingFront = false;
-	    			locz +=speed*Math.cos(Math.toRadians(eyeAngle));
-	    			locx -=speed*Math.sin(Math.toRadians(eyeAngle));
-			}
-	    }
-	    else {
-	    	locz +=speed*Math.cos(Math.toRadians(eyeAngle));
-	    	locx -=speed*Math.sin(Math.toRadians(eyeAngle));
-	    	}
+			if (d <= 0.25){eyeAngle = 0;}
+			else if (d <= 0.5) {eyeAngle = 90;}
+			else if (d <= 0.75) {eyeAngle = 180;}
+			else {eyeAngle = 270;}
+			
+			
+			
+			float moved = 0;
+			
+			dx =  (float) ( speed*Math.sin(Math.toRadians(eyeAngle)));
+			dz =  (float) ( speed*Math.cos(Math.toRadians(eyeAngle)));
+	        double location[] = ReadZBuffer.getOGLPos(gl, glu, width / 2, height / 2); //what you're moving towards
+	        if (!dead &&locx + dx > 0 && locz + dz > 0 && locx + dx < 600 && locz + dz < 600 && (locx + dx < 300 || locz + dz < 500)) {
+	            if (Math.abs(location[0] - locx) > Math.abs(dx) + 1) {
+	               
+	                moved += dx;
+	                locx += dx;
+	            }//if you have room to move in the x direction, move in the x direction
+
+	            if (Math.abs(location[2] - locz) > Math.abs(dz) + 1) {
+	              
+	                moved += dz;
+	                locz -= dz;
+	            }//ditto z
+			
+	        }
+	       // locx += dx;
+	       // locz -= dz;
+			
+//			if (eyeAngle == 360) eyeAngle = 0;
+//			if (locz < spawnz - 10 ) {
+//				if (!facingFront)eyeAngle-=rotateSpeed;
+//					if (eyeAngle == 0) {facingFront = true;
+//					locz +=speed*Math.cos(Math.toRadians(eyeAngle));
+//					locx -=speed*Math.sin(Math.toRadians(eyeAngle));
+//					}
+//				}		
+//			else if (locz >  spawnz + 10){
+//				if (facingFront) eyeAngle+=rotateSpeed;
+//				if (eyeAngle == 180) {facingFront = false;
+//	    			locz +=speed*Math.cos(Math.toRadians(eyeAngle));
+//	    			locx -=speed*Math.sin(Math.toRadians(eyeAngle));
+//			}
+//	    }
+//	    else {
+//	    	locz +=speed*Math.cos(Math.toRadians(eyeAngle));
+//	    	locx -=speed*Math.sin(Math.toRadians(eyeAngle));
+//	    	}
+				
 		}
 	    
 	    else {speed = runSpeed;
@@ -265,12 +304,17 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
     		locx -=speed*Math.sin(Math.toRadians(eyeAngle));
 	
 	    	}
+	        
 	    }
     
+	public void setDim(int width, int height){
+		this.width = width;
+		this.height = height;
+	}
 	
 	public void draw(GL2 gl, GLU glu) {
 		
-		move();
+		move(gl, glu);
 		
 		gl.glTranslatef(locx, (float) (locy + 0.1*Math.sin(Math.toRadians((T/60)*360))), locz);
 		gl.glRotatef(eyeAngle, 0, 1, 0);
@@ -299,6 +343,12 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 		if(distance < 2){s.changeHealth(-1);
 			
 		};
+		
+	}
+
+	@Override
+	public void move() {
+		// TODO Auto-generated method stub
 		
 	}
 

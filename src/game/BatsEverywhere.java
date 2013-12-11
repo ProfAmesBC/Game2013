@@ -114,6 +114,7 @@ public class BatsEverywhere implements GLEventListener
     	this.width = width;
     	this.height = height;
     	playerMotion.setDim(width, height);
+    	mummy.setDim(width, height);
         //System.out.println("reshaping to " + width + "x" + height);
 
         GL2 gl = drawable.getGL().getGL2();
