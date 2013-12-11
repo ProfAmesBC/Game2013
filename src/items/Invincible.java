@@ -1,5 +1,6 @@
 package items;
 
+import java.applet.AudioClip;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,8 @@ import com.jogamp.opengl.util.texture.Texture;
 
 public class Invincible extends AbstractPowerUp {
 	//Instant Honor increase
+	private static PlayerAttributes p;
+	private AudioClip invinc;
 	
 	public Invincible(GL2 gl, GLU glu, Point3f p3d, PlayerStats s) {		
 		texture = Building.setupTexture(gl, "yanginvincible.png");//change this later
@@ -32,6 +35,19 @@ public class Invincible extends AbstractPowerUp {
 		type = "Invincibility";
 	}
 
+	public Invincible(GL2 gl, GLU glu, Point3f p3d, PlayerStats s, PlayerAttributes p) {		
+		texture = Building.setupTexture(gl, "yanginvincible.png");//change this later
+		PlayerMotion.registerPlayerWatcher(this);
+		grabbed = false;
+		stats=  s;
+		this.p = p;
+		pX = (float)p3d.getX();
+		pY = (float)p3d.getY();
+		pZ = (float)p3d.getZ();
+		frames = 0;		
+		type = "Invincibility";
+	}
+	
 	public Invincible(GL2 gl, GLU glu, PlayerStats s) {
 		texture = Building.setupTexture(gl, "yanginvincible.png");//change this later
 		PlayerMotion.registerPlayerWatcher(this);
@@ -62,15 +78,25 @@ public class Invincible extends AbstractPowerUp {
 	public void use() {
 		grabbed=true;
 
+		//play invincible music here
+		
 		double time = 10;
 		int originalHealth = stats.checkHealth();
-		while (time>0) {
+		float currentSpeed = p.getStepSize();
+		p.setStepSize(currentSpeed * currentSpeed/2, 10);
+		float newSpeed = p.getStepSize();
+		while (newSpeed!=currentSpeed) {
+			
+			
 			if (stats.checkHealth()<8) {
 				stats.changeHealth(1);
+				
 			}
-			time-=.05;
+			time-=.01;
 		}
 		
+		//cut invincible music here
+
 		stats.changeHealth(originalHealth-stats.checkHealth());
 
 		System.out.println("ACTIVATED");

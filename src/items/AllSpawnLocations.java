@@ -10,11 +10,14 @@ public class AllSpawnLocations {
 	public AllSpawnLocations() {
 		spawns = new ArrayList<Point3f>();
 
-		//for (int x =0; x<600; x+=100) {
-			//for (int z =0; z<500; z+=100) {
-				//spawns.add(new Point3f(x,2,z));
-		//	}	
-		//}
+		for (int x =0; x<600; x+=50) {
+			for (int z =50; z<550; z+=100) {
+				spawns.add(new Point3f(x,2,z));
+			}	
+		}
+		
+		/*
+		 * Manual point insertion; for bug testing
 		spawns.add(new Point3f(3,5,75));
 		spawns.add(new Point3f(5,5,75));
 		spawns.add(new Point3f(7,5,75));
@@ -38,7 +41,7 @@ public class AllSpawnLocations {
 		spawns.add(new Point3f(43,5,75));
 		spawns.add(new Point3f(45,5,75));
 		spawns.add(new Point3f(47,5,75));
-		
+		*/
 
 	}
 	

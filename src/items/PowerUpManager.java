@@ -27,6 +27,7 @@ public class PowerUpManager implements PlayerMotionWatcher {
 	private PlusHonor ph = null;
 	private Invincible invincible = null;
 	private static int DESIRED_SPAWNS = 20;
+	private int z; //variable to count frames / track time
 	
 	AllSpawnLocations poss = new AllSpawnLocations();
 	//Should be able to listen
@@ -120,7 +121,8 @@ public class PowerUpManager implements PlayerMotionWatcher {
 	
 	public void checkList(int time) {
 		
-		if (time>=25) {
+		if (time>=100) {
+			z = 0;
 		//every 90 seconds, if there is room in the array, put random powerup
 		if (emptySpawns.size()>0) {
 			for (int x = 0; x < emptySpawns.size(); x++) {
@@ -151,7 +153,6 @@ public class PowerUpManager implements PlayerMotionWatcher {
 	
 	
 	public void updateLists() {
-		int z = 0;
 		checkList(z);
 
 		for (int t=0; t<spawns.size(); t++) {
@@ -162,7 +163,7 @@ public class PowerUpManager implements PlayerMotionWatcher {
 			}
 		}
 		
-		z+=.5;
+		z+=.1;
 	}
 
 	@Override

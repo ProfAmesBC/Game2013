@@ -14,6 +14,7 @@ public class MusicPlayer implements Runnable {
 	private final int LOOP_FOREVER = -1;
 	private File score = new File("Score Final.mid");
 	private File fanfare = new File("For Boston Fanfare Final.mid");
+	private File invincible = new File("invincible.mid");
 	private File File = score;
 
 	@Override
