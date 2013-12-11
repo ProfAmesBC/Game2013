@@ -18,9 +18,9 @@ import javax.xml.bind.annotation.XmlType;
  * 			A cube map texture sampler for the GLSL profile.
  * 			
  * 
- * <p>Java class for gl_samplerCUBE complex type.
+ * <playerA>Java class for gl_samplerCUBE complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="gl_samplerCUBE">

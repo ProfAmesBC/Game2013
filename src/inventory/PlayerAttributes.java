@@ -14,7 +14,7 @@ public class PlayerAttributes {
 
 	public float getStepSize() {
 		return p.getStep();
-	}
+	} 
 
 	public void setStepSize(float stepSize, int duration) {
 		// calls PlayerMotion
@@ -23,6 +23,15 @@ public class PlayerAttributes {
 
 	public Bag getBag() {
 		return b;
+	}
+
+	public void fly(int height, int duration) {		
+		p.fly(height, duration);
+	}
+
+	public void teleport(int i) {
+		p.teleport(i);
+		
 	}
 
 }

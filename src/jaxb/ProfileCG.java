@@ -26,9 +26,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <playerA>Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -217,20 +217,20 @@ public class ProfileCG {
     /**
      * Gets the value of the codesAndIncludes property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the codesAndIncludes property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCodesAndIncludes().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link FxIncludeCommon }
      * {@link FxCodeProfile }
@@ -247,20 +247,20 @@ public class ProfileCG {
     /**
      * Gets the value of the imagesAndNewparams property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the imagesAndNewparams property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getImagesAndNewparams().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Image }
      * {@link CgNewparam }
@@ -277,20 +277,20 @@ public class ProfileCG {
     /**
      * Gets the value of the techniques property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the techniques property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getTechniques().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link ProfileCG.Technique }
      * 
@@ -306,20 +306,20 @@ public class ProfileCG {
     /**
      * Gets the value of the extras property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extras property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtras().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Extra }
      * 
@@ -386,9 +386,9 @@ public class ProfileCG {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <playerA>Java class for anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <playerA>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>
@@ -561,20 +561,20 @@ public class ProfileCG {
         /**
          * Gets the value of the annotates property.
          * 
-         * <p>
+         * <playerA>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the annotates property.
          * 
-         * <p>
+         * <playerA>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getAnnotates().add(newItem);
          * </pre>
          * 
          * 
-         * <p>
+         * <playerA>
          * Objects of the following type(s) are allowed in the list
          * {@link FxAnnotateCommon }
          * 
@@ -590,20 +590,20 @@ public class ProfileCG {
         /**
          * Gets the value of the codesAndIncludes property.
          * 
-         * <p>
+         * <playerA>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the codesAndIncludes property.
          * 
-         * <p>
+         * <playerA>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getCodesAndIncludes().add(newItem);
          * </pre>
          * 
          * 
-         * <p>
+         * <playerA>
          * Objects of the following type(s) are allowed in the list
          * {@link FxCodeProfile }
          * {@link FxIncludeCommon }
@@ -620,20 +620,20 @@ public class ProfileCG {
         /**
          * Gets the value of the imagesAndNewparamsAndSetparams property.
          * 
-         * <p>
+         * <playerA>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the imagesAndNewparamsAndSetparams property.
          * 
-         * <p>
+         * <playerA>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getImagesAndNewparamsAndSetparams().add(newItem);
          * </pre>
          * 
          * 
-         * <p>
+         * <playerA>
          * Objects of the following type(s) are allowed in the list
          * {@link Image }
          * {@link CgSetparam }
@@ -651,20 +651,20 @@ public class ProfileCG {
         /**
          * Gets the value of the passes property.
          * 
-         * <p>
+         * <playerA>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the passes property.
          * 
-         * <p>
+         * <playerA>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getPasses().add(newItem);
          * </pre>
          * 
          * 
-         * <p>
+         * <playerA>
          * Objects of the following type(s) are allowed in the list
          * {@link ProfileCG.Technique.Pass }
          * 
@@ -680,20 +680,20 @@ public class ProfileCG {
         /**
          * Gets the value of the extras property.
          * 
-         * <p>
+         * <playerA>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the extras property.
          * 
-         * <p>
+         * <playerA>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getExtras().add(newItem);
          * </pre>
          * 
          * 
-         * <p>
+         * <playerA>
          * Objects of the following type(s) are allowed in the list
          * {@link Extra }
          * 
@@ -756,9 +756,9 @@ public class ProfileCG {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * <playerA>Java class for anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * <playerA>The following schema fragment specifies the expected content contained within this class.
          * 
          * <pre>
          * &lt;complexType>
@@ -992,20 +992,20 @@ public class ProfileCG {
             /**
              * Gets the value of the annotates property.
              * 
-             * <p>
+             * <playerA>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the annotates property.
              * 
-             * <p>
+             * <playerA>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getAnnotates().add(newItem);
              * </pre>
              * 
              * 
-             * <p>
+             * <playerA>
              * Objects of the following type(s) are allowed in the list
              * {@link FxAnnotateCommon }
              * 
@@ -1021,20 +1021,20 @@ public class ProfileCG {
             /**
              * Gets the value of the colorTargets property.
              * 
-             * <p>
+             * <playerA>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the colorTargets property.
              * 
-             * <p>
+             * <playerA>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getColorTargets().add(newItem);
              * </pre>
              * 
              * 
-             * <p>
+             * <playerA>
              * Objects of the following type(s) are allowed in the list
              * {@link FxColortargetCommon }
              * 
@@ -1050,20 +1050,20 @@ public class ProfileCG {
             /**
              * Gets the value of the depthTargets property.
              * 
-             * <p>
+             * <playerA>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the depthTargets property.
              * 
-             * <p>
+             * <playerA>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getDepthTargets().add(newItem);
              * </pre>
              * 
              * 
-             * <p>
+             * <playerA>
              * Objects of the following type(s) are allowed in the list
              * {@link FxDepthtargetCommon }
              * 
@@ -1079,20 +1079,20 @@ public class ProfileCG {
             /**
              * Gets the value of the stencilTargets property.
              * 
-             * <p>
+             * <playerA>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the stencilTargets property.
              * 
-             * <p>
+             * <playerA>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getStencilTargets().add(newItem);
              * </pre>
              * 
              * 
-             * <p>
+             * <playerA>
              * Objects of the following type(s) are allowed in the list
              * {@link FxStenciltargetCommon }
              * 
@@ -1108,20 +1108,20 @@ public class ProfileCG {
             /**
              * Gets the value of the colorClears property.
              * 
-             * <p>
+             * <playerA>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the colorClears property.
              * 
-             * <p>
+             * <playerA>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getColorClears().add(newItem);
              * </pre>
              * 
              * 
-             * <p>
+             * <playerA>
              * Objects of the following type(s) are allowed in the list
              * {@link FxClearcolorCommon }
              * 
@@ -1137,20 +1137,20 @@ public class ProfileCG {
             /**
              * Gets the value of the depthClears property.
              * 
-             * <p>
+             * <playerA>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the depthClears property.
              * 
-             * <p>
+             * <playerA>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getDepthClears().add(newItem);
              * </pre>
              * 
              * 
-             * <p>
+             * <playerA>
              * Objects of the following type(s) are allowed in the list
              * {@link FxCleardepthCommon }
              * 
@@ -1166,20 +1166,20 @@ public class ProfileCG {
             /**
              * Gets the value of the stencilClears property.
              * 
-             * <p>
+             * <playerA>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the stencilClears property.
              * 
-             * <p>
+             * <playerA>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getStencilClears().add(newItem);
              * </pre>
              * 
              * 
-             * <p>
+             * <playerA>
              * Objects of the following type(s) are allowed in the list
              * {@link FxClearstencilCommon }
              * 
@@ -1219,20 +1219,20 @@ public class ProfileCG {
             /**
              * Gets the value of the alphaFuncsAndBlendFuncsAndBlendFuncSeparates property.
              * 
-             * <p>
+             * <playerA>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the alphaFuncsAndBlendFuncsAndBlendFuncSeparates property.
              * 
-             * <p>
+             * <playerA>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getAlphaFuncsAndBlendFuncsAndBlendFuncSeparates().add(newItem);
              * </pre>
              * 
              * 
-             * <p>
+             * <playerA>
              * Objects of the following type(s) are allowed in the list
              * {@link ProfileCG.Technique.Pass.ClipPlaneEnable }
              * {@link ProfileCG.Technique.Pass.LightSpotExponent }
@@ -1357,20 +1357,20 @@ public class ProfileCG {
             /**
              * Gets the value of the extras property.
              * 
-             * <p>
+             * <playerA>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the extras property.
              * 
-             * <p>
+             * <playerA>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getExtras().add(newItem);
              * </pre>
              * 
              * 
-             * <p>
+             * <playerA>
              * Objects of the following type(s) are allowed in the list
              * {@link Extra }
              * 
@@ -1409,9 +1409,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -1508,9 +1508,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -1592,9 +1592,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -1678,9 +1678,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -1762,9 +1762,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -1846,9 +1846,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -1877,20 +1877,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -1931,9 +1931,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -2015,9 +2015,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -2099,9 +2099,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -2198,9 +2198,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -2282,9 +2282,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -2368,9 +2368,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -2467,9 +2467,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -2551,9 +2551,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -2637,9 +2637,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -2810,9 +2810,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -2894,9 +2894,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -2978,9 +2978,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -3062,9 +3062,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -3148,9 +3148,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3179,20 +3179,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -3233,9 +3233,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3317,9 +3317,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3401,9 +3401,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3435,20 +3435,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -3513,9 +3513,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3624,9 +3624,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3708,9 +3708,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3739,20 +3739,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Boolean }
                  * 
@@ -3793,9 +3793,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3892,9 +3892,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -3976,9 +3976,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -4062,9 +4062,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4146,9 +4146,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4230,9 +4230,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4314,9 +4314,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4345,20 +4345,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -4399,9 +4399,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4483,9 +4483,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4567,9 +4567,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4651,9 +4651,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4735,9 +4735,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4766,20 +4766,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -4820,9 +4820,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4904,9 +4904,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4988,9 +4988,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5019,20 +5019,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -5073,9 +5073,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5157,9 +5157,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5241,9 +5241,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5325,9 +5325,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5409,9 +5409,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5493,9 +5493,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5577,9 +5577,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5661,9 +5661,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5695,20 +5695,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -5773,9 +5773,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5884,9 +5884,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5918,20 +5918,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -5996,9 +5996,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6107,9 +6107,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6191,9 +6191,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6302,9 +6302,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6333,20 +6333,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -6387,9 +6387,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6471,9 +6471,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6555,9 +6555,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6639,9 +6639,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6673,20 +6673,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -6751,9 +6751,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6862,9 +6862,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6896,20 +6896,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -6974,9 +6974,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7085,9 +7085,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7119,20 +7119,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -7197,9 +7197,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7308,9 +7308,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7392,9 +7392,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7423,20 +7423,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Long }
                  * 
@@ -7477,9 +7477,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7561,9 +7561,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7645,9 +7645,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7729,9 +7729,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7813,9 +7813,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7844,20 +7844,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -7898,9 +7898,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7929,20 +7929,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -7983,9 +7983,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -8014,20 +8014,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -8068,9 +8068,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -8152,9 +8152,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -8183,20 +8183,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -8237,9 +8237,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -8268,20 +8268,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -8322,9 +8322,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -8406,9 +8406,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -8490,9 +8490,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -8521,20 +8521,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -8575,9 +8575,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -8659,9 +8659,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -8743,9 +8743,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -8827,9 +8827,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -8911,9 +8911,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -8995,9 +8995,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -9094,9 +9094,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -9178,9 +9178,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -9264,9 +9264,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -9295,20 +9295,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -9349,9 +9349,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -9433,9 +9433,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -9517,9 +9517,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -9601,9 +9601,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -9685,9 +9685,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -9769,9 +9769,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -9800,20 +9800,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -9854,9 +9854,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -9938,9 +9938,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -10022,9 +10022,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -10106,9 +10106,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -10190,9 +10190,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -10221,20 +10221,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Long }
                  * 
@@ -10275,9 +10275,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -10359,9 +10359,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -10443,9 +10443,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -10529,20 +10529,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the annotates property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the annotates property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getAnnotates().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link FxAnnotateCommon }
                  * 
@@ -10630,20 +10630,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the binds property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the binds property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getBinds().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link ProfileCG.Technique.Pass.Shader.Bind }
                  * 
@@ -10682,9 +10682,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -11386,20 +11386,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed4X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed4X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed4X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11415,20 +11415,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed4X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed4X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed4X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11444,20 +11444,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed4X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed4X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed4X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11473,20 +11473,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed4X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed4X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed4X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11502,20 +11502,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed3X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed3X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed3X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11531,20 +11531,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed3X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed3X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed3X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11560,20 +11560,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed3X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed3X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed3X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11589,20 +11589,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed3X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed3X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed3X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11618,20 +11618,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed2X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed2X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed2X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11647,20 +11647,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed2X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed2X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed2X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11676,20 +11676,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed2X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed2X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed2X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11705,20 +11705,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed2X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed2X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed2X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11734,20 +11734,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed1X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed1X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed1X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11763,20 +11763,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed1X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed1X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed1X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11792,20 +11792,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed1X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed1X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed1X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11821,20 +11821,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed1X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed1X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed1X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11850,20 +11850,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11879,20 +11879,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11908,20 +11908,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the fixed2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the fixed2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFixed2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -11985,20 +11985,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half4X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half4X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf4X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12014,20 +12014,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half4X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half4X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf4X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12043,20 +12043,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half4X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half4X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf4X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12072,20 +12072,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half4X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half4X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf4X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12101,20 +12101,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half3X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half3X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf3X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12130,20 +12130,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half3X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half3X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf3X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12159,20 +12159,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half3X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half3X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf3X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12188,20 +12188,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half3X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half3X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf3X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12217,20 +12217,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half2X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half2X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf2X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12246,20 +12246,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half2X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half2X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf2X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12275,20 +12275,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half2X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half2X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf2X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12304,20 +12304,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half2X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half2X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf2X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12333,20 +12333,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half1X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half1X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf1X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12362,20 +12362,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half1X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half1X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf1X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12391,20 +12391,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half1X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half1X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf1X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12420,20 +12420,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half1X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half1X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf1X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12449,20 +12449,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12478,20 +12478,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12507,20 +12507,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the half2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the half2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getHalf2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -12584,20 +12584,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int4X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int4X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt4X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -12613,20 +12613,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int4X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int4X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt4X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -12642,20 +12642,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int4X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int4X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt4X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -12671,20 +12671,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int4X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int4X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt4X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -12700,20 +12700,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int3X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int3X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt3X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -12729,20 +12729,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int3X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int3X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt3X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -12758,20 +12758,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int3X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int3X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt3X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -12787,20 +12787,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int3X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int3X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt3X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -12816,20 +12816,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int2X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int2X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt2X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -12845,20 +12845,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int2X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int2X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt2X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -12874,20 +12874,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int2X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int2X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt2X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -12903,20 +12903,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int2X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int2X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt2X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -12932,20 +12932,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int1X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int1X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt1X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -12961,20 +12961,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int1X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int1X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt1X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -12990,20 +12990,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int1X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int1X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt1X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -13019,20 +13019,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int1X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int1X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt1X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -13048,20 +13048,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -13077,20 +13077,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -13106,20 +13106,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the int2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -13183,20 +13183,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float4X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float4X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat4X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13212,20 +13212,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float4X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float4X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat4X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13241,20 +13241,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float4X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float4X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat4X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13270,20 +13270,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float4X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float4X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat4X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13299,20 +13299,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float3X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float3X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat3X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13328,20 +13328,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float3X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float3X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat3X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13357,20 +13357,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float3X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float3X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat3X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13386,20 +13386,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float3X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float3X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat3X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13415,20 +13415,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float2X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float2X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat2X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13444,20 +13444,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float2X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float2X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat2X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13473,20 +13473,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float2X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float2X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat2X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13502,20 +13502,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float2X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float2X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat2X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13531,20 +13531,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float1X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float1X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat1X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13560,20 +13560,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float1X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float1X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat1X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13589,20 +13589,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float1X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float1X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat1X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13618,20 +13618,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float1X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float1X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat1X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13647,20 +13647,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13676,20 +13676,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13705,20 +13705,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the float2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -13782,20 +13782,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool4X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool4X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool4X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -13811,20 +13811,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool4X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool4X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool4X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -13840,20 +13840,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool4X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool4X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool4X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -13869,20 +13869,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool4X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool4X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool4X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -13898,20 +13898,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool3X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool3X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool3X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -13927,20 +13927,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool3X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool3X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool3X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -13956,20 +13956,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool3X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool3X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool3X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -13985,20 +13985,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool3X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool3X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool3X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -14014,20 +14014,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool2X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool2X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool2X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -14043,20 +14043,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool2X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool2X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool2X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -14072,20 +14072,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool2X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool2X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool2X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -14101,20 +14101,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool2X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool2X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool2X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -14130,20 +14130,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool1X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool1X4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool1X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -14159,20 +14159,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool1X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool1X3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool1X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -14188,20 +14188,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool1X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool1X2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool1X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -14217,20 +14217,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool1X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool1X1 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool1X1().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -14246,20 +14246,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool4 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -14275,20 +14275,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool3 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -14304,20 +14304,20 @@ public class ProfileCG {
                     /**
                      * Gets the value of the bool2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool2 property.
                      * 
-                     * <p>
+                     * <playerA>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <p>
+                     * <playerA>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -14404,9 +14404,9 @@ public class ProfileCG {
 
 
                     /**
-                     * <p>Java class for anonymous complex type.
+                     * <playerA>Java class for anonymous complex type.
                      * 
-                     * <p>The following schema fragment specifies the expected content contained within this class.
+                     * <playerA>The following schema fragment specifies the expected content contained within this class.
                      * 
                      * <pre>
                      * &lt;complexType>
@@ -14459,9 +14459,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -14513,9 +14513,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -14598,9 +14598,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -14734,9 +14734,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -14818,9 +14818,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -14903,9 +14903,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -14990,9 +14990,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -15163,9 +15163,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -15247,9 +15247,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -15331,9 +15331,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -15416,9 +15416,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -15503,9 +15503,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -15587,9 +15587,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -15686,9 +15686,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -15770,9 +15770,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -15857,9 +15857,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -15993,9 +15993,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -16077,9 +16077,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -16161,9 +16161,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -16247,9 +16247,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -16420,9 +16420,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -16504,9 +16504,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -16588,9 +16588,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -16672,9 +16672,9 @@ public class ProfileCG {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <playerA>Java class for anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <playerA>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -16758,9 +16758,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -16842,9 +16842,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -16952,9 +16952,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -17063,9 +17063,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -17173,9 +17173,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -17284,9 +17284,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -17394,9 +17394,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -17505,9 +17505,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -17615,9 +17615,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -17726,9 +17726,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -17836,9 +17836,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -17947,9 +17947,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -17981,20 +17981,20 @@ public class ProfileCG {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <p>
+                 * <playerA>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <p>
+                 * <playerA>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -18059,9 +18059,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -18166,9 +18166,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -18276,9 +18276,9 @@ public class ProfileCG {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <playerA>Java class for anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <playerA>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>

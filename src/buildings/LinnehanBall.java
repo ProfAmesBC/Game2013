@@ -6,11 +6,11 @@ import javax.media.opengl.glu.*;
 
 import com.jogamp.opengl.util.texture.Texture;
 
-public class Ball extends Building{
+public class LinnehanBall extends Building{
     private GLUquadric quadric; // to control properties of quadric-based objects here
     private Texture flagTexture;
   
-    public Ball(GL2 gl, GLU glu) {
+    public LinnehanBall(GL2 gl, GLU glu) {
         quadric = glu.gluNewQuadric();
         glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
         glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
