@@ -5,6 +5,7 @@ import inventory.ItemFactory;
 import inventory.PlayerActions;
 import inventory.PlayerAttributes;
 import items.PowerUpManager;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.net.SocketException;
@@ -39,7 +40,7 @@ import sketchupModels.Avatar;
 import weapons.PipeWeapon;
 import weapons.Projectile;
 import weapons.ProjectileWeapons;
- 
+
 import Music.MusicPlayer;
 import Enemies.Bat;
 import Enemies.MoveSwarm;
@@ -95,11 +96,8 @@ public class BatsEverywhere implements GLEventListener
         private StatusText writer;
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
-
-
     private Player player;
   //  private Avatar psy;
-
     private static MusicPlayer jukebox = new MusicPlayer();
 
     private WeaponManager weaponManager = null;
@@ -130,7 +128,7 @@ public class BatsEverywhere implements GLEventListener
     public synchronized static Semaphore getSem() {
         return isUpdate;
     }
-
+    
     
     public void init(GLAutoDrawable drawable) {
         //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
@@ -139,6 +137,7 @@ public class BatsEverywhere implements GLEventListener
         statusLine.setEditable(false);
 
         chatLine.setEditable(true); //testing chat 
+
 
         initFog(gl);//fog
         gl.setSwapInterval(1); // for animation synchronized to refresh rate
@@ -159,10 +158,6 @@ public class BatsEverywhere implements GLEventListener
             // TODO Auto-generated catch block
              e.printStackTrace();
         }
-
-
-
-        
         weaponManager = new WeaponManager();
         weaponManager.init(gl, glu);
         weapon = weaponManager.getWeapon();
@@ -188,6 +183,7 @@ public class BatsEverywhere implements GLEventListener
         //jukebox.loadFanfare();
 		Thread player = new Thread(jukebox);
 		player.run();
+
     }
 
         //psy = new Avatar(gl,glu);
@@ -317,18 +313,6 @@ public class BatsEverywhere implements GLEventListener
         long startTime = System.currentTimeMillis();
         GL2 gl  = drawable.getGL().getGL2();
 
-/*-----------------------------------------------------------------------------------        
-<<<<<<< HEAD
-        this.playerMotion.setScreenLocation(
-                this.canvas.getLocationOnScreen());
- 
-        gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
-=======
-
----------------------------------------------------------------------------------*/
-        
-        
-        gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
         
         gl.glFogi (GL2.GL_FOG_MODE, fogMode);//fog
         gl.glFogf (GL2.GL_FOG_DENSITY, fogDensity);//fog
@@ -366,6 +350,7 @@ public class BatsEverywhere implements GLEventListener
 
         projectileWeapons.update(gl, glu);
 
+
         //   System.out.println("Trying to acquire");
          //while(isUpdate.tryAcquire()) {
             for (Integer i : BatsEverywhere.getPlayers().keySet()) {
@@ -373,6 +358,7 @@ public class BatsEverywhere implements GLEventListener
                  BatsEverywhere.getPlayers().get(i).draw(gl, glu);
     //        }
         }
+
         for (Creature c: creatures){
                 c.draw(gl, glu);
         }
@@ -585,6 +571,7 @@ public class BatsEverywhere implements GLEventListener
          renderer.controls.append("M: toggle mouse\n");
          //renderer.controls.append()
          
+
 //<<<<<<< HEAD
 //        //frame.add(renderer.statusLine, BorderLayout.SOUTH);//testing chat
 //        frame.add(renderer.chatLine, BorderLayout.SOUTH);//testing chat 
@@ -598,6 +585,7 @@ public class BatsEverywhere implements GLEventListener
 //        CLT.start(); 
 //        frame.add(renderer.canvas, BorderLayout.CENTER);
 //=======
+
          renderer.controls.setEditable(false);        // don't let you edit text once it's established
          
          frame.setLayout(new BorderLayout());

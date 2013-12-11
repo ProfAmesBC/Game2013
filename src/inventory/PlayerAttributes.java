@@ -32,5 +32,7 @@ public class PlayerAttributes {
 	public void teleport(int i) {
 		p.teleport(i);
 		
+
 	}
+
 }

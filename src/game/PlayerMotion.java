@@ -63,11 +63,14 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     
     public float getTheta() {
     	return theta;
+
     }
 
     public void setEyeX(float x) {
             eyeX=x;
     }
+    
+
     
     public void notifyObservers() {
     	   for (PlayerMotionWatcher wd : watchers)
@@ -409,11 +412,11 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     public float getStep() {
         return step;
     }
-
         public void teleport(int i) {
         	dx += (Math.cos(Math.toRadians(theta))*i);
             dz += (-Math.sin(Math.toRadians(theta))*i);
             eyeX = eyeX + dx;        
             eyeZ = eyeZ + dz;
         }
+
 }

@@ -394,4 +394,8 @@ public class LaserGunWeapon extends ProjectileWeapons {
 		gl.glDisableClientState(GL2.GL_TEXTURE_COORD_ARRAY);
 		}
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> refs/remotes/origin/master

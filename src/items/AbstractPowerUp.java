@@ -83,7 +83,7 @@ public abstract class AbstractPowerUp implements Item {
 	}
 	
 	public abstract void linkLocation(Point3f f);
-	
+
 	public void bugtest() {
 		System.out.println(type);
 	}
