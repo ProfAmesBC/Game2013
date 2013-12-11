@@ -6,11 +6,14 @@ import game.Building;
 import game.PlayerMotion;
 import game.PlayerMotionWatcher;
 import game.PlayerStats;
+
 import java.util.Random;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 import javax.media.opengl.glu.GLUquadric;
+
+import weapons.Projectile;
 
 import com.jogamp.opengl.util.texture.Texture;
 
@@ -52,7 +55,7 @@ public class Mummy implements Creature, PlayerMotionWatcher, ProjectileWatcher{
         agro = false;
         dead = false;
         PlayerMotion.registerPlayerWatcher(this);
-        
+        Projectile.registerProjectileWatcher(this);
 		
 	}
 	
@@ -325,7 +328,7 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 	
 	@Override
 	public void projectileMoved(double x, double z) {
-		if((Math.abs(locx-x) < 3) && (Math.abs(locz-z) < 3)){
+		if((Math.abs(locx-x) < 2) && (Math.abs(locz-z) < 2)){
 			BatsEverywhere.creatures.remove(this);
 		}
 	}
@@ -338,7 +341,7 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 		playerAngle = angle;
 		float distance  = (float) Math.sqrt(Math.pow((locx-x),2) + Math.pow((locy-y),2));
 		if (distance < sightRadius) {agro = true;}
-		if(distance < 5&&!attacking){
+		if(distance < 3&&!attacking){
 			attacking=true;
 			s.changeHealth(-1);
 			new Thread(new Runnable(){
