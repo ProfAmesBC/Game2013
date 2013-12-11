@@ -315,10 +315,14 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 		gl.glRotatef(eyeAngle+270, 0, -1, 0);
 		drawMoving(gl, glu, T/60);
 	
-		
+		// unsure how to resolve this change!! -Fiona
+//<<<<<<< HEAD
 		
 		gl.glPopMatrix();
 		move();
+//=======
+//		System.out.println("Position: " + locx + " " + locz);
+//>>>>>>> refs/heads/weapons
 		
 		 T+=1f;
 		 if (T > 60) T = 0;

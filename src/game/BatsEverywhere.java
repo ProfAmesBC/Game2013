@@ -11,6 +11,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.KeyListener;
 import java.io.File; //For capturing screen shot
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import weapons.BludgeoningWeapon;
-import weapons.PopulateWeapons;
+import weapons.WeaponManager;
 import creatures.Robot;
 import sketchupModels.Avatar;
 import weapons.PipeWeapon;
@@ -56,7 +57,7 @@ public class BatsEverywhere implements GLEventListener
     private GLU glu = new GLU();
     private Town town;
     private int height, width;
-    private BludgeoningWeapon pipe = null;
+    private BludgeoningWeapon weapon = null;
     private PlayerMotion playerMotion = new PlayerMotion();
     private PlayerStats stats=new PlayerStats(playerMotion);
     private ProjectileWeapons projectileWeapons = new ProjectileWeapons(stats);
@@ -68,7 +69,7 @@ public class BatsEverywhere implements GLEventListener
         private StatusText writer;
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
-    private PopulateWeapons pw = new PopulateWeapons();
+    private WeaponManager weaponManager = null;
     private CritterGroup catGroup,rabbitGroup;
     private Bat bat;
     private Mummy mummy;
@@ -109,6 +110,15 @@ public class BatsEverywhere implements GLEventListener
 
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
+        
+        weaponManager = new WeaponManager();
+        weaponManager.init(gl, glu);
+        weapon = weaponManager.getWeapon();
+        weapon.init(gl, glu);
+        canvas.addKeyListener(weapon);	// add key listener to bludgeoning weapons
+        canvas.addKeyListener(weaponManager);
+//        mummy = new Mummy(30, 100, gl, glu);
+//        pacManGhost = new PacManGhost(25, 95, gl, glu);
 
         creatures.add(new Mummy(30,100,gl, glu));
         creatures.add(new PacManGhost(25,95,gl, glu));
@@ -274,6 +284,12 @@ public class BatsEverywhere implements GLEventListener
         }
         
         Robot.drawRobots(gl, glu);
+        weapon = weaponManager.getWeapon();
+//        weapon.update(gl, glu);
+        weaponManager.draw(gl, glu);
+ 
+//        Robot.drawZombies(gl, glu);
+        
         catGroup.draw(gl, glu);
         rabbitGroup.draw(gl, glu);
         
@@ -437,6 +453,8 @@ public class BatsEverywhere implements GLEventListener
                  renderer.controls.append("Shift: sprint\n");
          renderer.controls.append("\n");
          renderer.controls.append("Space/MouseClick: fireball\n");
+         renderer.controls.append("O: use bludgeoning weapon\n");
+         renderer.controls.append("P: pick up weapon\n");
          renderer.controls.append("1: use speed item\n");
          renderer.controls.append("2: use jetpack item\n");
          renderer.controls.append("3: use teleporter item\n");
@@ -444,11 +462,7 @@ public class BatsEverywhere implements GLEventListener
          renderer.controls.append("M: toggle mouse\n");
          //renderer.controls.append()
          
-         
          renderer.controls.setEditable(false);        // don't let you edit text once it's established
-         
-     
-         
          
          frame.setLayout(new BorderLayout());
          //frame.add(renderer.statusLine, BorderLayout.SOUTH);
@@ -460,6 +474,7 @@ public class BatsEverywhere implements GLEventListener
          frame.setVisible(true);
          renderer.canvas.addKeyListener(renderer.playerActions);
          renderer.canvas.addKeyListener(renderer.playerMotion);
+//         renderer.canvas.addKeyListener((KeyListener) renderer.weaponManager);
          renderer.canvas.addMouseMotionListener(renderer.playerMotion);
          renderer.canvas.addKeyListener(renderer.projectileWeapons);
 //         renderer.canvas.addKeyListener(renderer.bw);	// add key listener to bludgeoning weapons
