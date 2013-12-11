@@ -20,7 +20,7 @@ public abstract class AbstractPowerUp implements Item {
 	protected float playerX, playerY, playerZ;
 	protected boolean grabbed;
 	protected double T;
-	protected static PlayerAttributes p;
+	protected static PlayerAttributes playerA;
 	protected int frames;
 	protected int counter;
 	protected PlayerStats stats;
@@ -50,7 +50,7 @@ public abstract class AbstractPowerUp implements Item {
 	@Override
 	public abstract void use();
 
-	private boolean grabConditions() {
+	public boolean grabConditions() {
 		if ((pX - 3 < playerX && pZ - 3 < playerZ)
 				&& (pX + 5 > playerX) && (pZ + 5 > playerZ)
 				&& (grabbed == false))
@@ -64,29 +64,29 @@ public abstract class AbstractPowerUp implements Item {
 	@Override
 	public abstract String getType();
 			
-	private float getLocationX() {
+	public float getLocationX() {
 		return pX;
 	}
-	private float getLocationY() {
+	public float getLocationY() {
 		return pY;
 	}
-	private float getLocationZ() {
+	public float getLocationZ() {
 		return pZ;
 	}
-	private Point3f getLocation() {
+	public Point3f getLocation() {
 		return location;
 	}
-	private float getAngle() {
+	public float getAngle() {
 		return angle;
 	}
-	private void linkLocation(Point3f f) {
+	public void linkLocation(Point3f f) {
 		pX = f.getX();
 		pY = f.getY();
 		pZ = f.getZ();
 		location = f;
 	}
 	
-	private void bugtest() {
+	public void bugtest() {
 		System.out.println(type);
 	}
 	

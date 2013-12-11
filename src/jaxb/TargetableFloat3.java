@@ -26,9 +26,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 			be targeted for animation.
  * 			
  * 
- * <p>Java class for TargetableFloat3 complex type.
+ * <playerA>Java class for TargetableFloat3 complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="TargetableFloat3">
@@ -58,20 +58,20 @@ public class TargetableFloat3 {
     /**
      * Gets the value of the values property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the values property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getValues().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Double }
      * 
