@@ -20,10 +20,10 @@ public class HPHeal extends AbstractPowerUp {
 	//Instant HP Heal
 	
 	public HPHeal(GL2 gl, GLU glu, Point3f p3d, PlayerStats s) {
-		//texture = Building.setupTexture(gl, "texturechair.png");//change this later
+		texture = Building.setupTexture(gl, "FMPskull.png");//change this later
 		PlayerMotion.registerPlayerWatcher(this);
 		grabbed = false;
-		this.p = p;
+		stats=  s;
 		pX = (float)p3d.getX();
 		pY = (float)p3d.getY();
 		pZ = (float)p3d.getZ();
@@ -46,6 +46,8 @@ public class HPHeal extends AbstractPowerUp {
 		// gl.glTranslated(-itemX, -(Math.sin(Math.toRadians(T*360+180 ))+2),
 		// -itemZ);
 		//texture.bind(gl);
+
+		texture.bind(gl);
 
 		gl.glBegin(GL2.GL_QUADS);
 		gl.glTexCoord2f(0f, 2f);
@@ -93,6 +95,49 @@ public class HPHeal extends AbstractPowerUp {
 		gl.glVertex3f(2.5f, 0, -5);
 		gl.glEnd();
 
+		// leftwall
+		gl.glBegin(GL2.GL_QUADS);
+		gl.glTexCoord2f(0f, 2f);
+		gl.glVertex3f(-2.5f, 0, 0);
+		gl.glTexCoord2f(3f, 2f);
+		gl.glVertex3f(-2.5f, 5, 0);
+		gl.glTexCoord2f(3f, 0f);
+		gl.glVertex3f(-2.5f, 5, -5);
+		gl.glTexCoord2f(0f, 0f);
+		gl.glVertex3f(-2.5f, 0, -5);
+		gl.glEnd();
+		gl.glBegin(GL2.GL_QUADS);
+		gl.glTexCoord2f(0f, 2f);
+		gl.glVertex3f(-2.5f, 0, 0);
+		gl.glTexCoord2f(0f, 0f);
+		gl.glVertex3f(-2.5f, 0, -5);
+		gl.glTexCoord2f(3f, 0f);
+		gl.glVertex3f(-2.5f, 5, -5);
+		gl.glTexCoord2f(3f, 2f);
+		gl.glVertex3f(-2.5f, 5, 0);
+		gl.glEnd();
+
+		// Rightwall
+		gl.glBegin(GL2.GL_QUADS);
+		gl.glTexCoord2f(0f, 2f);
+		gl.glVertex3f(2.5f, 0, 0);
+		gl.glTexCoord2f(3f, 2f);
+		gl.glVertex3f(2.5f, 5, 0);
+		gl.glTexCoord2f(3f, 0f);
+		gl.glVertex3f(2.5f, 5, -5);
+		gl.glTexCoord2f(0f, 0f);
+		gl.glVertex3f(2.5f, 0, -5);
+		gl.glEnd();
+		gl.glBegin(GL2.GL_QUADS);
+		gl.glTexCoord2f(0f, 2f);
+		gl.glVertex3f(2.5f, 0, 0);
+		gl.glTexCoord2f(0f, 0f);
+		gl.glVertex3f(2.5f, 0, -5);
+		gl.glTexCoord2f(3f, 0f);
+		gl.glVertex3f(2.5f, 5, -5);
+		gl.glTexCoord2f(3f, 2f);
+		gl.glVertex3f(2.5f, 5, 0);
+		gl.glEnd();
 
 		// floor
 		gl.glBegin(GL2.GL_QUADS);
@@ -142,7 +187,6 @@ public class HPHeal extends AbstractPowerUp {
 
 		gl.glDisable(GL2.GL_CULL_FACE);
 		gl.glDisable(GL2.GL_TEXTURE_2D);
-		
 	}
 
 	@Override

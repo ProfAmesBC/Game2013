@@ -20,7 +20,7 @@ public abstract class AbstractPowerUp implements Item {
 	protected float playerX, playerY, playerZ;
 	protected boolean grabbed;
 	protected double T;
-	protected static PlayerAttributes p;
+	protected static PlayerAttributes playerA;
 	protected int frames;
 	protected int counter;
 	protected PlayerStats stats;
