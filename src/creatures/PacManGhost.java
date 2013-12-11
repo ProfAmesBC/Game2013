@@ -147,8 +147,10 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 	}
 	
 	public void draw(GL2 gl, GLU glu) {
+		gl.glPushMatrix();
 		drawGhost(gl, glu, X, Y, Z);
 		move();
+		gl.glPopMatrix();
 	}
 	
 	public void drawStillMotion() {
@@ -172,7 +174,7 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 	
 	public void move() {
 		if (seesPlayer) {
-//			moveTowardsPlayer();
+			moveTowardsPlayer();
 		} else {
 			moveIdle();
 			drawStillMotion();
@@ -201,19 +203,25 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 		
 	}
 	
-	public void moveTowardsPlayer(GL2 gl, GLU glu) {
-		directionAngle = playerAngle - 180;
-		
-		//get player x get player z
-		//get ghost x get ghost z
-		// find slope 
-		drawStillMotion();
+	public void moveTowardsPlayer() {		
+		double xV = playerX-X;
+    	double zV = playerZ-Z;
+    	double dotProduct = xV * 0.2 + zV * 0.2;
+    	double lengthV1 = Math.sqrt((xV*xV)+(zV*zV));
+    	lengthV1 = lengthV1 * lengthV1;
+    	double constant = dotProduct / lengthV1;
+    	double dx = constant * xV*0.2;
+    	double dz = constant * zV*0.2;
+    	dx = Math.abs(dx);
+    	dz = Math.abs(dz);
+    	if(playerZ<Z){ Z-=dz; }
+    	else{ Z+=dz; }
+    	if(playerX<X){X-=dx;}
+    	else{	X+=dx;}
 	}
 	
 	public void animateDeath(GL2 gl, GLU glu) {
-		gl.glColor3d(0,0,1);
 		if (Y <= 0) {
-			gl.glColor3d(1,1,1);
 			visible = false;
 		} else {
 			Y = Y - 0.03f;
