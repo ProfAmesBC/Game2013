@@ -11,11 +11,12 @@ public class MoveSwarm {
 
 	public MoveSwarm(GL2 gl, GLU glu) {
 		swarm = new ArrayList<BasicBat>();
+		swarm2 = new ArrayList<BasicBat>();
 		
 		for (int i = 0; i < 50; i++) {
 			int j = (int) (Math.random()*20) - 10;
 			int k = (int) (Math.random()*20) - 10;
-			swarm.add(new BasicBat(gl, glu, 200+j, 200+k));
+			swarm.add(new BasicBat(gl, glu, 10+j, 50+k));
 		}
 		/*for (int i = 0; i < 50; i++) {
 			int j = (int) (Math.random()*20) - 10;
