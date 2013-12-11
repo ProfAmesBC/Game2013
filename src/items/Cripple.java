@@ -96,7 +96,7 @@ public class Cripple extends AbstractPowerUp {
 
 	public void use() {
 		float currentSpeed = p.getStepSize();
-		int duration = 60;
+		int duration = 90;
 		// calls PlayerAttributes
 		p.setStepSize(currentSpeed - currentSpeed/2, duration);
 	}
