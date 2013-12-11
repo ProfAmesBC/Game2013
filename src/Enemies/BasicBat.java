@@ -8,52 +8,25 @@ import javax.media.opengl.glu.GLUquadric;
 public class BasicBat implements Enemies {
 	
 	//initialize graphics variables
-	private float x, y, z;
-	
-	
+	private float x, y, z, dx, dz, speed, scale;
 	private float direction; //angle from X axis
-	private float dx;
-	private float dz;
-	
-	private float speed;
-	private float scale;
 	private double T;
 	private GLUquadric quadric; 
 	private float bodyRadius = 1;
 	private float lowerWingLength = 1.5f;
 	private float upperWingLength = 2;
 	
+	//display lists
+	private static int displayListWing1 = 4, displayListWing2 = 4,
+			displayListWing3 = 4, displayListWing4 = 4, displayListWing5 = 4;
+	
 	//initialize status variables
 	private boolean dead = false;
 	private float maxHP = 10;
 	private float currentHP = maxHP;
 	
-	
-	
 	//constructors
 	public BasicBat(){}
-	
-	public BasicBat(GL2 gl, GLU glu) {
-		
-		//quadric set-up
-		quadric = glu.gluNewQuadric();
-		glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
-        glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
-        glu.gluQuadricTexture  (quadric, false);        // use true to generate texture coordinates
-        
-        //
-        scale = (float) 0.25;
-        speed = 1;
-		bodyRadius*=scale;
-        lowerWingLength*=scale;
-        upperWingLength*=scale;
-        x = 40;
-        y = 6;
-        z = 0;
-        T=0;
-        direction=90;
-        dead = false;
-	}
 	
 	public BasicBat(GL2 gl, GLU glu, float x, float z) {
 		
@@ -63,7 +36,6 @@ public class BasicBat implements Enemies {
         glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
         glu.gluQuadricTexture  (quadric, false);        // use true to generate texture coordinates
         
-        //
         scale = (float) 0.25;
         speed = 10;
 		bodyRadius*=scale;
@@ -77,14 +49,19 @@ public class BasicBat implements Enemies {
         dead = false;
         dx = 0;
         dz = 0;
+        
+        //create display lists
+        if (displayListWing1 == 4) {
+        	displayListWing1 = gl.glGenLists(1);
+        	gl.glNewList(displayListWing1, GL2.GL_COMPILE);
+        	draw1(gl, glu);
+        	gl.glEndList();
+        }
 	}
 	
-	
-	
 	//Drawing methods
-	
 	public void drawWing(GL2 gl, boolean rightWing){
-		//System.out.println("entering drawWing");
+		
 		float flip = 1;
 		if(rightWing){flip = -1;}
 		
@@ -122,11 +99,8 @@ public class BasicBat implements Enemies {
 	}
 	
 	public void drawBody(GL2 gl, GLU glu){
-		//System.out.println("entering drawBody");
 		
 		float scaledEyeDistance = scale*(float) Math.sin(45)/2 ;
-		//y+= inverse of the added y value of the further part of the upper wing
-		//currently that looks like: y -= flip*upperWingLength*(float)Math.sin(upperDegree)
 		
 		//body of the bat 
 		gl.glPushMatrix();
@@ -158,19 +132,15 @@ public class BasicBat implements Enemies {
 	}
 	
 	public void draw1(GL2 gl, GLU glu) {
-		//System.out.println("entering draw 1");
 		drawBody(gl, glu);
 		drawWing(gl, false);
 		drawWing(gl, true);
 	}
 	
 	public void draw2(GL2 gl, GLU glu){
-		//System.out.println("entering draw 2");
 		
 		float bodyMoveSin = lowerWingLength*(float)Math.sin(Math.toRadians((float)(45+45*Math.sin(Math.toRadians(T*360)))));
 		
-		//x+=(float) (.01*speed*Math.sin(Math.toRadians(direction)));
-		//z+=(float) (.01*speed*Math.cos(Math.toRadians(direction)));
 		gl.glPushMatrix();
 			gl.glTranslatef(x, y+bodyMoveSin/2, z);
 			gl.glRotated(direction, 0, 1, 0);
@@ -179,12 +149,6 @@ public class BasicBat implements Enemies {
 		
 		//increment T
 		T +=.01*speed;
-		
-		//move bat
-		//x+=(float) (.01*speed*dx);
-		//z+=(float) (.01*speed*dz);
-		
-		
 	}
 	
 	//graphics getters
@@ -211,13 +175,7 @@ public class BasicBat implements Enemies {
 	public void setDZ(float dz){this.dz=dz;}
 	public void setSpeed(float speed) {this.speed = speed;}
 	public void setScale(float scale) {this.scale = scale;}
-	public void kill(){
-		dead = true;
-		
-		//make a noise on death?
-		
-		//fall on death?
-		}
+	public void kill(){dead = true;}
 	
 	//status setters
 	public void setCurrentHealth(float currentHP){this.currentHP = currentHP;}

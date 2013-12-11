@@ -75,7 +75,6 @@ public class BatsEverywhere implements GLEventListener
 
     private WeaponManager weaponManager = null;
     private CritterGroup catGroup,rabbitGroup;
-    private Bat bat;
     private Mummy mummy;
     private PacManGhost pacManGhost;
     private Texture minimaptexture;
@@ -138,7 +137,6 @@ public class BatsEverywhere implements GLEventListener
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
 
-        bat = new Bat(gl, glu);
 
         moveSwarm = new MoveSwarm(gl, glu);
         
@@ -330,9 +328,8 @@ public class BatsEverywhere implements GLEventListener
         powerUpManager.draw(gl, glu);
 
         
-      //  bat.draw(gl, glu);
         //mummy.draw(gl, glu);
-    //    moveSwarm.draw(gl, glu);
+        moveSwarm.draw(gl, glu);
         // check for errors, at least once per frame
 
         
