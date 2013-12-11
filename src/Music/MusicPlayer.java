@@ -18,6 +18,7 @@ public class MusicPlayer {
 	}
 	
 	public void playFanfare(){
+			m.cleanUp();
 		play("Fanfare");
 	}
 	

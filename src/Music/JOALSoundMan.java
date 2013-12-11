@@ -220,4 +220,8 @@ public class JOALSoundMan{
 		al.alListenerfv(AL.AL_ORIENTATION, oriLis, 0); 
 	} // end of turnListener()
 
+	public boolean isPlaying(){
+		return (!sourcesMap.isEmpty());
+	}
+	
 }
