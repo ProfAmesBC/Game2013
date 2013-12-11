@@ -16,6 +16,10 @@ public class BasicBat implements Enemies {
 	private float lowerWingLength = 1.5f;
 	private float upperWingLength = 2;
 	
+	//display lists
+	private static int displayListWing1 = 4, displayListWing2 = 4,
+			displayListWing3 = 4, displayListWing4 = 4, displayListWing5 = 4;
+	
 	//initialize status variables
 	private boolean dead = false;
 	private float maxHP = 10;
@@ -45,6 +49,14 @@ public class BasicBat implements Enemies {
         dead = false;
         dx = 0;
         dz = 0;
+        
+        //create display lists
+        if (displayListWing1 == 4) {
+        	displayListWing1 = gl.glGenLists(1);
+        	gl.glNewList(displayListWing1, GL2.GL_COMPILE);
+        	draw1(gl, glu);
+        	gl.glEndList();
+        }
 	}
 	
 	//Drawing methods
