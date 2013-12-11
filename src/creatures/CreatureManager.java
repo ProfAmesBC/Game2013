@@ -1,15 +1,14 @@
 package creatures;
 
 import game.BatsEverywhere;
-
-import java.util.Stack;
-
+import java.util.LinkedList;
+import java.util.Queue;
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
 public class CreatureManager {
 	
-	private static Stack<Location> spawnLocations = new Stack<Location>();
+	private static Queue<Location> spawnLocations = new LinkedList<Location>();
 	private static GL2 gl;
 	private static GLU glu;
 	
@@ -19,11 +18,11 @@ public class CreatureManager {
 	}
 	
 	public static void addLocation(Location spawnLocation){
-		spawnLocations.push(spawnLocation);
+		spawnLocations.add(spawnLocation);
 	}
 	
 	public static void addRobot(){
-		Location l = spawnLocations.pop();
+		Location l = spawnLocations.remove();
 		BatsEverywhere.creatures.add(new Robot((double)l.getX(),(double)l.getZ(),gl,glu));
 	}
 }
