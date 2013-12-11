@@ -270,7 +270,6 @@ public class Jetpack implements Item {
 	@Override
 	public void draw(GL2 gl, GLU glu, float x, float y, float z) {
 		// TODO Auto-generated method stub
-		
 
 	}
 

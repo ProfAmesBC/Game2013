@@ -278,7 +278,6 @@ public class Cripple extends AbstractPowerUp {
 	@Override
 	public void linkLocation(Point3f f) {
 		// TODO Auto-generated method stub
-		
 
 	}
 

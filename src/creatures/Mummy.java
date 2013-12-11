@@ -317,7 +317,6 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 	
 		// unsure how to resolve this change!! -Fiona
 //<<<<<<< HEAD
-		
 
 		gl.glPopMatrix();
 		move();

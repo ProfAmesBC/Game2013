@@ -64,6 +64,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     public float getTheta() {
     	return theta;
 
+
     }
 
     public void setEyeX(float x) {

@@ -7,12 +7,12 @@ import inventory.PlayerAttributes;
 import items.PowerUpManager;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.net.SocketException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
- import java.util.concurrent.Semaphore;
-
+import java.util.concurrent.Semaphore;
 import java.awt.Font;
 import java.awt.event.KeyListener;
 import java.io.File; //For capturing screen shot
@@ -26,7 +26,7 @@ import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.GLEventListener;
 import javax.media.opengl.GLProfile;
 import javax.media.opengl.awt.GLCanvas;
- import javax.media.opengl.glu.GLU;
+import javax.media.opengl.glu.GLU;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -40,7 +40,6 @@ import sketchupModels.Avatar;
 import weapons.PipeWeapon;
 import weapons.Projectile;
 import weapons.ProjectileWeapons;
-
 import Music.MusicPlayer;
 import Enemies.Bat;
 import Enemies.MoveSwarm;
@@ -49,7 +48,6 @@ import catsrabbits.CritterGroup;
 import catsrabbits.RabbitGroup;
 
 import com.jogamp.opengl.util.FPSAnimator;
-
 import com.jogamp.opengl.util.GLReadBufferUtil;
 import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureIO;
@@ -96,8 +94,11 @@ public class BatsEverywhere implements GLEventListener
         private StatusText writer;
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
+
     private Player player;
   //  private Avatar psy;
+
+
     private static MusicPlayer jukebox = new MusicPlayer();
 
     private WeaponManager weaponManager = null;
@@ -121,43 +122,40 @@ public class BatsEverywhere implements GLEventListener
     private static Map<Integer, Player> playerMap;
     private static Semaphore isUpdate;
 
+
     public synchronized static Map<Integer, Player> getPlayers() {
         return playerMap;
      }
 
     public synchronized static Semaphore getSem() {
-        return isUpdate;
-    }
-    
+        return isUpdate;}
+
     
     public void init(GLAutoDrawable drawable) {
-        //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
-         //drawable.setGL(new TraceGL2(drawable.getGL().getGL2(), System.out)); // to trace every call.  Less useful.
+      //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
+      //drawable.setGL(new TraceGL2(drawable.getGL().getGL2(), System.out)); // to trace every call.  Less useful.
         GL2 gl = drawable.getGL().getGL2();
+        controls.setForeground(Color.DARK_GRAY);
+        controls.setBackground(Color.LIGHT_GRAY);
+        controls.setFont(new Font("Serif", Font.ITALIC, 13));
         statusLine.setEditable(false);
-
-        chatLine.setEditable(true); //testing chat 
-
-
         initFog(gl);//fog
         gl.setSwapInterval(1); // for animation synchronized to refresh rate
         gl.glClearColor(.7f,.7f,1f,0f); // background
         gl.glTexEnvf(GL2.GL_TEXTURE_ENV, GL2.GL_TEXTURE_ENV_MODE, GL2.GL_REPLACE); // or GL_MODULATE
-         gl.glHint(GL2.GL_PERSPECTIVE_CORRECTION_HINT, GL2.GL_NICEST); // or GL_FASTEST
-        //PlayerMotion.registerPlayerWatcher(logger);
+        gl.glHint(GL2.GL_PERSPECTIVE_CORRECTION_HINT, GL2.GL_NICEST); // or GL_FASTEST
+        
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
         itemCreator = new ItemFactory(gl, glu, playerAttributes);
+
         itemCreator.testCreate();
+
+        writer = new StatusText(drawable);
         town = new Town(gl, glu);
 
-         try {
-            player = new Player(gl, glu, playerMotion);
-            BatsEverywhere.getPlayers().put(player.getID(), player); 
-        } catch (SocketException e) {
-            // TODO Auto-generated catch block
-             e.printStackTrace();
-        }
+
+        
         weaponManager = new WeaponManager();
         weaponManager.init(gl, glu);
         weapon = weaponManager.getWeapon();
@@ -184,8 +182,11 @@ public class BatsEverywhere implements GLEventListener
 		Thread player = new Thread(jukebox);
 		player.run();
 
-    }
 
+    }
+    
+    
+  
         //psy = new Avatar(gl,glu);
    // }
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -313,6 +314,8 @@ public class BatsEverywhere implements GLEventListener
         long startTime = System.currentTimeMillis();
         GL2 gl  = drawable.getGL().getGL2();
 
+        gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+
         
         gl.glFogi (GL2.GL_FOG_MODE, fogMode);//fog
         gl.glFogf (GL2.GL_FOG_DENSITY, fogDensity);//fog
@@ -340,13 +343,15 @@ public class BatsEverywhere implements GLEventListener
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT); //clear that town  
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
 
-        itemCreator.update();
+        itemCreator.update(); 
         
         if(fogDensity<.007){fogDensity = fogDensity+.000015f;}//its getting foggy at a slow rate
-        
-        writer.draw(bag.toString(), 350, 470);
-        writer.draw(stats.healthString(), 10, 45);
-        writer.draw(stats.honorString(), 10, 10);
+         
+        writer.draw(bag.toString(), .7, .95);
+        writer.draw(stats.healthString(), .035, .05);
+        writer.draw(stats.honorString(), .035, .12);
+
+
 
         projectileWeapons.update(gl, glu);
 
@@ -358,6 +363,7 @@ public class BatsEverywhere implements GLEventListener
                  BatsEverywhere.getPlayers().get(i).draw(gl, glu);
     //        }
         }
+
 
         for (Creature c: creatures){
                 c.draw(gl, glu);
@@ -571,6 +577,7 @@ public class BatsEverywhere implements GLEventListener
          renderer.controls.append("M: toggle mouse\n");
          //renderer.controls.append()
          
+
 
 //<<<<<<< HEAD
 //        //frame.add(renderer.statusLine, BorderLayout.SOUTH);//testing chat
