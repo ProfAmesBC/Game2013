@@ -6,6 +6,7 @@ import inventory.PlayerAttributes;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
+import javax.media.opengl.glu.GLUquadric;
 
 import com.jogamp.opengl.util.texture.Texture;
 
@@ -20,10 +21,11 @@ public abstract class AbstractPowerUp implements Item {
 	protected float playerX, playerY, playerZ;
 	protected boolean grabbed;
 	protected double T;
-	protected static PlayerAttributes p;
+	protected static PlayerAttributes playerA;
 	protected int frames;
 	protected int counter;
 	protected PlayerStats stats;
+	protected String type;
 	
 	@Override
 	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {
@@ -36,7 +38,7 @@ public abstract class AbstractPowerUp implements Item {
 		stats = s;
 
 		if (distance<2) {
-			activate();//grabbed now = true
+			use();//grabbed now = true
 		}
 
 		
@@ -44,13 +46,12 @@ public abstract class AbstractPowerUp implements Item {
 	
 
 	@Override
-	public abstract void draw(GL2 gl, GLU glu);
+	public abstract void draw(GL2 gl, GLU glu, float x, float y, float z);
 
 	@Override
-	public void use(){ //not used
-		}
+	public abstract void use();
 
-	private boolean grabConditions() {
+	public boolean grabConditions() {
 		if ((pX - 3 < playerX && pZ - 3 < playerZ)
 				&& (pX + 5 > playerX) && (pZ + 5 > playerZ)
 				&& (grabbed == false))
@@ -59,13 +60,12 @@ public abstract class AbstractPowerUp implements Item {
 			return false;
 	}
 	
+	
 	@Override
 	public abstract boolean grabbed();
 	@Override
 	public abstract String getType();
-	
-	public abstract void activate();
-		
+			
 	public float getLocationX() {
 		return pX;
 	}
@@ -81,12 +81,12 @@ public abstract class AbstractPowerUp implements Item {
 	public float getAngle() {
 		return angle;
 	}
-	public void linkLocation(Point3f f) {
-		pX = f.getX();
-		pY = f.getY();
-		pZ = f.getZ();
-	}
 	
+	public abstract void linkLocation(Point3f f);
+	
+	public void bugtest() {
+		System.out.println(type);
+	}
 	
 	
 }

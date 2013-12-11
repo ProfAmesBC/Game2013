@@ -115,6 +115,7 @@ public class SpeedBox implements Item {
 		// Math.toRadians(15*frames), 1);
 		// gl.glTranslated(-itemX, -(Math.sin(Math.toRadians(T*360+180 ))+2),
 		// -itemZ);
+		gl.glRotated(5*T,1,5*T,1);
 		textureItem.bind(gl);
 
 		gl.glBegin(GL2.GL_QUADS);
@@ -264,5 +265,11 @@ public class SpeedBox implements Item {
 		this.playerY = y;
 		this.playerZ = z;
 		this.angle = angle;
+	}
+
+	@Override
+	public void draw(GL2 gl, GLU glu, float x, float y, float z) {
+		// TODO Auto-generated method stub
+		
 	}
 }

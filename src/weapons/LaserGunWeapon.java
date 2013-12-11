@@ -1,4 +1,5 @@
 package weapons;
+
 import game.PlayerMotion;
 import game.PlayerMotionWatcher;
 import game.PlayerStats;
@@ -26,9 +27,9 @@ import java.util.Map;
 public class LaserGunWeapon extends ProjectileWeapons {
 	private boolean present=false;
 	private int displayList = -1;
-	private Map<String, com.jogamp.opengl.util.texture.Texture> imageMap = new HashMap<String, com.jogamp.opengl.util.texture.Texture>(); // map of ID's to textures
 	
 		//Compiled from LazerGun by SketchupModelJAXB
+	
 		public LaserGunWeapon(GL2 gl, GLU glu) {
 			generate(gl, glu);
 		}
@@ -394,10 +395,6 @@ public class LaserGunWeapon extends ProjectileWeapons {
 		gl.glDisableClientState(GL2.GL_VERTEX_ARRAY);
 		gl.glDisableClientState(GL2.GL_NORMAL_ARRAY);
 		gl.glDisableClientState(GL2.GL_TEXTURE_COORD_ARRAY);
-		}
-		
-		public void setPresent(boolean present){
-			this.present=present;
 		}
 	
 }

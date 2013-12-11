@@ -62,6 +62,7 @@ public class BlindItem implements Item {
 		}
 		else if(!used){			
 			use();
+			used= true;
 		}					
 	}
 
@@ -288,6 +289,12 @@ public class BlindItem implements Item {
 		this.playerY = y;
 		this.playerZ = z;
 		this.angle = angle;
+	}
+
+	@Override
+	public void draw(GL2 gl, GLU glu, float x, float y, float z) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

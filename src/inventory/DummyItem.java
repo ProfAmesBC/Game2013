@@ -2,6 +2,7 @@ package inventory;
 
 import items.Jetpack;
 import items.SpeedBox;
+import items.Teleporter;
 
 public class DummyItem {
 
@@ -14,6 +15,8 @@ public class DummyItem {
 			i = new SpeedBox();
 		else if(type.equals("Jetpack"))
 			i = new Jetpack();
+		else if(type.equals("Teleporter"))
+			i = new Teleporter();
 		else
 			i = null;
 	}

@@ -14,9 +14,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for cg_sampler1D complex type.
+ * <playerA>Java class for cg_sampler1D complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="cg_sampler1D">

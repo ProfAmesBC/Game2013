@@ -29,4 +29,9 @@ public class PlayerAttributes {
 		p.fly(height, duration);
 	}
 
+	public void teleport(int i) {
+		p.teleport(i);
+		
+	}
+
 }

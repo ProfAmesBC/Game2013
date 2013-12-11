@@ -26,6 +26,7 @@ public class Cripple extends AbstractPowerUp {
 	private Bag bag;
 	private static PlayerAttributes p;
 	private int frames; 
+	private int respawn = 500;
 	private int counter;
 	private boolean used;	
 	private TextRenderer renderer;
@@ -50,6 +51,7 @@ public class Cripple extends AbstractPowerUp {
 	}
 
 	public void draw(GL2 gl, GLU glu) {
+		int timer = 0;
 		counter++;
 		frames++;
 		T = T + 0.5;
@@ -59,14 +61,15 @@ public class Cripple extends AbstractPowerUp {
 		}
 		if (!grabbed) {
 			drawItem(gl, glu);
-		}
-		else if(!used){			
+		}		
+		else if(!used){	
+			timer = frames; 			
 			use();
 			used=true;
-		}					
+		}		
 	}
 
-	private boolean grabConditions() {
+	public boolean grabConditions() {
 		if ((itemX - 3 < playerX && itemZ - 3 < playerZ)
 				&& (itemX + 5 > playerX) && (itemZ + 5 > playerZ)
 				&& (grabbed == false))
@@ -267,9 +270,10 @@ public class Cripple extends AbstractPowerUp {
 	}
 
 	@Override
-	public void activate() {
+	public void draw(GL2 gl, GLU glu, float x, float y, float z) {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }

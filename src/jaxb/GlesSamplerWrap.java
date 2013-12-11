@@ -13,10 +13,10 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for gles_sampler_wrap.
+ * <playerA>Java class for gles_sampler_wrap.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>
  * <pre>
  * &lt;simpleType name="gles_sampler_wrap">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}NMTOKEN">
