@@ -1,5 +1,4 @@
-//package weapons;
-//
+//package weapons;//
 //import javax.media.opengl.GL2;
 //import javax.media.opengl.glu.GLU;
 //

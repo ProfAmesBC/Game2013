@@ -19,6 +19,7 @@ public class PlayerActions extends KeyAdapter {
 		case KeyEvent.VK_1:
 			// calls the DummyItem from the Bag
 			b.useItem("Speed");
+			
 			break;
 		case KeyEvent.VK_2:
 			// calls the DummyItem from the Bag
@@ -35,4 +36,3 @@ public class PlayerActions extends KeyAdapter {
 	}
 
 }
-

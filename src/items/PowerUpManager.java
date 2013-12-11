@@ -14,6 +14,8 @@ import javax.media.opengl.glu.GLU;
 
 public class PowerUpManager {
 
+	private GL2 gl;
+	private GLU glu;
 	private List<Spawn3f> spawns, emptySpawns;
 	private List<Point3f> spawnSelectionList;
 	private List<Point3f> allAvailableSpawns;

@@ -98,10 +98,8 @@ public class BatsEverywhere implements GLEventListener
     private Player player;
   //  private Avatar psy;
 
-
     private static MusicPlayer jukebox = new MusicPlayer();
 
-    private WeaponManager weaponManager = null;
     private CritterGroup catGroup,rabbitGroup;
     private Mummy mummy;
     private PacManGhost pacManGhost;
@@ -113,7 +111,10 @@ public class BatsEverywhere implements GLEventListener
     public static List<Creature> creatures = new LinkedList<Creature>();
 
     private PowerUpManager powerUpManager;
+
     //private TextRenderer renderer;
+    
+    public static GameSoundMan m=null;
     
     private int windowWidth, windowHeight;
     private GLReadBufferUtil bufferUtil = new GLReadBufferUtil(false, true); //for capturing screenshots
@@ -121,6 +122,7 @@ public class BatsEverywhere implements GLEventListener
     //For multiplayer
     private static Map<Integer, Player> playerMap;
     private static Semaphore isUpdate;
+
 
 
     public synchronized static Map<Integer, Player> getPlayers() {
@@ -153,7 +155,7 @@ public class BatsEverywhere implements GLEventListener
 
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
-        
+      
         
         try {
             player = new Player(gl, glu, playerMotion);
@@ -163,15 +165,6 @@ public class BatsEverywhere implements GLEventListener
              e.printStackTrace();
         }
 
-        
-        weaponManager = new WeaponManager();
-        weaponManager.init(gl, glu);
-        weapon = weaponManager.getWeapon();
-        weapon.init(gl, glu);
-        canvas.addKeyListener(weapon);	// add key listener to bludgeoning weapons
-        canvas.addKeyListener(weaponManager);
-//        mummy = new Mummy(30, 100, gl, glu);
-//        pacManGhost = new PacManGhost(25, 95, gl, glu);
 
         creatures.add(new Mummy(30,100,gl, glu));
         creatures.add(new PacManGhost(25,95,gl, glu));
@@ -182,14 +175,22 @@ public class BatsEverywhere implements GLEventListener
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
 
-
+       // bat = new Bat(gl, glu);
         moveSwarm = new MoveSwarm(gl, glu);
         
         powerUpManager = new PowerUpManager(gl, glu);
+
+
+        
+        m	= new GameSoundMan();
+
+		m.load("destination2",  0, 0, 1, true);
+		m.setListenerPos(0, 0);
+		//m.play("destination2");
+
         //jukebox.loadFanfare();
 		Thread player = new Thread(jukebox);
 		player.run();
-
 
     }
     
@@ -313,8 +314,9 @@ public class BatsEverywhere implements GLEventListener
        //Set the eye back to its original coordinates
        screenshot(drawable);
        playerMotion.setEyeX(originaleyex);
-   	   playerMotion.setEyeY(originaleyey);
-   	   playerMotion.setEyeZ(originaleyez);
+
+             playerMotion.setEyeY(originaleyey);
+           playerMotion.setEyeZ(originaleyez);
 
     }
 
@@ -338,7 +340,8 @@ public class BatsEverywhere implements GLEventListener
         //playerMotion.setLookAt(gl, glu);
         
 
-        this.playerMotion.setScreenLocation(this.canvas.getLocationOnScreen());
+        this.playerMotion.setScreenLocation(
+                        this.canvas.getLocationOnScreen());
 
        
         // draw town
@@ -372,26 +375,21 @@ public class BatsEverywhere implements GLEventListener
     //        }
         }
 
-
         for (Creature c: creatures){
                 c.draw(gl, glu);
         }
         
         Robot.drawRobots(gl, glu);
-        weapon = weaponManager.getWeapon();
-//        weapon.update(gl, glu);
-        weaponManager.draw(gl, glu);
- 
-//        Robot.drawZombies(gl, glu);
-    
         catGroup.draw(gl, glu);
         rabbitGroup.draw(gl, glu);
         
         powerUpManager.draw(gl, glu);
 
         
+
+      //  bat.draw(gl, glu);
         //mummy.draw(gl, glu);
-        moveSwarm.draw(gl, glu);
+    //    moveSwarm.draw(gl, glu);
         // check for errors, at least once per frame
 
 
@@ -522,7 +520,11 @@ public class BatsEverywhere implements GLEventListener
     }
     
 
-    public void dispose(GLAutoDrawable drawable) { /* not needed */ }
+
+
+    public void dispose(GLAutoDrawable drawable) { /* not needed */ 
+    	m.cleanUp();
+    }
 
 
     public static void main(String[] args) {
@@ -584,8 +586,7 @@ public class BatsEverywhere implements GLEventListener
          renderer.controls.append("\n");
          renderer.controls.append("M: toggle mouse\n");
          //renderer.controls.append()
-         
-
+       
 
 //<<<<<<< HEAD
 //        //frame.add(renderer.statusLine, BorderLayout.SOUTH);//testing chat
@@ -601,7 +602,11 @@ public class BatsEverywhere implements GLEventListener
 //        frame.add(renderer.canvas, BorderLayout.CENTER);
 //=======
 
+         
          renderer.controls.setEditable(false);        // don't let you edit text once it's established
+         
+     
+      
          
          frame.setLayout(new BorderLayout());
          //frame.add(renderer.statusLine, BorderLayout.SOUTH);

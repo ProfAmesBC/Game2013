@@ -60,17 +60,13 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
             this.width = width;
             this.height = height;
     }
-    
     public float getTheta() {
     	return theta;
-
-
     }
 
     public void setEyeX(float x) {
             eyeX=x;
     }
-    
 
     
     public void notifyObservers() {
@@ -232,7 +228,8 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
         if (mobile&&(moved != 0 || qdown || edown || idown || kdown || dgamma != 0 || dtheta != 0)) {
         	notifyObservers();
         }
-    }
+	}
+	
 
     public void update(GL2 gl, GLU glu) {
 
@@ -307,6 +304,11 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
             eyeY = 5;
             falling = false;
         }
+
+        if (adown || ddown || sdown || wdown || qdown || edown || idown || kdown || jdown) {
+
+			GameSounds.footstepNoise();
+
         //crouch
         if (cdown){
         	crouch = true;
@@ -350,8 +352,10 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
         
         //etc
         if (adown || ddown || sdown || wdown || qdown || edown || idown || kdown || ndown || cdown || gdown || fdown || udown || jdown) {
+
             for (PlayerMotionWatcher watcher : watchers)
                 watcher.playerMoved(eyeX, eyeY, eyeZ, theta, gamma,stats);
+
         }
         if (mouseMovement) {
             theta += dtheta;
@@ -371,12 +375,17 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
             dx /= Math.sqrt(2);
             dz /= Math.sqrt(2);
         }
-
+        }
         gl.glLoadIdentity();
+        
         glu.gluLookAt(eyeX, eyeY, eyeZ,   // eye location
+
                 eyeX + dx, eyeY, eyeZ + dz,   // prospective new eye location
-                0, 1, 0); // the "up" direction
-    }
+
+                 0, 1,  0); // the "up" direction
+	}
+    
+
 
     @Override
     public void mouseDragged(MouseEvent e) {
@@ -394,14 +403,22 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
         xLoc = locationOnScreen.x;
         yLoc = locationOnScreen.y;
     }
-    
-    public void setStep(float step, int duration) {
-                this.step = step;
-                this.speedDuration = this.speedDuration + duration;
-                speedCounter = 0;
 
-        
+//
+//	public float getStep() {
+//		return step;
+//	}
+//	
+
+
+    public void setStep(float step, int duration) {
+
+		this.step = step;
+		this.speedDuration = this.speedDuration + duration;
+		speedCounter = 0;        
+
     }
+
 
         public void fly(int height, int duration){
                 flyDuration = duration;
@@ -410,6 +427,8 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
         }
 
     
+
+
     public float getStep() {
         return step;
     }
@@ -420,4 +439,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
             eyeZ = eyeZ + dz;
         }
 
+     //   eyeZ = eyeZ + i;
+  
 }
+
