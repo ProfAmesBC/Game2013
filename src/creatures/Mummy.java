@@ -5,8 +5,6 @@ import game.Building;
 import game.PlayerMotion;
 import game.PlayerMotionWatcher;
 import game.PlayerStats;
-import game.ReadZBuffer;
-
 import java.util.Random;
 
 import javax.media.opengl.GL2;
