@@ -23,6 +23,6 @@ public class CreatureManager {
 	
 	public static void addRobot(){
 		Location l = spawnLocations.remove();
-		BatsEverywhere.creatures.add(new Robot((double)l.getX(),(double)l.getZ(),gl,glu));
+		Robot.addRobot(new Robot((double)l.getX(),(double)l.getZ(),gl,glu));
 	}
 }

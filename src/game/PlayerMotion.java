@@ -13,13 +13,14 @@ import java.util.List;
 public class PlayerMotion implements KeyListener, MouseMotionListener {
     private static final float step1 = .75f, step2 = step1 * 3f;
     private static List<PlayerMotionWatcher> watchers = new LinkedList<PlayerMotionWatcher>();
+    private PlayerStats stats;
     private float eyeX, eyeY, eyeZ;
     private float dx, dz;
     private int width, height, xLoc, yLoc;
     private float theta, dtheta;
     private float gamma, dgamma;
     private float step = step1;
-    private boolean mouseMovement = false;
+    private boolean mouseMovement = false,mobile=true;
     private boolean wdown, adown, sdown, ddown, qdown, edown, idown, kdown;
     private boolean spacedown,cdown,fdown,gdown,udown,jdown;
     private boolean jumping, falling;
@@ -61,6 +62,15 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     
     public void setEyeZ(float z) {
     	eyeZ=z;
+    }
+    public void setStats(PlayerStats s){
+    	stats=s;
+    }
+    public void setMobile(boolean b){
+    	mobile=b;
+    	if(b==false){
+    		adown=false;ddown=false;wdown=false;sdown=false;udown=false;jdown=false;
+    	}
     }
     
     public static void registerPlayerWatcher(PlayerMotionWatcher watcher) {
@@ -179,7 +189,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     public void setLookAt(GL2 gl, GLU glu) {
         double moved = 0;
         double location[] = ReadZBuffer.getOGLPos(gl, glu, width / 2, height / 2); //what you're moving towards
-        if (eyeX + dx > 0 && eyeZ + dz > 0 && eyeX + dx < 600 && eyeZ + dz < 600 && (eyeX + dx < 300 || eyeZ + dz < 500)) {
+        if (mobile&&(eyeX + dx > 0 && eyeZ + dz > 0 && eyeX + dx < 600 && eyeZ + dz < 600 && (eyeX + dx < 300 || eyeZ + dz < 500))) {
             if (Math.abs(location[0] - eyeX) > Math.abs(dx) + 1) {
                 eyeX += dx;
                 moved += dx;
@@ -195,9 +205,9 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
         glu.gluLookAt(eyeX, eyeY, eyeZ,   // eye location
                 eyeX + Math.cos(Math.toRadians(theta)) * Math.cos(Math.toRadians(gamma)), eyeY + Math.sin(Math.toRadians(gamma)), eyeZ + -Math.sin(Math.toRadians(theta)) * Math.cos(Math.toRadians(gamma)),   // point to look at (near middle of pyramid)
                 0, 1, 0); // the "up" direction
-        if (moved != 0 || qdown || edown || idown || kdown || dgamma != 0 || dtheta != 0) {
+        if (mobile&&(moved != 0 || qdown || edown || idown || kdown || dgamma != 0 || dtheta != 0)) {
             for (PlayerMotionWatcher watcher : watchers)
-                watcher.playerMoved(eyeX, eyeY, eyeZ, theta, gamma);
+                watcher.playerMoved(eyeX, eyeY, eyeZ, theta, gamma,stats);
         }
     }
 
@@ -296,7 +306,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
         //etc
         if (adown || ddown || sdown || wdown || qdown || edown || idown || kdown || spacedown || cdown || gdown || fdown || udown || jdown) {
             for (PlayerMotionWatcher watcher : watchers)
-                watcher.playerMoved(eyeX, eyeY, eyeZ, theta, gamma);
+                watcher.playerMoved(eyeX, eyeY, eyeZ, theta, gamma,stats);
         }
         if (mouseMovement) {
             theta += dtheta;

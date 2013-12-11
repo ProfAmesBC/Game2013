@@ -66,9 +66,10 @@ public class BatsEverywhere implements GLEventListener
     private GLU glu = new GLU();
     private Town town;
     private int height, width;
-    private ProjectileWeapons projectileWeapons = new ProjectileWeapons();
-    private long runtime = 0;
     private PlayerMotion playerMotion = new PlayerMotion();
+    private PlayerStats stats=new PlayerStats(playerMotion);
+    private ProjectileWeapons projectileWeapons = new ProjectileWeapons(stats);
+    private long runtime = 0;
     private Bag bag  = new Bag();
     private PlayerAttributes playerAttributes = new PlayerAttributes(playerMotion, bag);
     private PlayerActions playerActions = new PlayerActions(playerAttributes);
@@ -88,8 +89,6 @@ public class BatsEverywhere implements GLEventListener
     private GLReadBufferUtil bufferUtil = new GLReadBufferUtil(false, true); //For capturing screen shots
     
     //renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, 48));
-
-    private List<CritterGroup>critters=new ArrayList<CritterGroup>();
     
 
     public void init(GLAutoDrawable drawable) {
@@ -112,8 +111,8 @@ public class BatsEverywhere implements GLEventListener
         itemCreator.testCreate();
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
-        Robot.addZombie(new Robot(60,60,glu));
-        Robot.addZombie(new Robot(100,100,glu));
+        Robot.addRobot(new Robot(60,60,gl,glu));
+        Robot.addRobot(new Robot(100,100,gl,glu));
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
         bat = new Bat(gl, glu);
@@ -269,10 +268,12 @@ public class BatsEverywhere implements GLEventListener
         fogDensity = fogDensity+.000015f;//its getting foggy at a slow rate
         
         writer.draw(bag.toString(), 380, 470);
+        writer.draw(stats.healthString(),15,40);
+        writer.draw(stats.honorString(),15,10);
 
         projectileWeapons.update(gl, glu);
 
-        Robot.drawZombies(gl, glu);
+        Robot.drawRobots(gl, glu);
         catGroup.draw(gl, glu);
         rabbitGroup.draw(gl, glu);
         bat.draw(gl, glu);
@@ -316,8 +317,6 @@ public class BatsEverywhere implements GLEventListener
         //playerMotion.setEyeX(-5);
     	//playerMotion.setEyeY(5);
     	//playerMotion.setEyeZ(50);
-
-        for(CritterGroup critterGroup:critters)critterGroup.draw(gl, glu);
  
         /// NEED TO FINISH VIEWPORT
         //this must be drawn last
