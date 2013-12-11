@@ -302,9 +302,9 @@ public class BatsEverywhere implements GLEventListener
         powerUpManager.draw(gl, glu);
 
         
-      //  bat.draw(gl, glu);
+        bat.draw(gl, glu);
         //mummy.draw(gl, glu);
-    //    moveSwarm.draw(gl, glu);
+        moveSwarm.draw(gl, glu);
         // check for errors, at least once per frame
 
         
