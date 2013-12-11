@@ -48,8 +48,9 @@ public abstract class BludgeoningWeapon implements Weapon{
 	
 	
 	public void update(GL2 gl, GLU glu){
+//		System.out.println(hit);
 		
-		if (hit){
+//		if (hit){
 			weaponX =  (float) (2*Math.cos(Math.toRadians(angle)));
 			weaponZ = -(float) (2*Math.sin(Math.toRadians(angle)));
 			
@@ -75,14 +76,16 @@ public abstract class BludgeoningWeapon implements Weapon{
 				frames++;
 			}
 			else { 
-				System.out.println("ok");
+				System.out.println("DONE HITTING");
 				weaponX = weaponY = weaponZ = 0;
 				frames = 0;
 				dist = 0;
 				
-				hit = false; }
+				return;
+//				hit = false;
+				}
 		}
-	}
+//	}
 	
 	
 	// figure out where player is looking, also!
@@ -101,8 +104,8 @@ public abstract class BludgeoningWeapon implements Weapon{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_O){	// add functionality later to toggle between weapons or to have a "current weapon"
-			System.out.println("!!!!");
-			hit = true;
+//			hit = true;
+			update(gl, glu);
 		}
 	}
 

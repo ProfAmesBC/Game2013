@@ -53,7 +53,7 @@ public class WeaponManager implements KeyListener, PlayerMotionWatcher{
 	public void draw(GL2 gl, GLU glu){
 		for (DisplayedWeapon dw: weapons)
 			dw.draw(gl, glu);
-		w.update(gl, glu);
+//		w.update(gl, glu);
 	}
 	
 	public BludgeoningWeapon scanWeapons(){
