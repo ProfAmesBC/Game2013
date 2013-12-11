@@ -127,7 +127,7 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 			//System.out.println("Stepped on a cat!");
 			// TODO meow
 			
-			s.changeHealth(-2);s.changeHonor(-1);
+			s.changeHealth(-1);s.changeHonor(-1);
 			new Thread(new Runnable(){
 				public void run(){
 					try{
