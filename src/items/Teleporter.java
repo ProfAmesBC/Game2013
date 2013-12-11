@@ -1,29 +1,30 @@
+
 package items;
 
-import inventory.Bag;
-import inventory.Item;
-import inventory.PlayerAttributes;
+import com.jogamp.opengl.util.texture.Texture;
+
 import game.Building;
 import game.PlayerMotion;
 import game.PlayerStats;
+import inventory.Bag;
+import inventory.Item;
+import inventory.PlayerAttributes;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
-import com.jogamp.opengl.util.texture.Texture;
-
-public class Jetpack implements Item {
+public class Teleporter implements Item {
 	private Texture textureItem;
 	private float itemX, itemY, itemZ;
 	private float playerX, playerY, playerZ;
-	private float angle;
+	private float angle, y_angle;
 	private boolean grabbed;
 	private double T;
 	private Bag bag;
 	private static PlayerAttributes p;
 	private int frames;
 
-	public Jetpack(GL2 gl, GLU glu, float x, float y, float z, Bag bag,
+	public Teleporter(GL2 gl, GLU glu, float x, float y, float z, Bag bag,
 			PlayerAttributes p) {
 		textureItem = Building.setupTexture(gl, "textureItem.png");
 		this.itemX = x;
@@ -31,18 +32,18 @@ public class Jetpack implements Item {
 		this.itemZ = z;
 		PlayerMotion.registerPlayerWatcher(this);
 		this.bag = bag;
-		Jetpack.p = p;
+		Teleporter.p = p;
 		grabbed = false;
 		frames = 0;
 	}
 
-	public Jetpack() {
+	public Teleporter() {
 		// dummy constructor for DummyItem
 	}
 
 	public void draw(GL2 gl, GLU glu) {
 		frames++;
-		T = T + 0.5;
+		T = T + 0.05;
 		if (grabConditions()) {
 			grabbed = true;
 			bag.addItem(this);
@@ -93,30 +94,19 @@ public class Jetpack implements Item {
 	}
 
 	public void use() {
-		int height = 100;
-		int duration = 200;
+		float currentSpeed = p.getStepSize();
+		int duration = 30;
 		// calls PlayerAttributes
-		p.fly(height, duration);
+		p.teleport(50);
 	}
 
 	public String getType() {
-		return "Jetpack";
+		return "Teleporter";
 	}
 
 	public void drawItem(GL2 gl, GLU glu) {
 
-	sketchupModels.JetpackDrawing jp = new sketchupModels.JetpackDrawing(gl, glu);
-	
-	gl.glPushMatrix();
-	gl.glTranslated(itemX, Math.sin(Math.toRadians(T * 360 + 180)),
-			itemZ);
-	gl.glRotated(5*T,1,5*T,1);
-
-		jp.draw(gl, glu);
-	
-	gl.glPopMatrix();
-	}
-	/*	gl.glEnable(GL2.GL_CULL_FACE);
+		gl.glEnable(GL2.GL_CULL_FACE);
 		gl.glEnable(GL2.GL_TEXTURE_2D);
 		gl.glPushMatrix();
 		gl.glTranslated(itemX, Math.sin(Math.toRadians(T * 360 + 180)) + 2,
@@ -125,8 +115,8 @@ public class Jetpack implements Item {
 		// Math.toRadians(15*frames), 1);
 		// gl.glTranslated(-itemX, -(Math.sin(Math.toRadians(T*360+180 ))+2),
 		// -itemZ);
-		textureItem.bind(gl);
 		gl.glRotated(5*T,1,5*T,1);
+		textureItem.bind(gl);
 
 		gl.glBegin(GL2.GL_QUADS);
 		gl.glTexCoord2f(0f, 2f);
@@ -266,14 +256,14 @@ public class Jetpack implements Item {
 
 		gl.glDisable(GL2.GL_CULL_FACE);
 		gl.glDisable(GL2.GL_TEXTURE_2D);
-	}*/
+	}
 
 	@Override
-	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {		// GET CURRENT POSITION OF PLAYER
+	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {
+		// GET CURRENT POSITION OF PLAYER
 		this.playerX = x;
 		this.playerY = y;
 		this.playerZ = z;
 		this.angle = angle;
 	}
-
 }
