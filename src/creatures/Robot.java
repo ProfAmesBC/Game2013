@@ -33,8 +33,10 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 	private boolean chasing = false,attacking=false;
 	private static GLUquadric quadric;
 	private static int displayListChasing=-1, displayListNotChasing=-1;
+	private Location spawnLocation;
 	
 	public Robot(double startX,double startZ,GL2 gl, GLU glu){
+		this.spawnLocation = new Location(startX,0,startZ);
 		this.robotLocationX = startX;
 		this.robotLocationZ = startZ;
 		eyeVectorX = 0.2;
@@ -246,6 +248,8 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 
 		if((Math.abs(robotLocationX-x) < 2) && (Math.abs(robotLocationZ-z) < 2)){
 			robots.remove(this);
+			CreatureManager.addLocation(this.spawnLocation);
+			CreatureManager.addRobot();
 		}
 	}
 	
