@@ -104,9 +104,11 @@ public class BatsEverywhere implements GLEventListener
         town = new Town(gl, glu);
        
         creatures.add(new Mummy(30,100,gl, glu));
-        creatures.add(new Robot(60,60,gl,glu));
-        creatures.add(new Robot(100,100,gl,glu));
         creatures.add(new PacManGhost(25,95,gl, glu));
+        
+        Robot.addRobot(new Robot(60,60,gl,glu));
+        Robot.addRobot(new Robot(100,100,gl,glu));
+        
         
       
         catGroup=new CatGroup(gl,glu);
@@ -268,7 +270,7 @@ public class BatsEverywhere implements GLEventListener
         	c.draw(gl, glu);
         }
         
-        //Robot.drawZombies(gl, glu);
+        Robot.drawRobots(gl, glu);
         catGroup.draw(gl, glu);
         rabbitGroup.draw(gl, glu);
       //  bat.draw(gl, glu);

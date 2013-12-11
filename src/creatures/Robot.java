@@ -248,8 +248,8 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 
 		if((Math.abs(robotLocationX-x) < 2) && (Math.abs(robotLocationZ-z) < 2)){
 			robots.remove(this);
-			CreatureManager.addLocation(this.spawnLocation);
-			CreatureManager.addRobot();
+//			CreatureManager.addLocation(this.spawnLocation);
+//			CreatureManager.addRobot();
 		}
 	}
 	
