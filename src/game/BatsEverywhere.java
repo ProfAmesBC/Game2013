@@ -201,8 +201,8 @@ public class BatsEverywhere implements GLEventListener
 
         
         glu.gluLookAt(300, 800, 300,   // eye location
-                300,0,300,   // point to look at (near middle of pyramid)
-                 0, 0,  -1);
+                      300,   0, 300,   // point to look at (near middle of pyramid)
+                        0,   0,  -1);
         
         //gl.glRotatef((float)90, 0f, 0f, 1f);
 
@@ -211,10 +211,8 @@ public class BatsEverywhere implements GLEventListener
        //Set the eye back to its original coordinates
        screenshot(drawable);
        playerMotion.setEyeX(originaleyex);
-   	  playerMotion.setEyeY(originaleyey);
-   	playerMotion.setEyeZ(originaleyez);
-
-       
+   	   playerMotion.setEyeY(originaleyey);
+   	   playerMotion.setEyeZ(originaleyez);
     }
 
     public void display(GLAutoDrawable drawable) {
@@ -223,7 +221,7 @@ public class BatsEverywhere implements GLEventListener
    
 
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
-//minimap must be done first
+        //minimap must be done first
         if (++framesDrawn == 1) {
         	minimap(drawable);
         	gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
@@ -233,8 +231,7 @@ public class BatsEverywhere implements GLEventListener
         playerMotion.setLookAt(gl, glu);
         
 
-        this.playerMotion.setScreenLocation(
-        		this.canvas.getLocationOnScreen());
+        this.playerMotion.setScreenLocation(this.canvas.getLocationOnScreen());
        
         // draw town
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
@@ -376,12 +373,18 @@ public class BatsEverywhere implements GLEventListener
          renderer.controls.append("S: move backward\n");
          renderer.controls.append("Q: turn left\n");
          renderer.controls.append("E: turn right\n");
-        renderer.controls.append("I: look up\n");
-        renderer.controls.append("K: look down\n");
-        renderer.controls.append("J: jump\n");
-                 renderer.controls.append("Shift: sprint\n");
+         renderer.controls.append("I: look up\n");
+         renderer.controls.append("K: look down\n");
+         renderer.controls.append("(Flying Mode)U: go up\n");
+         renderer.controls.append("(Flying Mode)J: go down\n");
          renderer.controls.append("\n");
-         renderer.controls.append("Space/MouseClick: fireball\n");
+         renderer.controls.append("J: Space\n");
+         renderer.controls.append("C: crouch\n");
+         renderer.controls.append("F: Flying Mode\n");
+         renderer.controls.append("G: Walking Mode\n");
+         renderer.controls.append("Shift: sprint\n");
+         renderer.controls.append("\n");
+         renderer.controls.append("MouseClick: fireball\n");
          renderer.controls.append("1: use speed item\n");
          renderer.controls.append("\n");
          renderer.controls.append("M: toggle mouse\n");

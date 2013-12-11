@@ -20,10 +20,14 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     private float gamma, dgamma;
     private float step = step1;
     private boolean mouseMovement = false;
-    private boolean wdown, adown, sdown, ddown, qdown, edown, idown, kdown, jdown;
+    private boolean wdown, adown, sdown, ddown, qdown, edown, idown, kdown;
+    private boolean spacedown,cdown,fdown,gdown,udown,jdown;
     private boolean jumping, falling;
+    private boolean crouch,standing;
+    private boolean flying,walking;
     private Robot robot;
     private final double G = 32.1740;
+    
 
     public PlayerMotion() {
         eyeX = 1;
@@ -90,9 +94,24 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
             case KeyEvent.VK_K:
                 kdown = true;
                 break;
-            case KeyEvent.VK_J:
-                jdown = true;
+            case KeyEvent.VK_SPACE:
+                spacedown = true;
                 break;
+            case KeyEvent.VK_C:
+            	cdown = true;
+            	break;
+            case KeyEvent.VK_F:
+            	fdown = true;
+            	break;
+            case KeyEvent.VK_G:
+            	gdown = true;
+            	break;     
+            case KeyEvent.VK_U:
+            	udown = true;
+            	break; 
+            case KeyEvent.VK_J:
+            	jdown = true;
+            	break; 
             case KeyEvent.VK_SHIFT:
                 step = step2;
                 break;
@@ -129,9 +148,24 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
             case KeyEvent.VK_K:
                 kdown = false;
                 break;
-            case KeyEvent.VK_J:
-                jdown = false;
+            case KeyEvent.VK_SPACE:
+                spacedown = false;
                 break;
+            case KeyEvent.VK_C:
+            	cdown = false;
+            	break;
+            case KeyEvent.VK_F:
+            	fdown = false;
+            	break;
+            case KeyEvent.VK_G:
+            	gdown = false;
+            	break;  
+            case KeyEvent.VK_U:
+            	udown = false;
+            	break; 
+            case KeyEvent.VK_J:
+            	jdown = false;
+            	break; 
             case KeyEvent.VK_SHIFT:
                 step = step1;
                 break;
@@ -170,6 +204,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     public void update(GL2 gl, GLU glu) {
         dx = 0;
         dz = 0;
+        //look key pressed/released
         if (adown) {
             dx += Math.cos(Math.toRadians(theta + 90));
             dz += -Math.sin(Math.toRadians(theta + 90));
@@ -198,7 +233,9 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
         if (kdown) {
             gamma -= 2;
         }
-        if (jdown) {
+        
+        //jump
+        if (spacedown) {
             jumping = true;
         }
         if (jumping) {
@@ -215,7 +252,49 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
             eyeY = 5;
             falling = false;
         }
-        if (adown || ddown || sdown || wdown || qdown || edown || idown || kdown || jdown) {
+        //crouch
+        if (cdown){
+        	crouch = true;
+        }
+        if (crouch){
+        	eyeY -= 0.8;
+        }
+        if (standing){
+            eyeY += 0.8;
+        }
+        if (crouch && eyeY < 2.5){
+        	crouch = false;
+        	standing = true;
+        }
+        if (standing && eyeY >= 5){
+        	eyeY = 5;
+        	standing = false;
+        }
+        
+        //flying & walking mode
+        if (fdown){
+        	flying = true;
+        }
+        if (gdown){
+        	walking = true;
+        	flying = false;
+        }     
+        if (flying){
+        	walking = false;
+        	if (eyeY <130) eyeY +=1;
+            if (udown){eyeY +=3;}
+            if (jdown&&eyeY>15){eyeY -=4;}
+        }
+        if(walking){
+            eyeY -= 2;
+        }
+        if (walking && eyeY < 5){
+        	eyeY = 5;
+        	walking = false;
+        }
+        
+        //etc
+        if (adown || ddown || sdown || wdown || qdown || edown || idown || kdown || spacedown || cdown || gdown || fdown || udown || jdown) {
             for (PlayerMotionWatcher watcher : watchers)
                 watcher.playerMoved(eyeX, eyeY, eyeZ, theta, gamma);
         }

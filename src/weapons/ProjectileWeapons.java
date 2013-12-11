@@ -39,7 +39,9 @@ public class ProjectileWeapons implements KeyListener, PlayerMotionWatcher, Mous
 	public void keyTyped(KeyEvent e) {}
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_SPACE){shootBullet();} 	//SHOOT BULLET WHEN PRESSED
+		//if(e.getKeyCode() == KeyEvent.VK_SPACE){shootBullet();}
+		//SHOOT BULLET WHEN PRESSED
+		//using space to jump now, turn on if decide to space--->jump+fire
 	}
 	@Override
 	public void keyReleased(KeyEvent e) {}
