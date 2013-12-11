@@ -196,8 +196,8 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 	}
 	
 	public void projectileMoved(double x, double z) {
-		if ( x > X - 1 && x < X + 1) {
-			if ( z > Z - 1 && z < Z + 1) {
+		if ( x > X - 2 && x < X + 2) {
+			if ( z > Z - 2 && z < Z + 2) {
 				shotByBullet = true;
 			}
 		}
