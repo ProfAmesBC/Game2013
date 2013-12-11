@@ -371,15 +371,16 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
             dx /= Math.sqrt(2);
             dz /= Math.sqrt(2);
         }
-
+        }
         gl.glLoadIdentity();
+        
         glu.gluLookAt(eyeX, eyeY, eyeZ,   // eye location
 
                 eyeX + dx, eyeY, eyeZ + dz,   // prospective new eye location
 
                  0, 1,  0); // the "up" direction
 	}
-
+    
 
 
     @Override
@@ -428,7 +429,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     }
 
    
-        eyeZ = eyeZ + i;
+     //   eyeZ = eyeZ + i;
 
         public void teleport(int i) {
         	dx += (Math.cos(Math.toRadians(theta))*i);
