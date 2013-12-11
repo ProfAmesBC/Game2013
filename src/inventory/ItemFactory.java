@@ -38,7 +38,7 @@ public class ItemFactory {
 		Item oldMan = new Cripple(gl, glu, x, y, z, p.getBag(), p);
 		list.add(oldMan);
 	}
- 
+
 	public void update() {
 		for (Item item : list) {
 			item.draw(gl, glu);
@@ -63,7 +63,7 @@ public class ItemFactory {
 		addJetpackItem(200,0,500);
 		addCrippleItem(300,0,100);
 		addCrippleItem(300,0,300);
-		
+
 		addSpeedItem(400, 0, 100);		
 		addBlindItem(400,0,200);		
 		addJetpackItem(400,0,500);

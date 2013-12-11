@@ -6,6 +6,7 @@ import game.Building;
 import game.PlayerMotion;
 import game.PlayerStats;
 import inventory.Bag;
+
 import inventory.Item;
 import inventory.PlayerAttributes;
 
@@ -18,16 +19,16 @@ import com.jogamp.opengl.util.texture.Texture;
 public class HPHeal extends AbstractPowerUp {
 	//Instant HP Heal
 	
-	public HPHeal(GL2 gl, GLU glu, float x, float y, float z, Bag bag,
-			PlayerAttributes p) {
-		//texture = Building.setupTexture(gl, "healthcross.png");
-		itemX = x;
-		itemY = y;
-		itemZ = z;
+	public HPHeal(GL2 gl, GLU glu, Point3f p3d, PlayerStats s) {
+		//texture = Building.setupTexture(gl, "texturechair.png");//change this later
 		PlayerMotion.registerPlayerWatcher(this);
 		grabbed = false;
 		this.p = p;
+		pX = (float)p3d.getX();
+		pY = (float)p3d.getY();
+		pZ = (float)p3d.getZ();
 		frames = 0;		
+		type = "HP Heal";
 	}
 
 	@Override
@@ -36,14 +37,15 @@ public class HPHeal extends AbstractPowerUp {
 		gl.glEnable(GL2.GL_CULL_FACE);
 		gl.glEnable(GL2.GL_TEXTURE_2D);
 		gl.glPushMatrix();
-		gl.glTranslated(itemX, Math.sin(Math.toRadians(T * 360 + 180)) + 2,
-				itemZ);
+		gl.glColor3d(255,255,255);
+		gl.glTranslated(pX, Math.sin(Math.toRadians(T * 360 + 180)) + 2,
+				pZ);
 		gl.glRotated(5*T,1,5*T,1);
 		// gl.glRotated(Math.toRadians(15*frames), Math.toRadians(15*frames),
 		// Math.toRadians(15*frames), 1);
 		// gl.glTranslated(-itemX, -(Math.sin(Math.toRadians(T*360+180 ))+2),
 		// -itemZ);
-		texture.bind(gl);
+		//texture.bind(gl);
 
 		gl.glBegin(GL2.GL_QUADS);
 		gl.glTexCoord2f(0f, 2f);
@@ -91,49 +93,6 @@ public class HPHeal extends AbstractPowerUp {
 		gl.glVertex3f(2.5f, 0, -5);
 		gl.glEnd();
 
-		// leftwall
-		gl.glBegin(GL2.GL_QUADS);
-		gl.glTexCoord2f(0f, 2f);
-		gl.glVertex3f(-2.5f, 0, 0);
-		gl.glTexCoord2f(3f, 2f);
-		gl.glVertex3f(-2.5f, 5, 0);
-		gl.glTexCoord2f(3f, 0f);
-		gl.glVertex3f(-2.5f, 5, -5);
-		gl.glTexCoord2f(0f, 0f);
-		gl.glVertex3f(-2.5f, 0, -5);
-		gl.glEnd();
-		gl.glBegin(GL2.GL_QUADS);
-		gl.glTexCoord2f(0f, 2f);
-		gl.glVertex3f(-2.5f, 0, 0);
-		gl.glTexCoord2f(0f, 0f);
-		gl.glVertex3f(-2.5f, 0, -5);
-		gl.glTexCoord2f(3f, 0f);
-		gl.glVertex3f(-2.5f, 5, -5);
-		gl.glTexCoord2f(3f, 2f);
-		gl.glVertex3f(-2.5f, 5, 0);
-		gl.glEnd();
-
-		// Rightwall
-		gl.glBegin(GL2.GL_QUADS);
-		gl.glTexCoord2f(0f, 2f);
-		gl.glVertex3f(2.5f, 0, 0);
-		gl.glTexCoord2f(3f, 2f);
-		gl.glVertex3f(2.5f, 5, 0);
-		gl.glTexCoord2f(3f, 0f);
-		gl.glVertex3f(2.5f, 5, -5);
-		gl.glTexCoord2f(0f, 0f);
-		gl.glVertex3f(2.5f, 0, -5);
-		gl.glEnd();
-		gl.glBegin(GL2.GL_QUADS);
-		gl.glTexCoord2f(0f, 2f);
-		gl.glVertex3f(2.5f, 0, 0);
-		gl.glTexCoord2f(0f, 0f);
-		gl.glVertex3f(2.5f, 0, -5);
-		gl.glTexCoord2f(3f, 0f);
-		gl.glVertex3f(2.5f, 5, -5);
-		gl.glTexCoord2f(3f, 2f);
-		gl.glVertex3f(2.5f, 5, 0);
-		gl.glEnd();
 
 		// floor
 		gl.glBegin(GL2.GL_QUADS);
@@ -199,6 +158,6 @@ public class HPHeal extends AbstractPowerUp {
 	@Override
 	public String getType() {
 		// TODO Auto-generated method stub
-		return null;
+		return type;
 	}
 }

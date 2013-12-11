@@ -10,10 +10,11 @@ import javax.media.opengl.glu.GLU;
 import com.jogamp.opengl.util.texture.Texture;
 
 public abstract class AbstractPowerUp implements Item {
-	protected float itemX;
-	protected float itemY;
-	protected float itemZ;
-	protected Point3d location;
+	protected float pX;
+	protected float pY;
+	protected float pZ;
+	//coordinates of corresponding Point3f; default @ 0
+	protected Point3f location;
 	protected float angle;
 	protected Texture texture;
 	protected float playerX, playerY, playerZ;
@@ -23,14 +24,23 @@ public abstract class AbstractPowerUp implements Item {
 	protected int frames;
 	protected int counter;
 	protected PlayerStats stats;
+	protected String type;
 	
 	@Override
 	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {
-			this.playerX = x;
-			this.playerY = y;
-			this.playerZ = z;
-			this.angle = angle;		
-			stats = s;
+		float distance  = (float) Math.sqrt(Math.pow((x-pX),2) + Math.pow((z-pZ),2));
+		
+		this.playerX = x;
+		this.playerY = y;
+		this.playerZ = z;
+		this.angle = angle;		
+		stats = s;
+
+		if (distance<2) {
+			activate();//grabbed now = true
+		}
+
+		
 	}
 	
 
@@ -42,8 +52,8 @@ public abstract class AbstractPowerUp implements Item {
 		}
 
 	private boolean grabConditions() {
-		if ((itemX - 3 < playerX && itemZ - 3 < playerZ)
-				&& (itemX + 5 > playerX) && (itemZ + 5 > playerZ)
+		if ((pX - 3 < playerX && pZ - 3 < playerZ)
+				&& (pX + 5 > playerX) && (pZ + 5 > playerZ)
 				&& (grabbed == false))
 			return true;
 		else
@@ -57,20 +67,30 @@ public abstract class AbstractPowerUp implements Item {
 	
 	public abstract void activate();
 		
-	public float getLocationX() {
-		return itemX;
+	private float getLocationX() {
+		return pX;
 	}
-	public float getLocationY() {
-		return itemY;
+	private float getLocationY() {
+		return pY;
 	}
-	public float getLocationZ() {
-		return itemZ;
+	private float getLocationZ() {
+		return pZ;
 	}
-	public Point3d getLocation() {
+	private Point3f getLocation() {
 		return location;
 	}
-	public float getAngle() {
+	private float getAngle() {
 		return angle;
+	}
+	private void linkLocation(Point3f f) {
+		pX = f.getX();
+		pY = f.getY();
+		pZ = f.getZ();
+		location = f;
+	}
+	
+	private void bugtest() {
+		System.out.println(type);
 	}
 	
 	
