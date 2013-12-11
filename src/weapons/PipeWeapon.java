@@ -3,23 +3,22 @@
 package weapons;
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
-import game.Building;
-import java.nio.DoubleBuffer;
+//import game.Building;
+//import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import com.jogamp.opengl.util.GLBuffers;
-import java.util.HashMap;
-import java.util.Map;
+//import java.util.HashMap;
+//import java.util.Map;
 public class PipeWeapon extends BludgeoningWeapon{
 private int displayList = -1;
-private Map<String, com.jogamp.opengl.util.texture.Texture> imageMap = new HashMap<String, com.jogamp.opengl.util.texture.Texture>(); // map of ID's to textures
+//private Map<String, com.jogamp.opengl.util.texture.Texture> imageMap = new HashMap<String, com.jogamp.opengl.util.texture.Texture>(); // map of ID's to textures
 public PipeWeapon() {
 	super();
 //	generate(gl, glu);
 }
 
 public void init(GL2 gl, GLU glu){
-	initialize(gl, glu);
 	generate(gl, glu);
 }
 
@@ -64,9 +63,9 @@ float[] positionsArray = {
 FloatBuffer fbv = GLBuffers.newDirectFloatBuffer(positionsArray, 0);
 gl.glVertexPointer(3, GL2.GL_FLOAT, 0, fbv);
 gl.glEnableClientState(GL2.GL_VERTEX_ARRAY);
-FloatBuffer fbn = null;
-FloatBuffer fbt = null;
-float[] texcoordArray = null;
+//FloatBuffer fbn = null;
+//FloatBuffer fbt = null;
+//float[] texcoordArray = null;
 {
 gl.glColor4d(0.7764706, 0.7764706, 0.7764706, 1.0);
 int[] indices = {
@@ -202,9 +201,9 @@ float[] positionsArray = {
 FloatBuffer fbv = GLBuffers.newDirectFloatBuffer(positionsArray, 0);
 gl.glVertexPointer(3, GL2.GL_FLOAT, 0, fbv);
 gl.glEnableClientState(GL2.GL_VERTEX_ARRAY);
-FloatBuffer fbn = null;
-FloatBuffer fbt = null;
-float[] texcoordArray = null;
+//FloatBuffer fbn = null;
+//FloatBuffer fbt = null;
+//float[] texcoordArray = null;
 {
 gl.glColor4d(0.7764706, 0.7764706, 0.7764706, 1.0);
 int[] indices = {
@@ -484,9 +483,9 @@ float[] positionsArray = {
 FloatBuffer fbv = GLBuffers.newDirectFloatBuffer(positionsArray, 0);
 gl.glVertexPointer(3, GL2.GL_FLOAT, 0, fbv);
 gl.glEnableClientState(GL2.GL_VERTEX_ARRAY);
-FloatBuffer fbn = null;
-FloatBuffer fbt = null;
-float[] texcoordArray = null;
+//FloatBuffer fbn = null;
+//FloatBuffer fbt = null;
+//float[] texcoordArray = null;
 {
 gl.glColor4d(0.7764706, 0.7764706, 0.7764706, 1.0);
 int[] indices = {
@@ -718,9 +717,9 @@ float[] positionsArray = {
 FloatBuffer fbv = GLBuffers.newDirectFloatBuffer(positionsArray, 0);
 gl.glVertexPointer(3, GL2.GL_FLOAT, 0, fbv);
 gl.glEnableClientState(GL2.GL_VERTEX_ARRAY);
-FloatBuffer fbn = null;
-FloatBuffer fbt = null;
-float[] texcoordArray = null;
+//FloatBuffer fbn = null;
+//FloatBuffer fbt = null;
+//float[] texcoordArray = null;
 {
 gl.glColor4d(0.3372549, 0.3372549, 0.3372549, 1.0);
 int[] indices = {
@@ -856,9 +855,9 @@ float[] positionsArray = {
 FloatBuffer fbv = GLBuffers.newDirectFloatBuffer(positionsArray, 0);
 gl.glVertexPointer(3, GL2.GL_FLOAT, 0, fbv);
 gl.glEnableClientState(GL2.GL_VERTEX_ARRAY);
-FloatBuffer fbn = null;
-FloatBuffer fbt = null;
-float[] texcoordArray = null;
+//FloatBuffer fbn = null;
+//FloatBuffer fbt = null;
+//float[] texcoordArray = null;
 {
 gl.glColor4d(0.7764706, 0.7764706, 0.7764706, 1.0);
 int[] indices = {
@@ -984,9 +983,9 @@ float[] positionsArray = {
 FloatBuffer fbv = GLBuffers.newDirectFloatBuffer(positionsArray, 0);
 gl.glVertexPointer(3, GL2.GL_FLOAT, 0, fbv);
 gl.glEnableClientState(GL2.GL_VERTEX_ARRAY);
-FloatBuffer fbn = null;
-FloatBuffer fbt = null;
-float[] texcoordArray = null;
+//FloatBuffer fbn = null;
+//FloatBuffer fbt = null;
+//float[] texcoordArray = null;
 {
 gl.glColor4d(0.7764706, 0.7764706, 0.7764706, 1.0);
 int[] indices = {
@@ -1266,9 +1265,9 @@ float[] positionsArray = {
 FloatBuffer fbv = GLBuffers.newDirectFloatBuffer(positionsArray, 0);
 gl.glVertexPointer(3, GL2.GL_FLOAT, 0, fbv);
 gl.glEnableClientState(GL2.GL_VERTEX_ARRAY);
-FloatBuffer fbn = null;
-FloatBuffer fbt = null;
-float[] texcoordArray = null;
+//FloatBuffer fbn = null;
+//FloatBuffer fbt = null;
+//float[] texcoordArray = null;
 {
 gl.glColor4d(0.7764706, 0.7764706, 0.7764706, 1.0);
 int[] indices = {
@@ -1500,9 +1499,9 @@ float[] positionsArray = {
 FloatBuffer fbv = GLBuffers.newDirectFloatBuffer(positionsArray, 0);
 gl.glVertexPointer(3, GL2.GL_FLOAT, 0, fbv);
 gl.glEnableClientState(GL2.GL_VERTEX_ARRAY);
-FloatBuffer fbn = null;
-FloatBuffer fbt = null;
-float[] texcoordArray = null;
+//FloatBuffer fbn = null;
+//FloatBuffer fbt = null;
+//float[] texcoordArray = null;
 {
 gl.glColor4d(0.7764706, 0.7764706, 0.7764706, 1.0);
 int[] indices = {
@@ -1638,9 +1637,9 @@ float[] positionsArray = {
 FloatBuffer fbv = GLBuffers.newDirectFloatBuffer(positionsArray, 0);
 gl.glVertexPointer(3, GL2.GL_FLOAT, 0, fbv);
 gl.glEnableClientState(GL2.GL_VERTEX_ARRAY);
-FloatBuffer fbn = null;
-FloatBuffer fbt = null;
-float[] texcoordArray = null;
+//FloatBuffer fbn = null;
+//FloatBuffer fbt = null;
+//float[] texcoordArray = null;
 {
 gl.glColor4d(0.7764706, 0.7764706, 0.7764706, 1.0);
 int[] indices = {
