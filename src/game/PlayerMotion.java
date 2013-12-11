@@ -65,6 +65,12 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
             eyeX=x;
     }
     
+    public void notifyObservers() {
+    	   for (PlayerMotionWatcher wd : watchers)
+              wd.playerMoved(eyeX, eyeY, eyeZ, theta, gamma,stats);
+
+    	}
+    
     public void setEyeY(float y) {
             eyeY=y;
     }
@@ -86,6 +92,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+
             if(mobile)
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_A:
@@ -215,13 +222,12 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
                 eyeX + Math.cos(Math.toRadians(theta)) * Math.cos(Math.toRadians(gamma)), eyeY + Math.sin(Math.toRadians(gamma)), eyeZ + -Math.sin(Math.toRadians(theta)) * Math.cos(Math.toRadians(gamma)),   // point to look at (near middle of pyramid)
                 0, 1, 0); // the "up" direction
         if (mobile&&(moved != 0 || qdown || edown || idown || kdown || dgamma != 0 || dtheta != 0)) {
-            for (PlayerMotionWatcher watcher : watchers)
-                watcher.playerMoved(eyeX, eyeY, eyeZ, theta, gamma,stats);
+        	notifyObservers();
         }
     }
 
     public void update(GL2 gl, GLU glu) {
-            
+
             speedCounter++;
             flyCounter++;
             

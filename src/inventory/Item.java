@@ -11,6 +11,8 @@ import javax.media.opengl.glu.GLU;
 public interface Item extends PlayerMotionWatcher {
 
 	public void draw(GL2 gl, GLU glu);
+	
+	public void draw(GL2 gl, GLU glu, float x, float y, float z);
 
 	public void use();
 
