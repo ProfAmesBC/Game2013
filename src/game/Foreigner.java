@@ -4,6 +4,8 @@ import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 import javax.media.opengl.glu.GLUquadric;
 
+import Multiplayer.Avatar;
+
 public class Foreigner extends Player{
 	private float x=0, y=0, z=0, r,g,b,angle =0;
 	private GL2 gl;

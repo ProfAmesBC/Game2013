@@ -1,5 +1,8 @@
 package game;
 
+//fresh from the sketchup, morning of the 11th
+//Muhan Zhang, this file should be right cause it doesn't exceed 63235 MB
+
 import java.net.SocketException;
 
 import javax.media.opengl.GL2;

@@ -186,9 +186,10 @@ public class BatsEverywhere implements GLEventListener
     public void screenshot(GLAutoDrawable drawable){
     	//System.out.println("EYEX: " + playerMotion.getEyeX() + " EYEY: " + playerMotion.getEyeY() + " EYEZ: " + playerMotion.getEyeZ());
     	
-    	System.out.println("In screenshot method");
+    	//System.out.println("In screenshot method");
 
-    	GL2 gl = drawable.getGL().getGL2(); System.out.println("Frames drawn = 1");
+    	GL2 gl = drawable.getGL().getGL2(); 
+    	//System.out.println("Frames drawn = 1");
         
         gl.glFlush(); // ensure all drawing has finished
         //gl.glReadBuffer(GL2.GL_BACK);
@@ -225,7 +226,7 @@ public class BatsEverywhere implements GLEventListener
     	
         GL2 gl = drawable.getGL().getGL2();       
 
-        System.out.println("Frames drawn = 1");
+        //System.out.println("Frames drawn = 1");
 
         
         // also appears where minimap is drawn
