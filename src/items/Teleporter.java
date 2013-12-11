@@ -97,7 +97,7 @@ public class Teleporter implements Item {
 		float currentSpeed = p.getStepSize();
 		int duration = 30;
 		// calls PlayerAttributes
-		p.teleport(10);
+		p.teleport(50);
 	}
 
 	public String getType() {

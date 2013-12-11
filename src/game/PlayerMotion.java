@@ -320,6 +320,11 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     public float getStep() {
         return step;
     }
+	public void teleport(int i) {
+		eyeX = eyeX + i;
+        eyeY = eyeY + i;
+        eyeZ = eyeZ + i;
+	}
 
     
 }
