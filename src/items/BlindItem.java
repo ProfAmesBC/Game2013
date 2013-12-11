@@ -61,14 +61,14 @@ public class BlindItem implements Item {
 			drawItem(gl, glu);
 		}
 		else if(!used){			
-			use();
+			use();			
 		}					
 	}
 
 	private boolean grabConditions() {
 		if ((itemX - 3 < playerX && itemZ - 3 < playerZ)
 				&& (itemX + 5 > playerX) && (itemZ + 5 > playerZ)
-				&& (grabbed == false))
+				&& (grabbed == false)&&(playerY<7))
 			return true;
 		else
 			return false;
@@ -288,6 +288,12 @@ public class BlindItem implements Item {
 		this.playerY = y;
 		this.playerZ = z;
 		this.angle = angle;
+	}
+
+	@Override
+	public void draw(GL2 gl, GLU glu, float x, float y, float z) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

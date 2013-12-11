@@ -24,9 +24,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <playerA>Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *       &lt;sequence>
  *         &lt;element name="input" type="{http://www.collada.org/2005/11/COLLADASchema}InputLocalOffset" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="vcount" type="{http://www.collada.org/2005/11/COLLADASchema}ListOfUInts" minOccurs="0"/>
- *         &lt;element ref="{http://www.collada.org/2005/11/COLLADASchema}p" minOccurs="0"/>
+ *         &lt;element ref="{http://www.collada.org/2005/11/COLLADASchema}playerA" minOccurs="0"/>
  *         &lt;element ref="{http://www.collada.org/2005/11/COLLADASchema}extra" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}NCName" />
@@ -52,7 +52,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlType(name = "", propOrder = {
     "inputs",
     "vcount",
-    "p",
+    "playerA",
     "extras"
 })
 @XmlRootElement(name = "polylist")
@@ -80,20 +80,20 @@ public class Polylist {
     /**
      * Gets the value of the inputs property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the inputs property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInputs().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link InputLocalOffset }
      * 
@@ -109,20 +109,20 @@ public class Polylist {
     /**
      * Gets the value of the vcount property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the vcount property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getVcount().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link BigInteger }
      * 
@@ -137,23 +137,23 @@ public class Polylist {
 
     /**
      * 
-     * 						The p element may occur once.
-     * 						Gets the value of the p property.
+     * 						The playerA element may occur once.
+     * 						Gets the value of the playerA property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the p property.
+     * This is why there is not a <CODE>set</CODE> method for the playerA property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getP().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link BigInteger }
      * 
@@ -171,20 +171,20 @@ public class Polylist {
      * 						The extra element may appear any number of times.
      * 						Gets the value of the extras property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extras property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtras().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Extra }
      * 

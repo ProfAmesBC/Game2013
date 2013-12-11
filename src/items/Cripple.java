@@ -69,10 +69,10 @@ public class Cripple extends AbstractPowerUp {
 		}		
 	}
 
-	private boolean grabConditions() {
+	public boolean grabConditions() {
 		if ((itemX - 3 < playerX && itemZ - 3 < playerZ)
 				&& (itemX + 5 > playerX) && (itemZ + 5 > playerZ)
-				&& (grabbed == false))
+				&& (grabbed == false)&& (playerY<7))
 			return true;
 		else
 			return false;
@@ -96,7 +96,7 @@ public class Cripple extends AbstractPowerUp {
 
 	public void use() {
 		float currentSpeed = p.getStepSize();
-		int duration = 60;
+		int duration = 90;
 		// calls PlayerAttributes
 		p.setStepSize(currentSpeed - currentSpeed/2, duration);
 	}
@@ -270,9 +270,16 @@ public class Cripple extends AbstractPowerUp {
 	}
 
 	@Override
-	public void activate() {
+	public void draw(GL2 gl, GLU glu, float x, float y, float z) {
 		// TODO Auto-generated method stub
-
+		
 	}
+
+	@Override
+	public void linkLocation(Point3f f) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
