@@ -63,7 +63,7 @@ public class MoveSwarm {
 					float distancesq = (xdist*xdist + zdist*zdist);
 					if (distancesq < 0.1f)
 						distancesq = 0.1f;
-					float force = .001f/distancesq;
+					float force = .01f/distancesq;
 
 					//update velocity vectors
 					b.setDX(b.getDX()+(force*xdist));
@@ -87,7 +87,7 @@ public class MoveSwarm {
 					float distancesq = (xdist*xdist + zdist*zdist);
 					if (distancesq < 0.1f)
 						distancesq = 0.1f;
-					float force = .001f/distancesq;
+					float force = .01f/distancesq;
 
 					//update velocity vectors
 					m.setDX(m.getDX()+(force*xdist));
