@@ -36,7 +36,7 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 	private boolean seesPlayer = false;
 	private boolean shotByBullet = false;
 	private boolean visible = true;
-	private float detectionRadius = 5f;
+	private float detectionRadius = 25f;
 	private Random random = new Random();
 	private double k = random.nextDouble();
 	
@@ -173,12 +173,13 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 	}
 	
 	public void move() {
-		if (seesPlayer) {
+		if (seesPlayer && !shotByBullet) {
 			moveTowardsPlayer();
-		} else {
-			moveIdle();
-			drawStillMotion();
+		} else if (shotByBullet) {
+			animateDeath();
 		}
+		drawStillMotion();
+		moveIdle();
 	}
 	
 	public void playerMoved(float x, float y, float z, float angle, float yAngle,PlayerStats s) {
@@ -203,15 +204,16 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 		
 	}
 	
-	public void moveTowardsPlayer() {		
+	public void moveTowardsPlayer() {	
+		directionAngle = playerAngle - 180;
 		double xV = playerX-X;
     	double zV = playerZ-Z;
     	double dotProduct = xV * 0.2 + zV * 0.2;
     	double lengthV1 = Math.sqrt((xV*xV)+(zV*zV));
     	lengthV1 = lengthV1 * lengthV1;
     	double constant = dotProduct / lengthV1;
-    	double dx = constant * xV*0.2;
-    	double dz = constant * zV*0.2;
+    	double dx = constant * xV*1.5;
+    	double dz = constant * zV*1.5;
     	dx = Math.abs(dx);
     	dz = Math.abs(dz);
     	if(playerZ<Z){ Z-=dz; }
@@ -220,11 +222,11 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
     	else{	X+=dx;}
 	}
 	
-	public void animateDeath(GL2 gl, GLU glu) {
+	public void animateDeath() {
 		if (Y <= 0) {
 			visible = false;
 		} else {
-			Y = Y - 0.03f;
+			Y = Y - 0.4f;
 		}
 	}
 	
