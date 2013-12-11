@@ -29,6 +29,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import weapons.ProjectileWeapons;
+import Music.MusicPlayer;
 import Enemies.Bat;
 import Enemies.MoveSwarm;
 import catsrabbits.CatGroup;
@@ -62,6 +63,9 @@ public class BatsEverywhere implements GLEventListener
         private StatusText writer;
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
+
+    private static MusicPlayer jukebox = new MusicPlayer();
+
     private CritterGroup catGroup,rabbitGroup;
     private Bat bat;
     private Mummy mummy;
@@ -82,6 +86,7 @@ public class BatsEverywhere implements GLEventListener
     private GLReadBufferUtil bufferUtil = new GLReadBufferUtil(false, true); //For capturing screen shots
     
     //renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, 48));
+
     
 
     public void init(GLAutoDrawable drawable) {
@@ -105,7 +110,7 @@ public class BatsEverywhere implements GLEventListener
 
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
-       
+
         creatures.add(new Mummy(30,100,gl, glu));
         creatures.add(new PacManGhost(25,95,gl, glu));
         
@@ -126,6 +131,10 @@ public class BatsEverywhere implements GLEventListener
 		m.load("destination2",  0, 0, 1, true);
 		m.setListenerPos(0, 0);
 		//m.play("destination2");
+
+        //jukebox.loadFanfare();
+		Thread player = new Thread(jukebox);
+		player.run();
 
     }
     
@@ -463,13 +472,17 @@ public class BatsEverywhere implements GLEventListener
          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          frame.pack(); // make just big enough to hold objects inside
          frame.setVisible(true);
+
          renderer.canvas.addKeyListener(renderer.playerActions);
+
          renderer.canvas.addKeyListener(renderer.playerMotion);
          renderer.canvas.addMouseMotionListener(renderer.playerMotion);
          renderer.canvas.addKeyListener(renderer.projectileWeapons);
          renderer.canvas.addMouseListener(renderer.projectileWeapons);
          renderer.canvas.requestFocus(); // so key clicks come here
+         
          FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
          animator.start();
+
     }
 }
