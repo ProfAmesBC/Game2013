@@ -1,56 +1,35 @@
 package weapons;
 
 import game.PlayerMotion;
-import game.PlayerMotionWatcher;
 import game.PlayerStats;
 
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
-import javax.media.opengl.glu.GLUquadric;
 
-// make a class that holds list of all projectiles and iter thru to update - called once from main game
+
+// this class no longer utilizes the keylistener but other classes are using the Weapon interface so I can't change,
+// and other code relies on BludgeoningWeapons implementing Weapon
 
 public abstract class BludgeoningWeapon implements Weapon{
 	
 	private float x, y, z, angle;	// where player is
-	private float weaponX, weaponY, weaponZ;	// position of weapon
-	private GLUquadric quadric;
+	private float weaponX, weaponZ;	// position of weapon
 	private int frames, lengthOfHit; // the counter to determine how long the weapon is being swung for
-	private float reach = 5; 
 	private float dist = 0;
-	private GL2 gl;
-	private GLU glu;
-	private boolean hit;
+	public boolean hit;
 	
 	public BludgeoningWeapon(){
 		hit = false;
-		
-		PlayerMotion.registerPlayerWatcher(this);
-		
-	}
-	
-	// fix this with keylistener stuff...
-	public void initialize(GL2 gl, GLU glu){
-		this.gl = gl;
-		this.glu = glu;
 		lengthOfHit = 25;	// duration of hit in frames
-		
-		quadric = glu.gluNewQuadric();
-        glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
-        glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
-        glu.gluQuadricTexture  (quadric, false);
+		PlayerMotion.registerPlayerWatcher(this);
 	}
 	
 	public abstract void draw(GL2 gl, GLU glu);
 	
-	
 	public void update(GL2 gl, GLU glu){
-//		System.out.println(hit);
-		
-//		if (hit){
+
+		if (hit){
 			weaponX =  (float) (2*Math.cos(Math.toRadians(angle)));
 			weaponZ = -(float) (2*Math.sin(Math.toRadians(angle)));
 			
@@ -58,7 +37,6 @@ public abstract class BludgeoningWeapon implements Weapon{
 				
 				gl.glPushMatrix();
 					gl.glTranslatef(x+weaponX * dist/5, y, z+ weaponZ * dist/5);	// draw at person
-//					gl.glRotatef(-90, 1, 0, 0);
 					draw(gl, glu);
 				gl.glPopMatrix();
 
@@ -68,7 +46,6 @@ public abstract class BludgeoningWeapon implements Weapon{
 			else if (frames >= lengthOfHit/2 && frames < lengthOfHit){
 				gl.glPushMatrix();
 					gl.glTranslatef(x+weaponX * dist/5, y, z+ weaponZ * dist/5);	// draw at person
-//					gl.glRotatef(-90, 1, 0, 0);
 					draw(gl, glu);
 				gl.glPopMatrix();
 				
@@ -77,18 +54,16 @@ public abstract class BludgeoningWeapon implements Weapon{
 			}
 			else { 
 				System.out.println("DONE HITTING");
-				weaponX = weaponY = weaponZ = 0;
+				weaponX = weaponZ = 0;
 				frames = 0;
 				dist = 0;
 				
+				hit = false;
 				return;
-//				hit = false;
 				}
 		}
-//	}
+	}
 	
-	
-	// figure out where player is looking, also!
 	@Override
 	public void playerMoved(float x, float y, float z, float angle, float y_angle, PlayerStats s) {
 		this.x = x;
@@ -100,22 +75,9 @@ public abstract class BludgeoningWeapon implements Weapon{
 	@Override
 	public void keyTyped(KeyEvent e) {}
 
-	// make sure only one bat at a time
 	@Override
-	public void keyPressed(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_O){	// add functionality later to toggle between weapons or to have a "current weapon"
-//			hit = true;
-			update(gl, glu);
-		}
-	}
+	public void keyPressed(KeyEvent e) {}
 
 	@Override
 	public void keyReleased(KeyEvent e) {}
-
-//	@Override
-//	public void playerMoved(float x, float y, float z, float angle,
-//			float y_angle, PlayerStats s) {
-//		// TODO Auto-generated method stub
-		
-//	}
 }

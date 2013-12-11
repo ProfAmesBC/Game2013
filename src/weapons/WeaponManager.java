@@ -20,6 +20,8 @@ public class WeaponManager implements KeyListener, PlayerMotionWatcher{
 	private LinkedList<DisplayedWeapon> weapons;
 	private BludgeoningWeapon w;
 	private float x, z;
+//	private GL2 gl;
+//	private GLU glu;
 	
 	public WeaponManager(){
 		weapons = new LinkedList<DisplayedWeapon>();
@@ -36,6 +38,9 @@ public class WeaponManager implements KeyListener, PlayerMotionWatcher{
 	}
 	
 	public void init(GL2 gl, GLU glu){
+//		this.gl = gl;
+//		this.glu = glu;
+		
 		BludgeoningWeapon pw = new PipeWeapon();
 		BludgeoningWeapon ow = new OarWeapon();
 		
@@ -53,7 +58,7 @@ public class WeaponManager implements KeyListener, PlayerMotionWatcher{
 	public void draw(GL2 gl, GLU glu){
 		for (DisplayedWeapon dw: weapons)
 			dw.draw(gl, glu);
-//		w.update(gl, glu);
+		w.update(gl, glu);
 	}
 	
 	public BludgeoningWeapon scanWeapons(){
@@ -72,6 +77,12 @@ public class WeaponManager implements KeyListener, PlayerMotionWatcher{
 				setWeapon(weapon);
 				System.out.println("weapon changed");
 		}
+		}
+		
+		if(e.getKeyCode() == KeyEvent.VK_O){	// add functionality later to toggle between weapons or to have a "current weapon"
+//			hit = true;
+			System.out.println("O key pressed");
+			w.hit = true;
 		}
 	}
 
