@@ -319,7 +319,7 @@ public class BatsEverywhere implements GLEventListener
 
         
         //mummy.draw(gl, glu);
-        moveSwarm.draw(gl, glu);
+        //moveSwarm.draw(gl, glu);
         // check for errors, at least once per frame
 
         
