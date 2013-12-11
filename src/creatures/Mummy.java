@@ -1,6 +1,8 @@
 package creatures;
 
+import game.BatsEverywhere;
 import game.Building;
+import game.PlayerMotion;
 import game.PlayerMotionWatcher;
 import game.PlayerStats;
 import game.ReadZBuffer;
@@ -18,26 +20,31 @@ public class Mummy implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 	float locx, locy, locz;
 	float eyeAngle = 0;
 	final float moveSpeed = 0.5f;
-	final float runSpeed = 1f;
+	final float runSpeed = 2f;
 	final float rotateSpeed = 2f;
-	final float sightRadius = 20;
+	final float sightRadius = 20f;
 	private Texture bodyTexture;
 	private GLUquadric bodyQuadric;
 	boolean facingFront = true;
 	boolean agro, dead;
 	static float T = 0;
+	double eyeVecX, eyeVecZ;
 	private Random rand = new Random();
 	private double d = rand.nextDouble();
+	float playerX, playerZ, playerAngle;
 	float dx, dz;
 	int width, height;
 
 	public Mummy(float x, float z, GL2 gl, GLU glu){
+		eyeVecX = 0.2;
+		eyeVecZ = 0.2;
 		spawnx = x;
 		spawny = 0;
 		spawnz = z;
 		locx = x;
 		locy = 0;
 		locz = z;
+		
 		bodyTexture = Building.setupTexture(gl, "liangmummy.jpg");
 		bodyQuadric = glu.gluNewQuadric();
         glu.gluQuadricDrawStyle(bodyQuadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
@@ -45,14 +52,24 @@ public class Mummy implements Creature, PlayerMotionWatcher, ProjectileWatcher{
         glu.gluQuadricTexture  (bodyQuadric, true);        // false, or true to generate texture coordinates
         agro = false;
         dead = false;
+        PlayerMotion.registerPlayerWatcher(this);
         
 		
 	}
 	
 	private void drawMoving(GL2 gl, GLU glu, float T){
-		
-		if (agro){drawAgro(gl,glu,T);}
+		if (agro){
+			
+			double xV = locx-playerX;
+			double zV = locz-playerZ;
+			double lengthV1 = Math.sqrt((xV*xV)+(zV*zV));
+			double lengthV2 = Math.sqrt(eyeVecX*eyeVecX+eyeVecZ*eyeVecZ);
+			double dotProduct = xV * eyeVecX + zV * eyeVecZ;
+			eyeAngle = (float) Math.acos(dotProduct / (lengthV1*lengthV2)) + 270;
+			
+			drawAgro(gl,glu,T);}
 		else
+		
 		drawPassive(gl, glu, T);
 	}
 	
@@ -240,116 +257,102 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 		gl.glPopMatrix();
 	}
 	
-	public void move(GL2 gl, GLU glu){
+	public void move(){
 		float speed;
 		if (T==0){
 		d = rand.nextDouble();}
 		
+		System.out.println(eyeAngle);
+		
 		if (!agro) {
 			speed = moveSpeed;
-			if (d <= 0.25){eyeAngle = 0;}
-			else if (d <= 0.5) {eyeAngle = 90;}
-			else if (d <= 0.75) {eyeAngle = 180;}
-			else {eyeAngle = 270;}
+			if (d <= 0.25){eyeAngle = 0;
 			
+			locx +=  (float) ( speed*Math.cos(Math.toRadians(eyeAngle)));
+			locz -=  (float) ( speed*Math.sin(Math.toRadians(eyeAngle)));
 			
-			
-			float moved = 0;
-			
-			dx =  (float) ( speed*Math.sin(Math.toRadians(eyeAngle)));
-			dz =  (float) ( speed*Math.cos(Math.toRadians(eyeAngle)));
-	        double location[] = ReadZBuffer.getOGLPos(gl, glu, width / 2, height / 2); //what you're moving towards
-	        if (!dead &&locx + dx > 0 && locz + dz > 0 && locx + dx < 600 && locz + dz < 600 && (locx + dx < 300 || locz + dz < 500)) {
-	            if (Math.abs(location[0] - locx) > Math.abs(dx) + 1) {
-	               
-	                moved += dx;
-	                locx += dx;
-	            }//if you have room to move in the x direction, move in the x direction
-
-	            if (Math.abs(location[2] - locz) > Math.abs(dz) + 1) {
-	              
-	                moved += dz;
-	                locz -= dz;
-	            }//ditto z
-			
-	        }
-	       // locx += dx;
-	       // locz -= dz;
-			
-//			if (eyeAngle == 360) eyeAngle = 0;
-//			if (locz < spawnz - 10 ) {
-//				if (!facingFront)eyeAngle-=rotateSpeed;
-//					if (eyeAngle == 0) {facingFront = true;
-//					locz +=speed*Math.cos(Math.toRadians(eyeAngle));
-//					locx -=speed*Math.sin(Math.toRadians(eyeAngle));
-//					}
-//				}		
-//			else if (locz >  spawnz + 10){
-//				if (facingFront) eyeAngle+=rotateSpeed;
-//				if (eyeAngle == 180) {facingFront = false;
-//	    			locz +=speed*Math.cos(Math.toRadians(eyeAngle));
-//	    			locx -=speed*Math.sin(Math.toRadians(eyeAngle));
-//			}
-//	    }
-//	    else {
-//	    	locz +=speed*Math.cos(Math.toRadians(eyeAngle));
-//	    	locx -=speed*Math.sin(Math.toRadians(eyeAngle));
-//	    	}
-				
+			}
+			else if (d <= 0.5) {eyeAngle = 90;
+			locx -=  (float) ( speed*Math.cos(Math.toRadians(eyeAngle)));
+			locz +=  (float) ( speed*Math.sin(Math.toRadians(eyeAngle)));
+			}
+			else if (d <= 0.75) {eyeAngle = 180;
+			locx +=  (float) ( speed*Math.cos(Math.toRadians(eyeAngle)));
+			locz -=  (float) ( speed*Math.sin(Math.toRadians(eyeAngle)));
+			}
+			else {eyeAngle = 270;
+			locx -=  (float) ( speed*Math.cos(Math.toRadians(eyeAngle)));
+			locz +=  (float) ( speed*Math.sin(Math.toRadians(eyeAngle)));
+			}
 		}
 	    
 	    else {speed = runSpeed;
-	    	//if player within range, turn and face player
-	    	locz +=speed*Math.cos(Math.toRadians(eyeAngle));
-    		locx -=speed*Math.sin(Math.toRadians(eyeAngle));
-	
+	    	//runtowards
+	    	double xV = playerX-locx;
+	    	double zV = playerZ-locz;
+	    	double dotProduct = xV * eyeVecX + zV * eyeVecZ;
+	    	double lengthV1 = Math.sqrt((xV*xV)+(zV*zV));
+	    	lengthV1 = lengthV1 * lengthV1;
+	    	double constant = dotProduct / lengthV1;
+	    	double dx = constant * xV*speed;
+	    	double dz = constant * zV*speed;
+	    	dx = Math.abs(dx);
+	    	dz = Math.abs(dz);
+	    	if(playerZ<locz){ locz-=dz; }
+	    	else{ locz+=dz; }
+	    	if(playerX<locx){locx-=dx;}
+	    	else{	locx+=dx;}
 	    	}
 	        
 	    }
     
-	public void setDim(int width, int height){
-		this.width = width;
-		this.height = height;
-	}
 	
 	public void draw(GL2 gl, GLU glu) {
 		
-		move(gl, glu);
-		
+	
+		gl.glPushMatrix();
 		gl.glTranslatef(locx, (float) (locy + 0.1*Math.sin(Math.toRadians((T/60)*360))), locz);
-		gl.glRotatef(eyeAngle, 0, 1, 0);
+		gl.glRotatef(eyeAngle+270, 0, -1, 0);
 		drawMoving(gl, glu, T/60);
+	
 		
+		
+		gl.glPopMatrix();
+		move();
 		System.out.println("Position: " + locx + " " + locz);
 		
 		 T+=1f;
 		 if (T > 60) T = 0;
-		
-		
 	}
 	
 	
 	
 	@Override
 	public void projectileMoved(double x, double z) {
-		// TODO Auto-generated method stub
-		
+		if((Math.abs(locx-x) < 2) && (Math.abs(locz-z) < 2)){
+			BatsEverywhere.creatures.remove(this);
+		}
 	}
 
 	@Override
 	public void playerMoved(float x, float y, float z, float angle, float y_angle, PlayerStats s) {
-		float distance  = (float) Math.sqrt(Math.pow((x-locx),2) + Math.pow((y-locy),2));
-		if (distance < sightRadius) {agro = true;}
-		if(distance < 2){s.changeHealth(-1);
+		playerX = x;
+		playerZ = z;
+		playerAngle = angle;
+		float distance  = (float) Math.sqrt(Math.pow((locx-x),2) + Math.pow((locy-y),2));
+		if (distance < sightRadius) {agro = true;
+		
+		
+			
+		
+		}
+		if(distance < 5){s.changeHealth(-1);
 			
 		};
 		
 	}
+	
+	
 
-	@Override
-	public void move() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

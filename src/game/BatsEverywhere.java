@@ -13,6 +13,7 @@ import java.awt.Font;
 import java.io.File; //For capturing screen shot
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.media.opengl.GL2;
@@ -37,9 +38,7 @@ import com.jogamp.opengl.util.GLReadBufferUtil;
 import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureIO;
 
-import creatures.Mummy;
-import creatures.Robot;
-import creatures.PacManGhost;
+import creatures.*;
 
 
 public class BatsEverywhere implements GLEventListener
@@ -67,6 +66,7 @@ public class BatsEverywhere implements GLEventListener
     private PacManGhost pacManGhost;
     private Texture minimaptexture;
     private MoveSwarm moveSwarm;
+    public static List<Creature> creatures = new LinkedList<Creature>();
     //private TextRenderer renderer;
     
 
@@ -99,10 +99,14 @@ public class BatsEverywhere implements GLEventListener
 
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
-        mummy = new Mummy(30, 100, gl, glu);
-        pacManGhost = new PacManGhost(25, 95, gl, glu);
-        Robot.addZombie(new Robot(60,60,gl,glu));
-        Robot.addZombie(new Robot(100,100,gl,glu));
+       
+        creatures.add(new Mummy(30,100,gl, glu));
+        creatures.add(new Robot(60,60,gl,glu));
+        creatures.add(new Robot(100,100,gl,glu));
+        creatures.add(new PacManGhost(25,95,gl, glu));
+        
+        //Robot.addRobot(new Robot(60,60,gl,glu));
+        //Robot.addRobot(new Robot(100,100,gl,glu));
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
     //    bat = new Bat(gl, glu);
@@ -114,7 +118,7 @@ public class BatsEverywhere implements GLEventListener
     	this.width = width;
     	this.height = height;
     	playerMotion.setDim(width, height);
-    	mummy.setDim(width, height);
+    	//mummy.setDim(width, height);
         //System.out.println("reshaping to " + width + "x" + height);
 
         GL2 gl = drawable.getGL().getGL2();
@@ -251,12 +255,16 @@ public class BatsEverywhere implements GLEventListener
         writer.draw(stats.honorString(), 10, 10);
 
         projectileWeapons.update(gl, glu);
-
-        Robot.drawZombies(gl, glu);
+       
+        for (Creature c: creatures){
+        	c.draw(gl, glu);
+        }
+        
+        //Robot.drawZombies(gl, glu);
         catGroup.draw(gl, glu);
         rabbitGroup.draw(gl, glu);
       //  bat.draw(gl, glu);
-        mummy.draw(gl, glu);
+        //mummy.draw(gl, glu);
     //    moveSwarm.draw(gl, glu);
         // check for errors, at least once per frame
 

@@ -3,6 +3,7 @@ package creatures;
 import java.util.LinkedList;
 import java.util.List;
 
+import game.BatsEverywhere;
 import game.PlayerMotion;
 import game.PlayerMotionWatcher;
 import game.PlayerStats;
@@ -18,7 +19,7 @@ import weapons.Projectile;
 public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 	
 	private static GLUT glut = new GLUT();
-	private static List<Robot> swampZombies = new LinkedList<Robot>();
+	//private static List<Robot> swampZombies = new LinkedList<Robot>();
 	private static int detectionRadius = 40;
 	private static double playerX = 0;
 	private static double playerZ = 0;
@@ -42,7 +43,8 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
         glu.gluQuadricTexture(quadric,false);
 		PlayerMotion.registerPlayerWatcher(this);
 		Projectile.registerProjectileWatcher(this);
-		swampZombies.add(this);
+		//BatsEverywhere.creatures.add(this);
+		//swampZombies.add(this);
 		
 		// create the two display lists
 		if (displayListNotChasing == -1) {
@@ -251,17 +253,17 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 
 	public void projectileMoved(double x, double z) {
 		if((Math.abs(zombieLocationX-x) < 2) && (Math.abs(zombieLocationZ-z) < 2)){
-			swampZombies.remove(this);
+			BatsEverywhere.creatures.remove(this);
 		}
 	}
 	
-	public static void addZombie(Robot zombie){
-		swampZombies.add(zombie);
+	public static void addRobot(Robot robot){
+		BatsEverywhere.creatures.add(robot);
 	}
 	
-	public static void drawZombies(GL2 gl,GLU glu){
-		for(Robot zombie:swampZombies){
-			zombie.draw(gl, glu);
-		}
-	}
+//	public static void drawZombies(GL2 gl,GLU glu){
+//		for(Robot zombie:swampZombies){
+//			zombie.draw(gl, glu);
+//		}
+//	}
 }
