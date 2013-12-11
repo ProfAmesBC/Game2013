@@ -113,6 +113,12 @@ public class BatsEverywhere implements GLEventListener
 
         creatures.add(new Mummy(30,100,gl, glu));
         creatures.add(new PacManGhost(25,95,gl, glu));
+        creatures.add(new PacManGhost(50,100,gl, glu));
+        creatures.add(new Mummy(220, 310, gl, glu));
+        creatures.add(new Mummy(384, 90, gl, glu));
+        creatures.add(new PacManGhost(120,236,gl, glu));
+        creatures.add(new Mummy(100, 500, gl, glu));
+        creatures.add(new Mummy(95, 400, gl, glu));
         
         Robot.addRobot(new Robot(60,60,gl,glu));
         Robot.addRobot(new Robot(100,100,gl,glu));
