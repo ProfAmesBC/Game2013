@@ -8,15 +8,8 @@ import javax.media.opengl.glu.GLUquadric;
 public class BasicBat implements Enemies {
 	
 	//initialize graphics variables
-	private float x, y, z;
-	
-	
+	private float x, y, z, dx, dz, speed, scale;
 	private float direction; //angle from X axis
-	private float dx;
-	private float dz;
-	
-	private float speed;
-	private float scale;
 	private double T;
 	private GLUquadric quadric; 
 	private float bodyRadius = 1;
@@ -28,32 +21,8 @@ public class BasicBat implements Enemies {
 	private float maxHP = 10;
 	private float currentHP = maxHP;
 	
-	
-	
 	//constructors
 	public BasicBat(){}
-	
-	public BasicBat(GL2 gl, GLU glu) {
-		
-		//quadric set-up
-		quadric = glu.gluNewQuadric();
-		glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL); // GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
-        glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
-        glu.gluQuadricTexture  (quadric, false);        // use true to generate texture coordinates
-        
-        //
-        scale = (float) 0.25;
-        speed = 1;
-		bodyRadius*=scale;
-        lowerWingLength*=scale;
-        upperWingLength*=scale;
-        x = 40;
-        y = 6;
-        z = 0;
-        T=0;
-        direction=90;
-        dead = false;
-	}
 	
 	public BasicBat(GL2 gl, GLU glu, float x, float z) {
 		
@@ -63,7 +32,6 @@ public class BasicBat implements Enemies {
         glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); // GLU_NONE, GLU_FLAT, or GLU_SMOOTH
         glu.gluQuadricTexture  (quadric, false);        // use true to generate texture coordinates
         
-        //
         scale = (float) 0.25;
         speed = 10;
 		bodyRadius*=scale;

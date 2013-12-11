@@ -2,10 +2,8 @@ package Enemies;
 
 //import java.awt.List;
 import java.util.*;
-
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
-
 
 public class MoveSwarm {
 	private List<BasicBat> swarm;
@@ -70,6 +68,30 @@ public class MoveSwarm {
 						b.setDirection(0);
 					else	
 						b.setDirection((float) Math.toDegrees(Math.atan2(-b.getDZ(), b.getDX())));
+				}				
+			}
+		}
+		for (BasicBat m: swarm2) {
+			for (BasicBat n: swarm2) {
+				if(m != n) {
+					//calc distances
+					float xdist = n.getX()-m.getX();
+					float zdist = n.getZ()-m.getZ();
+
+					//calc force
+					float distancesq = (xdist*xdist + zdist*zdist);
+					if (distancesq < 0.1f)
+						distancesq = 0.1f;
+					float force = .001f/distancesq;
+
+					//update velocity vectors
+					m.setDX(m.getDX()+(force*xdist));
+					m.setDZ(m.getDZ()+(force*zdist));
+					float hypotenuse = (float) Math.sqrt((float) (m.getDX()*m.getDX() + m.getDZ()*m.getDZ()));
+					if (m.getDZ() == 0 && m.getDX() == 0) 
+						m.setDirection(0);
+					else	
+						m.setDirection((float) Math.toDegrees(Math.atan2(-m.getDZ(), m.getDX())));
 				}				
 			}
 		}
