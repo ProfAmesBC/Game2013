@@ -202,8 +202,7 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 		playerZ = z;
 		double distance = Math.sqrt(Math.pow(zombieLocationX-x,2) + Math.pow(zombieLocationZ-z,2));
 		if(distance <= detectionRadius){
-			//turn(x,z);
-			//move(x,z);
+
 			chasing = true;
 			
 			if(distance<=3&&!attacking){
@@ -222,10 +221,6 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 		else{
 			chasing = false;
 		}
-//		System.out.println("X: " + x);
-//		System.out.println("Y: " + y);
-//		System.out.println("Z: " + z);
-//		System.out.println("Angle: " + angle);
 	}
 	
 	private void turn(){
