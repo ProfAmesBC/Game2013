@@ -19,12 +19,14 @@ import weapons.Projectile;
 public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 	
 	private static GLUT glut = new GLUT();
-	//private static List<Robot> swampZombies = new LinkedList<Robot>();
+
+	private static List<Robot> robots = new LinkedList<Robot>();
+
 	private static int detectionRadius = 40;
 	private static double playerX = 0;
 	private static double playerZ = 0;
-	private double zombieLocationX;
-	private double zombieLocationZ;
+	private double robotLocationX;
+	private double robotLocationZ;
 	private double eyeVectorX;
 	private double eyeVectorZ;
 	private double theta = 0;
@@ -33,8 +35,8 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 	private static int displayListChasing=-1, displayListNotChasing=-1;
 	
 	public Robot(double startX,double startZ,GL2 gl, GLU glu){
-		this.zombieLocationX = startX;
-		this.zombieLocationZ = startZ;
+		this.robotLocationX = startX;
+		this.robotLocationZ = startZ;
 		eyeVectorX = 0.2;
 		eyeVectorZ = 0.2;
 		quadric = glu.gluNewQuadric();
@@ -43,9 +45,8 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
         glu.gluQuadricTexture(quadric,false);
 		PlayerMotion.registerPlayerWatcher(this);
 		Projectile.registerProjectileWatcher(this);
-		//BatsEverywhere.creatures.add(this);
-		//swampZombies.add(this);
-		
+		robots.add(this);
+	
 		// create the two display lists
 		if (displayListNotChasing == -1) {
             displayListNotChasing = gl.glGenLists(1);
@@ -66,7 +67,7 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 
 	public void draw(GL2 gl, GLU glu) {
         gl.glPushMatrix();
-            gl.glTranslated(zombieLocationX,0,zombieLocationZ);
+            gl.glTranslated(robotLocationX,0,robotLocationZ);
             gl.glRotated(theta,0,1,0);
     		if(chasing){
     			move();
@@ -87,7 +88,6 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 		drawHat(gl,glu);
 		drawHands(gl,glu);
 		drawBrain(gl,glu);
-		//drawMouth(gl,glu);
 	}
 	
 	private void drawHead(GL2 gl,GLU glu){
@@ -190,22 +190,12 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 		gl.glPopMatrix();
 	}
 	
-	private void drawMouth(GL2 gl,GLU glu){
-		gl.glColor3d(1,0,0);
-		gl.glPushMatrix();
-		gl.glTranslated(0,7.7,0.8);
-		gl.glScaled(1,0.5,0.2);
-		glu.gluSphere(quadric,0.6,20,20);
-		gl.glPopMatrix();
-	}
-	
 	public void playerMoved(float x, float y, float z, float angle, float yAngle,PlayerStats s) {
 		playerX = x;
 		playerZ = z;
-		double distance = Math.sqrt(Math.pow(zombieLocationX-x,2) + Math.pow(zombieLocationZ-z,2));
+		double distance = Math.sqrt(Math.pow(robotLocationX-x,2) + Math.pow(robotLocationZ-z,2));
 		if(distance <= detectionRadius){
-			//turn(x,z);
-			//move(x,z);
+
 			chasing = true;
 			
 			if(distance<=3&&!attacking){
@@ -224,15 +214,11 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 		else{
 			chasing = false;
 		}
-//		System.out.println("X: " + x);
-//		System.out.println("Y: " + y);
-//		System.out.println("Z: " + z);
-//		System.out.println("Angle: " + angle);
 	}
 	
 	private void turn(){
-		double xV = zombieLocationX-playerX;
-		double zV = zombieLocationZ-playerZ;
+		double xV = robotLocationX-playerX;
+		double zV = robotLocationZ-playerZ;
 		double lengthV1 = Math.sqrt((xV*xV)+(zV*zV));
 		double lengthV2 = Math.sqrt(eyeVectorX*eyeVectorX+eyeVectorZ*eyeVectorZ);
 		double dotProduct = xV * eyeVectorX + zV * eyeVectorZ;
@@ -240,8 +226,8 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 	}
 	
 	public void move(){
-		double xV = playerX-zombieLocationX;
-		double zV = playerZ-zombieLocationZ;
+		double xV = playerX-robotLocationX;
+		double zV = playerZ-robotLocationZ;
 		double dotProduct = xV * eyeVectorX + zV * eyeVectorZ;
 		double lengthV1 = Math.sqrt((xV*xV)+(zV*zV));
 		lengthV1 = lengthV1 * lengthV1;
@@ -250,33 +236,35 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 		double dz = constant * zV;
 		dx = Math.abs(dx);
 		dz = Math.abs(dz);
-		if(playerZ<zombieLocationZ){
-			zombieLocationZ-=dz;
+		if(playerZ<robotLocationZ){
+			robotLocationZ-=dz;
 		}
 		else{
-			zombieLocationZ+=dz;
+			robotLocationZ+=dz;
 		}
-		if(playerX<zombieLocationX){
-			zombieLocationX-=dx;
+		if(playerX<robotLocationX){
+			robotLocationX-=dx;
 		}
 		else{
-			zombieLocationX+=dx;
+			robotLocationX+=dx;
 		}
 	}
 
 	public void projectileMoved(double x, double z) {
-		if((Math.abs(zombieLocationX-x) < 2) && (Math.abs(zombieLocationZ-z) < 2)){
-			BatsEverywhere.creatures.remove(this);
+
+		if((Math.abs(robotLocationX-x) < 2) && (Math.abs(robotLocationZ-z) < 2)){
+			robots.remove(this);
 		}
 	}
 	
-	public static void addRobot(Robot robot){
-		BatsEverywhere.creatures.add(robot);
+
+	public static void addZombie(Robot zombie){
+		robots.add(zombie);
 	}
 	
-//	public static void drawZombies(GL2 gl,GLU glu){
-//		for(Robot zombie:swampZombies){
-//			zombie.draw(gl, glu);
-//		}
-//	}
+	public static void drawZombies(GL2 gl,GLU glu){
+		for(Robot zombie:robots){
+			zombie.draw(gl, glu);
+		}
+	}
 }
