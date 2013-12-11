@@ -57,7 +57,7 @@ public class SpeedBox implements Item {
 	private boolean grabConditions() {
 		if ((itemX - 3 < playerX && itemZ - 3 < playerZ)
 				&& (itemX + 5 > playerX) && (itemZ + 5 > playerZ)
-				&& (grabbed == false))
+				&& (grabbed == false)&& (playerY<7))
 			return true;
 		else
 			return false;
@@ -95,7 +95,7 @@ public class SpeedBox implements Item {
 
 	public void use() {
 		float currentSpeed = p.getStepSize();
-		int duration = 30;
+		int duration = 130;
 		// calls PlayerAttributes
 		p.setStepSize(currentSpeed + 1.5f, duration);
 	}
