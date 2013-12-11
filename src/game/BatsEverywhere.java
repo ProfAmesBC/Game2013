@@ -57,8 +57,8 @@ public class BatsEverywhere implements GLEventListener
     private Bag bag  = new Bag();
     private PlayerAttributes playerAttributes = new PlayerAttributes(playerMotion, bag);
     private PlayerActions playerActions = new PlayerActions(playerAttributes);
-	private ItemFactory itemCreator;
-	private StatusText writer;
+        private ItemFactory itemCreator;
+        private StatusText writer;
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
     private CritterGroup catGroup,rabbitGroup;
@@ -109,8 +109,6 @@ public class BatsEverywhere implements GLEventListener
         Robot.addRobot(new Robot(60,60,gl,glu));
         Robot.addRobot(new Robot(100,100,gl,glu));
         
-        
-      
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
 
@@ -123,10 +121,10 @@ public class BatsEverywhere implements GLEventListener
     
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
-    	this.width = width;
-    	this.height = height;
-    	playerMotion.setDim(width, height);
-    	//mummy.setDim(width, height);
+            this.width = width;
+            this.height = height;
+            playerMotion.setDim(width, height);
+            //mummy.setDim(width, height);
         //System.out.println("reshaping to " + width + "x" + height);
 
         GL2 gl = drawable.getGL().getGL2();
@@ -163,11 +161,11 @@ public class BatsEverywhere implements GLEventListener
         return texture;
     }
     public void screenshot(GLAutoDrawable drawable){
-    	//System.out.println("EYEX: " + playerMotion.getEyeX() + " EYEY: " + playerMotion.getEyeY() + " EYEZ: " + playerMotion.getEyeZ());
-    	
-    	System.out.println("In screenshot method");
+            //System.out.println("EYEX: " + playerMotion.getEyeX() + " EYEY: " + playerMotion.getEyeY() + " EYEZ: " + playerMotion.getEyeZ());
+            
+            System.out.println("In screenshot method");
 
-    	GL2 gl = drawable.getGL().getGL2(); System.out.println("Frames drawn = 1");
+            GL2 gl = drawable.getGL().getGL2(); System.out.println("Frames drawn = 1");
         
         gl.glFlush(); // ensure all drawing has finished
         //gl.glReadBuffer(GL2.GL_BACK);
@@ -190,18 +188,18 @@ public class BatsEverywhere implements GLEventListener
             System.out.println("Unable to grab screen shot");
 
         if (minimaptexture == null){
-        	System.out.println("minimap is null");
+                System.out.println("minimap is null");
         }
         if(minimaptexture != null){
-        	System.out.println("minimap is not null");
+                System.out.println("minimap is not null");
         }
     }
     
     public void minimap(GLAutoDrawable drawable){
-    	float originaleyex=playerMotion.getEyeX();
-    	float originaleyey=playerMotion.getEyeY();
-    	float originaleyez=playerMotion.getEyeZ();
-    	
+            float originaleyex=playerMotion.getEyeX();
+            float originaleyey=playerMotion.getEyeY();
+            float originaleyez=playerMotion.getEyeZ();
+            
         GL2 gl = drawable.getGL().getGL2();       
 
         System.out.println("Frames drawn = 1");
@@ -219,8 +217,8 @@ public class BatsEverywhere implements GLEventListener
        //Set the eye back to its original coordinates
        screenshot(drawable);
        playerMotion.setEyeX(originaleyex);
-   	  playerMotion.setEyeY(originaleyey);
-   	playerMotion.setEyeZ(originaleyez);
+             playerMotion.setEyeY(originaleyey);
+           playerMotion.setEyeZ(originaleyez);
 
        
     }
@@ -233,20 +231,20 @@ public class BatsEverywhere implements GLEventListener
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
 //minimap must be done first
         if (++framesDrawn == 1) {
-        	minimap(drawable);
-        	gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
-        	
+                minimap(drawable);
+                gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+                
         }       
 
         //playerMotion.setLookAt(gl, glu);
         
 
         this.playerMotion.setScreenLocation(
-        		this.canvas.getLocationOnScreen());
+                        this.canvas.getLocationOnScreen());
        
         // draw town
         // town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
-     	
+             
         playerMotion.update(gl, glu);//draw town looking in the direction we're moving in
         
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());  
@@ -261,13 +259,11 @@ public class BatsEverywhere implements GLEventListener
         writer.draw(bag.toString(), 380, 470);
         writer.draw(stats.healthString(), 10, 45);
         writer.draw(stats.honorString(), 10, 10);
-        
-
 
         projectileWeapons.update(gl, glu);
        
         for (Creature c: creatures){
-        	c.draw(gl, glu);
+                c.draw(gl, glu);
         }
         
         Robot.drawRobots(gl, glu);
@@ -279,7 +275,7 @@ public class BatsEverywhere implements GLEventListener
         // check for errors, at least once per frame
 
         
-     	
+             
         
         // Draw sphere at the point you're looking at
         //gl.glLineWidth(1);
@@ -308,7 +304,7 @@ public class BatsEverywhere implements GLEventListener
         // check for errors
         int error1 = gl.glGetError();
         if (error1 != GL2.GL_NO_ERROR)
-        	System.out.println("OpenGL Error: " + glu.gluErrorString(error1));
+                System.out.println("OpenGL Error: " + glu.gluErrorString(error1));
          */
 
         
@@ -361,7 +357,7 @@ public class BatsEverywhere implements GLEventListener
 
         minimaptexture.bind(gl);
        //}
-    	//gl.glEnable(GL2.GL_TEXTURE_GEN_S);
+            //gl.glEnable(GL2.GL_TEXTURE_GEN_S);
         //gl.glEnable(GL2.GL_TEXTURE_GEN_T);
         
         gl.glBegin(GL2.GL_QUADS);
@@ -387,17 +383,17 @@ public class BatsEverywhere implements GLEventListener
         gl.glColor3f(1f, 1f, 1f);
         gl.glPointSize(12);
         gl.glBegin(GL2.GL_POINTS);
-        	gl.glVertex3f(playerMotion.getEyeX(), 100, playerMotion.getEyeZ());
+                gl.glVertex3f(playerMotion.getEyeX(), 100, playerMotion.getEyeZ());
         gl.glEnd();
         gl.glColor3f(1f, 0f, 0f);
         gl.glPointSize(10);
         gl.glBegin(GL2.GL_POINTS);
-        	gl.glVertex3f(playerMotion.getEyeX(), 100, playerMotion.getEyeZ());
+                gl.glVertex3f(playerMotion.getEyeX(), 100, playerMotion.getEyeZ());
         gl.glEnd();
         gl.glEnable(GL2.GL_DEPTH_TEST);
         
         gl.glDisable(GL2.GL_TEXTURE_2D);
-    	//gl.glDisable(GL2.GL_TEXTURE_GEN_S);
+            //gl.glDisable(GL2.GL_TEXTURE_GEN_S);
         //gl.glDisable(GL2.GL_TEXTURE_GEN_T);
         
         gl.glViewport(0, 0, windowWidth, windowHeight);
@@ -409,7 +405,7 @@ public class BatsEverywhere implements GLEventListener
     public void dispose(GLAutoDrawable drawable) { /* not needed */ }
 
     public static void main(String[] args) {
-    	 GLProfile.initSingleton();
+             GLProfile.initSingleton();
          System.setProperty("sun.awt.noerasebackground", "true"); // sometimes necessary to avoid erasing over the finished window
 
          JFrame frame = new JFrame("Too Many Bats");
@@ -439,7 +435,7 @@ public class BatsEverywhere implements GLEventListener
          //renderer.controls.append()
          
          
-         renderer.controls.setEditable(false);	// don't let you edit text once it's established
+         renderer.controls.setEditable(false);        // don't let you edit text once it's established
          
      
          
