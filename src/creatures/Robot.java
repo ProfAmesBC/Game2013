@@ -250,11 +250,11 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 	}
 	
 
-	public static void addZombie(Robot zombie){
-		robots.add(zombie);
+	public static void addRobot(Robot robot){
+		robots.add(robot);
 	}
 	
-	public static void drawZombies(GL2 gl,GLU glu){
+	public static void drawRobots(GL2 gl,GLU glu){
 		for(Robot zombie:robots){
 			zombie.draw(gl, glu);
 		}
