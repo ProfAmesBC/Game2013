@@ -124,10 +124,10 @@ public class BatsEverywhere implements GLEventListener
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
         bat = new Bat(gl, glu);
-        moveSwarm = new MoveSwarm(gl, glu);
-
-        //powerUpManager = new PowerUpManager(gl, glu);
+        moveSwarm = new MoveSwarm(gl, glu);     
+        powerUpManager = new PowerUpManager(gl, glu);
     }
+
 
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -342,6 +342,10 @@ public class BatsEverywhere implements GLEventListener
         */
 
         //powerUpManager.draw(gl, glu);
+
+
+        powerUpManager.draw(gl, glu);
+        
 
         // check for errors, at least once per frame
 
