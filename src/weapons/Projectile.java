@@ -19,6 +19,10 @@ public abstract class Projectile {
 	
 	private float projX, projY, projZ, projAngle, projYAngle;
 	private float speed = 5;
+	public float getSpeed() {return speed;}
+	public void setSpeed(float speed) {this.speed = speed;}
+	public void setLifeSpan(float lifeSpan) {this.lifeSpan = lifeSpan;}
+
 	private float lifeSpan = 50;
 	public int size = 0;
 	public int red = 0;

@@ -36,7 +36,7 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 	private boolean seesPlayer = false;
 	private boolean shotByBullet = false;
 	private boolean visible = true;
-	private float detectionRadius = 5f;
+	private float detectionRadius = 25f;
 	private Random random = new Random();
 	private double k = random.nextDouble();
 	
@@ -147,8 +147,10 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 	}
 	
 	public void draw(GL2 gl, GLU glu) {
+		gl.glPushMatrix();
 		drawGhost(gl, glu, X, Y, Z);
 		move();
+		gl.glPopMatrix();
 	}
 	
 	public void drawStillMotion() {
@@ -171,12 +173,13 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 	}
 	
 	public void move() {
-		if (seesPlayer) {
-//			moveTowardsPlayer();
-		} else {
-			moveIdle();
-			drawStillMotion();
+		if (seesPlayer && !shotByBullet) {
+			moveTowardsPlayer();
+		} else if (shotByBullet) {
+			animateDeath();
 		}
+		drawStillMotion();
+		moveIdle();
 	}
 	
 	public void playerMoved(float x, float y, float z, float angle, float yAngle,PlayerStats s) {
@@ -193,30 +196,37 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 	}
 	
 	public void projectileMoved(double x, double z) {
-		if ( x > X - 1 && x < X + 1) {
-			if ( z > Z - 1 && z < Z + 1) {
+		if ( x > X - 2 && x < X + 2) {
+			if ( z > Z - 2 && z < Z + 2) {
 				shotByBullet = true;
 			}
 		}
 		
 	}
 	
-	public void moveTowardsPlayer(GL2 gl, GLU glu) {
+	public void moveTowardsPlayer() {	
 		directionAngle = playerAngle - 180;
-		
-		//get player x get player z
-		//get ghost x get ghost z
-		// find slope 
-		drawStillMotion();
+		double xV = playerX-X;
+    	double zV = playerZ-Z;
+    	double dotProduct = xV * 0.2 + zV * 0.2;
+    	double lengthV1 = Math.sqrt((xV*xV)+(zV*zV));
+    	lengthV1 = lengthV1 * lengthV1;
+    	double constant = dotProduct / lengthV1;
+    	double dx = constant * xV*1.5;
+    	double dz = constant * zV*1.5;
+    	dx = Math.abs(dx);
+    	dz = Math.abs(dz);
+    	if(playerZ<Z){ Z-=dz; }
+    	else{ Z+=dz; }
+    	if(playerX<X){X-=dx;}
+    	else{	X+=dx;}
 	}
 	
-	public void animateDeath(GL2 gl, GLU glu) {
-		gl.glColor3d(0,0,1);
+	public void animateDeath() {
 		if (Y <= 0) {
-			gl.glColor3d(1,1,1);
 			visible = false;
 		} else {
-			Y = Y - 0.03f;
+			Y = Y - 0.4f;
 		}
 	}
 	
