@@ -261,8 +261,6 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 		if (T==0){
 		d = rand.nextDouble();}
 		
-		System.out.println(eyeAngle);
-		
 		if (!agro) {
 			speed = moveSpeed;
 			if (d <= 0.25){eyeAngle = 0;
@@ -318,7 +316,6 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 		
 		gl.glPopMatrix();
 		move();
-		System.out.println("Position: " + locx + " " + locz);
 		
 		 T+=1f;
 		 if (T > 60) T = 0;
@@ -328,7 +325,7 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 	
 	@Override
 	public void projectileMoved(double x, double z) {
-		if((Math.abs(locx-x) < 2) && (Math.abs(locz-z) < 2)){
+		if((Math.abs(locx-x) < 3) && (Math.abs(locz-z) < 3)){
 			BatsEverywhere.creatures.remove(this);
 		}
 	}
