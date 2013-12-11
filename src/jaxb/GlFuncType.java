@@ -13,10 +13,10 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for gl_func_type.
+ * <playerA>Java class for gl_func_type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>
  * <pre>
  * &lt;simpleType name="gl_func_type">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">

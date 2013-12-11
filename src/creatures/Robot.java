@@ -28,7 +28,7 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 	private double eyeVectorX;
 	private double eyeVectorZ;
 	private double theta = 0;
-	private boolean chasing = false;
+	private boolean chasing = false,attacking=false;
 	private static GLUquadric quadric;
 	private static int displayListChasing=-1, displayListNotChasing=-1;
 	
@@ -207,6 +207,19 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 			//turn(x,z);
 			//move(x,z);
 			chasing = true;
+			
+			if(distance<=3&&!attacking){
+				s.changeHealth(-2);
+				attacking=true;
+				new Thread(new Runnable(){
+					public void run(){
+						try{
+							Thread.sleep(2000);
+						}catch(InterruptedException e){}
+						attacking=false;
+					}
+				}).start();
+			}
 		}
 		else{
 			chasing = false;

@@ -23,9 +23,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 			The fx_code_profile type allows you to specify an inline block of source code.
  * 			
  * 
- * <p>Java class for fx_code_profile complex type.
+ * <playerA>Java class for fx_code_profile complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="fx_code_profile">

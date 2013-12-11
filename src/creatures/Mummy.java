@@ -26,7 +26,7 @@ public class Mummy implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 	private Texture bodyTexture;
 	private GLUquadric bodyQuadric;
 	boolean facingFront = true;
-	boolean agro, dead;
+	boolean agro, dead,attacking=false;
 	static float T = 0;
 	double eyeVecX, eyeVecZ;
 	private Random rand = new Random();
@@ -336,18 +336,23 @@ private void drawAgro(GL2 gl, GLU glu, float T) {
 
 	@Override
 	public void playerMoved(float x, float y, float z, float angle, float y_angle, PlayerStats s) {
+
 		playerX = x;
 		playerZ = z;
 		playerAngle = angle;
 		float distance  = (float) Math.sqrt(Math.pow((locx-x),2) + Math.pow((locy-y),2));
-		if (distance < sightRadius) {agro = true;
-		
-		
-			
-		
-		}
-		if(distance < 5){s.changeHealth(-1);
-			
+		if (distance < sightRadius) {agro = true;}
+		if(distance < 5&&!attacking){
+			attacking=true;
+			s.changeHealth(-1);
+			new Thread(new Runnable(){
+				public void run(){
+					try {
+						Thread.sleep(2000);
+					}catch(InterruptedException e){}
+					attacking=false;
+				}
+			}).start();
 		};
 		
 	}
