@@ -41,7 +41,7 @@ public class MoveSwarm {
 			}
 		}
 		
-//		System.out.println("First bat is at loc " + swarm.get(0).getX() + "," + swarm.get(0).getZ());
+
 		
 		for (BasicBat b: swarm) {
 			for (BasicBat t: swarm) {

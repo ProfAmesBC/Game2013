@@ -84,7 +84,7 @@ public class BasicBat implements Enemies {
 	//Drawing methods
 	
 	public void drawWing(GL2 gl, boolean rightWing){
-		//System.out.println("entering drawWing");
+		
 		float flip = 1;
 		if(rightWing){flip = -1;}
 		
@@ -122,7 +122,6 @@ public class BasicBat implements Enemies {
 	}
 	
 	public void drawBody(GL2 gl, GLU glu){
-		//System.out.println("entering drawBody");
 		
 		float scaledEyeDistance = scale*(float) Math.sin(45)/2 ;
 		//y+= inverse of the added y value of the further part of the upper wing
@@ -158,19 +157,15 @@ public class BasicBat implements Enemies {
 	}
 	
 	public void draw1(GL2 gl, GLU glu) {
-		//System.out.println("entering draw 1");
 		drawBody(gl, glu);
 		drawWing(gl, false);
 		drawWing(gl, true);
 	}
 	
 	public void draw2(GL2 gl, GLU glu){
-		//System.out.println("entering draw 2");
 		
 		float bodyMoveSin = lowerWingLength*(float)Math.sin(Math.toRadians((float)(45+45*Math.sin(Math.toRadians(T*360)))));
 		
-		//x+=(float) (.01*speed*Math.sin(Math.toRadians(direction)));
-		//z+=(float) (.01*speed*Math.cos(Math.toRadians(direction)));
 		gl.glPushMatrix();
 			gl.glTranslatef(x, y+bodyMoveSin/2, z);
 			gl.glRotated(direction, 0, 1, 0);
@@ -179,10 +174,6 @@ public class BasicBat implements Enemies {
 		
 		//increment T
 		T +=.01*speed;
-		
-		//move bat
-		//x+=(float) (.01*speed*dx);
-		//z+=(float) (.01*speed*dz);
 		
 		
 	}
