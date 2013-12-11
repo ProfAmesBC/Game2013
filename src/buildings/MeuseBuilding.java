@@ -113,9 +113,9 @@ public class MeuseBuilding extends Building{
             gl.glBegin(GL2.GL_QUADS);
                 // cw as viewed from front, so can be seen as ccw from back
                 gl.glTexCoord2f(0f,2f); gl.glVertex3f(80,  0, 20);
-                gl.glTexCoord2f(3f,2f); gl.glVertex3f(80, 20, 80);
+                gl.glTexCoord2f(3f,2f); gl.glVertex3f(80, 20, 20);
                 gl.glTexCoord2f(3f,0f); gl.glVertex3f(80, 20, 80);
-                gl.glTexCoord2f(0f,0f); gl.glVertex3f( 80,  0, 20);
+                gl.glTexCoord2f(0f,0f); gl.glVertex3f( 80,  0, 80);
             gl.glEnd();
             
         //front with door   
