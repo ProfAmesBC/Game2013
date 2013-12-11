@@ -247,7 +247,7 @@ public class BatsEverywhere implements GLEventListener
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
         
         itemCreator.update();
-        writer.draw(bag.toString(), 380, 470);
+        writer.draw(bag.toString(), 350, 470);
         writer.draw(stats.healthString(), 10, 45);
         writer.draw(stats.honorString(), 10, 10);
         
