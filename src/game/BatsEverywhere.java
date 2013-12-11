@@ -301,13 +301,14 @@ public class BatsEverywhere implements GLEventListener
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT); //clear that town  
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
         
-        itemCreator.update();
+        itemCreator.update(); 
         
         if(fogDensity<.007){fogDensity = fogDensity+.000015f;}//its getting foggy at a slow rate
-        
-        writer.draw(bag.toString(), 350, 470);
-        writer.draw(stats.healthString(), 10, 45);
-        writer.draw(stats.honorString(), 10, 10);
+         
+        writer.draw(bag.toString(), .7, .95);
+        writer.draw(stats.healthString(), .035, .05);
+        writer.draw(stats.honorString(), .035, .12);
+
 
         projectileWeapons.update(gl, glu);
 
