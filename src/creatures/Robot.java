@@ -36,7 +36,7 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 	private Location spawnLocation;
 	
 	public Robot(double startX,double startZ,GL2 gl, GLU glu){
-		this.spawnLocation = new Location(startX,0,startZ);
+		this.spawnLocation = new Location((float) startX,(float) 0,(float) startZ);
 		this.robotLocationX = startX;
 		this.robotLocationZ = startZ;
 		eyeVectorX = 0.2;
