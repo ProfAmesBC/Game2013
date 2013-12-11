@@ -1,11 +1,14 @@
 package weapons;
 
+import game.PlayerMotion;
 import game.PlayerStats;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.glu.GLU;
 import javax.media.opengl.glu.GLUquadric;
+
+import creatures.ProjectileWatcher;
 
 public class SphereBullet extends Projectile {
 
@@ -45,9 +48,9 @@ public class SphereBullet extends Projectile {
 	public void setAngle(float angle) {this.angle = angle;}
 
 	public float getAngle() {
-		angle = angle % 360;
-		return angle;
+		return angle*-1;
 	}
+	public double getSpeed() {return speed;}
 	public double getRed() {return red;}
 	public double getGreen() {return green;}
 	public double getBlue() {return blue;}
@@ -65,16 +68,17 @@ public class SphereBullet extends Projectile {
 		gl.glPushMatrix();
 		glu.gluSphere(sphereQuadric, getSize(), 10,10);
 		gl.glPopMatrix();
-	}
-
+	}	
+	
 	public void draw(GL2 gl, GLU glu) {
 		T = T+.1;
 		gl.glColor3d(getRed(),getGreen(),getBlue()); 
+		System.out.println("ANGLE=       "+ getAngle());
 		gl.glPushMatrix();
-			gl.glTranslated(speed*T,0,speed*T);
-			gl.glTranslated((speed*T)*Math.sin(Math.toRadians(getAngle()+30)), 0, (speed*T)*Math.cos(Math.toRadians(getAngle()+30)));
+			gl.glTranslated((speed*T)*Math.cos(Math.toRadians(getAngle())),0,(speed*T)*Math.sin(Math.toRadians(getAngle())));
 			gl.glTranslatef(getX(), getY(), getZ());
 			drawBullet(gl, glu);
+			
 		gl.glPopMatrix();
 	}
 

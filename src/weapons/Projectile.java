@@ -17,7 +17,15 @@ public abstract class Projectile {
 
 	private static List<WeaponWatcher>watchers=new ArrayList<WeaponWatcher>();
 	
-	private float projX, projY, projZ, projAngle, projYAngle;
+	private float projX;
+
+	private float projY;
+
+	private float projZ;
+
+	private float projAngle;
+
+	private float projYAngle;
 	private float speed = 5;
 	private float lifeSpan = 50;
 	public int size = 0;
