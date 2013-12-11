@@ -76,8 +76,6 @@ public class BatsEverywhere implements GLEventListener
     private GLReadBufferUtil bufferUtil = new GLReadBufferUtil(false, true); //For capturing screen shots
     
     //renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, 48));
-
-    private List<CritterGroup>critters=new ArrayList<CritterGroup>();
     
 
     public void init(GLAutoDrawable drawable) {
@@ -303,8 +301,6 @@ public class BatsEverywhere implements GLEventListener
         //playerMotion.setEyeX(-5);
     	//playerMotion.setEyeY(5);
     	//playerMotion.setEyeZ(50);
-
-        for(CritterGroup critterGroup:critters)critterGroup.draw(gl, glu);
  
         /// NEED TO FINISH VIEWPORT
         //this must be drawn last
@@ -421,6 +417,8 @@ public class BatsEverywhere implements GLEventListener
          renderer.controls.append("\n");
          renderer.controls.append("Space/MouseClick: fireball\n");
          renderer.controls.append("1: use speed item\n");
+         renderer.controls.append("2: use jetpack item\n");
+         renderer.controls.append("3: use teleporter item\n");
          renderer.controls.append("\n");
          renderer.controls.append("M: toggle mouse\n");
          //renderer.controls.append()

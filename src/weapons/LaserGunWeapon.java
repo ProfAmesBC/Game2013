@@ -1,15 +1,10 @@
 package weapons;
-<<<<<<< HEAD
-=======
 import game.PlayerMotion;
 import game.PlayerMotionWatcher;
 import game.PlayerStats;
->>>>>>> branch 'master' of https://github.com/ProfAmesBC/Game2013.git
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
-<<<<<<< HEAD
-=======
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -24,7 +19,6 @@ import javax.media.opengl.glu.GLU;
 import game.Building;
 
 import java.nio.DoubleBuffer;
->>>>>>> branch 'master' of https://github.com/ProfAmesBC/Game2013.git
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
@@ -33,7 +27,6 @@ import com.jogamp.opengl.util.GLBuffers;
 import java.util.HashMap;
 import java.util.Map;
 
-<<<<<<< HEAD
 public class LaserGunWeapon extends ProjectileWeapons {
 	private boolean present=false;
 	private int displayList = -1;
@@ -412,7 +405,6 @@ public class LaserGunWeapon extends ProjectileWeapons {
 		}
 	
 }
-=======
 //public class LaserGunWeapon extends ProjectileWeapons {
 //	private ArrayList<RainbowBall> bulletsList = new ArrayList<RainbowBall>();
 //	private float x, y, z, angle, y_angle;
@@ -842,4 +834,3 @@ public class LaserGunWeapon extends ProjectileWeapons {
 //    @Override
 //    public void mouseExited(MouseEvent e) { }
 //}
->>>>>>> branch 'master' of https://github.com/ProfAmesBC/Game2013.git
