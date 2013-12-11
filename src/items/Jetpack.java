@@ -110,6 +110,7 @@ public class Jetpack implements Item {
 	gl.glPushMatrix();
 	gl.glTranslated(itemX, Math.sin(Math.toRadians(T * 360 + 180)),
 			itemZ);
+	gl.glRotated(5*T,1,5*T,1);
 
 		jp.draw(gl, glu);
 	
