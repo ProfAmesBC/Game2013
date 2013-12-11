@@ -9,7 +9,8 @@ public class Spawn3f {
 	
 	public Spawn3f(Point3f l, AbstractPowerUp p) {
 		spawnLocation = l;
-		
+
+		power = p;
 	}
 	
 	public Spawn3f(Point3f l) {

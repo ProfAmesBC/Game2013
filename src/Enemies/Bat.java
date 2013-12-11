@@ -91,7 +91,8 @@ public class Bat {
 
 	private void drawWing(GL2 gl, GLU glu, int direction) {
 		float scale = .75f*(float)Math.sin(t/ANIMATION_SPEED);
-		//System.out.println(scale);
+
+//		System.out.println(scale);
 		
         gl.glPushMatrix();
         	gl.glColor3f(.07f, .07f, .04f);

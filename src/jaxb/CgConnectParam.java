@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 			Creates a symbolic connection between two previously defined parameters.
  * 			
  * 
- * <p>Java class for cg_connect_param complex type.
+ * <playerA>Java class for cg_connect_param complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="cg_connect_param">

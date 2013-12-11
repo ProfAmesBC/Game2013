@@ -1,3 +1,4 @@
+
 package creatures;
 
 import game.Building;
@@ -8,8 +9,11 @@ import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 import javax.media.opengl.glu.GLUquadric;
 
+import weapons.Projectile;
+
 import com.jogamp.opengl.util.texture.Texture;
 
+import game.PlayerMotion;
 import game.PlayerMotionWatcher;
 import game.PlayerStats;
 
@@ -45,6 +49,8 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 		glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL);		// GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
         glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); 	// GLU_NONE, GLU_FLAT, or GLU_SMOOTH
         glu.gluQuadricTexture  (quadric, true);        		// false, or true to generate texture coordinates
+        PlayerMotion.registerPlayerWatcher(this);
+        Projectile.registerProjectileWatcher(this);
 	}
 	
 	public void drawTail(GL2 gl, GLU glu, float x, float y, float z) {
@@ -173,7 +179,7 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 		}
 	}
 	
-	public void playerMoved(float x, float y, float z, float angle, float yAngle) {
+	public void playerMoved(float x, float y, float z, float angle, float yAngle,PlayerStats s) {
 		playerX = x;
 		playerZ = z;
 		playerAngle = angle;
@@ -231,11 +237,5 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 			}
 		}
 	}
-
-	@Override
-	public void playerMoved(float x, float y, float z, float angle, float y_angle, PlayerStats s) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 }

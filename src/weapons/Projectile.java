@@ -13,7 +13,8 @@ import creatures.ProjectileWatcher;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Projectile{
+public abstract class Projectile {
+
 	private static List<WeaponWatcher>watchers=new ArrayList<WeaponWatcher>();
 	
 	private float projX, projY, projZ, projAngle, projYAngle;
@@ -31,10 +32,8 @@ public abstract class Projectile{
 	}
 	
 	public static void registerWeaponWatcher(WeaponWatcher w){watchers.add(w);}
-	
-	public float getLifeSpan() {
-		return lifeSpan;
-	}
+	public float getLifeSpan() {return lifeSpan;}
+
 
 	public float getProjX() {return projX;}
 	public void setProjX(float projX) {this.projX = projX;}
@@ -42,7 +41,9 @@ public abstract class Projectile{
 	public void setProjY(float projY) {this.projY = projY;}
 	public float getProjZ() {return projZ;}
 	public void setProjZ(float projZ) {	this.projZ = projZ;}
+	public float getProjAngle() {return projAngle;}
 	public void setProjAngle(float projAngle) {this.projAngle = projAngle;}
+
     public float getProjYAngle() {
         return projYAngle;
     }
@@ -70,6 +71,7 @@ public abstract class Projectile{
 		setBulletBlue(blue);
 		setBulletSpeed(speed);
 	}
+
 	
 	public abstract void draw(GL2 gl, GLU glu);
 	
@@ -78,7 +80,9 @@ public abstract class Projectile{
 		lifeSpan--;
 	}
 	
+	// USE THIS
 	public void updatePosition(){
+		
 		projX = (float) (projX + speed*Math.cos(Math.toRadians(projAngle)));
 		projZ = (float) (projZ - speed*Math.sin(Math.toRadians(projAngle)));
 		for(ProjectileWatcher watcher:projectileWatchers){

@@ -13,19 +13,22 @@ import java.util.List;
 public class PlayerMotion implements KeyListener, MouseMotionListener {
     private static final float step1 = .75f, step2 = step1 * 3f;
     private static List<PlayerMotionWatcher> watchers = new LinkedList<PlayerMotionWatcher>();
+    private PlayerStats stats;
     private float eyeX, eyeY, eyeZ;
     private float dx, dz;
     private int width, height, xLoc, yLoc;
     private float theta, dtheta;
     private float gamma, dgamma;
     private float step = step1;
-    private boolean mouseMovement = false;
-    private boolean wdown, adown, sdown, ddown, qdown, edown, idown, kdown, jdown;
-    private boolean jumping, falling,mobile=true;
+    private boolean mouseMovement = false,mobile=true;
+    private boolean wdown, adown, sdown, ddown, qdown, edown, idown, kdown;
+    private boolean ndown,cdown,fdown,gdown,udown,jdown;
+    private boolean jumping, falling;
+    private boolean crouch,standing;
+    private boolean flying,walking;
     private Robot robot;
     private final double G = 32.1740;
-    private PlayerStats stats;
-    
+
     private int speedCounter = 0;
     private int flyCounter =0;
     private int speedDuration = 0;
@@ -54,75 +57,98 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     public float getEyeY() {return eyeY;}
     public float getEyeZ() {return eyeZ;}
     public void setDim(int width, int height) {
-    	this.width = width;
-    	this.height = height;
+            this.width = width;
+            this.height = height;
     }
     
     public float getTheta() {
     	return theta;
     }
-    
-    public static void registerPlayerWatcher(PlayerMotionWatcher watcher) {
-    	watchers.add(watcher);    	
-    }
-    
+
     public void setEyeX(float x) {
-    	eyeX=x;
+            eyeX=x;
     }
+    
+    public void notifyObservers() {
+    	   for (PlayerMotionWatcher wd : watchers)
+              wd.playerMoved(eyeX, eyeY, eyeZ, theta, gamma,stats);
+
+    	}
     
     public void setEyeY(float y) {
-    	eyeY=y;
+            eyeY=y;
     }
     
     public void setEyeZ(float z) {
-    	eyeZ=z;
+            eyeZ=z;
     }
     public void setMobile(boolean b){
-    	mobile=b;
-    	if(b==false){
-    		adown=false;ddown=false;sdown=false;wdown=false;
-    		jdown=false;
-    	}
+            mobile=b;
+            if(b==false){
+                    adown=false;ddown=false;sdown=false;wdown=false;
+                    jdown=false;
+            }
+    }
+    
+    public static void registerPlayerWatcher(PlayerMotionWatcher watcher) {
+        watchers.add(watcher);
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-    	if(mobile)
-	        switch (e.getKeyCode()) {
-	            case KeyEvent.VK_A:
-	                adown = true;
-	                break;
-	            case KeyEvent.VK_D:
-	                ddown = true;
-	                break;
-	            case KeyEvent.VK_S:
-	                sdown = true;
-	                break;
-	            case KeyEvent.VK_W:
-	                wdown = true;
-	                break;
-	            case KeyEvent.VK_Q:
-	                qdown = true;
-	                break;
-	            case KeyEvent.VK_E:
-	                edown = true;
-	                break;
-	            case KeyEvent.VK_I:
-	                idown = true;
-	                break;
-	            case KeyEvent.VK_K:
-	                kdown = true;
-	                break;
-	            case KeyEvent.VK_J:
-	                jdown = true;
-	                break;
-	            case KeyEvent.VK_SHIFT:
-	                step = step2;
-	                break;
-	            case KeyEvent.VK_M:
-	                mouseMovement = !mouseMovement;
-	                break;
-	        }
+
+            if(mobile)
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_A:
+                        adown = true;
+                        break;
+                    case KeyEvent.VK_D:
+                        ddown = true;
+                        break;
+                    case KeyEvent.VK_S:
+                        sdown = true;
+                        break;
+                    case KeyEvent.VK_W:
+                        wdown = true;
+                        break;
+                    case KeyEvent.VK_Q:
+                        qdown = true;
+                        break;
+                    case KeyEvent.VK_E:
+                        edown = true;
+                        break;
+                    case KeyEvent.VK_I:
+                        idown = true;
+                        break;
+                    case KeyEvent.VK_K:
+                        kdown = true;
+                        break;
+                    case KeyEvent.VK_J:
+                        jdown = true;
+                        break;
+                    case KeyEvent.VK_N:
+                        ndown = true;
+                        break;
+                    case KeyEvent.VK_C:
+                    	cdown = true;
+                    	break;
+                    case KeyEvent.VK_F:
+                    	fdown = true;
+                    	break;
+                    case KeyEvent.VK_G:
+                    	gdown = true;
+                    	break;     
+                    case KeyEvent.VK_U:
+                    	udown = true;
+                    	break; 
+                    case KeyEvent.VK_SHIFT:
+                        step = step2;
+                        break;
+                    case KeyEvent.VK_M:
+                        mouseMovement = !mouseMovement;
+                        break;
+                }
+
     }
 
     @Override
@@ -152,9 +178,24 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
             case KeyEvent.VK_K:
                 kdown = false;
                 break;
-            case KeyEvent.VK_J:
-                jdown = false;
+            case KeyEvent.VK_N:
+                ndown = false;
                 break;
+            case KeyEvent.VK_C:
+            	cdown = false;
+            	break;
+            case KeyEvent.VK_F:
+            	fdown = false;
+            	break;
+            case KeyEvent.VK_G:
+            	gdown = false;
+            	break;  
+            case KeyEvent.VK_U:
+            	udown = false;
+            	break; 
+            case KeyEvent.VK_J:
+            	jdown = false;
+            	break; 
             case KeyEvent.VK_SHIFT:
                 step = step1;
                 break;
@@ -185,36 +226,36 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
                 eyeX + Math.cos(Math.toRadians(theta)) * Math.cos(Math.toRadians(gamma)), eyeY + Math.sin(Math.toRadians(gamma)), eyeZ + -Math.sin(Math.toRadians(theta)) * Math.cos(Math.toRadians(gamma)),   // point to look at (near middle of pyramid)
                 0, 1, 0); // the "up" direction
         if (mobile&&(moved != 0 || qdown || edown || idown || kdown || dgamma != 0 || dtheta != 0)) {
-            for (PlayerMotionWatcher watcher : watchers)
-                watcher.playerMoved(eyeX, eyeY, eyeZ, theta, gamma,stats);
+        	notifyObservers();
         }
     }
 
     public void update(GL2 gl, GLU glu) {
-    	
-    	speedCounter++;
-    	flyCounter++;
-    	
-    	if(fly == true){
-			if(eyeY < flyHeight)
-				eyeY = eyeY + 1;
-			else{
-				fly = false;
-				flyCounter = 0;
-			}
-		}
 
-		if(eyeY>5 && fly == false && flyCounter>flyDuration){
-			eyeY = eyeY-1;
-		}
-		
-		if(speedCounter  == speedDuration){
-			step = step1;
-		}
+            speedCounter++;
+            flyCounter++;
+            
+            if(fly == true){
+                        if(eyeY < flyHeight)
+                                eyeY = eyeY + 1;
+                        else{
+                                fly = false;
+                                flyCounter = 0;
+                        }
+                }
 
-    	
+                if(eyeY>5 && fly == false && !flying && !jumping && !falling && flyCounter>flyDuration){
+                        eyeY = eyeY-1;
+                }
+                
+                if(speedCounter  == speedDuration){
+                        step = step1;
+                }
+
+            
         dx = 0;
         dz = 0;
+        //look key pressed/released
         if (adown) {
             dx += Math.cos(Math.toRadians(theta + 90));
             dz += -Math.sin(Math.toRadians(theta + 90));
@@ -243,6 +284,8 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
         if (kdown) {
             gamma -= 2;
         }
+        
+        //jump
         if (jdown) {
             jumping = true;
         }
@@ -260,7 +303,49 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
             eyeY = 5;
             falling = false;
         }
-        if (adown || ddown || sdown || wdown || qdown || edown || idown || kdown || jdown) {
+        //crouch
+        if (cdown){
+        	crouch = true;
+        }
+        if (crouch){
+        	eyeY -= 0.8;
+        }
+        if (standing){
+            eyeY += 0.8;
+        }
+        if (crouch && eyeY < 2.5){
+        	crouch = false;
+        	standing = true;
+        }
+        if (standing && eyeY >= 5){
+        	eyeY = 5;
+        	standing = false;
+        }
+        
+        //flying & walking mode
+        if (fdown){
+        	flying = true;
+        }
+        if (gdown){
+        	walking = true;
+        	flying = false;
+        }     
+        if (flying){
+        	walking = false;
+        	if (eyeY <130) eyeY +=1;
+            if (udown){eyeY +=3;}
+            if (ndown&&eyeY>15){eyeY -=4;}
+        }
+        if(walking){
+            eyeY -= 2;
+        }
+        if (walking && eyeY < 5){
+        	eyeY = 5;
+        	walking = false;
+        }
+        
+        //etc
+        if (adown || ddown || sdown || wdown || qdown || edown || idown || kdown || ndown || cdown || gdown || fdown || udown || jdown) {
             for (PlayerMotionWatcher watcher : watchers)
                 watcher.playerMoved(eyeX, eyeY, eyeZ, theta, gamma,stats);
         }
@@ -307,21 +392,28 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     }
     
     public void setStep(float step, int duration) {
-		this.step = step;
-		this.speedDuration = this.speedDuration + duration;
-		speedCounter = 0;
+                this.step = step;
+                this.speedDuration = this.speedDuration + duration;
+                speedCounter = 0;
 
         
     }
 
-	public void fly(int height, int duration){
-		flyDuration = duration;
-		flyHeight = height;
-		fly = true;
-	}
+        public void fly(int height, int duration){
+                flyDuration = duration;
+                flyHeight = height;
+                fly = true;
+        }
 
     
     public float getStep() {
         return step;
     }
+
+        public void teleport(int i) {
+        	dx += (Math.cos(Math.toRadians(theta))*i);
+            dz += (-Math.sin(Math.toRadians(theta))*i);
+            eyeX = eyeX + dx;        
+            eyeZ = eyeZ + dz;
+        }
 }

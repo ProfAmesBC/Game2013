@@ -22,9 +22,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 			The InputGlobal type is used to represent inputs that can reference external resources.
  * 			
  * 
- * <p>Java class for InputGlobal complex type.
+ * <playerA>Java class for InputGlobal complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="InputGlobal">

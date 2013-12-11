@@ -20,6 +20,7 @@ public class PlayerStats{
 			health=0;
 			motion.setMobile(false);
 		}
+		if(health>MAX_HEALTH)health=MAX_HEALTH;
 	}
 	public void changeHonor(int i){honor+=i;}
 	

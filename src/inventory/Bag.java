@@ -4,10 +4,12 @@ public class Bag {
 	private DummyItem speedBoxes;
 	private DummyItem damageBoxes;
 	private DummyItem jetpackBoxes;
+	private DummyItem teleportBoxes;
 
 	public Bag() {
 		speedBoxes = new DummyItem("Speed");
 		damageBoxes = new DummyItem("Damage");
+		teleportBoxes = new DummyItem("Teleporter");
 		jetpackBoxes = new DummyItem("Jetpack");
 	}
 
@@ -17,6 +19,8 @@ public class Bag {
 			speedBoxes.incrementCount();
 		if (checkType.equals("Jetpack"))
 			jetpackBoxes.incrementCount();
+		if (checkType.equals("Teleporter"))
+			teleportBoxes.incrementCount();
 	}
 
 	public void useItem(String i) {
@@ -39,13 +43,19 @@ public class Bag {
 				damageBoxes.use();
 			}
 		}
+		if (i.equals("Teleporter")) {
+			if (teleportBoxes.getCount() > 0) {
+				teleportBoxes.decrementCount();				
+				teleportBoxes.use();
+			}
+		}
 	}
 
 	public String toString() {
 		String listOfItems = "";
 		listOfItems = "S:" + speedBoxes.getCount();
-		listOfItems = listOfItems + " D:" + damageBoxes.getCount();
-		listOfItems = listOfItems + "J:" + jetpackBoxes.getCount();
+		listOfItems = listOfItems + " J:" + jetpackBoxes.getCount();
+		listOfItems = listOfItems + " T:" + teleportBoxes.getCount();
 		return listOfItems;
 	}
 }
