@@ -9,19 +9,20 @@ import javax.media.opengl.glu.GLU;
 
 public class MoveSwarm {
 	private List<BasicBat> swarm;
+	private List<BasicBat> swarm2;
 
 	public MoveSwarm(GL2 gl, GLU glu) {
 		swarm = new ArrayList<BasicBat>();
-		
-		/*swarm.add(new BasicBat(gl, glu, 10, 50));
-		swarm.add(new BasicBat(gl, glu, 8, 52));
-		swarm.add(new BasicBat(gl, glu, 9, 53));
-		swarm.add(new BasicBat(gl, glu, 7, 48));*/
 		
 		for (int i = 0; i < 50; i++) {
 			int j = (int) (Math.random()*20) - 10;
 			int k = (int) (Math.random()*20) - 10;
 			swarm.add(new BasicBat(gl, glu, 10+j, 50+k));
+		}
+		for (int i = 0; i < 50; i++) {
+			int j = (int) (Math.random()*20) - 10;
+			int k = (int) (Math.random()*20) - 10;
+			swarm.add(new BasicBat(gl, glu, 200+j, 200+k));
 		} 
 	}
 
@@ -32,12 +33,19 @@ public class MoveSwarm {
 	public void draw(GL2 gl, GLU glu) {
 		
 		for (BasicBat b: swarm) {
-			b.draw2(gl, glu);
-			if (b.isDead())
-				swarm.remove(b);
-			else {
-				b.setX(b.getX()+b.getDX());
-				b.setZ(b.getZ()+b.getDZ());
+			for (BasicBat c: swarm2) {
+				c.draw2(gl, glu);
+				b.draw2(gl, glu);
+				if (b.isDead())
+					swarm.remove(b);
+				if (c.isDead())
+					swarm2.remove(c);
+				else {
+					b.setX(b.getX()+b.getDX());
+					b.setZ(b.getZ()+b.getDZ());
+					c.setX(c.getX()+c.getDX());
+					c.setZ(c.getZ()+c.getDZ());
+				}
 			}
 		}
 				
