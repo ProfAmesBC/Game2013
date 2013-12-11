@@ -22,9 +22,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for glsl_newparam complex type.
+ * <playerA>Java class for glsl_newparam complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="glsl_newparam">
@@ -143,20 +143,20 @@ public class GlslNewparam {
     /**
      * Gets the value of the annotates property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the annotates property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAnnotates().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link FxAnnotateCommon }
      * 
@@ -436,20 +436,20 @@ public class GlslNewparam {
     /**
      * Gets the value of the int4 property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the int4 property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInt4().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Integer }
      * 
@@ -465,20 +465,20 @@ public class GlslNewparam {
     /**
      * Gets the value of the int3 property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the int3 property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInt3().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Integer }
      * 
@@ -494,20 +494,20 @@ public class GlslNewparam {
     /**
      * Gets the value of the int2 property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the int2 property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInt2().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Integer }
      * 
@@ -547,20 +547,20 @@ public class GlslNewparam {
     /**
      * Gets the value of the float4X4 property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the float4X4 property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getFloat4X4().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Float }
      * 
@@ -576,20 +576,20 @@ public class GlslNewparam {
     /**
      * Gets the value of the float3X3 property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the float3X3 property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getFloat3X3().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Float }
      * 
@@ -605,20 +605,20 @@ public class GlslNewparam {
     /**
      * Gets the value of the float2X2 property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the float2X2 property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getFloat2X2().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Float }
      * 
@@ -634,20 +634,20 @@ public class GlslNewparam {
     /**
      * Gets the value of the float4 property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the float4 property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getFloat4().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Float }
      * 
@@ -663,20 +663,20 @@ public class GlslNewparam {
     /**
      * Gets the value of the float3 property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the float3 property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getFloat3().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Float }
      * 
@@ -692,20 +692,20 @@ public class GlslNewparam {
     /**
      * Gets the value of the float2 property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the float2 property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getFloat2().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Float }
      * 
@@ -745,20 +745,20 @@ public class GlslNewparam {
     /**
      * Gets the value of the bool4 property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the bool4 property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getBool4().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Boolean }
      * 
@@ -774,20 +774,20 @@ public class GlslNewparam {
     /**
      * Gets the value of the bool3 property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the bool3 property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getBool3().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Boolean }
      * 
@@ -803,20 +803,20 @@ public class GlslNewparam {
     /**
      * Gets the value of the bool2 property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the bool2 property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getBool2().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Boolean }
      * 

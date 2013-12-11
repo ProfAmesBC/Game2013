@@ -26,9 +26,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <playerA>Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -152,20 +152,20 @@ public class Node {
      * 							The node element may contain any number of lookat elements.
      * 							Gets the value of the lookatsAndMatrixesAndRotates property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the lookatsAndMatrixesAndRotates property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getLookatsAndMatrixesAndRotates().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link JAXBElement }{@code <}{@link TargetableFloat3 }{@code >}
      * {@link JAXBElement }{@code <}{@link TargetableFloat3 }{@code >}
@@ -188,20 +188,20 @@ public class Node {
      * 						The node element may instance any number of camera objects.
      * 						Gets the value of the instanceCameras property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the instanceCameras property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInstanceCameras().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link InstanceWithExtra }
      * 
@@ -219,20 +219,20 @@ public class Node {
      * 						The node element may instance any number of controller objects.
      * 						Gets the value of the instanceControllers property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the instanceControllers property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInstanceControllers().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link InstanceController }
      * 
@@ -250,20 +250,20 @@ public class Node {
      * 						The node element may instance any number of geometry objects.
      * 						Gets the value of the instanceGeometries property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the instanceGeometries property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInstanceGeometries().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link InstanceGeometry }
      * 
@@ -281,20 +281,20 @@ public class Node {
      * 						The node element may instance any number of light objects.
      * 						Gets the value of the instanceLights property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the instanceLights property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInstanceLights().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link InstanceWithExtra }
      * 
@@ -312,20 +312,20 @@ public class Node {
      * 						The node element may instance any number of node elements or hierarchies objects.
      * 						Gets the value of the instanceNodes property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the instanceNodes property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInstanceNodes().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link InstanceWithExtra }
      * 
@@ -343,20 +343,20 @@ public class Node {
      * 						The node element may be hierarchical and be the parent of any number of other node elements.
      * 						Gets the value of the nodes property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the nodes property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getNodes().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Node }
      * 
@@ -374,20 +374,20 @@ public class Node {
      * 						The extra element may appear any number of times.
      * 						Gets the value of the extras property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extras property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtras().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Extra }
      * 
@@ -503,20 +503,20 @@ public class Node {
     /**
      * Gets the value of the layers property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the layers property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getLayers().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
      * 

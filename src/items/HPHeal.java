@@ -6,6 +6,7 @@ import game.Building;
 import game.PlayerMotion;
 import game.PlayerStats;
 import inventory.Bag;
+
 import inventory.Item;
 import inventory.PlayerAttributes;
 
@@ -18,16 +19,16 @@ import com.jogamp.opengl.util.texture.Texture;
 public class HPHeal extends AbstractPowerUp {
 	//Instant HP Heal
 	
-	public HPHeal(GL2 gl, GLU glu, float x, float y, float z, Bag bag,
-			PlayerAttributes p) {
-		//texture = Building.setupTexture(gl, "healthcross.png");
-		itemX = x;
-		itemY = y;
-		itemZ = z;
+	public HPHeal(GL2 gl, GLU glu, Point3f p3d, PlayerStats s) {
+		texture = Building.setupTexture(gl, "FMPskull.png");//change this later
 		PlayerMotion.registerPlayerWatcher(this);
 		grabbed = false;
-		this.p = p;
+		stats=  s;
+		pX = (float)p3d.getX();
+		pY = (float)p3d.getY();
+		pZ = (float)p3d.getZ();
 		frames = 0;		
+		type = "HP Heal";
 	}
 
 	@Override
@@ -36,13 +37,15 @@ public class HPHeal extends AbstractPowerUp {
 		gl.glEnable(GL2.GL_CULL_FACE);
 		gl.glEnable(GL2.GL_TEXTURE_2D);
 		gl.glPushMatrix();
-		gl.glTranslated(itemX, Math.sin(Math.toRadians(T * 360 + 180)) + 2,
-				itemZ);
+		gl.glTranslated(pX, Math.sin(Math.toRadians(T * 360 + 180)) + 2,
+				pZ);
 		gl.glRotated(5*T,1,5*T,1);
 		// gl.glRotated(Math.toRadians(15*frames), Math.toRadians(15*frames),
 		// Math.toRadians(15*frames), 1);
 		// gl.glTranslated(-itemX, -(Math.sin(Math.toRadians(T*360+180 ))+2),
 		// -itemZ);
+		//texture.bind(gl);
+
 		texture.bind(gl);
 
 		gl.glBegin(GL2.GL_QUADS);
@@ -183,7 +186,6 @@ public class HPHeal extends AbstractPowerUp {
 
 		gl.glDisable(GL2.GL_CULL_FACE);
 		gl.glDisable(GL2.GL_TEXTURE_2D);
-		
 	}
 
 	@Override
@@ -192,13 +194,13 @@ public class HPHeal extends AbstractPowerUp {
 		return grabbed;
 	}
 
-	public void activate() {
+	public void use() {
 		stats.changeHealth(1);
 		grabbed=true;
 	}
 	@Override
 	public String getType() {
 		// TODO Auto-generated method stub
-		return null;
+		return type;
 	}
 }

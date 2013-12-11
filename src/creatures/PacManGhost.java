@@ -1,15 +1,11 @@
 package creatures;
 
 import game.Building;
-
 import java.util.Random;
-
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 import javax.media.opengl.glu.GLUquadric;
-
 import com.jogamp.opengl.util.texture.Texture;
-
 import game.PlayerMotionWatcher;
 import game.PlayerStats;
 
@@ -23,9 +19,6 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 	private float Z = 0f;
 	private float playerX;
 	private float playerZ;
-	private float bulletX;
-	private float bulletY;
-	private float playerAngle;
 	private float T = 0;
 	private int count = 0;
 	private float directionAngle = 0;
@@ -35,6 +28,7 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 	private float detectionRadius = 5f;
 	private Random random = new Random();
 	private double k = random.nextDouble();
+	private PlayerStats ps;
 	
 	public PacManGhost(float x, float z, GL2 gl, GLU glu) {
 		X = x;
@@ -175,22 +169,9 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 		}
 	}
 	
-	public void playerMoved(float x, float y, float z, float angle, float yAngle) {
-		playerX = x;
-		playerZ = z;
-		playerAngle = angle;
-		double distance = Math.sqrt(Math.pow(X-x,2) + Math.pow(Z-z,2));
-		if(distance <= detectionRadius){
-			seesPlayer = true;
-		}
-		else{
-			seesPlayer = false;
-		}
-	}
-	
 	public void attack (float x, float z) {
 		if (Math.sqrt(Math.pow(X-x,2) + Math.pow(Z-z,2)) < 1) {
-			//player health - 10;
+			ps.changeHealth(-10);
 		}
 	}
 	
@@ -254,10 +235,17 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 		}
 	}
 
-	@Override
 	public void playerMoved(float x, float y, float z, float angle, float y_angle, PlayerStats s) {
-		// TODO Auto-generated method stub
-		
+		playerX = x;
+		playerZ = z;
+		ps = s;
+		double distance = Math.sqrt(Math.pow(X-x,2) + Math.pow(Z-z,2));
+		if(distance <= detectionRadius){
+			seesPlayer = true;
+		}
+		else{
+			seesPlayer = false;
+		}
 	}
 
 }

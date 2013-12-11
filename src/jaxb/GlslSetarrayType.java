@@ -26,9 +26,9 @@ import javax.xml.bind.annotation.XmlType;
  * 			The glsl_newarray_type is used to creates a parameter of a one-dimensional array type.
  * 			
  * 
- * <p>Java class for glsl_setarray_type complex type.
+ * <playerA>Java class for glsl_setarray_type complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="glsl_setarray_type">
@@ -86,20 +86,20 @@ public class GlslSetarrayType {
     /**
      * Gets the value of the boolsAndBool2SAndBool3S property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the boolsAndBool2SAndBool3S property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getBoolsAndBool2sAndBool3s().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link JAXBElement }{@code <}{@link List }{@code <}{@link Integer }{@code >}{@code >}
      * {@link JAXBElement }{@code <}{@link List }{@code <}{@link Float }{@code >}{@code >}
