@@ -411,18 +411,18 @@ public class BatsEverywhere implements GLEventListener
          System.setProperty("sun.awt.noerasebackground", "true"); // sometimes necessary to avoid erasing over the finished window
 
          final JFrame frame = new JFrame("Too Many Bats");
-//         GLCanvas whichCanvas;
-//
-//         SplashScreen splashRenderer = new SplashScreen();
-//         splashRenderer.canvas.addGLEventListener(splashRenderer);
-//         splashRenderer.canvas.setPreferredSize(new Dimension(512,512));
+         GLCanvas whichCanvas;
+
+         SplashScreen splashRenderer = new SplashScreen();
+         splashRenderer.canvas.addGLEventListener(splashRenderer);
+         splashRenderer.canvas.setPreferredSize(new Dimension(512,512));
          
          
          BatsEverywhere renderer = new BatsEverywhere();
          renderer.canvas.addGLEventListener(renderer);
          renderer.canvas.setPreferredSize(new Dimension(512,512));
          
-//         whichCanvas = renderer.canvas;
+         whichCanvas = renderer.canvas;
          
          renderer.controls.append("W: move forward\n");
          renderer.controls.append("A: move left\n");
@@ -447,7 +447,7 @@ public class BatsEverywhere implements GLEventListener
          frame.setLayout(new BorderLayout());
          //frame.add(renderer.statusLine, BorderLayout.SOUTH);
          frame.add(renderer.controls, BorderLayout.EAST);
-         frame.add(renderer.canvas, BorderLayout.CENTER);
+         frame.add(splashRenderer.canvas, BorderLayout.CENTER);
          //frame.add(renderer.weapons,BorderLayout.WEST);
          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          frame.pack(); // make just big enough to hold objects inside
@@ -458,17 +458,17 @@ public class BatsEverywhere implements GLEventListener
          renderer.canvas.addMouseListener(renderer.projectileWeapons);
          renderer.canvas.requestFocus(); // so key clicks come here
          FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
-//         FPSAnimator splashAnim = new FPSAnimator( splashRenderer.canvas, 60);
+         FPSAnimator splashAnim = new FPSAnimator( splashRenderer.canvas, 60);
          frame.setVisible(true);
 //         
-//         whichCanvas = splashRenderer.canvas;
+         whichCanvas = splashRenderer.canvas;
          
-         animator.start();
-//         splashAnim.start();
+//         animator.start();
+         splashAnim.start();
          
 //         frame.add(renderer.canvas, BorderLayout.CENTER);
          
-//         whichCanvas = renderer.canvas;
+         whichCanvas = renderer.canvas;
          
 //         (new Thread(new Runnable() {
 //        	 public void run() {

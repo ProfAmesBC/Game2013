@@ -46,17 +46,6 @@ public class SplashScreen implements GLEventListener {
 		for (int i = 0; i < 5; i++) {
 			splashBgTextures[i] = setupTexture(gl, "Henrysplashshot0"+(i+1)+".png");
 		}
-		Thread t = new Thread(new Runnable() {
-			public void run() {
-				try {
-					Thread.sleep(6000);
-					ready = true;
-					status = "press enter to start";
-					statusPos = -0.5f;
-				} catch (InterruptedException e) {}
-			}
-		});
-		t.start();
 
 	}
 	@Override
