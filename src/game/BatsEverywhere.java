@@ -35,9 +35,7 @@ import sketchupModels.Avatar;
 import weapons.PipeWeapon;
 import weapons.Projectile;
 import weapons.ProjectileWeapons;
-
 import Music.MusicPlayer;
-
 import Enemies.Bat;
 import Enemies.MoveSwarm;
 import catsrabbits.CatGroup;
@@ -145,8 +143,9 @@ public class BatsEverywhere implements GLEventListener
         moveSwarm = new MoveSwarm(gl, glu);
         
         powerUpManager = new PowerUpManager(gl, glu);
-
-        jukebox.playBackground();
+        //jukebox.loadFanfare();
+		Thread player = new Thread(jukebox);
+		player.run();
 
     }
     
