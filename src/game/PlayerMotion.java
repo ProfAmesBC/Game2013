@@ -321,8 +321,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
         return step;
     }
 	public void teleport(int i) {
-		eyeX = eyeX + i;
-        eyeY = eyeY + i;
+		eyeX = eyeX + i;        
         eyeZ = eyeZ + i;
 	}
 
