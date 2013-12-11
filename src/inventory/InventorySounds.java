@@ -17,7 +17,7 @@ public class InventorySounds {
 		BatsEverywhere.m.play(sound1);
 		//BatsEverywhere.m.cleanUp();
 		
-		System.out.println("DING");
+		//System.out.println("DING");
 	}
 	
 	public static void useItemNoise()
@@ -29,12 +29,12 @@ public class InventorySounds {
 		//BatsEverywhere.m.cleanUp();
 		
 		
-		System.out.println("useItemNoise");
+		//System.out.println("useItemNoise");
 	}
 	
 	public static void changeItemNoise()
 	{
-		System.out.println("changeItemNoise");
+		//System.out.println("changeItemNoise");
 	}
 
 }

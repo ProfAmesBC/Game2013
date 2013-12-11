@@ -20,12 +20,12 @@ public class WeaponSounds {
 	
 	public static void nonProjectileNoise()
 	{
-		System.out.println("THUMP");
+		//System.out.println("THUMP");
 	}
 	
 	public static void changeWeaponNoise()
 	{
-		System.out.println("changeWeaponNoise");
+		//System.out.println("changeWeaponNoise");
 	}
 	
 	// test commit 2  VM
