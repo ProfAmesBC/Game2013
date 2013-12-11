@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
 
+import game.BatsEverywhere;
 import game.Building;
 import game.PlayerMotion;
 import game.PlayerStats;
@@ -79,6 +80,9 @@ public class Invincible extends AbstractPowerUp {
 		grabbed=true;
 
 		//play invincible music here
+//		BatsEverywhere.m.load("invincible",  0, 0, 1, false);
+//		BatsEverywhere.m.setListenerPos(0, 0);
+//		BatsEverywhere.m.play("invincible");
 		
 		double time = 10;
 		int originalHealth = stats.checkHealth();
