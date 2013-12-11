@@ -32,7 +32,7 @@ public class Invincible extends AbstractPowerUp {
 		pY = (float)p3d.getY();
 		pZ = (float)p3d.getZ();
 		frames = 0;		
-		type = "Invincibility";
+		type = "Invincible";
 	}
 
 	public Invincible(GL2 gl, GLU glu, Point3f p3d, PlayerStats s, PlayerAttributes p) {		
@@ -46,6 +46,7 @@ public class Invincible extends AbstractPowerUp {
 		pZ = (float)p3d.getZ();
 		frames = 0;		
 		type = "Invincibility";
+		
 	}
 	
 	public Invincible(GL2 gl, GLU glu, PlayerStats s) {
@@ -54,8 +55,19 @@ public class Invincible extends AbstractPowerUp {
 		grabbed = false;
 		stats=  s;	
 		frames = 0;		
-		type = "Honor +";
+		type = "Invincible";
+		
 	}
+	public Invincible(GL2 gl, GLU glu, PlayerStats ps, PlayerAttributes pa) {
+		texture = Building.setupTexture(gl, "yanginvincible.png");//change this later
+		PlayerMotion.registerPlayerWatcher(this);
+		grabbed = false;
+		stats=  ps;	
+		frames = 0;		
+		p = pa;
+		type = "Invincible";	}
+	
+
 	@Override
 	public void draw(GL2 gl, GLU glu, float x, float y, float z) {
 		frames++;
@@ -80,13 +92,13 @@ public class Invincible extends AbstractPowerUp {
 
 		//play invincible music here
 		
-		double time = 10;
+		int time = 1000;
 		int originalHealth = stats.checkHealth();
 		float currentSpeed = p.getStepSize();
-		p.setStepSize(currentSpeed * currentSpeed/2, 10);
+		p.setStepSize(currentSpeed *2, time);
 		float newSpeed = p.getStepSize();
-		while (newSpeed!=currentSpeed) {
-			
+		//while (newSpeed!=currentSpeed) {
+		while(time>0) {
 			
 			if (stats.checkHealth()<8) {
 				stats.changeHealth(1);

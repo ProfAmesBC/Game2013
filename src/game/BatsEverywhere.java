@@ -127,7 +127,7 @@ public class BatsEverywhere implements GLEventListener
         bat = new Bat(gl, glu);
         moveSwarm = new MoveSwarm(gl, glu);
         
-        powerUpManager = new PowerUpManager(gl, glu);
+        powerUpManager = new PowerUpManager(gl, glu, playerAttributes);
 
         
         m	= new GameSoundMan();
