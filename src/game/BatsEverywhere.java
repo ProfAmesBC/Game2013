@@ -430,6 +430,8 @@ public class BatsEverywhere implements GLEventListener
          renderer.controls.append("\n");
          renderer.controls.append("Space/MouseClick: fireball\n");
          renderer.controls.append("1: use speed item\n");
+         renderer.controls.append("2: use jetpack item\n");
+         renderer.controls.append("3: use teleporter item\n");
          renderer.controls.append("\n");
          renderer.controls.append("M: toggle mouse\n");
          //renderer.controls.append()
