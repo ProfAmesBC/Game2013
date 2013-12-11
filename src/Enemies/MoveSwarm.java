@@ -44,7 +44,6 @@ public class MoveSwarm {
 			}
 		}
 		
-		
 		for (BasicBat b: swarm) {
 			for (BasicBat t: swarm) {
 				if(b != t) {

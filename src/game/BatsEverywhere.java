@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.GLEventListener;
@@ -63,7 +64,7 @@ public class BatsEverywhere implements GLEventListener
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
     private CritterGroup catGroup,rabbitGroup;
-    private Bat bat;
+    private int batDisplayList;
     private Mummy mummy;
     private PacManGhost pacManGhost;
     private Texture minimaptexture;
@@ -107,8 +108,8 @@ public class BatsEverywhere implements GLEventListener
         Robot.addZombie(new Robot(100,100,gl,glu));
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
-        bat = new Bat(gl, glu);
         moveSwarm = new MoveSwarm(gl, glu);
+        batDisplayList = gl.glGenLists(1);
         
         powerUpManager = new PowerUpManager(gl, glu);
     }
@@ -260,9 +261,14 @@ public class BatsEverywhere implements GLEventListener
         Robot.drawZombies(gl, glu);
         catGroup.draw(gl, glu);
         rabbitGroup.draw(gl, glu);
-        bat.draw(gl, glu);
         mummy.draw(gl, glu);
+       
+        gl.glNewList(batDisplayList, gl.GL_COMPILE);
         moveSwarm.draw(gl, glu);
+        gl.glEndList();
+        
+        gl.glCallList(batDisplayList);
+       
         // check for errors, at least once per frame
 
         

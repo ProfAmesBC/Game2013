@@ -48,7 +48,6 @@ public class BasicBat implements Enemies {
 	
 	//Drawing methods
 	public void drawWing(GL2 gl, boolean rightWing){
-		System.out.println("entering drawWing");
 		float flip = 1;
 		if(rightWing){flip = -1;}
 		
