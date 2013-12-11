@@ -297,7 +297,7 @@ public class BatsEverywhere implements GLEventListener
         
         if(fogDensity<.007){fogDensity = fogDensity+.000015f;}//its getting foggy at a slow rate
         
-        writer.draw(bag.toString(), 380, 470);
+        writer.draw(bag.toString(), 350, 470);
         writer.draw(stats.healthString(), 10, 45);
         writer.draw(stats.honorString(), 10, 10);
 
