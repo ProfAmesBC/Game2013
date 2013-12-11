@@ -34,4 +34,6 @@ public class PlayerStats{
 		if(honor<1)s+=" - can't shoot";
 		return s;
 	}
+	
+	public int checkHealth() {return health;}
 }

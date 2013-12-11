@@ -22,6 +22,8 @@ public class PowerUpManager {
 	private int initialSize;
 	private PlayerStats ps;
 	private HPHeal hp = null;
+	private PlusHonor ph = null;
+	private Invincible invincible = null;
 	private static int DESIRED_SPAWNS = 3;
 	
 	AllSpawnLocations poss = new AllSpawnLocations();
@@ -36,9 +38,22 @@ public class PowerUpManager {
 		emptySpawns = new ArrayList<Spawn3f>();
 		initialSize = spawns.size();
 		hp = new HPHeal(gl, glu, ps);
+		ph = new PlusHonor(gl, glu, ps);
+		invincible = new Invincible(gl, glu, ps);
+		
 		powerUpList.add(hp);
+		powerUpList.add(ph);
 		powerUpList.add(hp);
+		powerUpList.add(ph);
 		powerUpList.add(hp);
+		powerUpList.add(ph);
+		powerUpList.add(hp);
+		//powerUpList.add(invincible);
+		powerUpList.add(ph);
+		powerUpList.add(hp);
+		powerUpList.add(ph);
+		powerUpList.add(hp);
+		powerUpList.add(ph);
 		/*
 		for(int x=0; x<powerUpList.size();x++ ) {
 			System.out.println("00 type: " + powerUpList.get(x).getType());

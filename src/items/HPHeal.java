@@ -21,7 +21,7 @@ public class HPHeal extends AbstractPowerUp {
 	//Instant HP Heal
 	
 	public HPHeal(GL2 gl, GLU glu, Point3f p3d, PlayerStats s) {		
-		texture = Building.setupTexture(gl, "FMPskull.png");//change this later
+		texture = Building.setupTexture(gl, "yangheal.png");//change this later
 		PlayerMotion.registerPlayerWatcher(this);
 		grabbed = false;
 		stats=  s;
