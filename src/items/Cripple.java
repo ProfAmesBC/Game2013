@@ -269,5 +269,11 @@ public class Cripple extends AbstractPowerUp {
 		this.angle = angle;
 	}
 
+	@Override
+	public void draw(GL2 gl, GLU glu, float x, float y, float z) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
