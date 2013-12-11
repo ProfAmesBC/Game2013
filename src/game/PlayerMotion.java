@@ -406,8 +406,10 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
         return step;
     }
         public void teleport(int i) {
-                eyeX = eyeX + i;        
-        eyeZ = eyeZ + i;
+        	dx += (Math.cos(Math.toRadians(theta))*i);
+            dz += (-Math.sin(Math.toRadians(theta))*i);
+            eyeX = eyeX + dx;        
+            eyeZ = eyeZ + dz;
         }
 
     
