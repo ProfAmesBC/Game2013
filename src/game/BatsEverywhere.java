@@ -13,6 +13,7 @@ import com.jogamp.opengl.util.FPSAnimator;
 
 import inventory.Bag;
 import inventory.ItemFactory;
+import inventory.DummyItem;
 import inventory.PlayerActions;
 import inventory.PlayerAttributes;
 import weapons.ProjectileWeapons;
@@ -79,6 +80,8 @@ public class BatsEverywhere implements GLEventListener
     private CritterGroup catGroup,rabbitGroup;
     private Bat bat;
     private Texture minimaptexture;
+    private float fogDensity = 0.001f;
+    private int fogMode=GL2.GL_EXP2;
     //private TextRenderer renderer;
     
 
@@ -98,6 +101,7 @@ public class BatsEverywhere implements GLEventListener
         controls.setBackground(Color.LIGHT_GRAY);
         controls.setFont(new Font("Serif", Font.ITALIC, 13));
         statusLine.setEditable(false);
+        initFog(gl);//fog
         gl.setSwapInterval(1); // for animation synchronized to refresh rate
         gl.glClearColor(.7f,.7f,1f,0f); // background
         gl.glTexEnvf(GL2.GL_TEXTURE_ENV, GL2.GL_TEXTURE_ENV_MODE, GL2.GL_REPLACE); // or GL_MODULATE
@@ -114,6 +118,7 @@ public class BatsEverywhere implements GLEventListener
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
         bat = new Bat(gl, glu);
+        
     }
     
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -132,7 +137,24 @@ public class BatsEverywhere implements GLEventListener
         windowHeight = height;
         
     }
-    
+    //FOG BEGIN
+    private void initFog(GL2 gl) {
+
+        gl.glEnable(GL2.GL_FOG);
+        {
+           float fogColor[] = {0.5f, 0.5f, 0.5f, 1.0f}; // usually same as glClearColor
+
+         //fogMode = GL2.GL_LINEAR; // or GL2.GL_EXP, or GL2.GL_EXP2: done by buttons in this demo
+         //gl.glFogi (GL2.GL_FOG_MODE, fogMode); // done in display
+           gl.glFogfv(GL2.GL_FOG_COLOR, fogColor, 0);
+         //gl.glFogf (GL2.GL_FOG_DENSITY, fogDensity); // done in display, affects EXP and EXP2
+           gl.glHint (GL2.GL_FOG_HINT, GL2.GL_NICEST);  // other choices are GL_FASTEST or GL_DONT_CARE
+           gl.glFogf (GL2.GL_FOG_START, 1.0f);
+           gl.glFogf (GL2.GL_FOG_END, 5.0f);
+        }
+        gl.glClearColor(0.5f, 0.5f, 0.5f, 1.0f);  /* matches fog color */
+     }
+   //FOG END
     public static Texture setupTexture(GL2 gl, String filename) {
         Texture texture=null;
         try {
@@ -218,9 +240,11 @@ public class BatsEverywhere implements GLEventListener
     public void display(GLAutoDrawable drawable) {
         long startTime = System.currentTimeMillis();
         GL2 gl  = drawable.getGL().getGL2();
-   
-
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+        
+        gl.glFogi (GL2.GL_FOG_MODE, fogMode);//fog
+        gl.glFogf (GL2.GL_FOG_DENSITY, fogDensity);//fog
+        
         //minimap must be done first
         if (++framesDrawn == 1) {
         	minimap(drawable);
@@ -242,6 +266,9 @@ public class BatsEverywhere implements GLEventListener
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT); //clear that town  
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
         itemCreator.update();
+        
+        fogDensity = fogDensity+.000015f;//its getting foggy at a slow rate
+        
         writer.draw(bag.toString(), 380, 470);
 
         projectileWeapons.update(gl, glu);
@@ -378,10 +405,10 @@ public class BatsEverywhere implements GLEventListener
          renderer.controls.append("(Flying Mode)U: go up\n");
          renderer.controls.append("(Flying Mode)J: go down\n");
          renderer.controls.append("\n");
-         renderer.controls.append("J: Space\n");
+         renderer.controls.append("Space: jump&fireball\n");
          renderer.controls.append("C: crouch\n");
-         renderer.controls.append("F: Flying Mode\n");
-         renderer.controls.append("G: Walking Mode\n");
+         renderer.controls.append("F: flying Mode\n");
+         renderer.controls.append("G: walking Mode\n");
          renderer.controls.append("Shift: sprint\n");
          renderer.controls.append("\n");
          renderer.controls.append("MouseClick: fireball\n");
