@@ -110,9 +110,5 @@ public class Rabbit extends Critter{
 		y+=.07*(float)Math.cos(Math.toRadians(t*360));
 	}
 	public float size(){return 3*BODY_HEIGHT_WIDTH_RATIO;}
-	public void playNoise(){
-		try{
-			Thread.sleep(1000);
-		}catch(InterruptedException e){}
-	}
+	public void playNoise(){}
 }

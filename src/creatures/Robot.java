@@ -207,6 +207,7 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 		}
 		else{
 			chasing = false;
+			attacking=false;
 		}
 	}
 	
