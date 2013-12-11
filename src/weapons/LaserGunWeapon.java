@@ -3,7 +3,6 @@ package weapons;
 import game.PlayerMotion;
 import game.PlayerMotionWatcher;
 import game.PlayerStats;
-
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
@@ -25,7 +24,8 @@ import com.jogamp.opengl.util.GLBuffers;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LaserGunWeapon{
+public class LaserGunWeapon extends ProjectileWeapons {
+	private boolean present=false;
 	private int displayList = -1;
 	
 		//Compiled from LazerGun by SketchupModelJAXB

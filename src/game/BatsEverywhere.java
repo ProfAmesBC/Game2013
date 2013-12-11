@@ -11,6 +11,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.KeyListener;
 import java.io.File; //For capturing screen shot
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,7 +28,14 @@ import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import weapons.BludgeoningWeapon;
+import weapons.WeaponManager;
+import creatures.Robot;
+import sketchupModels.Avatar;
+import weapons.PipeWeapon;
+import weapons.Projectile;
 import weapons.ProjectileWeapons;
+import Music.MusicPlayer;
 import Enemies.Bat;
 import Enemies.MoveSwarm;
 import catsrabbits.CatGroup;
@@ -50,6 +58,7 @@ public class BatsEverywhere implements GLEventListener
     private GLU glu = new GLU();
     private Town town;
     private int height, width;
+    private BludgeoningWeapon weapon = null;
     private PlayerMotion playerMotion = new PlayerMotion();
     private PlayerStats stats=new PlayerStats(playerMotion);
     private ProjectileWeapons projectileWeapons = new ProjectileWeapons(stats);
@@ -61,17 +70,21 @@ public class BatsEverywhere implements GLEventListener
         private StatusText writer;
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
+
+    private static MusicPlayer jukebox = new MusicPlayer();
+
+    private WeaponManager weaponManager = null;
     private CritterGroup catGroup,rabbitGroup;
-    private Bat bat;
     private Mummy mummy;
     private PacManGhost pacManGhost;
     private Texture minimaptexture;
+    private float fogDensity = 0.0f;
+    private int fogMode=GL2.GL_EXP2;
     private MoveSwarm moveSwarm;
 
     public static List<Creature> creatures = new LinkedList<Creature>();
 
     private PowerUpManager powerUpManager;
-
     //private TextRenderer renderer;
     
 
@@ -79,8 +92,8 @@ public class BatsEverywhere implements GLEventListener
     private GLReadBufferUtil bufferUtil = new GLReadBufferUtil(false, true); //For capturing screen shots
     
     //renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, 48));
-    
 
+    
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
       //drawable.setGL(new TraceGL2(drawable.getGL().getGL2(), System.out)); // to trace every call.  Less useful.
@@ -89,6 +102,7 @@ public class BatsEverywhere implements GLEventListener
         controls.setBackground(Color.LIGHT_GRAY);
         controls.setFont(new Font("Serif", Font.ITALIC, 13));
         statusLine.setEditable(false);
+        initFog(gl);//fog
         gl.setSwapInterval(1); // for animation synchronized to refresh rate
         gl.glClearColor(.7f,.7f,1f,0f); // background
         gl.glTexEnvf(GL2.GL_TEXTURE_ENV, GL2.GL_TEXTURE_ENV_MODE, GL2.GL_REPLACE); // or GL_MODULATE
@@ -102,7 +116,18 @@ public class BatsEverywhere implements GLEventListener
 
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
-       
+
+
+        
+        weaponManager = new WeaponManager();
+        weaponManager.init(gl, glu);
+        weapon = weaponManager.getWeapon();
+        weapon.init(gl, glu);
+        canvas.addKeyListener(weapon);	// add key listener to bludgeoning weapons
+        canvas.addKeyListener(weaponManager);
+//        mummy = new Mummy(30, 100, gl, glu);
+//        pacManGhost = new PacManGhost(25, 95, gl, glu);
+
         creatures.add(new Mummy(30,100,gl, glu));
         creatures.add(new PacManGhost(25,95,gl, glu));
         
@@ -112,10 +137,13 @@ public class BatsEverywhere implements GLEventListener
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
 
-        bat = new Bat(gl, glu);
+
         moveSwarm = new MoveSwarm(gl, glu);
         
         powerUpManager = new PowerUpManager(gl, glu);
+        //jukebox.loadFanfare();
+		Thread player = new Thread(jukebox);
+		player.run();
 
     }
     
@@ -137,7 +165,24 @@ public class BatsEverywhere implements GLEventListener
         windowHeight = height;
         
     }
-    
+    //FOG BEGIN
+    private void initFog(GL2 gl) {
+
+        gl.glEnable(GL2.GL_FOG);
+        {
+           float fogColor[] = {0.5f, 0.5f, 0.5f, 1.0f}; // usually same as glClearColor
+
+         //fogMode = GL2.GL_LINEAR; // or GL2.GL_EXP, or GL2.GL_EXP2: done by buttons in this demo
+         //gl.glFogi (GL2.GL_FOG_MODE, fogMode); // done in display
+           gl.glFogfv(GL2.GL_FOG_COLOR, fogColor, 0);
+         //gl.glFogf (GL2.GL_FOG_DENSITY, fogDensity); // done in display, affects EXP and EXP2
+           gl.glHint (GL2.GL_FOG_HINT, GL2.GL_NICEST);  // other choices are GL_FASTEST or GL_DONT_CARE
+           gl.glFogf (GL2.GL_FOG_START, 1.0f);
+           gl.glFogf (GL2.GL_FOG_END, 5.0f);
+        }
+        gl.glClearColor(0.5f, 0.5f, 0.5f, 1.0f);  /* matches fog color */
+     }
+   //FOG END
     public static Texture setupTexture(GL2 gl, String filename) {
         Texture texture=null;
         try {
@@ -207,8 +252,8 @@ public class BatsEverywhere implements GLEventListener
         
         // also appears where minimap is drawn
         glu.gluLookAt(300, 800, 300,   // eye location
-                300,0,300,   // point to look at (near middle of pyramid)
-                 0, 0,  -1);
+                      300,   0, 300,   // point to look at (near middle of pyramid)
+                        0,   0,  -1);
         
         //gl.glRotatef((float)90, 0f, 0f, 1f);
 
@@ -217,19 +262,20 @@ public class BatsEverywhere implements GLEventListener
        //Set the eye back to its original coordinates
        screenshot(drawable);
        playerMotion.setEyeX(originaleyex);
-             playerMotion.setEyeY(originaleyey);
-           playerMotion.setEyeZ(originaleyez);
+   	   playerMotion.setEyeY(originaleyey);
+   	   playerMotion.setEyeZ(originaleyez);
 
-       
     }
 
     public void display(GLAutoDrawable drawable) {
         long startTime = System.currentTimeMillis();
         GL2 gl  = drawable.getGL().getGL2();
-   
-
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
-//minimap must be done first
+        
+        gl.glFogi (GL2.GL_FOG_MODE, fogMode);//fog
+        gl.glFogf (GL2.GL_FOG_DENSITY, fogDensity);//fog
+        
+        //minimap must be done first
         if (++framesDrawn == 1) {
                 minimap(drawable);
                 gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
@@ -239,8 +285,8 @@ public class BatsEverywhere implements GLEventListener
         //playerMotion.setLookAt(gl, glu);
         
 
-        this.playerMotion.setScreenLocation(
-                        this.canvas.getLocationOnScreen());
+        this.playerMotion.setScreenLocation(this.canvas.getLocationOnScreen());
+
        
         // draw town
         // town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
@@ -256,26 +302,34 @@ public class BatsEverywhere implements GLEventListener
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
         
         itemCreator.update();
-        writer.draw(bag.toString(), 380, 470);
+        
+        if(fogDensity<.007){fogDensity = fogDensity+.000015f;}//its getting foggy at a slow rate
+        
+        writer.draw(bag.toString(), 350, 470);
         writer.draw(stats.healthString(), 10, 45);
         writer.draw(stats.honorString(), 10, 10);
 
         projectileWeapons.update(gl, glu);
-       
+
         for (Creature c: creatures){
                 c.draw(gl, glu);
         }
         
         Robot.drawRobots(gl, glu);
+        weapon = weaponManager.getWeapon();
+//        weapon.update(gl, glu);
+        weaponManager.draw(gl, glu);
+ 
+//        Robot.drawZombies(gl, glu);
+    
         catGroup.draw(gl, glu);
         rabbitGroup.draw(gl, glu);
         
         powerUpManager.draw(gl, glu);
 
         
-      //  bat.draw(gl, glu);
         //mummy.draw(gl, glu);
-    //    moveSwarm.draw(gl, glu);
+        moveSwarm.draw(gl, glu);
         // check for errors, at least once per frame
 
         
@@ -424,12 +478,20 @@ public class BatsEverywhere implements GLEventListener
          renderer.controls.append("S: move backward\n");
          renderer.controls.append("Q: turn left\n");
          renderer.controls.append("E: turn right\n");
-        renderer.controls.append("I: look up\n");
-        renderer.controls.append("K: look down\n");
-        renderer.controls.append("J: jump\n");
-                 renderer.controls.append("Shift: sprint\n");
+         renderer.controls.append("I: look up\n");
+         renderer.controls.append("K: look down\n");
+         renderer.controls.append("(Flying Mode)U: go up\n");
+         renderer.controls.append("(Flying Mode)N: go down\n");
          renderer.controls.append("\n");
-         renderer.controls.append("Space/MouseClick: fireball\n");
+
+         renderer.controls.append("J: jump\n");
+         renderer.controls.append("C: crouch\n");
+         renderer.controls.append("F: flying Mode\n");
+         renderer.controls.append("G: walking Mode\n");
+         renderer.controls.append("Shift: sprint\n");
+         renderer.controls.append("\n");
+         renderer.controls.append("MouseClick/Space: fireball\n");
+
          renderer.controls.append("1: use speed item\n");
          renderer.controls.append("2: use jetpack item\n");
          renderer.controls.append("3: use teleporter item\n");
@@ -437,11 +499,7 @@ public class BatsEverywhere implements GLEventListener
          renderer.controls.append("M: toggle mouse\n");
          //renderer.controls.append()
          
-         
          renderer.controls.setEditable(false);        // don't let you edit text once it's established
-         
-     
-         
          
          frame.setLayout(new BorderLayout());
          //frame.add(renderer.statusLine, BorderLayout.SOUTH);
@@ -451,13 +509,19 @@ public class BatsEverywhere implements GLEventListener
          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          frame.pack(); // make just big enough to hold objects inside
          frame.setVisible(true);
+
          renderer.canvas.addKeyListener(renderer.playerActions);
+
          renderer.canvas.addKeyListener(renderer.playerMotion);
+//         renderer.canvas.addKeyListener((KeyListener) renderer.weaponManager);
          renderer.canvas.addMouseMotionListener(renderer.playerMotion);
          renderer.canvas.addKeyListener(renderer.projectileWeapons);
+//         renderer.canvas.addKeyListener(renderer.bw);	// add key listener to bludgeoning weapons
          renderer.canvas.addMouseListener(renderer.projectileWeapons);
          renderer.canvas.requestFocus(); // so key clicks come here
+         
          FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
          animator.start();
+
     }
 }
