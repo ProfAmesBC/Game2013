@@ -61,8 +61,7 @@ public class BlindItem implements Item {
 			drawItem(gl, glu);
 		}
 		else if(!used){			
-			use();
-			used= true;
+			use();			
 		}					
 	}
 
