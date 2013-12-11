@@ -114,15 +114,11 @@ public class Rabbit extends Critter{
 	}
 
 	public float size(){return 3*BODY_HEIGHT_WIDTH_RATIO;}
-	public void playNoise(){
-		try{
-			Thread.sleep(1000);
-		}catch(InterruptedException e){}
-	}
 
 	@Override
 	public void checkShot(Projectile p, PlayerStats s) {
 		// TODO Auto-generated method stub
 		
 	}
+	public void playNoise(){}
 }

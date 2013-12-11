@@ -120,12 +120,9 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 	public void playerMoved(float x, float y, float z, float angle){}
 
 	public void playNoise(){
-		try{
-			BatsEverywhere.m.load(soundFilename,  0, 0, 1, false);
-			BatsEverywhere.m.setListenerPos(0, 0);
-			BatsEverywhere.m.play(soundFilename);
-			Thread.sleep(2000);
-		}catch(InterruptedException e){};
+		BatsEverywhere.m.load(soundFilename,  0, 0, 1, false);
+		BatsEverywhere.m.setListenerPos(0, 0);
+		BatsEverywhere.m.play(soundFilename);
 	}
 	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s){
 
@@ -134,25 +131,10 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 		if(dist<size()&&!steppedOn){	// stepped on cat
 			steppedOn=true;
 
-			System.out.println("Stepped on a cat!");
-			// TODO meow, damage player
-
 			s.changeHealth(-1);s.changeHonor(-1);
 
-			new Thread(new Runnable(){
-				public void run(){
-
-					try{
-						Thread.sleep(1000);
-					}catch(InterruptedException e){};
-					System.out.println("Cat recovered");
-
-					playNoise();
-
-					steppedOn=false;
-				}
-			}).start();
-		}
+			playNoise();
+		}else if(dist>size()*6f)steppedOn=false;
 	}
 
 	@Override
