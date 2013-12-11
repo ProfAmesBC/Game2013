@@ -3,6 +3,7 @@ package creatures;
 import java.util.LinkedList;
 import java.util.List;
 
+import game.BatsEverywhere;
 import game.PlayerMotion;
 import game.PlayerMotionWatcher;
 import game.PlayerStats;
@@ -18,7 +19,9 @@ import weapons.Projectile;
 public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 	
 	private static GLUT glut = new GLUT();
+
 	private static List<Robot> robots = new LinkedList<Robot>();
+
 	private static int detectionRadius = 40;
 	private static double playerX = 0;
 	private static double playerZ = 0;
@@ -43,7 +46,7 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 		PlayerMotion.registerPlayerWatcher(this);
 		Projectile.registerProjectileWatcher(this);
 		robots.add(this);
-		
+	
 		// create the two display lists
 		if (displayListNotChasing == -1) {
             displayListNotChasing = gl.glGenLists(1);
@@ -240,11 +243,13 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 	}
 
 	public void projectileMoved(double x, double z) {
+
 		if((Math.abs(robotLocationX-x) < 2) && (Math.abs(robotLocationZ-z) < 2)){
 			robots.remove(this);
 		}
 	}
 	
+
 	public static void addZombie(Robot zombie){
 		robots.add(zombie);
 	}
