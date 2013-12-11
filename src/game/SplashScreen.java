@@ -16,6 +16,8 @@ import com.jogamp.opengl.util.texture.TextureIO;
 public class SplashScreen implements GLEventListener {
 	private GLU glu = new GLU();
 	private int framesDrawn;
+
+    public GLCanvas canvas = new GLCanvas();
 	
 	//////////////////////////Splash Specific //////////////////////////////////////
 	
@@ -152,36 +154,36 @@ public class SplashScreen implements GLEventListener {
 
 	@Override 
 	public void dispose(GLAutoDrawable drawable) { /* not needed */ }
-	public static void main(String args[]) {
-		GLProfile.initSingleton();
-		System.setProperty("sun.awt.noerasebackground", "true"); // sometimes necessary to avoid erasing over the finished window
-		final JFrame mainFrame = new JFrame("Splash Screen");
-		GLCanvas canvas = new GLCanvas();
-
-		SplashScreen text = new SplashScreen();
-		mainFrame.getContentPane().add(canvas);
-		canvas.addGLEventListener(text);
-		canvas.setSize(512,512);
-		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.pack();
-		mainFrame.setVisible(true);
-		final FPSAnimator anim = new FPSAnimator(canvas,60);
-		mainFrame.setAlwaysOnTop(true);
-		anim.start();
-		
-		(new Thread(new Runnable() {
-			public void run() {
-				try {
-					Thread.sleep(5000);
-					anim.stop();
-					mainFrame.dispose();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-		})).start();
-		
-	}
+//	public static void main(String args[]) {
+//		GLProfile.initSingleton();
+//		System.setProperty("sun.awt.noerasebackground", "true"); // sometimes necessary to avoid erasing over the finished window
+//		final JFrame mainFrame = new JFrame("Splash Screen");
+//		GLCanvas canvas = new GLCanvas();
+//
+//		SplashScreen text = new SplashScreen();
+//		mainFrame.getContentPane().add(canvas);
+//		canvas.addGLEventListener(text);
+//		canvas.setSize(512,512);
+//		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		mainFrame.pack();
+//		mainFrame.setVisible(true);
+//		final FPSAnimator anim = new FPSAnimator(canvas,60);
+//		mainFrame.setAlwaysOnTop(true);
+//		anim.start();
+//		
+//		(new Thread(new Runnable() {
+//			public void run() {
+//				try {
+//					Thread.sleep(2000);
+//					anim.stop();
+//					mainFrame.dispose();
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		})).start();
+//		
+//	}
 	private static boolean isPowerOf2(int n) {
 		return n == (n & -n);
 	}

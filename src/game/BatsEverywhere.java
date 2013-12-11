@@ -94,16 +94,8 @@ public class BatsEverywhere implements GLEventListener
         gl.glEnable(GL2.GL_DEPTH_TEST);
 
         writer = new StatusText(drawable);
-        
-//        (new Thread(new Runnable() {
-//        	public void run() {
-//                town = new Town(gl, glu);
-//    	        ready = true;
-//    	        System.out.println("Town loaded");
-//        	}
-//        })).start();
-        ready = true;
         town = new Town(gl, glu);
+        ready = true;
 		controls.setForeground(Color.DARK_GRAY);
         controls.setBackground(Color.LIGHT_GRAY);
         controls.setFont(new Font("Serif", Font.ITALIC, 13));
@@ -124,6 +116,10 @@ public class BatsEverywhere implements GLEventListener
         //powerUpManager = new PowerUpManager(gl, glu);
         
         System.out.println("init() complete.");
+    }
+    
+    public boolean isReady() {
+    	return ready;
     }
     
     
@@ -414,15 +410,20 @@ public class BatsEverywhere implements GLEventListener
     	 GLProfile.initSingleton();
          System.setProperty("sun.awt.noerasebackground", "true"); // sometimes necessary to avoid erasing over the finished window
 
-         JFrame frame = new JFrame("Too Many Bats");
-         //GLCanvas canvas = new GLCanvas();
-
-         (new SplashScreen()).main(null);
+         final JFrame frame = new JFrame("Too Many Bats");
+//         GLCanvas whichCanvas;
+//
+//         SplashScreen splashRenderer = new SplashScreen();
+//         splashRenderer.canvas.addGLEventListener(splashRenderer);
+//         splashRenderer.canvas.setPreferredSize(new Dimension(512,512));
+         
          
          BatsEverywhere renderer = new BatsEverywhere();
          renderer.canvas.addGLEventListener(renderer);
          renderer.canvas.setPreferredSize(new Dimension(512,512));
-
+         
+//         whichCanvas = renderer.canvas;
+         
          renderer.controls.append("W: move forward\n");
          renderer.controls.append("A: move left\n");
          renderer.controls.append("D: move right\n");
@@ -443,8 +444,6 @@ public class BatsEverywhere implements GLEventListener
          
          renderer.controls.setEditable(false);	// don't let you edit text once it's established
          
-     
-         
          frame.setLayout(new BorderLayout());
          //frame.add(renderer.statusLine, BorderLayout.SOUTH);
          frame.add(renderer.controls, BorderLayout.EAST);
@@ -459,8 +458,24 @@ public class BatsEverywhere implements GLEventListener
          renderer.canvas.addMouseListener(renderer.projectileWeapons);
          renderer.canvas.requestFocus(); // so key clicks come here
          FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
-
+//         FPSAnimator splashAnim = new FPSAnimator( splashRenderer.canvas, 60);
          frame.setVisible(true);
+//         
+//         whichCanvas = splashRenderer.canvas;
+         
          animator.start();
+//         splashAnim.start();
+         
+//         frame.add(renderer.canvas, BorderLayout.CENTER);
+         
+//         whichCanvas = renderer.canvas;
+         
+//         (new Thread(new Runnable() {
+//        	 public void run() {
+//        		 try {Thread.sleep(1000);} catch (Exception e) {e.printStackTrace();}
+////        		 splashAnim.stop();
+//        		 frame.add(renderer.canvas, BorderLayout.CENTER);
+//        	 }
+//         })).start();
     }
 }
