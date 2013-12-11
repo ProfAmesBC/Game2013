@@ -4,12 +4,12 @@ import items.BlindItem;
 import items.Cripple;
 import items.Jetpack;
 import items.SpeedBox;
+import items.Teleporter;
 
 import java.util.ArrayList;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
-
 public class ItemFactory {
 	private GL2 gl;
 	private GLU glu;
@@ -38,19 +38,25 @@ public class ItemFactory {
 		Item oldMan = new Cripple(gl, glu, x, y, z, p.getBag(), p);
 		list.add(oldMan);
 	}
+	public void addTeleportItem(int x, int y, int z) {
+		Item blink = new Teleporter(gl, glu, x, y, z, p.getBag(), p);
+		list.add(blink);
+	}
 
 	public void update() {
 		for (Item item : list) {
 			item.draw(gl, glu);
 			if (item.grabbed())
-				list.remove(this);
+				list.remove(this); 
 		} 
 	} 
 
 	public void testCreate() {
-		addSpeedItem(100, 0, 100);		
+		addSpeedItem(100, 0, 100);	
+		addTeleportItem(50, 0, 100);	
 		addBlindItem(100,0,200);		
 		addJetpackItem(100,0,500);
+		addJetpackItem(100,0,70);
 		addJetpackItem(100,0,300);
 		addCrippleItem(100,0,150);
 		addBlindItem(150,0,200);
