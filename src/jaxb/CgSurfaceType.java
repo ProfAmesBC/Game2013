@@ -27,9 +27,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 			Declares a resource that can be used both as the source for texture samples and as the target of a rendering pass.
  * 			
  * 
- * <p>Java class for cg_surface_type complex type.
+ * <playerA>Java class for cg_surface_type complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="cg_surface_type">
@@ -105,9 +105,9 @@ public class CgSurfaceType
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <playerA>Java class for anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <playerA>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>
@@ -161,20 +161,20 @@ public class CgSurfaceType
         /**
          * Gets the value of the annotates property.
          * 
-         * <p>
+         * <playerA>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the annotates property.
          * 
-         * <p>
+         * <playerA>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getAnnotates().add(newItem);
          * </pre>
          * 
          * 
-         * <p>
+         * <playerA>
          * Objects of the following type(s) are allowed in the list
          * {@link FxAnnotateCommon }
          * 
@@ -190,20 +190,20 @@ public class CgSurfaceType
         /**
          * Gets the value of the codesAndIncludes property.
          * 
-         * <p>
+         * <playerA>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the codesAndIncludes property.
          * 
-         * <p>
+         * <playerA>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getCodesAndIncludes().add(newItem);
          * </pre>
          * 
          * 
-         * <p>
+         * <playerA>
          * Objects of the following type(s) are allowed in the list
          * {@link FxCodeProfile }
          * {@link FxIncludeCommon }
@@ -244,20 +244,20 @@ public class CgSurfaceType
         /**
          * Gets the value of the setparams property.
          * 
-         * <p>
+         * <playerA>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the setparams property.
          * 
-         * <p>
+         * <playerA>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getSetparams().add(newItem);
          * </pre>
          * 
          * 
-         * <p>
+         * <playerA>
          * Objects of the following type(s) are allowed in the list
          * {@link CgSetparamSimple }
          * 
@@ -272,9 +272,9 @@ public class CgSurfaceType
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * <playerA>Java class for anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * <playerA>The following schema fragment specifies the expected content contained within this class.
          * 
          * <pre>
          * &lt;complexType>

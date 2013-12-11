@@ -1,8 +1,11 @@
+
 package items;
 
 import com.jogamp.opengl.util.texture.Texture;
+
 import game.Building;
 import game.PlayerMotion;
+import game.PlayerStats;
 import inventory.Bag;
 import inventory.Item;
 import inventory.PlayerAttributes;
@@ -112,6 +115,7 @@ public class SpeedBox implements Item {
 		// Math.toRadians(15*frames), 1);
 		// gl.glTranslated(-itemX, -(Math.sin(Math.toRadians(T*360+180 ))+2),
 		// -itemZ);
+		gl.glRotated(5*T,1,5*T,1);
 		textureItem.bind(gl);
 
 		gl.glBegin(GL2.GL_QUADS);
@@ -255,12 +259,11 @@ public class SpeedBox implements Item {
 	}
 
 	@Override
-	public void playerMoved(float x, float y, float z, float angle, float y_angle) {
+	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {
 		// GET CURRENT POSITION OF PLAYER
 		this.playerX = x;
 		this.playerY = y;
 		this.playerZ = z;
 		this.angle = angle;
 	}
-
 }
