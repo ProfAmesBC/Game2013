@@ -165,8 +165,10 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 	}
 	
 	public void move() {
-		if (seesPlayer) {
-//			moveTowardsPlayer();
+		if (seesPlayer && !shotByBullet) {
+			moveTowardsPlayer();
+		} else if (shotByBullet) {
+			animateDeath();
 		} else {
 			moveIdle();
 			drawStillMotion();
@@ -186,6 +188,12 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 		}
 	}
 	
+	public void attack (float x, float z) {
+		if (Math.sqrt(Math.pow(X-x,2) + Math.pow(Z-z,2)) < 1) {
+			//player health - 10;
+		}
+	}
+	
 	public void projectileMoved(double x, double z) {
 		if ( x > X - 1 && x < X + 1) {
 			if ( z > Z - 1 && z < Z + 1) {
@@ -195,19 +203,33 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 		
 	}
 	
-	public void moveTowardsPlayer(GL2 gl, GLU glu) {
-		directionAngle = playerAngle - 180;
-		
-		//get player x get player z
-		//get ghost x get ghost z
-		// find slope 
-		drawStillMotion();
+	public void moveTowardsPlayer() {
+		double xV = playerX - X;
+		double zV = playerZ - Z;
+		double dotProduct = xV * 0.2 + zV * 0.2;
+		double lengthV1 = Math.sqrt((xV*xV)+(zV*zV));
+		lengthV1 = lengthV1 * lengthV1;
+		double constant = dotProduct / lengthV1;
+		double dx = constant * xV;
+		double dz = constant * zV;
+		dx = Math.abs(dx);
+		dz = Math.abs(dz);
+		if(playerZ < Z){
+			Z -= dz;
+		}
+		else{
+			Z += dz;
+		}
+		if(playerX < X){
+			X -= dx;
+		}
+		else{
+			X += dx;
+		}
 	}
 	
-	public void animateDeath(GL2 gl, GLU glu) {
-		gl.glColor3d(0,0,1);
+	public void animateDeath() {
 		if (Y <= 0) {
-			gl.glColor3d(1,1,1);
 			visible = false;
 		} else {
 			Y = Y - 0.03f;

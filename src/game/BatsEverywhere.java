@@ -249,6 +249,7 @@ public class BatsEverywhere implements GLEventListener
         projectileWeapons.update(gl, glu);
 
         Robot.drawZombies(gl, glu);
+        pacManGhost.draw(gl, glu);
         catGroup.draw(gl, glu);
         rabbitGroup.draw(gl, glu);
         bat.draw(gl, glu);
