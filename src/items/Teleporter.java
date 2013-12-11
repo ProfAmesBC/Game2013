@@ -1,69 +1,57 @@
+
 package items;
 
-import java.awt.Font;
+import com.jogamp.opengl.util.texture.Texture;
 
-import inventory.Bag;
-import inventory.Item;
-import inventory.PlayerAttributes;
 import game.Building;
 import game.PlayerMotion;
 import game.PlayerStats;
+import inventory.Bag;
+import inventory.Item;
+import inventory.PlayerAttributes;
 
 import javax.media.opengl.GL2;
-import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.glu.GLU;
 
-import com.jogamp.opengl.util.awt.TextRenderer;
-import com.jogamp.opengl.util.texture.Texture;
-
-public class BlindItem implements Item {
+public class Teleporter implements Item {
 	private Texture textureItem;
 	private float itemX, itemY, itemZ;
 	private float playerX, playerY, playerZ;
-	private float angle;
+	private float angle, y_angle;
 	private boolean grabbed;
 	private double T;
 	private Bag bag;
 	private static PlayerAttributes p;
 	private int frames;
-	private int counter;
-	private boolean used;	
-	private TextRenderer renderer;
 
-	public BlindItem(GL2 gl, GLU glu, float x, float y, float z, Bag bag,
+	public Teleporter(GL2 gl, GLU glu, float x, float y, float z, Bag bag,
 			PlayerAttributes p) {
-		textureItem = Building.setupTexture(gl, "FMPskull.png");
+		textureItem = Building.setupTexture(gl, "textureItem.png");
 		this.itemX = x;
 		this.itemY = y;
 		this.itemZ = z;
 		PlayerMotion.registerPlayerWatcher(this);
 		this.bag = bag;
-		BlindItem.p = p;
+		Teleporter.p = p;
 		grabbed = false;
-		used=false;
-		frames = 0;		
-		renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, 150));
+		frames = 0;
 	}
 
-	public BlindItem() {
+	public Teleporter() {
 		// dummy constructor for DummyItem
 	}
 
 	public void draw(GL2 gl, GLU glu) {
-		counter++;
 		frames++;
-		T = T + 0.5;
+		T = T + 0.05;
 		if (grabConditions()) {
 			grabbed = true;
-			counter = 0;
+			bag.addItem(this);
 		}
+
 		if (!grabbed) {
 			drawItem(gl, glu);
 		}
-		else if(!used){			
-			use();
-			used= true;
-		}					
 	}
 
 	private boolean grabConditions() {
@@ -106,27 +94,14 @@ public class BlindItem implements Item {
 	}
 
 	public void use() {
-		
-		if(counter<200){
-			float temp = counter%10;
-			temp = temp/10;
-			if(temp<.3){
-				temp = .3f;
-			}
-			renderer.beginRendering(500, 500);				
-			renderer.setColor(1f, 1f, 1f, temp); // Note use of alpha
-			renderer.draw("BLIND", 0, 0);  // pixels, from lower left			
-			renderer.draw("BLIND", 0, 130);  // pixels, from lower left			
-			renderer.draw("BLIND", 0, 260);  // pixels, from lower left
-			renderer.draw("BLIND", 0, 390);  // pixels, from lower left
-					
-						
-			renderer.endRendering();
-		}
+		float currentSpeed = p.getStepSize();
+		int duration = 30;
+		// calls PlayerAttributes
+		p.teleport(50);
 	}
 
 	public String getType() {
-		return "Blind";
+		return "Teleporter";
 	}
 
 	public void drawItem(GL2 gl, GLU glu) {
@@ -136,11 +111,11 @@ public class BlindItem implements Item {
 		gl.glPushMatrix();
 		gl.glTranslated(itemX, Math.sin(Math.toRadians(T * 360 + 180)) + 2,
 				itemZ);
-		gl.glRotated(5*T,1,5*T,1);
 		// gl.glRotated(Math.toRadians(15*frames), Math.toRadians(15*frames),
 		// Math.toRadians(15*frames), 1);
 		// gl.glTranslated(-itemX, -(Math.sin(Math.toRadians(T*360+180 ))+2),
 		// -itemZ);
+		gl.glRotated(5*T,1,5*T,1);
 		textureItem.bind(gl);
 
 		gl.glBegin(GL2.GL_QUADS);
@@ -284,11 +259,11 @@ public class BlindItem implements Item {
 	}
 
 	@Override
-	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s){		// GET CURRENT POSITION OF PLAYER
+	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {
+		// GET CURRENT POSITION OF PLAYER
 		this.playerX = x;
 		this.playerY = y;
 		this.playerZ = z;
 		this.angle = angle;
 	}
-
 }
