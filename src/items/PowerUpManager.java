@@ -47,6 +47,13 @@ public class PowerUpManager implements PlayerMotionWatcher {
 		
 		powerUpList.add(hp);
 		powerUpList.add(ph);
+		powerUpList.add(hp);
+		powerUpList.add(ph);
+		powerUpList.add(hp);
+		powerUpList.add(ph);
+		powerUpList.add(hp);
+		powerUpList.add(ph);
+		
 
 		/*
 		for(int x=0; x<powerUpList.size();x++ ) {
