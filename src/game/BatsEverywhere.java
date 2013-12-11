@@ -147,7 +147,7 @@ public class BatsEverywhere implements GLEventListener
         texture.setTexParameteri(gl, GL2.GL_TEXTURE_WRAP_S,GL2.GL_REPEAT); // or GL_CLAMP
         texture.setTexParameteri(gl, GL2.GL_TEXTURE_WRAP_T,GL2.GL_REPEAT); // or GL_CLAMP
 
-            System.out.println(filename + " texture loaded, size is "
+           System.out.println(filename + " texture loaded, size is "
                                + texture.getImageWidth() + "," + texture.getImageHeight());
         return texture;
     }

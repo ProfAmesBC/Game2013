@@ -31,14 +31,27 @@ public class HPHeal extends AbstractPowerUp {
 		type = "HP Heal";
 	}
 
+	public HPHeal(GL2 gl, GLU glu, PlayerStats s) {
+		texture = Building.setupTexture(gl, "FMPskull.png");//change this later
+		PlayerMotion.registerPlayerWatcher(this);
+		grabbed = false;
+		stats=  s;	
+		frames = 0;		
+		type = "HP Heal";
+	}
 	@Override
-	public void draw(GL2 gl, GLU glu) {
+	public void draw(GL2 gl, GLU glu, float x, float y, float z) {
+		
+		counter++;
+		frames++;
+		T = T + 0.5;
+		System.out.println("Draw Location: " + x + " " + y);
 		// TODO Auto-generated method stub
 		gl.glEnable(GL2.GL_CULL_FACE);
 		gl.glEnable(GL2.GL_TEXTURE_2D);
 		gl.glPushMatrix();
-		gl.glTranslated(pX, Math.sin(Math.toRadians(T * 360 + 180)) + 2,
-				pZ);
+		gl.glTranslated(x, Math.sin(Math.toRadians(T * 360 + 180)) + 2,
+				y);
 		gl.glRotated(5*T,1,5*T,1);
 		// gl.glRotated(Math.toRadians(15*frames), Math.toRadians(15*frames),
 		// Math.toRadians(15*frames), 1);
@@ -202,5 +215,11 @@ public class HPHeal extends AbstractPowerUp {
 	public String getType() {
 		// TODO Auto-generated method stub
 		return type;
+	}
+
+	@Override
+	public void draw(GL2 gl, GLU glu) {
+		// TODO Auto-generated method stub
+		
 	}
 }

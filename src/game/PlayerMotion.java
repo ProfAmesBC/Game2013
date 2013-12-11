@@ -83,6 +83,8 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+    	System.out.println("Player at: " + eyeX + " " + eyeY + " " + eyeZ);
+
     	if(mobile)
 	        switch (e.getKeyCode()) {
 	            case KeyEvent.VK_A:
@@ -187,7 +189,6 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     }
 
     public void update(GL2 gl, GLU glu) {
-    	
     	speedCounter++;
     	flyCounter++;
     	

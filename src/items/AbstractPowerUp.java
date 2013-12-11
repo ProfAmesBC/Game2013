@@ -45,7 +45,7 @@ public abstract class AbstractPowerUp implements Item {
 	
 
 	@Override
-	public abstract void draw(GL2 gl, GLU glu);
+	public abstract void draw(GL2 gl, GLU glu, float x, float y, float z);
 
 	@Override
 	public abstract void use();
@@ -57,6 +57,14 @@ public abstract class AbstractPowerUp implements Item {
 			return true;
 		else
 			return false;
+	}
+	
+	private AbstractPowerUp morph(GL2 gl, GLU glu, String type) {
+		if (type == "HP Heal") {
+			return new HPHeal(gl, glu, location, stats);
+		}
+		
+		return null;
 	}
 	
 	@Override
@@ -79,6 +87,7 @@ public abstract class AbstractPowerUp implements Item {
 	public float getAngle() {
 		return angle;
 	}
+	
 	public void linkLocation(Point3f f) {
 		pX = f.getX();
 		pY = f.getY();

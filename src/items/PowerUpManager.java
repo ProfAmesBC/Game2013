@@ -37,16 +37,9 @@ public class PowerUpManager {
 		emptySpawns = new ArrayList<Spawn3f>();
 		initialSize = spawns.size();
 		
-		powerUpList.add(new HPHeal(gl, glu, new Point3f(0,0,0), ps));
-		powerUpList.add(new HPHeal(gl, glu, new Point3f(0,0,0), ps));
-
-		powerUpList.add(new HPHeal(gl, glu, new Point3f(0,0,0), ps));
-
-		powerUpList.add(new HPHeal(gl, glu, new Point3f(0,0,0), ps));
-
-		powerUpList.add(new HPHeal(gl, glu, new Point3f(0,0,0), ps));
-
-		powerUpList.add(new HPHeal(gl, glu, new Point3f(0,0,0), ps));
+		powerUpList.add(new HPHeal(gl, glu, ps));
+		powerUpList.add(new HPHeal(gl, glu, ps));
+		powerUpList.add(new HPHeal(gl, glu, ps));
 
 		/*
 		for(int x=0; x<powerUpList.size();x++ ) {
@@ -126,7 +119,7 @@ public class PowerUpManager {
 		//updateLists();
 		for (int t=0; t<spawns.size(); t++) {
 			System.out.println(spawns.get(t).getLocation().getX() + " " + spawns.get(t).getLocation().getY() + " " + spawns.get(t).getLocation().getZ());
-			spawns.get(t).getPowerUp().draw(gl, glu);
+			spawns.get(t).getPowerUp().draw(gl, glu, spawns.get(t).getLocation().getX(), spawns.get(t).getLocation().getY(), spawns.get(t).getLocation().getZ());
 			}
 	}
 	
