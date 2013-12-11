@@ -22,9 +22,9 @@ import javax.xml.bind.annotation.XmlValue;
  * 				This element is an IDREF which specifies the image to use to initialize a specific mip of a 1D or 2D surface, 3D slice, or Cube face.
  * 			
  * 
- * <playerA>Java class for fx_surface_init_from_common complex type.
+ * <p>Java class for fx_surface_init_from_common complex type.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="fx_surface_init_from_common">

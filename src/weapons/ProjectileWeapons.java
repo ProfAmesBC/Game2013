@@ -5,7 +5,7 @@ import game.PlayerStats;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
-
+import javax.media.opengl.glu.GLUquadric;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -18,8 +18,14 @@ import java.util.Iterator;
 public class ProjectileWeapons implements MouseListener, Weapon{
 	private ArrayList<Projectile> bulletsList = new ArrayList<Projectile>();
 	private float x, y, z, angle, y_angle;
+	private int speed = 5;
 	private PlayerStats stats;
+	private int weapon = 0;
+	private GLUquadric sphereQuadric;
+	private GLU glu = new GLU();
+	private SphereBullet ball;
 
+	
 	public ProjectileWeapons(PlayerStats s){
 		PlayerMotion.registerPlayerWatcher(this);
 		stats=s;
@@ -44,11 +50,26 @@ public class ProjectileWeapons implements MouseListener, Weapon{
 	public void shootBullet(){
 
 		if(stats.noHonor())return;
-		RainbowBall bullet = new RainbowBall(x, y, z, angle, y_angle,stats); //CREATE NEW BULLET AT CURRENT PLAYER POSITION
-		SphereBullet ball = new SphereBullet(x, y, z, angle, 2, 3, 4, 2, y_angle,stats);
 
-		bulletsList.add(bullet); //ADD BULLET TO LIST OF BULLETS
+		if (weapon == 0) {
+		RainbowBall bullet = new RainbowBall(x, y, z, angle, y_angle,stats);//CREATE NEW BULLET AT CURRENT PLAYER POSITION
+		bulletsList.add(bullet);
+		}
+		if (weapon == 1){
+		SphereBullet ball = new SphereBullet(x, y, z, angle, 0.2, 0.3, 0.4, 0.5, 10, y_angle,stats); //creates bullets of different guns - ie. not rainbow ball
+		bulletsList.add(ball); //ADD BULLET TO LIST OF BULLETS
+		}
+		if (weapon == 2) {
+			SphereBullet ball = new SphereBullet(x, y, z, angle, 0.4, 0.2, 0.3, 0.2, 15, y_angle, stats);
+			bulletsList.add(ball);
+		}
+		if (weapon == 3) {
+			SphereBullet ball = new SphereBullet(x, y, z, angle, 0.1, 0.9, 0.2, 0.8, 6, y_angle, stats);
+			bulletsList.add(ball);
+		}
 		WeaponSounds.projectileNoise();
+		
+
 	}
 	
 	@Override
@@ -57,9 +78,18 @@ public class ProjectileWeapons implements MouseListener, Weapon{
 	@Override
 	public void keyPressed(KeyEvent e) {
 
-		if(e.getKeyCode() == KeyEvent.VK_SPACE){
-			shootBullet();} 	//SHOOT BULLET WHEN PRESSED
+		if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+			weapon += 1;
+			if (weapon > 3) {
+				weapon = 0;
+			}
+		}
 
+		if(e.getKeyCode() == KeyEvent.VK_SPACE){
+
+
+			shootBullet(); 	//SHOOT BULLET WHEN PRESSED 
+		}
 	}
 	@Override
 	public void keyReleased(KeyEvent e) {}	// not used
@@ -93,13 +123,13 @@ public class ProjectileWeapons implements MouseListener, Weapon{
 
 
 	@Override
-	public void init(GL2 gl, GLU glu) {
+	public void draw(GL2 gl, GLU glu) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void draw(GL2 gl, GLU glu) {
+	public void init(GL2 gl, GLU glu) {
 		// TODO Auto-generated method stub
 		
 	}

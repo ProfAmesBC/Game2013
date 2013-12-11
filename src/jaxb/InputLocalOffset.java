@@ -23,9 +23,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 			The InputLocalOffset type is used to represent indexed inputs that can only reference resources declared in the same document.
  * 			
  * 
- * <playerA>Java class for InputLocalOffset complex type.
+ * <p>Java class for InputLocalOffset complex type.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="InputLocalOffset">

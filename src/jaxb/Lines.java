@@ -24,9 +24,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <playerA>Java class for anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="input" type="{http://www.collada.org/2005/11/COLLADASchema}InputLocalOffset" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element ref="{http://www.collada.org/2005/11/COLLADASchema}playerA" minOccurs="0"/>
+ *         &lt;element ref="{http://www.collada.org/2005/11/COLLADASchema}p" minOccurs="0"/>
  *         &lt;element ref="{http://www.collada.org/2005/11/COLLADASchema}extra" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}NCName" />
@@ -50,7 +50,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "inputs",
-    "playerA",
+    "p",
     "extras"
 })
 @XmlRootElement(name = "lines")
@@ -76,20 +76,20 @@ public class Lines {
     /**
      * Gets the value of the inputs property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the inputs property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInputs().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link InputLocalOffset }
      * 
@@ -104,23 +104,23 @@ public class Lines {
 
     /**
      * 
-     * 						The playerA element may occur once.
-     * 						Gets the value of the playerA property.
+     * 						The p element may occur once.
+     * 						Gets the value of the p property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the playerA property.
+     * This is why there is not a <CODE>set</CODE> method for the p property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getP().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link BigInteger }
      * 
@@ -138,20 +138,20 @@ public class Lines {
      * 						The extra element may appear any number of times.
      * 						Gets the value of the extras property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extras property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtras().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extra }
      * 

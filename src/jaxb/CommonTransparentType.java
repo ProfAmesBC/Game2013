@@ -15,9 +15,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <playerA>Java class for common_transparent_type complex type.
+ * <p>Java class for common_transparent_type complex type.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="common_transparent_type">

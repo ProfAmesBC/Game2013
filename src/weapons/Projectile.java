@@ -17,7 +17,15 @@ public abstract class Projectile {
 
 	private static List<WeaponWatcher>watchers=new ArrayList<WeaponWatcher>();
 	
-	private float projX, projY, projZ, projAngle, projYAngle;
+	private float projX;
+
+	private float projY;
+
+	private float projZ;
+
+	private float projAngle;
+
+	private float projYAngle;
 	private float speed = 5;
 	public float getSpeed() {return speed;}
 	public void setSpeed(float speed) {this.speed = speed;}
@@ -25,9 +33,9 @@ public abstract class Projectile {
 
 	private float lifeSpan = 50;
 	public int size = 0;
-	public int red = 0;
-	public int green = 0;
-	public int blue = 0;
+	public double red = 0;
+	public double green = 0;
+	public double blue = 0;
 	private static List<ProjectileWatcher> projectileWatchers = new LinkedList<ProjectileWatcher>();
 	private PlayerStats source;
 	
@@ -58,12 +66,12 @@ public abstract class Projectile {
     //These would be different for each gun
 	public int getBulletSize(){return size;}
 	public void setBulletSize(int size) {this.size = size;}
-	public int getBulletRed() {return red;}
-	public void setBulletRed(int red) {this.red = red;}
-	public int getBulletGreen() {return green;}
-	public void setBulletGreen(int green) {this.green = green;}
-	public int getBulletBlue() {return blue;}
-	public void setBulletBlue(int blue) {this.blue = blue;}
+	public double getBulletRed() {return red;}
+	public void setBulletRed(double d) {this.red = d;}
+	public double getBulletGreen() {return green;}
+	public void setBulletGreen(double green) {this.green = green;}
+	public double getBulletBlue() {return blue;}
+	public void setBulletBlue(double blue) {this.blue = blue;}
 	public float getBulletSpeed() {return speed;}
 	public void setBulletSpeed(float speed) {this.speed = speed;}
 	

@@ -13,16 +13,17 @@ public class MoveSwarm {
 		swarm = new ArrayList<BasicBat>();
 		swarm2 = new ArrayList<BasicBat>();
 		
-		for (int i = 0; i < 50; i++) {
+		for (int i = 0; i < 25; i++) {
 			int j = (int) (Math.random()*20) - 10;
 			int k = (int) (Math.random()*20) - 10;
-			swarm.add(new BasicBat(gl, glu, 10+j, 50+k));
+			swarm.add(new BasicBat(gl, glu, 70+j, 50+k));
 		}
-		/*for (int i = 0; i < 50; i++) {
+		
+		for (int i = 0; i < 25; i++) {
 			int j = (int) (Math.random()*20) - 10;
 			int k = (int) (Math.random()*20) - 10;
 			swarm.add(new BasicBat(gl, glu, 200+j, 200+k));
-		} */
+		}
 	}
 
 	public MoveSwarm(List<BasicBat> swarm){
@@ -32,19 +33,22 @@ public class MoveSwarm {
 	public void draw(GL2 gl, GLU glu) {
 		
 		for (BasicBat b: swarm) {
-			for (BasicBat c: swarm2) {
-				c.draw2(gl, glu);
-				b.draw2(gl, glu);
-				if (b.isDead())
-					swarm.remove(b);
-				if (c.isDead())
-					swarm2.remove(c);
-				else {
-					b.setX(b.getX()+b.getDX());
-					b.setZ(b.getZ()+b.getDZ());
-					c.setX(c.getX()+c.getDX());
-					c.setZ(c.getZ()+c.getDZ());
-				}
+			b.draw2(gl, glu);
+			if (b.isDead())
+				swarm.remove(b);
+			else {
+				b.setX(b.getX()+b.getDX());
+				b.setZ(b.getZ()+b.getDZ());
+			}
+		}
+		
+		for (BasicBat b: swarm2) {
+			b.draw2(gl, glu);
+			if (b.isDead())
+				swarm2.remove(b);
+			else {
+				b.setX(b.getX()+b.getDX());
+				b.setZ(b.getZ()+b.getDZ());
 			}
 		}
 				
@@ -59,7 +63,7 @@ public class MoveSwarm {
 					float distancesq = (xdist*xdist + zdist*zdist);
 					if (distancesq < 0.1f)
 						distancesq = 0.1f;
-					float force = .001f/distancesq;
+					float force = .01f/distancesq;
 
 					//update velocity vectors
 					b.setDX(b.getDX()+(force*xdist));
@@ -72,7 +76,7 @@ public class MoveSwarm {
 				}				
 			}
 		}
-		/*for (BasicBat m: swarm2) {
+		for (BasicBat m: swarm2) {
 			for (BasicBat n: swarm2) {
 				if(m != n) {
 					//calc distances
@@ -83,7 +87,7 @@ public class MoveSwarm {
 					float distancesq = (xdist*xdist + zdist*zdist);
 					if (distancesq < 0.1f)
 						distancesq = 0.1f;
-					float force = .001f/distancesq;
+					float force = .01f/distancesq;
 
 					//update velocity vectors
 					m.setDX(m.getDX()+(force*xdist));
@@ -95,6 +99,6 @@ public class MoveSwarm {
 						m.setDirection((float) Math.toDegrees(Math.atan2(-m.getDZ(), m.getDX())));
 				}				
 			}
-		}*/
+		}
 	}
 }

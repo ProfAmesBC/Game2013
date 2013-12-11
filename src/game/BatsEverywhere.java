@@ -67,6 +67,8 @@ public class BatsEverywhere implements GLEventListener
     private static MusicPlayer jukebox = new MusicPlayer();
 
     private CritterGroup catGroup,rabbitGroup;
+    private Dragon dragon;
+    private static int FPS = 60;
     private Bat bat;
     private Mummy mummy;
     private PacManGhost pacManGhost;
@@ -78,9 +80,7 @@ public class BatsEverywhere implements GLEventListener
     private PowerUpManager powerUpManager;
 
     //private TextRenderer renderer;
-    
     public static GameSoundMan m=null;
-    
 
     private int windowWidth, windowHeight;
     private GLReadBufferUtil bufferUtil = new GLReadBufferUtil(false, true); //For capturing screen shots
@@ -130,12 +130,13 @@ public class BatsEverywhere implements GLEventListener
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
 
+        dragon = new Dragon(gl, glu, this.FPS);
+
         bat = new Bat(gl, glu);
         moveSwarm = new MoveSwarm(gl, glu);
         
         powerUpManager = new PowerUpManager(gl, glu, playerAttributes);
 
-        
         m	= new GameSoundMan();
 
 		m.load("destination2",  0, 0, 1, true);
@@ -267,7 +268,6 @@ public class BatsEverywhere implements GLEventListener
 
         //playerMotion.setLookAt(gl, glu);
         
-
         this.playerMotion.setScreenLocation(
                         this.canvas.getLocationOnScreen());
        
@@ -275,6 +275,9 @@ public class BatsEverywhere implements GLEventListener
         // town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
              
         playerMotion.update(gl, glu);//draw town looking in the direction we're moving in
+        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
+            
+        playerMotion.setLookAt(gl, glu);//figure out if we can move and, if so, move    
         
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());  
         
@@ -283,6 +286,8 @@ public class BatsEverywhere implements GLEventListener
         
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT); //clear that town  
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
+
+        dragon.draw(gl, glu);
         
         itemCreator.update();
         writer.draw(bag.toString(), .7, .9);
@@ -304,7 +309,7 @@ public class BatsEverywhere implements GLEventListener
         
         bat.draw(gl, glu);
         //mummy.draw(gl, glu);
-        //moveSwarm.draw(gl, glu);
+        moveSwarm.draw(gl, glu);
         // check for errors, at least once per frame
 
         
@@ -491,8 +496,9 @@ public class BatsEverywhere implements GLEventListener
          renderer.canvas.addKeyListener(renderer.projectileWeapons);
          renderer.canvas.addMouseListener(renderer.projectileWeapons);
          renderer.canvas.requestFocus(); // so key clicks come here
-         
-         FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
+
+         FPSAnimator animator = new FPSAnimator( renderer.canvas, FPS);
+
          animator.start();
 
     }

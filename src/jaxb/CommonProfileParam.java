@@ -13,10 +13,10 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <playerA>Java class for Common_profile_param.
+ * <p>Java class for Common_profile_param.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
- * <playerA>
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
  * <pre>
  * &lt;simpleType name="Common_profile_param">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}NMTOKEN">
