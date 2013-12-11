@@ -1,5 +1,6 @@
 // Diana Cheung, CS333 Class of 2013
 package catsrabbits;
+import game.BatsEverywhere;
 import game.Building;
 import game.PlayerMotion;
 import game.PlayerMotionWatcher;
@@ -122,12 +123,10 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 	
 	public void playNoise(){
 		try{
-			JOALSoundMan m=new JOALSoundMan();
-			m.load(soundFilename,  0, 0, 1, false);
-			m.setListenerPos(0, 0);
-			m.play(soundFilename);
+			BatsEverywhere.m.load(soundFilename,  0, 0, 1, false);
+			BatsEverywhere.m.setListenerPos(0, 0);
+			BatsEverywhere.m.play(soundFilename);
 			Thread.sleep(2000);
-			m.cleanUp();
 		}catch(InterruptedException e){};
 	}
 	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s){
