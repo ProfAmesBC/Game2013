@@ -136,10 +136,4 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 			playNoise();
 		}else if(dist>size()*6f)steppedOn=false;
 	}
-
-	@Override
-	public void checkShot(Projectile p, PlayerStats s) {
-		// TODO Auto-generated method stub
-		
-	}
 }
