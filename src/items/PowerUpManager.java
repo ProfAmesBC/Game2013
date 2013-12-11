@@ -3,6 +3,7 @@ package items;
 import game.PlayerMotion;
 import game.PlayerMotionWatcher;
 import game.PlayerStats;
+import inventory.PlayerAttributes;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -18,11 +19,11 @@ public class PowerUpManager implements PlayerMotionWatcher {
 	private GLU glu;
 	private List<Spawn3f> spawns, emptySpawns;
 	private List<Point3f> spawnSelectionList;
-	private List<Point3f> allAvailableSpawns;
 	private List<AbstractPowerUp> powerUpList;
 	private List<Object> weaponsList;
 	private int initialSize;
 	private PlayerStats ps;
+	private static PlayerAttributes pa;
 	private HPHeal hp = null;
 	private PlusHonor ph = null;
 	private Invincible invincible = null;
@@ -32,7 +33,7 @@ public class PowerUpManager implements PlayerMotionWatcher {
 	AllSpawnLocations poss = new AllSpawnLocations();
 	//Should be able to listen
 	
-	public PowerUpManager(GL2 gl, GLU glu) {
+	public PowerUpManager(GL2 gl, GLU glu, PlayerAttributes pa) {
 		//weaponsList = new ArrayList<Weapons>(); //weaponslist does not get refreshed
 		this.gl = gl;
 		this.glu = glu;
@@ -41,12 +42,33 @@ public class PowerUpManager implements PlayerMotionWatcher {
 		spawns = new ArrayList<Spawn3f>(); //list of all spawn locations possible; currently @ 0,0,0
 		emptySpawns = new ArrayList<Spawn3f>();
 		initialSize = spawns.size();
+		this.pa = pa;
 		hp = new HPHeal(gl, glu, ps);
 		ph = new PlusHonor(gl, glu, ps);
-		invincible = new Invincible(gl, glu, ps);
+		invincible = new Invincible(gl, glu, ps, pa);
+		
 		
 		powerUpList.add(hp);
 		powerUpList.add(ph);
+		powerUpList.add(invincible);
+		powerUpList.add(invincible);
+		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);
+		
+		
+		powerUpList.add(invincible);
+
+		
+		
 
 		/*
 		for(int x=0; x<powerUpList.size();x++ ) {
@@ -111,6 +133,8 @@ public class PowerUpManager implements PlayerMotionWatcher {
 
 		} else if (powerUpList.get(factor).getType().equals("HonorUp")) {
 			return new PlusHonor(gl, glu, ps);
+		} else if (powerUpList.get(factor).getType().equals("Invincible")) {
+			return new Invincible(gl,glu,ps, pa);
 		} else {
 			System.out.println("POWERUP ERROR");
 			return null;
@@ -121,7 +145,7 @@ public class PowerUpManager implements PlayerMotionWatcher {
 	
 	public void checkList(int time) {
 		
-		if (time>=100) {
+		if (time>=30) {
 			z = 0;
 		//every 90 seconds, if there is room in the array, put random powerup
 		if (emptySpawns.size()>0) {
@@ -163,7 +187,7 @@ public class PowerUpManager implements PlayerMotionWatcher {
 			}
 		}
 		
-		z+=.1;
+		z+=1;
 	}
 
 	@Override
@@ -177,7 +201,7 @@ public class PowerUpManager implements PlayerMotionWatcher {
 			spawns.get(t).getPowerUp().use();
 			updateLists();
 		}
-
+		z+=1;
 		}
 		
 		
