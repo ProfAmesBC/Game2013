@@ -79,10 +79,7 @@ public class BasicBat implements Enemies {
         dz = 0;
 	}
 	
-	
-	
 	//Drawing methods
-	
 	public void drawWing(GL2 gl, boolean rightWing){
 		
 		float flip = 1;
@@ -124,8 +121,6 @@ public class BasicBat implements Enemies {
 	public void drawBody(GL2 gl, GLU glu){
 		
 		float scaledEyeDistance = scale*(float) Math.sin(45)/2 ;
-		//y+= inverse of the added y value of the further part of the upper wing
-		//currently that looks like: y -= flip*upperWingLength*(float)Math.sin(upperDegree)
 		
 		//body of the bat 
 		gl.glPushMatrix();
@@ -174,8 +169,6 @@ public class BasicBat implements Enemies {
 		
 		//increment T
 		T +=.01*speed;
-		
-		
 	}
 	
 	//graphics getters
@@ -202,13 +195,7 @@ public class BasicBat implements Enemies {
 	public void setDZ(float dz){this.dz=dz;}
 	public void setSpeed(float speed) {this.speed = speed;}
 	public void setScale(float scale) {this.scale = scale;}
-	public void kill(){
-		dead = true;
-		
-		//make a noise on death?
-		
-		//fall on death?
-		}
+	public void kill(){dead = true;}
 	
 	//status setters
 	public void setCurrentHealth(float currentHP){this.currentHP = currentHP;}

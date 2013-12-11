@@ -40,9 +40,7 @@ public class MoveSwarm {
 				b.setZ(b.getZ()+b.getDZ());
 			}
 		}
-		
-
-		
+				
 		for (BasicBat b: swarm) {
 			for (BasicBat t: swarm) {
 				if(b != t) {
