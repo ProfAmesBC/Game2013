@@ -1,7 +1,7 @@
 *.class
 .DS_Store
-
 # Package Files #
 *.war
 *.ear
 /bin
+minimap.png

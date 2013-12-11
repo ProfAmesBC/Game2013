@@ -13,7 +13,6 @@ import com.jogamp.opengl.util.FPSAnimator;
 
 import inventory.Bag;
 import inventory.ItemFactory;
-import inventory.DummyItem;
 import inventory.PlayerActions;
 import inventory.PlayerAttributes;
 import weapons.ProjectileWeapons;
