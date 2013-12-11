@@ -69,6 +69,8 @@ public class BatsEverywhere implements GLEventListener
     private Texture minimaptexture;
     private MoveSwarm moveSwarm;
     private PowerUpManager powerUpManager;
+    
+    private boolean ready = false;
     //private TextRenderer renderer;
     
 
@@ -80,27 +82,35 @@ public class BatsEverywhere implements GLEventListener
     private List<CritterGroup>critters=new ArrayList<CritterGroup>();
     
 
-    public void init(GLAutoDrawable drawable) {
+    public void init(final GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
       //drawable.setGL(new TraceGL2(drawable.getGL().getGL2(), System.out)); // to trace every call.  Less useful.
-        GL2 gl = drawable.getGL().getGL2();
-        controls.setForeground(Color.DARK_GRAY);
-        controls.setBackground(Color.LIGHT_GRAY);
-        controls.setFont(new Font("Serif", Font.ITALIC, 13));
-        statusLine.setEditable(false);
+        final GL2 gl = drawable.getGL().getGL2();
+
         gl.setSwapInterval(1); // for animation synchronized to refresh rate
         gl.glClearColor(.7f,.7f,1f,0f); // background
         gl.glTexEnvf(GL2.GL_TEXTURE_ENV, GL2.GL_TEXTURE_ENV_MODE, GL2.GL_REPLACE); // or GL_MODULATE
         gl.glHint(GL2.GL_PERSPECTIVE_CORRECTION_HINT, GL2.GL_NICEST); // or GL_FASTEST
-        
         gl.glEnable(GL2.GL_DEPTH_TEST);
+
+        writer = new StatusText(drawable);
         
+//        (new Thread(new Runnable() {
+//        	public void run() {
+//                town = new Town(gl, glu);
+//    	        ready = true;
+//    	        System.out.println("Town loaded");
+//        	}
+//        })).start();
+        ready = true;
+        town = new Town(gl, glu);
+		controls.setForeground(Color.DARK_GRAY);
+        controls.setBackground(Color.LIGHT_GRAY);
+        controls.setFont(new Font("Serif", Font.ITALIC, 13));
+        statusLine.setEditable(false);
         itemCreator = new ItemFactory(gl, glu, playerAttributes);
 
         itemCreator.testCreate();
-
-        writer = new StatusText(drawable);
-        town = new Town(gl, glu);
         mummy = new Mummy(30, 100, gl, glu);
         pacManGhost = new PacManGhost(25, 95, gl, glu);
         Robot.addZombie(new Robot(60,60,gl,glu));
@@ -109,8 +119,11 @@ public class BatsEverywhere implements GLEventListener
         rabbitGroup=new RabbitGroup(gl,glu);
         bat = new Bat(gl, glu);
         moveSwarm = new MoveSwarm(gl, glu);
+	        
         
         //powerUpManager = new PowerUpManager(gl, glu);
+        
+        System.out.println("init() complete.");
     }
     
     
@@ -220,101 +233,101 @@ public class BatsEverywhere implements GLEventListener
         long startTime = System.currentTimeMillis();
         GL2 gl  = drawable.getGL().getGL2();
    
-
-        gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
-//minimap must be done first
-        if (++framesDrawn == 1) {
-        	minimap(drawable);
-        	gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
-        	
-        }       
-
-        //playerMotion.setLookAt(gl, glu);
-        
-
-        this.playerMotion.setScreenLocation(
-        		this.canvas.getLocationOnScreen());
-       
-        // draw town
-        // town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
-     	
-        playerMotion.update(gl, glu);//draw town looking in the direction we're moving in
-        
-        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());  
-        
-        
-        playerMotion.setLookAt(gl, glu);//figure out if we can move and, if so, move  
-        
-        gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT); //clear that town  
-        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
-        
-        itemCreator.update();
-        writer.draw(bag.toString(), 380, 470);
-        writer.draw(stats.healthString(), 10, 45);
-        writer.draw(stats.honorString(), 10, 10);
-        
-
-
-        projectileWeapons.update(gl, glu);
-
-        Robot.drawZombies(gl, glu);
-        catGroup.draw(gl, glu);
-        rabbitGroup.draw(gl, glu);
-        bat.draw(gl, glu);
-        mummy.draw(gl, glu);
-        moveSwarm.draw(gl, glu);
-        // check for errors, at least once per frame
-
-        
-     	
-        
-        // Draw sphere at the point you're looking at
-        //gl.glLineWidth(1);
-        //double[] location = ReadZBuffer.getOGLPos(gl, glu, 250, 250);
-        
-        //GL VIEWPORT FOR THE WEAPONS
-        // glViewport wants x,y of lower left corner, then width and height (all in pixels)
-        //gl.glViewport(0,0, windowWidth/2, windowHeight/2);
-        //trying to figure out how to put weapon in and show lifespan
-       /* 
-       RainbowBall.draw(gl,glu);
-       renderer.beginRendering(drawable.getWidth(), drawable.getHeight());
-       // optionally set the text color
-       renderer.setColor(0.2f, 0.2f, 1f, 0.2f); // Note use of alpha
-       renderer.draw("LifeSpan"+Projectile.getLifeSpan();, 25, 250);  // pixels, from lower left
-       renderer.endRendering();
-       */ 
-        // to make textfields for Weapons and player score
-        /*
-        renderer.beginRendering(drawable.getWidth(), drawable.getHeight());
-        // optionally set the text color
-        renderer.setColor(0.2f, 0.2f, 1f, 0.2f); // Note use of alpha
-        renderer.draw("Transparent Text", 25, 250);  // pixels, from lower left
-        renderer.endRendering();
-        
-        // check for errors
-        int error1 = gl.glGetError();
-        if (error1 != GL2.GL_NO_ERROR)
-        	System.out.println("OpenGL Error: " + glu.gluErrorString(error1));
-         */
-
-        
-        //Set the eye back to its original coordinates
-        //playerMotion.setEyeX(-5);
-    	//playerMotion.setEyeY(5);
-    	//playerMotion.setEyeZ(50);
-
-        for(CritterGroup critterGroup:critters)critterGroup.draw(gl, glu);
- 
-        /// NEED TO FINISH VIEWPORT
-        //this must be drawn last
-
-        setupViewport(drawable);
-
-        //powerUpManager.draw(gl, glu);
-        
-        // check for errors, at least once per frame
-
+        if (ready) {
+	        gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+	//minimap must be done first
+	        if (++framesDrawn == 1) {
+	        	minimap(drawable);
+	        	gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+	        	
+	        }       
+	
+	        //playerMotion.setLookAt(gl, glu);
+	        
+	
+	        this.playerMotion.setScreenLocation(
+	        		this.canvas.getLocationOnScreen());
+	       
+	        // draw town
+	        // town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
+	     	
+	        playerMotion.update(gl, glu);//draw town looking in the direction we're moving in
+	        
+	        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());  
+	        
+	        
+	        playerMotion.setLookAt(gl, glu);//figure out if we can move and, if so, move  
+	        
+	        gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT); //clear that town  
+	        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
+	        
+	        itemCreator.update();
+	        writer.draw(bag.toString(), 380, 470);
+	        writer.draw(stats.healthString(), 10, 45);
+	        writer.draw(stats.honorString(), 10, 10);
+	        
+	
+	
+	        projectileWeapons.update(gl, glu);
+	
+	        Robot.drawZombies(gl, glu);
+	        catGroup.draw(gl, glu);
+	        rabbitGroup.draw(gl, glu);
+	        bat.draw(gl, glu);
+	        mummy.draw(gl, glu);
+	        moveSwarm.draw(gl, glu);
+	        // check for errors, at least once per frame
+	
+	        
+	     	
+	        
+	        // Draw sphere at the point you're looking at
+	        //gl.glLineWidth(1);
+	        //double[] location = ReadZBuffer.getOGLPos(gl, glu, 250, 250);
+	        
+	        //GL VIEWPORT FOR THE WEAPONS
+	        // glViewport wants x,y of lower left corner, then width and height (all in pixels)
+	        //gl.glViewport(0,0, windowWidth/2, windowHeight/2);
+	        //trying to figure out how to put weapon in and show lifespan
+	       /* 
+	       RainbowBall.draw(gl,glu);
+	       renderer.beginRendering(drawable.getWidth(), drawable.getHeight());
+	       // optionally set the text color
+	       renderer.setColor(0.2f, 0.2f, 1f, 0.2f); // Note use of alpha
+	       renderer.draw("LifeSpan"+Projectile.getLifeSpan();, 25, 250);  // pixels, from lower left
+	       renderer.endRendering();
+	       */ 
+	        // to make textfields for Weapons and player score
+	        /*
+	        renderer.beginRendering(drawable.getWidth(), drawable.getHeight());
+	        // optionally set the text color
+	        renderer.setColor(0.2f, 0.2f, 1f, 0.2f); // Note use of alpha
+	        renderer.draw("Transparent Text", 25, 250);  // pixels, from lower left
+	        renderer.endRendering();
+	        
+	        // check for errors
+	        int error1 = gl.glGetError();
+	        if (error1 != GL2.GL_NO_ERROR)
+	        	System.out.println("OpenGL Error: " + glu.gluErrorString(error1));
+	         */
+	
+	        
+	        //Set the eye back to its original coordinates
+	        //playerMotion.setEyeX(-5);
+	    	//playerMotion.setEyeY(5);
+	    	//playerMotion.setEyeZ(50);
+	
+	        for(CritterGroup critterGroup:critters)critterGroup.draw(gl, glu);
+	 
+	        /// NEED TO FINISH VIEWPORT
+	        //this must be drawn last
+	
+	        setupViewport(drawable);
+	
+	        //powerUpManager.draw(gl, glu);
+	        
+	        // check for errors, at least once per frame
+        }
         int error = gl.glGetError();
         if (error != GL2.GL_NO_ERROR) {
             System.out.println("OpenGL Error: " + glu.gluErrorString(error));
@@ -404,6 +417,8 @@ public class BatsEverywhere implements GLEventListener
          JFrame frame = new JFrame("Too Many Bats");
          //GLCanvas canvas = new GLCanvas();
 
+         (new SplashScreen()).main(null);
+         
          BatsEverywhere renderer = new BatsEverywhere();
          renderer.canvas.addGLEventListener(renderer);
          renderer.canvas.setPreferredSize(new Dimension(512,512));
@@ -430,7 +445,6 @@ public class BatsEverywhere implements GLEventListener
          
      
          
-         
          frame.setLayout(new BorderLayout());
          //frame.add(renderer.statusLine, BorderLayout.SOUTH);
          frame.add(renderer.controls, BorderLayout.EAST);
@@ -438,7 +452,6 @@ public class BatsEverywhere implements GLEventListener
          //frame.add(renderer.weapons,BorderLayout.WEST);
          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          frame.pack(); // make just big enough to hold objects inside
-         frame.setVisible(true);
          renderer.canvas.addKeyListener(renderer.playerActions);
          renderer.canvas.addKeyListener(renderer.playerMotion);
          renderer.canvas.addMouseMotionListener(renderer.playerMotion);
@@ -446,6 +459,8 @@ public class BatsEverywhere implements GLEventListener
          renderer.canvas.addMouseListener(renderer.projectileWeapons);
          renderer.canvas.requestFocus(); // so key clicks come here
          FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
+
+         frame.setVisible(true);
          animator.start();
     }
 }
