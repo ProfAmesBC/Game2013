@@ -48,20 +48,21 @@ public class PowerUpManager implements PlayerMotionWatcher {
 		invincible = new Invincible(gl, glu, ps, pa);
 		
 		
+		powerUpList.add(hp);
+		powerUpList.add(ph);
 		powerUpList.add(invincible);
 		powerUpList.add(invincible);
-		powerUpList.add(invincible);
-		powerUpList.add(invincible);
-		powerUpList.add(invincible);
-		powerUpList.add(invincible);
-		powerUpList.add(invincible);
-		powerUpList.add(invincible);
-		powerUpList.add(invincible);
-		powerUpList.add(invincible);
-		powerUpList.add(invincible);
-		powerUpList.add(invincible);
-		powerUpList.add(invincible);
-		powerUpList.add(invincible);
+		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);		powerUpList.add(hp);
+		powerUpList.add(ph);
 		
 		
 		powerUpList.add(invincible);
@@ -144,7 +145,7 @@ public class PowerUpManager implements PlayerMotionWatcher {
 	
 	public void checkList(int time) {
 		
-		if (time>=100) {
+		if (time>=30) {
 			z = 0;
 		//every 90 seconds, if there is room in the array, put random powerup
 		if (emptySpawns.size()>0) {
@@ -186,7 +187,7 @@ public class PowerUpManager implements PlayerMotionWatcher {
 			}
 		}
 		
-		z+=.1;
+		z+=1;
 	}
 
 	@Override
@@ -200,7 +201,7 @@ public class PowerUpManager implements PlayerMotionWatcher {
 			spawns.get(t).getPowerUp().use();
 			updateLists();
 		}
-
+		z+=1;
 		}
 		
 		

@@ -43,7 +43,7 @@ public class HPHeal extends AbstractPowerUp {
 	@Override
 	public void draw(GL2 gl, GLU glu, float x, float y, float z) {
 		frames++;
-		T = T + 0.005;
+		T = T + 0.05;
 		if (grabConditions()) {
 			grabbed = true;
 		}

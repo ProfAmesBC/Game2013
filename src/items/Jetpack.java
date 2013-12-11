@@ -10,6 +10,8 @@ import game.PlayerStats;
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
+import sketchupModels.JetpackDrawing;
+
 import com.jogamp.opengl.util.texture.Texture;
 
 public class Jetpack implements Item {
@@ -22,6 +24,7 @@ public class Jetpack implements Item {
 	private Bag bag;
 	private static PlayerAttributes p;
 	private int frames;
+	private JetpackDrawing jp;
 
 	public Jetpack(GL2 gl, GLU glu, float x, float y, float z, Bag bag,
 			PlayerAttributes p) {
@@ -34,6 +37,7 @@ public class Jetpack implements Item {
 		Jetpack.p = p;
 		grabbed = false;
 		frames = 0;
+		jp = new sketchupModels.JetpackDrawing(gl, glu);
 	}
 
 	public Jetpack() {
@@ -104,10 +108,16 @@ public class Jetpack implements Item {
 	}
 
 	public void drawItem(GL2 gl, GLU glu) {
+		gl.glPushMatrix();
+		
+		gl.glTranslated(itemX, Math.sin(Math.toRadians(T * 360 + 180)),
+				itemZ);
+		gl.glRotated(5*T,1,5*T,1);  
+		jp.draw(gl, glu);
+		gl.glPopMatrix();
 
-	//sketchupModels.JetpackDrawing jp = new sketchupModels.JetpackDrawing(gl, glu);
-	
-	gl.glEnable(GL2.GL_CULL_FACE);
+
+		/*gl.glEnable(GL2.GL_CULL_FACE);
 		gl.glEnable(GL2.GL_TEXTURE_2D);
 		gl.glPushMatrix();
 		gl.glTranslated(itemX, Math.sin(Math.toRadians(T * 360 + 180)) + 2,
@@ -257,6 +267,7 @@ public class Jetpack implements Item {
 
 		gl.glDisable(GL2.GL_CULL_FACE);
 		gl.glDisable(GL2.GL_TEXTURE_2D);
+		*/
 	}
 
 	@Override
@@ -270,7 +281,7 @@ public class Jetpack implements Item {
 	@Override
 	public void draw(GL2 gl, GLU glu, float x, float y, float z) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

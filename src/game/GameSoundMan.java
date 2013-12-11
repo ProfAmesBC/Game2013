@@ -59,7 +59,7 @@ public class GameSoundMan{
 		while(iter.hasNext()){
 			nm = iter.next();
 			source = sourcesMap.get(nm); 
-			System.out.println("Stopping " + nm); 
+			//System.out.println("Stopping " + nm); 
 			al.alSourceStop(source[0]); 
 			al.alDeleteSources(1, source, 0);
 			buffer = buffersMap.get(nm); 
@@ -180,7 +180,7 @@ public class GameSoundMan{
 			System.out.println("No source found for " + nm); 
 			return false;
 		}
-		System.out.println("Playing " + nm); 
+		//System.out.println("Playing " + nm); 
 		al.alSourcePlay(source[0]); 
 		return true;
 	} // end of play()

@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
 
+import game.BatsEverywhere;
 import game.Building;
 import game.PlayerMotion;
 import game.PlayerStats;
@@ -90,12 +91,17 @@ public class Invincible extends AbstractPowerUp {
 	public void use() {
 		grabbed=true;
 
-		//play invincible music here
+		//plays music; commented out b/c don't yet know how to cut off background sound so it sounds muddled
+		/*
+		BatsEverywhere.m.load("invincible",  0, 0, 1, false);
+		BatsEverywhere.m.setListenerPos(0, 0);
+		BatsEverywhere.m.play("invincible");
+		*/
 		
-		int time = 1000;
+		int time = 5000;
 		int originalHealth = stats.checkHealth();
-		float currentSpeed = p.getStepSize();
-		p.setStepSize(currentSpeed *2, time);
+		//float currentSpeed = p.getStepSize();
+		//p.setStepSize(currentSpeed *2, time);
 		float newSpeed = p.getStepSize();
 		//while (newSpeed!=currentSpeed) {
 		while(time>0) {
@@ -110,7 +116,8 @@ public class Invincible extends AbstractPowerUp {
 		//cut invincible music here
 
 		stats.changeHealth(originalHealth-stats.checkHealth());
-
+		//p.setStepSize(currentSpeed, time+10000);
+		
 		System.out.println("ACTIVATED");
 	}
 	@Override
