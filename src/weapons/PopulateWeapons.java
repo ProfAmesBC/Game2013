@@ -18,7 +18,7 @@ public class PopulateWeapons {
 		Weapon ow = new OarWeapon();
 		
 		pw.init(gl, glu);
-		ow.init(gl, glu);
+		//ow.init(gl, glu);
 
 //		DisplayedWeapon dw = new DisplayedWeapon(w, Math.random()*600, Math.random()*600);
 //		w.init(gl, glu);

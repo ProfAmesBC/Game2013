@@ -55,9 +55,18 @@ public class ProjectileWeapons implements MouseListener, Weapon{
 		bulletsList.add(bullet);
 		}
 		if (weapon == 1){
-		SphereBullet ball = new SphereBullet(x, y, z, angle, 0.2, 0.3, 0.4, 1, 10, y_angle,stats); //creates bullets of different guns - ie. not rainbow ball
+		SphereBullet ball = new SphereBullet(x, y, z, angle, 0.2, 0.3, 0.4, 0.5, 10, y_angle,stats); //creates bullets of different guns - ie. not rainbow ball
 		bulletsList.add(ball); //ADD BULLET TO LIST OF BULLETS
 		}
+		if (weapon == 2) {
+			SphereBullet ball = new SphereBullet(x, y, z, angle, 0.4, 0.2, 0.3, 0.2, 15, y_angle, stats);
+			bulletsList.add(ball);
+		}
+		if (weapon == 3) {
+			SphereBullet ball = new SphereBullet(x, y, z, angle, 0.1, 0.9, 0.2, 0.8, 6, y_angle, stats);
+			bulletsList.add(ball);
+		}
+		
 		
 	}
 	
@@ -68,7 +77,7 @@ public class ProjectileWeapons implements MouseListener, Weapon{
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
 			weapon += 1;
-			if (weapon > 1) {
+			if (weapon > 3) {
 				weapon = 0;
 			}
 		}
