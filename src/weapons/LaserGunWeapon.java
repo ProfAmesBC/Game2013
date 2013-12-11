@@ -1,14 +1,31 @@
 package weapons;
 
+import game.PlayerMotion;
+import game.PlayerMotionWatcher;
+import game.PlayerStats;
+
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import game.Building;
+
+import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
 import com.jogamp.opengl.util.GLBuffers;
 
-public class LaserGunWeapon {
+import java.util.HashMap;
+import java.util.Map;
+
+public class LaserGunWeapon{
 	private int displayList = -1;
 	
 		//Compiled from LazerGun by SketchupModelJAXB

@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for fx_stenciltarget_common complex type.
+ * <playerA>Java class for fx_stenciltarget_common complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="fx_stenciltarget_common">

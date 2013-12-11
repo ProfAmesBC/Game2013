@@ -20,7 +20,7 @@ import javax.xml.namespace.QName;
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
  * generated in the jaxb package. 
- * <p>An ObjectFactory allows you to programatically 
+ * <playerA>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
  * content can consist of schema derived interfaces 
@@ -68,7 +68,7 @@ public class ObjectFactory {
     private final static QName _InstanceForceField_QNAME = new QName("http://www.collada.org/2005/11/COLLADASchema", "instance_force_field");
     private final static QName _Translate_QNAME = new QName("http://www.collada.org/2005/11/COLLADASchema", "translate");
     private final static QName _InstancePhysicsMaterial_QNAME = new QName("http://www.collada.org/2005/11/COLLADASchema", "instance_physics_material");
-    private final static QName _P_QNAME = new QName("http://www.collada.org/2005/11/COLLADASchema", "p");
+    private final static QName _P_QNAME = new QName("http://www.collada.org/2005/11/COLLADASchema", "playerA");
     private final static QName _InstanceNode_QNAME = new QName("http://www.collada.org/2005/11/COLLADASchema", "instance_node");
     private final static QName _ProfileCOMMON_QNAME = new QName("http://www.collada.org/2005/11/COLLADASchema", "profile_COMMON");
     private final static QName _CgNewarrayTypeFloat2X3_QNAME = new QName("http://www.collada.org/2005/11/COLLADASchema", "float2x3");
@@ -4173,7 +4173,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link BigInteger }{@code >}{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.collada.org/2005/11/COLLADASchema", name = "p")
+    @XmlElementDecl(namespace = "http://www.collada.org/2005/11/COLLADASchema", name = "playerA")
     public JAXBElement<List<BigInteger>> createP(List<BigInteger> value) {
         return new JAXBElement<List<BigInteger>>(_P_QNAME, ((Class) List.class), null, ((List<BigInteger> ) value));
     }

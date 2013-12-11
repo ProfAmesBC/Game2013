@@ -28,14 +28,14 @@ public class ReadZBuffer {
         glu.gluUnProject(winX, winY, winZ[0], modelview, 0, projection, 0, viewport, 0, objPos, 0);
         
         // Draw sphere at objPos
-        gl.glPushMatrix();
-            gl.glTranslated(objPos[0], objPos[1], objPos[2]);
-            gl.glColor3f(1,0,0);
-            GLUquadric quadric = glu.gluNewQuadric();
-            glu.gluQuadricDrawStyle(quadric, GLU.GLU_LINE);
-            glu.gluQuadricNormals  (quadric, GLU.GLU_NONE);
-            glu.gluSphere(quadric, 1.0, 10, 10);
-        gl.glPopMatrix();
+//        gl.glPushMatrix();
+//            gl.glTranslated(objPos[0], objPos[1], objPos[2]);
+//            gl.glColor3f(1,0,0);
+//            GLUquadric quadric = glu.gluNewQuadric();
+//            glu.gluQuadricDrawStyle(quadric, GLU.GLU_LINE);
+//            glu.gluQuadricNormals  (quadric, GLU.GLU_NONE);
+//            glu.gluSphere(quadric, 1.0, 10, 10);
+//        gl.glPopMatrix();
      
         return objPos;
     }

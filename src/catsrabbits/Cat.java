@@ -9,6 +9,7 @@ import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
 public class Cat extends Critter implements PlayerMotionWatcher{
+	public static final String soundFilename="cat";
 	private static final float BODY_LENGTH=1.8f,HEAD_HEIGHT=.56f,HEAD_DIST=BODY_LENGTH*.7f,
 			EYE_CENTER_DIST=.52f,EYE_HEIGHT=.35f,WHISKER_COLOR=.82f,SWIM_ANGLE=26.74f,TAIL_LENGTH=1.83f,TAIL_DIAM=.15f;
 	
@@ -119,21 +120,26 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 	}
 	public float size(){return BODY_LENGTH*2f;}
 	
+	public void playNoise(){
+		try{
+			JOALSoundMan m=new JOALSoundMan();
+			m.load(soundFilename,  0, 0, 1, false);
+			m.setListenerPos(0, 0);
+			m.play(soundFilename);
+			Thread.sleep(2000);
+			m.cleanUp();
+		}catch(InterruptedException e){};
+	}
 	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s){
 		float dist=(float)Math.sqrt(Math.pow(x-this.x, 2)+Math.pow(z-this.z, 2));
 		// will NOT happen if you're just standing still. you have to move to trigger this
 		if(dist<size()&&!steppedOn){	// stepped on cat
 			steppedOn=true;
-			//System.out.println("Stepped on a cat!");
-			// TODO meow
 			
-			s.changeHealth(-2);s.changeHonor(-1);
+			s.changeHealth(-1);s.changeHonor(-1);
 			new Thread(new Runnable(){
 				public void run(){
-					try{
-						Thread.sleep(1000);
-					}catch(InterruptedException e){};
-					//System.out.println("Cat recovered");
+					playNoise();
 					steppedOn=false;
 				}
 			}).start();
