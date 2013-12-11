@@ -14,7 +14,7 @@ public class ChenBuilding extends Building {
 
     public ChenBuilding(GL2 gl,  GLU glu) {
         //this.wall = setupTexture(gl, "brick.png");
-        this.wall = setupTexture(gl, "ChenWall.png");
+        this.wall = setupTexture(gl, "ChenWall.jpg");
         this.apple = setupTexture(gl, "ChenApple.png");
         this.quadric = glu.gluNewQuadric();
     }
