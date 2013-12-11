@@ -15,13 +15,13 @@ public class MoveSwarm {
 		for (int i = 0; i < 50; i++) {
 			int j = (int) (Math.random()*20) - 10;
 			int k = (int) (Math.random()*20) - 10;
-			swarm.add(new BasicBat(gl, glu, 10+j, 50+k));
+			swarm.add(new BasicBat(gl, glu, 200+j, 200+k));
 		}
-		for (int i = 0; i < 50; i++) {
+		/*for (int i = 0; i < 50; i++) {
 			int j = (int) (Math.random()*20) - 10;
 			int k = (int) (Math.random()*20) - 10;
 			swarm.add(new BasicBat(gl, glu, 200+j, 200+k));
-		} 
+		} */
 	}
 
 	public MoveSwarm(List<BasicBat> swarm){
@@ -71,7 +71,7 @@ public class MoveSwarm {
 				}				
 			}
 		}
-		for (BasicBat m: swarm2) {
+		/*for (BasicBat m: swarm2) {
 			for (BasicBat n: swarm2) {
 				if(m != n) {
 					//calc distances
@@ -94,6 +94,6 @@ public class MoveSwarm {
 						m.setDirection((float) Math.toDegrees(Math.atan2(-m.getDZ(), m.getDX())));
 				}				
 			}
-		}
+		}*/
 	}
 }
