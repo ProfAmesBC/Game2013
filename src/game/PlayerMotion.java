@@ -203,7 +203,7 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
                         }
                 }
 
-                if(eyeY>5 && fly == false && flyCounter>flyDuration){
+                if(eyeY>5 && fly == false && !jumping && !falling && flyCounter>flyDuration){
                         eyeY = eyeY-1;
                 }
                 
