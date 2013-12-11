@@ -198,14 +198,6 @@ public class Robot implements Creature, PlayerMotionWatcher, ProjectileWatcher{
 			if(distance<=3&&!attacking){
 				s.changeHealth(-2);
 				attacking=true;
-				new Thread(new Runnable(){
-					public void run(){
-						try{
-							Thread.sleep(2000);
-						}catch(InterruptedException e){}
-						attacking=false;
-					}
-				}).start();
 			}
 		}
 		else{
