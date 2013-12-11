@@ -48,11 +48,11 @@ public class PowerUpManager {
 
 		powerUpList.add(new HPHeal(gl, glu, new Point3f(0,0,0), ps));
 
+		/*
 		for(int x=0; x<powerUpList.size();x++ ) {
 			System.out.println("00 type: " + powerUpList.get(x).getType());
-			
-			
 		}
+		*/
 		
 		populateSpawns();
 
@@ -89,12 +89,14 @@ public class PowerUpManager {
 	
 	private AbstractPowerUp randomPowerUp() {
 
+		/*
 		for(int x=0; x<powerUpList.size();x++ ) {
 			System.out.println("11 type: " + powerUpList.get(x).getType());
 		}
+		*/
 		
 		int factor = (int) (Math.random() * (powerUpList.size()));
-		System.out.println("List size: " + powerUpList.size() + " " + "Factor: " + factor);
+		//System.out.println("List size: " + powerUpList.size() + " " + "Factor: " + factor);
 		return powerUpList.get(factor);
 	}
 	
@@ -125,7 +127,7 @@ public class PowerUpManager {
 			if (spawns.get(t).getPowerUp().grabbed()) {
 				emptySpawns.add(new Spawn3f(spawns.get(t).getLocation()));
 				spawns.remove(t);
-				System.out.println("POWERUP!");
+				//System.out.println("POWERUP!");
 			}
 		}
 		

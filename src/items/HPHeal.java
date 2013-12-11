@@ -151,7 +151,7 @@ public class HPHeal extends AbstractPowerUp {
 		return grabbed;
 	}
 
-	public void activate() {
+	public void use() {
 		stats.changeHealth(1);
 		grabbed=true;
 	}
