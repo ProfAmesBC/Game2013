@@ -27,9 +27,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <playerA>Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <playerA>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -38,13 +38,13 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *       &lt;sequence>
  *         &lt;element name="input" type="{http://www.collada.org/2005/11/COLLADASchema}InputLocalOffset" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;choice maxOccurs="unbounded" minOccurs="0">
- *           &lt;element ref="{http://www.collada.org/2005/11/COLLADASchema}p"/>
+ *           &lt;element ref="{http://www.collada.org/2005/11/COLLADASchema}playerA"/>
  *           &lt;element name="ph">
  *             &lt;complexType>
  *               &lt;complexContent>
  *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                   &lt;sequence>
- *                     &lt;element ref="{http://www.collada.org/2005/11/COLLADASchema}p"/>
+ *                     &lt;element ref="{http://www.collada.org/2005/11/COLLADASchema}playerA"/>
  *                     &lt;element name="h" type="{http://www.collada.org/2005/11/COLLADASchema}ListOfUInts" maxOccurs="unbounded"/>
  *                   &lt;/sequence>
  *                 &lt;/restriction>
@@ -77,7 +77,7 @@ public class Polygons {
     protected List<InputLocalOffset> inputs;
     @XmlElementRefs({
         @XmlElementRef(name = "ph", namespace = "http://www.collada.org/2005/11/COLLADASchema", type = JAXBElement.class),
-        @XmlElementRef(name = "p", namespace = "http://www.collada.org/2005/11/COLLADASchema", type = JAXBElement.class)
+        @XmlElementRef(name = "playerA", namespace = "http://www.collada.org/2005/11/COLLADASchema", type = JAXBElement.class)
     })
     protected List<JAXBElement<?>> psAndPhs;
     @XmlElement(name = "extra")
@@ -96,20 +96,20 @@ public class Polygons {
     /**
      * Gets the value of the inputs property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the inputs property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInputs().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link InputLocalOffset }
      * 
@@ -124,23 +124,23 @@ public class Polygons {
 
     /**
      * 
-     * 							The p element may occur any number of times.
+     * 							The playerA element may occur any number of times.
      * 							Gets the value of the psAndPhs property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the psAndPhs property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getPSAndPhs().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link JAXBElement }{@code <}{@link Polygons.Ph }{@code >}
      * {@link JAXBElement }{@code <}{@link List }{@code <}{@link BigInteger }{@code >}{@code >}
@@ -159,20 +159,20 @@ public class Polygons {
      * 						The extra element may appear any number of times.
      * 						Gets the value of the extras property.
      * 
-     * <p>
+     * <playerA>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extras property.
      * 
-     * <p>
+     * <playerA>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtras().add(newItem);
      * </pre>
      * 
      * 
-     * <p>
+     * <playerA>
      * Objects of the following type(s) are allowed in the list
      * {@link Extra }
      * 
@@ -259,16 +259,16 @@ public class Polygons {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <playerA>Java class for anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <playerA>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *       &lt;sequence>
-     *         &lt;element ref="{http://www.collada.org/2005/11/COLLADASchema}p"/>
+     *         &lt;element ref="{http://www.collada.org/2005/11/COLLADASchema}playerA"/>
      *         &lt;element name="h" type="{http://www.collada.org/2005/11/COLLADASchema}ListOfUInts" maxOccurs="unbounded"/>
      *       &lt;/sequence>
      *     &lt;/restriction>
@@ -280,7 +280,7 @@ public class Polygons {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "p",
+        "playerA",
         "hs"
     })
     public static class Ph {
@@ -293,23 +293,23 @@ public class Polygons {
 
         /**
          * 
-         * 										Theere may only be one p element.
-         * 										Gets the value of the p property.
+         * 										Theere may only be one playerA element.
+         * 										Gets the value of the playerA property.
          * 
-         * <p>
+         * <playerA>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the p property.
+         * This is why there is not a <CODE>set</CODE> method for the playerA property.
          * 
-         * <p>
+         * <playerA>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getP().add(newItem);
          * </pre>
          * 
          * 
-         * <p>
+         * <playerA>
          * Objects of the following type(s) are allowed in the list
          * {@link BigInteger }
          * 
@@ -325,20 +325,20 @@ public class Polygons {
         /**
          * Gets the value of the hs property.
          * 
-         * <p>
+         * <playerA>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the hs property.
          * 
-         * <p>
+         * <playerA>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getHS().add(newItem);
          * </pre>
          * 
          * 
-         * <p>
+         * <playerA>
          * Objects of the following type(s) are allowed in the list
          * {@link JAXBElement }{@code <}{@link List }{@code <}{@link BigInteger }{@code >}{@code >}
          * 

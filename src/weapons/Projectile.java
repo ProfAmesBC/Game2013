@@ -1,21 +1,39 @@
 package weapons;
 
+import game.PlayerStats;
+
+import java.util.LinkedList;
+import java.util.List;
+
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
-public abstract class Projectile{
-	private float projX, projY, projZ, projAngle;
+import creatures.ProjectileWatcher;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Projectile {
+
+	private static List<WeaponWatcher>watchers=new ArrayList<WeaponWatcher>();
+	
+	private float projX, projY, projZ, projAngle, projYAngle;
 	private float speed = 5;
 	private float lifeSpan = 50;
 	public int size = 0;
 	public int red = 0;
 	public int green = 0;
 	public int blue = 0;
+	private static List<ProjectileWatcher> projectileWatchers = new LinkedList<ProjectileWatcher>();
+	private PlayerStats source;
 	
-	
-	public float getLifeSpan() {
-		return lifeSpan;
+	public Projectile(PlayerStats s){
+		source=s;
 	}
+	
+	public static void registerWeaponWatcher(WeaponWatcher w){watchers.add(w);}
+	public float getLifeSpan() {return lifeSpan;}
+
 
 	public float getProjX() {return projX;}
 	public void setProjX(float projX) {this.projX = projX;}
@@ -23,10 +41,17 @@ public abstract class Projectile{
 	public void setProjY(float projY) {this.projY = projY;}
 	public float getProjZ() {return projZ;}
 	public void setProjZ(float projZ) {	this.projZ = projZ;}
+	public float getProjAngle() {return projAngle;}
 	public void setProjAngle(float projAngle) {this.projAngle = projAngle;}
 
-	
-	//These would be different for each gun
+    public float getProjYAngle() {
+        return projYAngle;
+    }
+    public void setProjYAngle(float projYAngle) {
+        this.projYAngle = projYAngle;
+    }
+
+    //These would be different for each gun
 	public int getBulletSize(){return size;}
 	public void setBulletSize(int size) {this.size = size;}
 	public int getBulletRed() {return red;}
@@ -46,7 +71,7 @@ public abstract class Projectile{
 		setBulletBlue(blue);
 		setBulletSpeed(speed);
 	}
-	
+
 	
 	public abstract void draw(GL2 gl, GLU glu);
 	
@@ -55,11 +80,20 @@ public abstract class Projectile{
 		lifeSpan--;
 	}
 	
+	// USE THIS
 	public void updatePosition(){
+		
 		projX = (float) (projX + speed*Math.cos(Math.toRadians(projAngle)));
 		projZ = (float) (projZ - speed*Math.sin(Math.toRadians(projAngle)));
+		for(ProjectileWatcher watcher:projectileWatchers){
+			watcher.projectileMoved(projX,projZ);
+		}
+        projY = (float) (projY + speed*Math.sin(Math.toRadians(projYAngle)));
+		for(WeaponWatcher watcher:watchers)
+			watcher.checkShot(this,source);
 	}
 	
-
-
+	public static void registerProjectileWatcher(ProjectileWatcher watcher){
+		projectileWatchers.add(watcher);
+	}
 }
