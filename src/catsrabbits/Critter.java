@@ -118,6 +118,7 @@ public abstract class Critter implements WeaponWatcher{
 	}
 	
 	public abstract float size();
+	public abstract void playNoise();
 	
 	public void checkShot(Projectile p){
 		float dist=(float)Math.sqrt(Math.pow(p.getProjX()-x, 2)+Math.pow(p.getProjY()-y, 2)+Math.pow(p.getProjZ()-z, 2));
@@ -132,6 +133,8 @@ public abstract class Critter implements WeaponWatcher{
 						Thread.sleep(1000);
 					}catch(InterruptedException e){};
 					System.out.println("Will take damage from shots again");
+					playNoise();
+					//System.out.println("Will take damage from shots again");
 					shot=false;
 				}
 			}).start();

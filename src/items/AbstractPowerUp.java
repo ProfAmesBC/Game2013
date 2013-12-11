@@ -6,6 +6,7 @@ import inventory.PlayerAttributes;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
+import javax.media.opengl.glu.GLUquadric;
 
 import com.jogamp.opengl.util.texture.Texture;
 
@@ -36,8 +37,9 @@ public abstract class AbstractPowerUp implements Item {
 		this.angle = angle;		
 		stats = s;
 
-		if (distance<2) {
-			use();//grabbed now = true
+		if (distance<5) {
+			use();
+			grabbed = true;
 		}
 
 		
@@ -45,7 +47,7 @@ public abstract class AbstractPowerUp implements Item {
 	
 
 	@Override
-	public abstract void draw(GL2 gl, GLU glu);
+	public abstract void draw(GL2 gl, GLU glu, float x, float y, float z);
 
 	@Override
 	public abstract void use();
@@ -59,10 +61,11 @@ public abstract class AbstractPowerUp implements Item {
 			return false;
 	}
 	
+	
 	@Override
 	public abstract boolean grabbed();
 	@Override
-	public abstract String getType();
+	public String getType() {return type;};
 			
 	public float getLocationX() {
 		return pX;
@@ -79,12 +82,8 @@ public abstract class AbstractPowerUp implements Item {
 	public float getAngle() {
 		return angle;
 	}
-	public void linkLocation(Point3f f) {
-		pX = f.getX();
-		pY = f.getY();
-		pZ = f.getZ();
-		location = f;
-	}
+	
+	public abstract void linkLocation(Point3f f);
 	
 	public void bugtest() {
 		System.out.println(type);

@@ -1,6 +1,10 @@
 // Diana Cheung, CS333 Class of 2013
 package catsrabbits;
-import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;import game.Building;
+import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;
+
+import weapons.Projectile;
+import game.Building;
+import game.PlayerStats;
 
 public class Rabbit extends Critter{
 	private static final float BODY_RADIUS=1,BODY_HEIGHT_WIDTH_RATIO=1.7f,EYE_CENTER_HEIGHT=.245f,EYE_ZDIST=-.355f,
@@ -108,5 +112,17 @@ public class Rabbit extends Critter{
 		super.move();
 		y+=.07*(float)Math.cos(Math.toRadians(t*360));
 	}
-	public float size(){return 2*BODY_HEIGHT_WIDTH_RATIO;}
+
+	public float size(){return 3*BODY_HEIGHT_WIDTH_RATIO;}
+	public void playNoise(){
+		try{
+			Thread.sleep(1000);
+		}catch(InterruptedException e){}
+	}
+
+	@Override
+	public void checkShot(Projectile p, PlayerStats s) {
+		// TODO Auto-generated method stub
+		
+	}
 }

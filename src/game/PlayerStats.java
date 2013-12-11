@@ -20,6 +20,7 @@ public class PlayerStats{
 			health=0;
 			motion.setMobile(false);
 		}
+		if(health>MAX_HEALTH)health=MAX_HEALTH;
 	}
 	public void changeHonor(int i){honor+=i;}
 	
@@ -33,4 +34,6 @@ public class PlayerStats{
 		if(honor<1)s+=" - can't shoot";
 		return s;
 	}
+	
+	public int checkHealth() {return health;}
 }
