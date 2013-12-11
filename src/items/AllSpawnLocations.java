@@ -10,8 +10,8 @@ public class AllSpawnLocations {
 	public AllSpawnLocations() {
 		spawns = new ArrayList<Point3f>();
 
-		for (int x =0; x<600; x+=50) {
-			for (int z =50; z<550; z+=100) {
+		for (int x =50; x<600; x+=50) {
+			for (int z =50; z<550; z+=50) {
 				spawns.add(new Point3f(x,2,z));
 			}	
 		}
