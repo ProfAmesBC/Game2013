@@ -19,9 +19,9 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * For 1D, 2D, RECT surface types
  * 
- * <playerA>Java class for fx_surface_init_planar_common complex type.
+ * <p>Java class for fx_surface_init_planar_common complex type.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="fx_surface_init_planar_common">
@@ -79,9 +79,9 @@ public class FxSurfaceInitPlanarCommon {
 
 
     /**
-     * <playerA>Java class for anonymous complex type.
+     * <p>Java class for anonymous complex type.
      * 
-     * <playerA>The following schema fragment specifies the expected content contained within this class.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>

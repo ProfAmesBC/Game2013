@@ -1,6 +1,7 @@
 package game;
 
 
+
 import inventory.Bag;
 import inventory.ItemFactory;
 import inventory.PlayerActions;
@@ -28,6 +29,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import weapons.ProjectileWeapons;
+import Music.MusicPlayer;
 import Enemies.Bat;
 import Enemies.MoveSwarm;
 import catsrabbits.CatGroup;
@@ -61,7 +63,12 @@ public class BatsEverywhere implements GLEventListener
         private StatusText writer;
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
+
+    private static MusicPlayer jukebox = new MusicPlayer();
+
     private CritterGroup catGroup,rabbitGroup;
+    private Dragon dragon;
+    private static int FPS = 60;
     private Bat bat;
     private Mummy mummy;
     private PacManGhost pacManGhost;
@@ -73,12 +80,13 @@ public class BatsEverywhere implements GLEventListener
     private PowerUpManager powerUpManager;
 
     //private TextRenderer renderer;
-    
+    public static GameSoundMan m=null;
 
     private int windowWidth, windowHeight;
     private GLReadBufferUtil bufferUtil = new GLReadBufferUtil(false, true); //For capturing screen shots
     
     //renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, 48));
+
     
 
     public void init(GLAutoDrawable drawable) {
@@ -102,20 +110,42 @@ public class BatsEverywhere implements GLEventListener
 
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
-       
+
         creatures.add(new Mummy(30,100,gl, glu));
         creatures.add(new PacManGhost(25,95,gl, glu));
+        creatures.add(new PacManGhost(50,100,gl, glu));
+        creatures.add(new Mummy(220, 310, gl, glu));
+        creatures.add(new Mummy(384, 90, gl, glu));
+        creatures.add(new PacManGhost(120,236,gl, glu));
+        creatures.add(new Mummy(100, 500, gl, glu));
+        creatures.add(new Mummy(95, 400, gl, glu));
         
         Robot.addRobot(new Robot(60,60,gl,glu));
         Robot.addRobot(new Robot(100,100,gl,glu));
+        Robot.addRobot(new Robot(200,300,gl,glu));
+        Robot.addRobot(new Robot(400,400,gl,glu));
+        Robot.addRobot(new Robot(550,550,gl,glu));
+        Robot.addRobot(new Robot(470,420,gl,glu));
         
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
 
+        dragon = new Dragon(gl, glu, this.FPS);
+
         bat = new Bat(gl, glu);
         moveSwarm = new MoveSwarm(gl, glu);
         
-        powerUpManager = new PowerUpManager(gl, glu);
+        powerUpManager = new PowerUpManager(gl, glu, playerAttributes);
+
+        m	= new GameSoundMan();
+
+		m.load("destination2",  0, 0, 1, true);
+		m.setListenerPos(0, 0);
+		//m.play("destination2");	//Play wav Version
+
+        //jukebox.loadFanfare(); //load fanfare
+		Thread player = new Thread(jukebox);//create midi player
+		player.run();//play midi version
 
     }
     
@@ -156,7 +186,7 @@ public class BatsEverywhere implements GLEventListener
         texture.setTexParameteri(gl, GL2.GL_TEXTURE_WRAP_S,GL2.GL_REPEAT); // or GL_CLAMP
         texture.setTexParameteri(gl, GL2.GL_TEXTURE_WRAP_T,GL2.GL_REPEAT); // or GL_CLAMP
 
-            System.out.println(filename + " texture loaded, size is "
+           System.out.println(filename + " texture loaded, size is "
                                + texture.getImageWidth() + "," + texture.getImageHeight());
         return texture;
     }
@@ -238,7 +268,6 @@ public class BatsEverywhere implements GLEventListener
 
         //playerMotion.setLookAt(gl, glu);
         
-
         this.playerMotion.setScreenLocation(
                         this.canvas.getLocationOnScreen());
        
@@ -246,6 +275,9 @@ public class BatsEverywhere implements GLEventListener
         // town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());       
              
         playerMotion.update(gl, glu);//draw town looking in the direction we're moving in
+        town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());
+            
+        playerMotion.setLookAt(gl, glu);//figure out if we can move and, if so, move    
         
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());  
         
@@ -254,11 +286,13 @@ public class BatsEverywhere implements GLEventListener
         
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT); //clear that town  
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
+
+        dragon.draw(gl, glu);
         
         itemCreator.update();
-        writer.draw(bag.toString(), 380, 470);
-        writer.draw(stats.healthString(), 10, 45);
-        writer.draw(stats.honorString(), 10, 10);
+        writer.draw(bag.toString(), .7, .9);
+        writer.draw(stats.healthString(), .03, .1);
+        writer.draw(stats.honorString(), .03, .05);
 
         projectileWeapons.update(gl, glu);
        
@@ -269,9 +303,13 @@ public class BatsEverywhere implements GLEventListener
         Robot.drawRobots(gl, glu);
         catGroup.draw(gl, glu);
         rabbitGroup.draw(gl, glu);
-      //  bat.draw(gl, glu);
+        
+        powerUpManager.draw(gl, glu);
+
+        
+        bat.draw(gl, glu);
         //mummy.draw(gl, glu);
-    //    moveSwarm.draw(gl, glu);
+        moveSwarm.draw(gl, glu);
         // check for errors, at least once per frame
 
         
@@ -282,6 +320,7 @@ public class BatsEverywhere implements GLEventListener
         //double[] location = ReadZBuffer.getOGLPos(gl, glu, 250, 250);
         
         //GL VIEWPORT FOR THE WEAPONS
+        
         // glViewport wants x,y of lower left corner, then width and height (all in pixels)
         //gl.glViewport(0,0, windowWidth/2, windowHeight/2);
         //trying to figure out how to put weapon in and show lifespan
@@ -318,7 +357,6 @@ public class BatsEverywhere implements GLEventListener
 
         setupViewport(drawable);
 
-        powerUpManager.draw(gl, glu);
         
         // check for errors, at least once per frame
 
@@ -402,7 +440,9 @@ public class BatsEverywhere implements GLEventListener
     
 
 
-    public void dispose(GLAutoDrawable drawable) { /* not needed */ }
+    public void dispose(GLAutoDrawable drawable) { /* not needed */ 
+    	m.cleanUp();
+    }
 
     public static void main(String[] args) {
              GLProfile.initSingleton();
@@ -448,13 +488,18 @@ public class BatsEverywhere implements GLEventListener
          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          frame.pack(); // make just big enough to hold objects inside
          frame.setVisible(true);
+
          renderer.canvas.addKeyListener(renderer.playerActions);
+
          renderer.canvas.addKeyListener(renderer.playerMotion);
          renderer.canvas.addMouseMotionListener(renderer.playerMotion);
          renderer.canvas.addKeyListener(renderer.projectileWeapons);
          renderer.canvas.addMouseListener(renderer.projectileWeapons);
          renderer.canvas.requestFocus(); // so key clicks come here
-         FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
+
+         FPSAnimator animator = new FPSAnimator( renderer.canvas, FPS);
+
          animator.start();
+
     }
 }

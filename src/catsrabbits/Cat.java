@@ -1,12 +1,9 @@
 // Diana Cheung, CS333 Class of 2013
 package catsrabbits;
-import game.Building;
-import game.PlayerMotion;
-import game.PlayerMotionWatcher;
-import game.PlayerStats;
+import javax.media.opengl.GL2;import javax.media.opengl.glu.GLU;
 
-import javax.media.opengl.GL2;
-import javax.media.opengl.glu.GLU;
+import weapons.Projectile;
+import game.*;
 
 public class Cat extends Critter implements PlayerMotionWatcher{
 	public static final String soundFilename="cat";
@@ -120,29 +117,23 @@ public class Cat extends Critter implements PlayerMotionWatcher{
 	}
 	public float size(){return BODY_LENGTH*2f;}
 	
+	public void playerMoved(float x, float y, float z, float angle){}
+
 	public void playNoise(){
-		try{
-			JOALSoundMan m=new JOALSoundMan();
-			m.load(soundFilename,  0, 0, 1, false);
-			m.setListenerPos(0, 0);
-			m.play(soundFilename);
-			Thread.sleep(2000);
-			m.cleanUp();
-		}catch(InterruptedException e){};
+		BatsEverywhere.m.load(soundFilename,  0, 0, 1, false);
+		BatsEverywhere.m.setListenerPos(0, 0);
+		BatsEverywhere.m.play(soundFilename);
 	}
 	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s){
+
 		float dist=(float)Math.sqrt(Math.pow(x-this.x, 2)+Math.pow(z-this.z, 2));
 		// will NOT happen if you're just standing still. you have to move to trigger this
 		if(dist<size()&&!steppedOn){	// stepped on cat
 			steppedOn=true;
-			
+
 			s.changeHealth(-1);s.changeHonor(-1);
-			new Thread(new Runnable(){
-				public void run(){
-					playNoise();
-					steppedOn=false;
-				}
-			}).start();
-		}
+
+			playNoise();
+		}else if(dist>size()*6f)steppedOn=false;
 	}
 }

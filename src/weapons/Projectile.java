@@ -13,16 +13,29 @@ import creatures.ProjectileWatcher;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Projectile{
+public abstract class Projectile {
+
 	private static List<WeaponWatcher>watchers=new ArrayList<WeaponWatcher>();
 	
-	private float projX, projY, projZ, projAngle, projYAngle;
+	private float projX;
+
+	private float projY;
+
+	private float projZ;
+
+	private float projAngle;
+
+	private float projYAngle;
 	private float speed = 5;
+	public float getSpeed() {return speed;}
+	public void setSpeed(float speed) {this.speed = speed;}
+	public void setLifeSpan(float lifeSpan) {this.lifeSpan = lifeSpan;}
+
 	private float lifeSpan = 50;
 	public int size = 0;
-	public int red = 0;
-	public int green = 0;
-	public int blue = 0;
+	public double red = 0;
+	public double green = 0;
+	public double blue = 0;
 	private static List<ProjectileWatcher> projectileWatchers = new LinkedList<ProjectileWatcher>();
 	private PlayerStats source;
 	
@@ -31,10 +44,8 @@ public abstract class Projectile{
 	}
 	
 	public static void registerWeaponWatcher(WeaponWatcher w){watchers.add(w);}
-	
-	public float getLifeSpan() {
-		return lifeSpan;
-	}
+	public float getLifeSpan() {return lifeSpan;}
+
 
 	public float getProjX() {return projX;}
 	public void setProjX(float projX) {this.projX = projX;}
@@ -42,7 +53,9 @@ public abstract class Projectile{
 	public void setProjY(float projY) {this.projY = projY;}
 	public float getProjZ() {return projZ;}
 	public void setProjZ(float projZ) {	this.projZ = projZ;}
+	public float getProjAngle() {return projAngle;}
 	public void setProjAngle(float projAngle) {this.projAngle = projAngle;}
+
     public float getProjYAngle() {
         return projYAngle;
     }
@@ -53,12 +66,12 @@ public abstract class Projectile{
     //These would be different for each gun
 	public int getBulletSize(){return size;}
 	public void setBulletSize(int size) {this.size = size;}
-	public int getBulletRed() {return red;}
-	public void setBulletRed(int red) {this.red = red;}
-	public int getBulletGreen() {return green;}
-	public void setBulletGreen(int green) {this.green = green;}
-	public int getBulletBlue() {return blue;}
-	public void setBulletBlue(int blue) {this.blue = blue;}
+	public double getBulletRed() {return red;}
+	public void setBulletRed(double d) {this.red = d;}
+	public double getBulletGreen() {return green;}
+	public void setBulletGreen(double green) {this.green = green;}
+	public double getBulletBlue() {return blue;}
+	public void setBulletBlue(double blue) {this.blue = blue;}
 	public float getBulletSpeed() {return speed;}
 	public void setBulletSpeed(float speed) {this.speed = speed;}
 	
@@ -70,6 +83,7 @@ public abstract class Projectile{
 		setBulletBlue(blue);
 		setBulletSpeed(speed);
 	}
+
 	
 	public abstract void draw(GL2 gl, GLU glu);
 	
@@ -78,7 +92,9 @@ public abstract class Projectile{
 		lifeSpan--;
 	}
 	
+	// USE THIS
 	public void updatePosition(){
+		
 		projX = (float) (projX + speed*Math.cos(Math.toRadians(projAngle)));
 		projZ = (float) (projZ - speed*Math.sin(Math.toRadians(projAngle)));
 		for(ProjectileWatcher watcher:projectileWatchers){
