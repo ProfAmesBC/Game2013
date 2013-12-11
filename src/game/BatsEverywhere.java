@@ -113,9 +113,19 @@ public class BatsEverywhere implements GLEventListener
 
         creatures.add(new Mummy(30,100,gl, glu));
         creatures.add(new PacManGhost(25,95,gl, glu));
+        creatures.add(new PacManGhost(50,100,gl, glu));
+        creatures.add(new Mummy(220, 310, gl, glu));
+        creatures.add(new Mummy(384, 90, gl, glu));
+        creatures.add(new PacManGhost(120,236,gl, glu));
+        creatures.add(new Mummy(100, 500, gl, glu));
+        creatures.add(new Mummy(95, 400, gl, glu));
         
         Robot.addRobot(new Robot(60,60,gl,glu));
         Robot.addRobot(new Robot(100,100,gl,glu));
+        Robot.addRobot(new Robot(200,300,gl,glu));
+        Robot.addRobot(new Robot(400,400,gl,glu));
+        Robot.addRobot(new Robot(550,550,gl,glu));
+        Robot.addRobot(new Robot(470,420,gl,glu));
         
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
@@ -275,9 +285,9 @@ public class BatsEverywhere implements GLEventListener
         town.draw(gl, glu, playerMotion.getEyeX(), playerMotion.getEyeY(), playerMotion.getEyeZ());//draw proper town
         
         itemCreator.update();
-        writer.draw(bag.toString(), 380, 470);
-        writer.draw(stats.healthString(), 10, 45);
-        writer.draw(stats.honorString(), 10, 10);
+        writer.draw(bag.toString(), .7, .9);
+        writer.draw(stats.healthString(), .03, .1);
+        writer.draw(stats.honorString(), .03, .05);
 
         projectileWeapons.update(gl, glu);
        
@@ -305,6 +315,7 @@ public class BatsEverywhere implements GLEventListener
         //double[] location = ReadZBuffer.getOGLPos(gl, glu, 250, 250);
         
         //GL VIEWPORT FOR THE WEAPONS
+        
         // glViewport wants x,y of lower left corner, then width and height (all in pixels)
         //gl.glViewport(0,0, windowWidth/2, windowHeight/2);
         //trying to figure out how to put weapon in and show lifespan
