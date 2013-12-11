@@ -527,11 +527,11 @@ public class BatsEverywhere implements GLEventListener
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
              GLProfile.initSingleton();
          System.setProperty("sun.awt.noerasebackground", "true"); // sometimes necessary to avoid erasing over the finished window
 
-       // ChatHandler handler = new ChatHandler("Anon: ");
+        ChatHandler handler = new ChatHandler("Anon: ");
          
         JFrame frame = new JFrame("Too Many Bats");
 
@@ -588,19 +588,18 @@ public class BatsEverywhere implements GLEventListener
          //renderer.controls.append()
        
 
-//<<<<<<< HEAD
-//        //frame.add(renderer.statusLine, BorderLayout.SOUTH);//testing chat
-//        frame.add(renderer.chatLine, BorderLayout.SOUTH);//testing chat 
-//        renderer.chatLine.addActionListener(handler);
-//         JPanel sliderPanel = new JPanel(new BorderLayout()); 
-//        sliderPanel.add(renderer.controls, BorderLayout.NORTH);
-//        sliderPanel.add(renderer.chat, BorderLayout.SOUTH);
-//        frame.add(sliderPanel, BorderLayout.EAST); 
-//        ChatListenThread chatListener = new ChatListenThread(renderer.chat, renderer.chatLine);
-//        Thread CLT = new Thread(chatListener); 
-//        CLT.start(); 
-//        frame.add(renderer.canvas, BorderLayout.CENTER);
-//=======
+        //frame.add(renderer.statusLine, BorderLayout.SOUTH);//testing chat
+        frame.add(renderer.chatLine, BorderLayout.SOUTH);//testing chat 
+        renderer.chatLine.addActionListener(handler);
+         JPanel sliderPanel = new JPanel(new BorderLayout()); 
+        sliderPanel.add(renderer.controls, BorderLayout.NORTH);
+        sliderPanel.add(renderer.chat, BorderLayout.SOUTH);
+        frame.add(sliderPanel, BorderLayout.EAST); 
+        ChatListenThread chatListener = new ChatListenThread(renderer.chat, renderer.chatLine);
+        Thread CLT = new Thread(chatListener); 
+        CLT.start(); 
+        frame.add(renderer.canvas, BorderLayout.CENTER);
+
 
          
          renderer.controls.setEditable(false);        // don't let you edit text once it's established
