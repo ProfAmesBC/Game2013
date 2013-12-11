@@ -24,9 +24,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <playerA>Java class for anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -160,20 +160,20 @@ public class ProfileGLES {
     /**
      * Gets the value of the imagesAndNewparams property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the imagesAndNewparams property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getImagesAndNewparams().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Image }
      * {@link GlesNewparam }
@@ -190,20 +190,20 @@ public class ProfileGLES {
     /**
      * Gets the value of the techniques property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the techniques property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getTechniques().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ProfileGLES.Technique }
      * 
@@ -219,20 +219,20 @@ public class ProfileGLES {
     /**
      * Gets the value of the extras property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extras property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtras().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extra }
      * 
@@ -299,9 +299,9 @@ public class ProfileGLES {
 
 
     /**
-     * <playerA>Java class for anonymous complex type.
+     * <p>Java class for anonymous complex type.
      * 
-     * <playerA>The following schema fragment specifies the expected content contained within this class.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>
@@ -421,20 +421,20 @@ public class ProfileGLES {
         /**
          * Gets the value of the annotates property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the annotates property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getAnnotates().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link FxAnnotateCommon }
          * 
@@ -450,20 +450,20 @@ public class ProfileGLES {
         /**
          * Gets the value of the imagesAndNewparamsAndSetparams property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the imagesAndNewparamsAndSetparams property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getImagesAndNewparamsAndSetparams().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link ProfileGLES.Technique.Setparam }
          * {@link GlesNewparam }
@@ -481,20 +481,20 @@ public class ProfileGLES {
         /**
          * Gets the value of the passes property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the passes property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getPasses().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link ProfileGLES.Technique.Pass }
          * 
@@ -510,20 +510,20 @@ public class ProfileGLES {
         /**
          * Gets the value of the extras property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the extras property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getExtras().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Extra }
          * 
@@ -586,9 +586,9 @@ public class ProfileGLES {
 
 
         /**
-         * <playerA>Java class for anonymous complex type.
+         * <p>Java class for anonymous complex type.
          * 
-         * <playerA>The following schema fragment specifies the expected content contained within this class.
+         * <p>The following schema fragment specifies the expected content contained within this class.
          * 
          * <pre>
          * &lt;complexType>
@@ -736,20 +736,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the annotates property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the annotates property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getAnnotates().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link FxAnnotateCommon }
              * 
@@ -837,20 +837,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the colorClear property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the colorClear property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getColorClear().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -938,20 +938,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the alphaFuncsAndBlendFuncsAndClearColors property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the alphaFuncsAndBlendFuncsAndClearColors property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getAlphaFuncsAndBlendFuncsAndClearColors().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link ProfileGLES.Technique.Pass.LightDiffuse }
              * {@link ProfileGLES.Technique.Pass.FogStart }
@@ -1039,20 +1039,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the extras property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the extras property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getExtras().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Extra }
              * 
@@ -1091,9 +1091,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -1190,9 +1190,9 @@ public class ProfileGLES {
 
 
                 /**
-                 * <playerA>Java class for anonymous complex type.
+                 * <p>Java class for anonymous complex type.
                  * 
-                 * <playerA>The following schema fragment specifies the expected content contained within this class.
+                 * <p>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -1274,9 +1274,9 @@ public class ProfileGLES {
 
 
                 /**
-                 * <playerA>Java class for anonymous complex type.
+                 * <p>Java class for anonymous complex type.
                  * 
-                 * <playerA>The following schema fragment specifies the expected content contained within this class.
+                 * <p>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -1360,9 +1360,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -1444,9 +1444,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -1528,9 +1528,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -1627,9 +1627,9 @@ public class ProfileGLES {
 
 
                 /**
-                 * <playerA>Java class for anonymous complex type.
+                 * <p>Java class for anonymous complex type.
                  * 
-                 * <playerA>The following schema fragment specifies the expected content contained within this class.
+                 * <p>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -1711,9 +1711,9 @@ public class ProfileGLES {
 
 
                 /**
-                 * <playerA>Java class for anonymous complex type.
+                 * <p>Java class for anonymous complex type.
                  * 
-                 * <playerA>The following schema fragment specifies the expected content contained within this class.
+                 * <p>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -1797,9 +1797,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -1828,20 +1828,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -1882,9 +1882,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -1962,9 +1962,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -2042,9 +2042,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -2076,20 +2076,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Boolean }
                  * 
@@ -2146,9 +2146,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -2257,9 +2257,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -2341,9 +2341,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -2372,20 +2372,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Boolean }
                  * 
@@ -2426,9 +2426,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -2510,9 +2510,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -2594,9 +2594,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -2678,9 +2678,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -2762,9 +2762,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -2846,9 +2846,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -2877,20 +2877,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -2931,9 +2931,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3015,9 +3015,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3099,9 +3099,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3130,20 +3130,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -3184,9 +3184,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3268,9 +3268,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3352,9 +3352,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3436,9 +3436,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3520,9 +3520,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3604,9 +3604,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3688,9 +3688,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3722,20 +3722,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -3792,9 +3792,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3895,9 +3895,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -3929,20 +3929,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -3999,9 +3999,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4102,9 +4102,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4186,9 +4186,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4289,9 +4289,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4320,20 +4320,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -4374,9 +4374,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4458,9 +4458,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4492,20 +4492,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -4562,9 +4562,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4665,9 +4665,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4699,20 +4699,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -4769,9 +4769,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4872,9 +4872,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -4906,20 +4906,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -4976,9 +4976,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5079,9 +5079,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5163,9 +5163,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5247,9 +5247,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5331,9 +5331,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5362,20 +5362,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -5416,9 +5416,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5447,20 +5447,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -5501,9 +5501,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5532,20 +5532,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -5586,9 +5586,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5670,9 +5670,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5701,20 +5701,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -5755,9 +5755,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5786,20 +5786,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -5840,9 +5840,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -5924,9 +5924,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6008,9 +6008,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6039,20 +6039,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -6093,9 +6093,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6177,9 +6177,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6261,9 +6261,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6345,9 +6345,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6429,9 +6429,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6513,9 +6513,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6544,20 +6544,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -6598,9 +6598,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6682,9 +6682,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6713,20 +6713,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Double }
                  * 
@@ -6767,9 +6767,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6851,9 +6851,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -6935,9 +6935,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7019,9 +7019,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7103,9 +7103,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7134,20 +7134,20 @@ public class ProfileGLES {
                 /**
                  * Gets the value of the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the values property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getValues().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Long }
                  * 
@@ -7188,9 +7188,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7272,9 +7272,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7356,9 +7356,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7492,9 +7492,9 @@ public class ProfileGLES {
 
 
                 /**
-                 * <playerA>Java class for anonymous complex type.
+                 * <p>Java class for anonymous complex type.
                  * 
-                 * <playerA>The following schema fragment specifies the expected content contained within this class.
+                 * <p>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -7576,9 +7576,9 @@ public class ProfileGLES {
 
 
                 /**
-                 * <playerA>Java class for anonymous complex type.
+                 * <p>Java class for anonymous complex type.
                  * 
-                 * <playerA>The following schema fragment specifies the expected content contained within this class.
+                 * <p>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -7661,9 +7661,9 @@ public class ProfileGLES {
 
 
                 /**
-                 * <playerA>Java class for anonymous complex type.
+                 * <p>Java class for anonymous complex type.
                  * 
-                 * <playerA>The following schema fragment specifies the expected content contained within this class.
+                 * <p>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -7748,9 +7748,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7832,9 +7832,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -7968,9 +7968,9 @@ public class ProfileGLES {
 
 
                 /**
-                 * <playerA>Java class for anonymous complex type.
+                 * <p>Java class for anonymous complex type.
                  * 
-                 * <playerA>The following schema fragment specifies the expected content contained within this class.
+                 * <p>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -8052,9 +8052,9 @@ public class ProfileGLES {
 
 
                 /**
-                 * <playerA>Java class for anonymous complex type.
+                 * <p>Java class for anonymous complex type.
                  * 
-                 * <playerA>The following schema fragment specifies the expected content contained within this class.
+                 * <p>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -8136,9 +8136,9 @@ public class ProfileGLES {
 
 
                 /**
-                 * <playerA>Java class for anonymous complex type.
+                 * <p>Java class for anonymous complex type.
                  * 
-                 * <playerA>The following schema fragment specifies the expected content contained within this class.
+                 * <p>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -8222,9 +8222,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -8306,9 +8306,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -8389,9 +8389,9 @@ public class ProfileGLES {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -8475,9 +8475,9 @@ public class ProfileGLES {
 
 
         /**
-         * <playerA>Java class for anonymous complex type.
+         * <p>Java class for anonymous complex type.
          * 
-         * <playerA>The following schema fragment specifies the expected content contained within this class.
+         * <p>The following schema fragment specifies the expected content contained within this class.
          * 
          * <pre>
          * &lt;complexType>
@@ -8632,20 +8632,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the annotates property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the annotates property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getAnnotates().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link FxAnnotateCommon }
              * 
@@ -8781,20 +8781,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float4X4 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float4X4 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat4X4().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -8810,20 +8810,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float4X3 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float4X3 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat4X3().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -8839,20 +8839,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float4X2 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float4X2 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat4X2().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -8868,20 +8868,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float4X1 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float4X1 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat4X1().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -8897,20 +8897,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float3X4 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float3X4 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat3X4().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -8926,20 +8926,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float3X3 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float3X3 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat3X3().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -8955,20 +8955,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float3X2 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float3X2 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat3X2().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -8984,20 +8984,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float3X1 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float3X1 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat3X1().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -9013,20 +9013,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float2X4 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float2X4 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat2X4().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -9042,20 +9042,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float2X3 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float2X3 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat2X3().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -9071,20 +9071,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float2X2 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float2X2 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat2X2().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -9100,20 +9100,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float2X1 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float2X1 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat2X1().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -9129,20 +9129,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float1X4 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float1X4 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat1X4().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -9158,20 +9158,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float1X3 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float1X3 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat1X3().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -9187,20 +9187,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float1X2 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float1X2 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat1X2().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -9240,20 +9240,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float4 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float4 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat4().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -9269,20 +9269,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float3 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float3 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat3().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -9298,20 +9298,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the float2 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the float2 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getFloat2().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Double }
              * 
@@ -9351,20 +9351,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the int4 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the int4 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getInt4().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Long }
              * 
@@ -9380,20 +9380,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the int3 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the int3 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getInt3().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Long }
              * 
@@ -9409,20 +9409,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the int2 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the int2 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getInt2().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Long }
              * 
@@ -9462,20 +9462,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the bool4 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the bool4 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getBool4().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Boolean }
              * 
@@ -9491,20 +9491,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the bool3 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the bool3 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getBool3().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Boolean }
              * 
@@ -9520,20 +9520,20 @@ public class ProfileGLES {
             /**
              * Gets the value of the bool2 property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the bool2 property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getBool2().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Boolean }
              * 

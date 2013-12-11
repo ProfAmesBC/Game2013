@@ -14,9 +14,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <playerA>Java class for cg_samplerCUBE complex type.
+ * <p>Java class for cg_samplerCUBE complex type.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="cg_samplerCUBE">

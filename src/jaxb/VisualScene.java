@@ -23,9 +23,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <playerA>Java class for anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -127,20 +127,20 @@ public class VisualScene {
      * 						The visual_scene element must have at least one node element.
      * 						Gets the value of the nodes property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the nodes property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getNodes().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Node }
      * 
@@ -156,20 +156,20 @@ public class VisualScene {
     /**
      * Gets the value of the evaluateScenes property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the evaluateScenes property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getEvaluateScenes().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link VisualScene.EvaluateScene }
      * 
@@ -187,20 +187,20 @@ public class VisualScene {
      * 						The extra element may appear any number of times.
      * 						Gets the value of the extras property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extras property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtras().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extra }
      * 
@@ -263,9 +263,9 @@ public class VisualScene {
 
 
     /**
-     * <playerA>Java class for anonymous complex type.
+     * <p>Java class for anonymous complex type.
      * 
-     * <playerA>The following schema fragment specifies the expected content contained within this class.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>
@@ -310,20 +310,20 @@ public class VisualScene {
         /**
          * Gets the value of the renders property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the renders property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getRenders().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link VisualScene.EvaluateScene.Render }
          * 
@@ -362,9 +362,9 @@ public class VisualScene {
 
 
         /**
-         * <playerA>Java class for anonymous complex type.
+         * <p>Java class for anonymous complex type.
          * 
-         * <playerA>The following schema fragment specifies the expected content contained within this class.
+         * <p>The following schema fragment specifies the expected content contained within this class.
          * 
          * <pre>
          * &lt;complexType>
@@ -402,20 +402,20 @@ public class VisualScene {
             /**
              * Gets the value of the layers property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the layers property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getLayers().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link String }
              * 

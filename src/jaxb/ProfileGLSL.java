@@ -25,9 +25,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <playerA>Java class for anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -210,20 +210,20 @@ public class ProfileGLSL {
     /**
      * Gets the value of the codesAndIncludes property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the codesAndIncludes property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCodesAndIncludes().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link FxCodeProfile }
      * {@link FxIncludeCommon }
@@ -240,20 +240,20 @@ public class ProfileGLSL {
     /**
      * Gets the value of the imagesAndNewparams property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the imagesAndNewparams property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getImagesAndNewparams().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link GlslNewparam }
      * {@link Image }
@@ -270,20 +270,20 @@ public class ProfileGLSL {
     /**
      * Gets the value of the techniques property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the techniques property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getTechniques().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ProfileGLSL.Technique }
      * 
@@ -299,20 +299,20 @@ public class ProfileGLSL {
     /**
      * Gets the value of the extras property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extras property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtras().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extra }
      * 
@@ -351,9 +351,9 @@ public class ProfileGLSL {
 
 
     /**
-     * <playerA>Java class for anonymous complex type.
+     * <p>Java class for anonymous complex type.
      * 
-     * <playerA>The following schema fragment specifies the expected content contained within this class.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>
@@ -497,20 +497,20 @@ public class ProfileGLSL {
         /**
          * Gets the value of the annotates property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the annotates property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getAnnotates().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link FxAnnotateCommon }
          * 
@@ -526,20 +526,20 @@ public class ProfileGLSL {
         /**
          * Gets the value of the codesAndIncludes property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the codesAndIncludes property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getCodesAndIncludes().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link FxIncludeCommon }
          * {@link FxCodeProfile }
@@ -556,20 +556,20 @@ public class ProfileGLSL {
         /**
          * Gets the value of the imagesAndNewparamsAndSetparams property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the imagesAndNewparamsAndSetparams property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getImagesAndNewparamsAndSetparams().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link GlslNewparam }
          * {@link GlslSetparam }
@@ -587,20 +587,20 @@ public class ProfileGLSL {
         /**
          * Gets the value of the passes property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the passes property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getPasses().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link ProfileGLSL.Technique.Pass }
          * 
@@ -616,20 +616,20 @@ public class ProfileGLSL {
         /**
          * Gets the value of the extras property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the extras property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getExtras().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Extra }
          * 
@@ -692,9 +692,9 @@ public class ProfileGLSL {
 
 
         /**
-         * <playerA>Java class for anonymous complex type.
+         * <p>Java class for anonymous complex type.
          * 
-         * <playerA>The following schema fragment specifies the expected content contained within this class.
+         * <p>The following schema fragment specifies the expected content contained within this class.
          * 
          * <pre>
          * &lt;complexType>
@@ -928,20 +928,20 @@ public class ProfileGLSL {
             /**
              * Gets the value of the annotates property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the annotates property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getAnnotates().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link FxAnnotateCommon }
              * 
@@ -957,20 +957,20 @@ public class ProfileGLSL {
             /**
              * Gets the value of the colorTargets property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the colorTargets property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getColorTargets().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link FxColortargetCommon }
              * 
@@ -986,20 +986,20 @@ public class ProfileGLSL {
             /**
              * Gets the value of the depthTargets property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the depthTargets property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getDepthTargets().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link FxDepthtargetCommon }
              * 
@@ -1015,20 +1015,20 @@ public class ProfileGLSL {
             /**
              * Gets the value of the stencilTargets property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the stencilTargets property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getStencilTargets().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link FxStenciltargetCommon }
              * 
@@ -1044,20 +1044,20 @@ public class ProfileGLSL {
             /**
              * Gets the value of the colorClears property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the colorClears property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getColorClears().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link FxClearcolorCommon }
              * 
@@ -1073,20 +1073,20 @@ public class ProfileGLSL {
             /**
              * Gets the value of the depthClears property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the depthClears property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getDepthClears().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link FxCleardepthCommon }
              * 
@@ -1102,20 +1102,20 @@ public class ProfileGLSL {
             /**
              * Gets the value of the stencilClears property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the stencilClears property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getStencilClears().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link FxClearstencilCommon }
              * 
@@ -1155,20 +1155,20 @@ public class ProfileGLSL {
             /**
              * Gets the value of the alphaFuncsAndBlendFuncsAndBlendFuncSeparates property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the alphaFuncsAndBlendFuncsAndBlendFuncSeparates property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getAlphaFuncsAndBlendFuncsAndBlendFuncSeparates().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link jaxb.ProfileCG.Technique.Pass.LightQuadraticAttenuation }
              * {@link jaxb.ProfileCG.Technique.Pass.ColorMask }
@@ -1293,20 +1293,20 @@ public class ProfileGLSL {
             /**
              * Gets the value of the extras property.
              * 
-             * <playerA>
+             * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the extras property.
              * 
-             * <playerA>
+             * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getExtras().add(newItem);
              * </pre>
              * 
              * 
-             * <playerA>
+             * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Extra }
              * 
@@ -1345,9 +1345,9 @@ public class ProfileGLSL {
 
 
             /**
-             * <playerA>Java class for anonymous complex type.
+             * <p>Java class for anonymous complex type.
              * 
-             * <playerA>The following schema fragment specifies the expected content contained within this class.
+             * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
              * &lt;complexType>
@@ -1431,20 +1431,20 @@ public class ProfileGLSL {
                 /**
                  * Gets the value of the annotates property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the annotates property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getAnnotates().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link FxAnnotateCommon }
                  * 
@@ -1532,20 +1532,20 @@ public class ProfileGLSL {
                 /**
                  * Gets the value of the binds property.
                  * 
-                 * <playerA>
+                 * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the binds property.
                  * 
-                 * <playerA>
+                 * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getBinds().add(newItem);
                  * </pre>
                  * 
                  * 
-                 * <playerA>
+                 * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link ProfileGLSL.Technique.Pass.Shader.Bind }
                  * 
@@ -1584,9 +1584,9 @@ public class ProfileGLSL {
 
 
                 /**
-                 * <playerA>Java class for anonymous complex type.
+                 * <p>Java class for anonymous complex type.
                  * 
-                 * <playerA>The following schema fragment specifies the expected content contained within this class.
+                 * <p>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -1916,20 +1916,20 @@ public class ProfileGLSL {
                     /**
                      * Gets the value of the int4 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int4 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <playerA>
+                     * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -1945,20 +1945,20 @@ public class ProfileGLSL {
                     /**
                      * Gets the value of the int3 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int3 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <playerA>
+                     * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -1974,20 +1974,20 @@ public class ProfileGLSL {
                     /**
                      * Gets the value of the int2 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the int2 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInt2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <playerA>
+                     * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Integer }
                      * 
@@ -2027,20 +2027,20 @@ public class ProfileGLSL {
                     /**
                      * Gets the value of the float4X4 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float4X4 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat4X4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <playerA>
+                     * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -2056,20 +2056,20 @@ public class ProfileGLSL {
                     /**
                      * Gets the value of the float3X3 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float3X3 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat3X3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <playerA>
+                     * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -2085,20 +2085,20 @@ public class ProfileGLSL {
                     /**
                      * Gets the value of the float2X2 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float2X2 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat2X2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <playerA>
+                     * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -2114,20 +2114,20 @@ public class ProfileGLSL {
                     /**
                      * Gets the value of the float4 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float4 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <playerA>
+                     * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -2143,20 +2143,20 @@ public class ProfileGLSL {
                     /**
                      * Gets the value of the float3 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float3 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <playerA>
+                     * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -2172,20 +2172,20 @@ public class ProfileGLSL {
                     /**
                      * Gets the value of the float2 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the float2 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getFloat2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <playerA>
+                     * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Float }
                      * 
@@ -2225,20 +2225,20 @@ public class ProfileGLSL {
                     /**
                      * Gets the value of the bool4 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool4 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool4().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <playerA>
+                     * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -2254,20 +2254,20 @@ public class ProfileGLSL {
                     /**
                      * Gets the value of the bool3 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool3 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool3().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <playerA>
+                     * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -2283,20 +2283,20 @@ public class ProfileGLSL {
                     /**
                      * Gets the value of the bool2 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the bool2 property.
                      * 
-                     * <playerA>
+                     * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getBool2().add(newItem);
                      * </pre>
                      * 
                      * 
-                     * <playerA>
+                     * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link Boolean }
                      * 
@@ -2359,9 +2359,9 @@ public class ProfileGLSL {
 
 
                     /**
-                     * <playerA>Java class for anonymous complex type.
+                     * <p>Java class for anonymous complex type.
                      * 
-                     * <playerA>The following schema fragment specifies the expected content contained within this class.
+                     * <p>The following schema fragment specifies the expected content contained within this class.
                      * 
                      * <pre>
                      * &lt;complexType>
@@ -2412,9 +2412,9 @@ public class ProfileGLSL {
 
 
                 /**
-                 * <playerA>Java class for anonymous complex type.
+                 * <p>Java class for anonymous complex type.
                  * 
-                 * <playerA>The following schema fragment specifies the expected content contained within this class.
+                 * <p>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
@@ -2466,9 +2466,9 @@ public class ProfileGLSL {
 
 
                 /**
-                 * <playerA>Java class for anonymous complex type.
+                 * <p>Java class for anonymous complex type.
                  * 
-                 * <playerA>The following schema fragment specifies the expected content contained within this class.
+                 * <p>The following schema fragment specifies the expected content contained within this class.
                  * 
                  * <pre>
                  * &lt;complexType>
