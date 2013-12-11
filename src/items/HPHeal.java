@@ -1,17 +1,18 @@
 package items;
 
 import java.awt.Font;
+import java.util.ArrayList;
+import java.util.List;
 
 import game.Building;
 import game.PlayerMotion;
 import game.PlayerStats;
 import inventory.Bag;
-
 import inventory.Item;
 import inventory.PlayerAttributes;
 
 import javax.media.opengl.GL2;
-import javax.media.opengl.glu.GLU;
+import javax.media.opengl.glu.*;
 
 import com.jogamp.opengl.util.awt.TextRenderer;
 import com.jogamp.opengl.util.texture.Texture;
@@ -19,7 +20,7 @@ import com.jogamp.opengl.util.texture.Texture;
 public class HPHeal extends AbstractPowerUp {
 	//Instant HP Heal
 	
-	public HPHeal(GL2 gl, GLU glu, Point3f p3d, PlayerStats s) {
+	public HPHeal(GL2 gl, GLU glu, Point3f p3d, PlayerStats s) {		
 		texture = Building.setupTexture(gl, "FMPskull.png");//change this later
 		PlayerMotion.registerPlayerWatcher(this);
 		grabbed = false;
@@ -31,21 +32,70 @@ public class HPHeal extends AbstractPowerUp {
 		type = "HP Heal";
 	}
 
+	public HPHeal(GL2 gl, GLU glu, PlayerStats s) {
+		texture = Building.setupTexture(gl, "yangheal.png");//change this later
+		PlayerMotion.registerPlayerWatcher(this);
+		grabbed = false;
+		stats=  s;	
+		frames = 0;		
+		type = "HP Heal";
+	}
+	@Override
+	public void draw(GL2 gl, GLU glu, float x, float y, float z) {
+		frames++;
+		T = T + 0.05;
+		if (grabConditions()) {
+			grabbed = true;
+		}
+
+		if (!grabbed) {
+			drawItem(gl, glu);
+		}
+	}
+
+	@Override
+	public boolean grabbed() {
+		// TODO Auto-generated method stub
+		return grabbed;
+	}
+
+	public void use() {
+		stats.changeHealth(1);
+		grabbed=true;
+		System.out.println("ACTIVATED");
+	}
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return type;
+	}
+
 	@Override
 	public void draw(GL2 gl, GLU glu) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void linkLocation(Point3f f) {
+		// TODO Auto-generated method stub
+		pX = f.getX();
+		pY = f.getY();
+		pZ = f.getZ();
+		location = f;
+	}
+	
+	public void drawItem(GL2 gl, GLU glu) {
+
 		gl.glEnable(GL2.GL_CULL_FACE);
 		gl.glEnable(GL2.GL_TEXTURE_2D);
 		gl.glPushMatrix();
-		gl.glTranslated(pX, Math.sin(Math.toRadians(T * 360 + 180)) + 2,
-				pZ);
-		gl.glRotated(5*T,1,5*T,1);
+		gl.glTranslated(0, Math.sin(Math.toRadians(T * 360 + 180)) + 2,0);
 		// gl.glRotated(Math.toRadians(15*frames), Math.toRadians(15*frames),
 		// Math.toRadians(15*frames), 1);
 		// gl.glTranslated(-itemX, -(Math.sin(Math.toRadians(T*360+180 ))+2),
 		// -itemZ);
-		//texture.bind(gl);
-
+		//gl.glRotated(5*T,1,5*T,1);
 		texture.bind(gl);
 
 		gl.glBegin(GL2.GL_QUADS);
@@ -187,20 +237,5 @@ public class HPHeal extends AbstractPowerUp {
 		gl.glDisable(GL2.GL_CULL_FACE);
 		gl.glDisable(GL2.GL_TEXTURE_2D);
 	}
-
-	@Override
-	public boolean grabbed() {
-		// TODO Auto-generated method stub
-		return grabbed;
-	}
-
-	public void use() {
-		stats.changeHealth(1);
-		grabbed=true;
-	}
-	@Override
-	public String getType() {
-		// TODO Auto-generated method stub
-		return type;
-	}
+	
 }

@@ -56,7 +56,7 @@ public class Jetpack implements Item {
 	private boolean grabConditions() {
 		if ((itemX - 3 < playerX && itemZ - 3 < playerZ)
 				&& (itemX + 5 > playerX) && (itemZ + 5 > playerZ)
-				&& (grabbed == false))
+				&& (grabbed == false)&& (playerY<7))
 			return true;
 		else
 			return false;
@@ -105,18 +105,9 @@ public class Jetpack implements Item {
 
 	public void drawItem(GL2 gl, GLU glu) {
 
-	sketchupModels.JetpackDrawing jp = new sketchupModels.JetpackDrawing(gl, glu);
+	//sketchupModels.JetpackDrawing jp = new sketchupModels.JetpackDrawing(gl, glu);
 	
-	gl.glPushMatrix();
-	gl.glTranslated(itemX, Math.sin(Math.toRadians(T * 360 + 180)),
-			itemZ);
-	gl.glRotated(5*T,1,5*T,1);
-
-		jp.draw(gl, glu);
-	
-	gl.glPopMatrix();
-	}
-	/*	gl.glEnable(GL2.GL_CULL_FACE);
+	gl.glEnable(GL2.GL_CULL_FACE);
 		gl.glEnable(GL2.GL_TEXTURE_2D);
 		gl.glPushMatrix();
 		gl.glTranslated(itemX, Math.sin(Math.toRadians(T * 360 + 180)) + 2,
@@ -266,7 +257,7 @@ public class Jetpack implements Item {
 
 		gl.glDisable(GL2.GL_CULL_FACE);
 		gl.glDisable(GL2.GL_TEXTURE_2D);
-	}*/
+	}
 
 	@Override
 	public void playerMoved(float x, float y, float z, float angle, float y_angle,PlayerStats s) {		// GET CURRENT POSITION OF PLAYER
@@ -274,6 +265,12 @@ public class Jetpack implements Item {
 		this.playerY = y;
 		this.playerZ = z;
 		this.angle = angle;
+	}
+
+	@Override
+	public void draw(GL2 gl, GLU glu, float x, float y, float z) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -1,11 +1,19 @@
+
 package creatures;
 
 import game.Building;
+
 import java.util.Random;
+
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 import javax.media.opengl.glu.GLUquadric;
+
+import weapons.Projectile;
+
 import com.jogamp.opengl.util.texture.Texture;
+
+import game.PlayerMotion;
 import game.PlayerMotionWatcher;
 import game.PlayerStats;
 
@@ -19,6 +27,9 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 	private float Z = 0f;
 	private float playerX;
 	private float playerZ;
+	private float bulletX;
+	private float bulletY;
+	private float playerAngle;
 	private float T = 0;
 	private int count = 0;
 	private float directionAngle = 0;
@@ -28,7 +39,6 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 	private float detectionRadius = 5f;
 	private Random random = new Random();
 	private double k = random.nextDouble();
-	private PlayerStats ps;
 	
 	public PacManGhost(float x, float z, GL2 gl, GLU glu) {
 		X = x;
@@ -39,6 +49,8 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 		glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL);		// GLU_POINT, GLU_LINE, GLU_FILL, GLU_SILHOUETTE
         glu.gluQuadricNormals  (quadric, GLU.GLU_NONE); 	// GLU_NONE, GLU_FLAT, or GLU_SMOOTH
         glu.gluQuadricTexture  (quadric, true);        		// false, or true to generate texture coordinates
+        PlayerMotion.registerPlayerWatcher(this);
+        Projectile.registerProjectileWatcher(this);
 	}
 	
 	public void drawTail(GL2 gl, GLU glu, float x, float y, float z) {
@@ -159,19 +171,24 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 	}
 	
 	public void move() {
-		if (seesPlayer && !shotByBullet) {
-			moveTowardsPlayer();
-		} else if (shotByBullet) {
-			animateDeath();
+		if (seesPlayer) {
+//			moveTowardsPlayer();
 		} else {
 			moveIdle();
 			drawStillMotion();
 		}
 	}
 	
-	public void attack (float x, float z) {
-		if (Math.sqrt(Math.pow(X-x,2) + Math.pow(Z-z,2)) < 1) {
-			ps.changeHealth(-10);
+	public void playerMoved(float x, float y, float z, float angle, float yAngle,PlayerStats s) {
+		playerX = x;
+		playerZ = z;
+		playerAngle = angle;
+		double distance = Math.sqrt(Math.pow(X-x,2) + Math.pow(Z-z,2));
+		if(distance <= detectionRadius){
+			seesPlayer = true;
+		}
+		else{
+			seesPlayer = false;
 		}
 	}
 	
@@ -184,33 +201,19 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 		
 	}
 	
-	public void moveTowardsPlayer() {
-		double xV = playerX - X;
-		double zV = playerZ - Z;
-		double dotProduct = xV * 0.2 + zV * 0.2;
-		double lengthV1 = Math.sqrt((xV*xV)+(zV*zV));
-		lengthV1 = lengthV1 * lengthV1;
-		double constant = dotProduct / lengthV1;
-		double dx = constant * xV;
-		double dz = constant * zV;
-		dx = Math.abs(dx);
-		dz = Math.abs(dz);
-		if(playerZ < Z){
-			Z -= dz;
-		}
-		else{
-			Z += dz;
-		}
-		if(playerX < X){
-			X -= dx;
-		}
-		else{
-			X += dx;
-		}
+	public void moveTowardsPlayer(GL2 gl, GLU glu) {
+		directionAngle = playerAngle - 180;
+		
+		//get player x get player z
+		//get ghost x get ghost z
+		// find slope 
+		drawStillMotion();
 	}
 	
-	public void animateDeath() {
+	public void animateDeath(GL2 gl, GLU glu) {
+		gl.glColor3d(0,0,1);
 		if (Y <= 0) {
+			gl.glColor3d(1,1,1);
 			visible = false;
 		} else {
 			Y = Y - 0.03f;
@@ -234,18 +237,5 @@ public class PacManGhost implements Creature, PlayerMotionWatcher, ProjectileWat
 			}
 		}
 	}
-
-	public void playerMoved(float x, float y, float z, float angle, float y_angle, PlayerStats s) {
-		playerX = x;
-		playerZ = z;
-		ps = s;
-		double distance = Math.sqrt(Math.pow(X-x,2) + Math.pow(Z-z,2));
-		if(distance <= detectionRadius){
-			seesPlayer = true;
-		}
-		else{
-			seesPlayer = false;
-		}
-	}
-
+	
 }
