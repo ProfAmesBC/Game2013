@@ -13,10 +13,10 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <playerA>Java class for gles_texcombiner_operandAlpha_enums.
+ * <p>Java class for gles_texcombiner_operandAlpha_enums.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
- * <playerA>
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
  * <pre>
  * &lt;simpleType name="gles_texcombiner_operandAlpha_enums">
  *   &lt;restriction base="{http://www.collada.org/2005/11/COLLADASchema}gl_blend_type">

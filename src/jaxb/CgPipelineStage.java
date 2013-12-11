@@ -13,10 +13,10 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <playerA>Java class for cg_pipeline_stage.
+ * <p>Java class for cg_pipeline_stage.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
- * <playerA>
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
  * <pre>
  * &lt;simpleType name="cg_pipeline_stage">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">

@@ -128,15 +128,9 @@ public abstract class Critter implements WeaponWatcher{
 		float dist=(float)Math.sqrt(Math.pow(p.getProjX()-x, 2)+Math.pow(p.getProjY()-y, 2)+Math.pow(p.getProjZ()-z, 2));
 		if(dist<size()&&!shot){
 			shot=true;
-			//System.out.println("Shot a critter!");
+
 			s.changeHonor(-1);
-			new Thread(new Runnable(){
-				public void run(){
-					playNoise();
-					//System.out.println("Will take damage from shots again");
-					shot=false;
-				}
-			}).start();
-		}
+			playNoise();
+		}else if(dist>size()*8f)shot=false;
 	}
 }

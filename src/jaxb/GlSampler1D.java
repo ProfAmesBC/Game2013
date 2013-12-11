@@ -18,9 +18,9 @@ import javax.xml.bind.annotation.XmlType;
  * 			A one-dimensional texture sampler for the GLSL profile.
  * 			
  * 
- * <playerA>Java class for gl_sampler1D complex type.
+ * <p>Java class for gl_sampler1D complex type.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="gl_sampler1D">
