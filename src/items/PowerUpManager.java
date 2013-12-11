@@ -12,8 +12,10 @@ import java.util.List;
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 
-public class PowerUpManager {
+public class PowerUpManager implements PlayerMotionWatcher {
 
+	private GL2 gl;
+	private GLU glu;
 	private List<Spawn3f> spawns, emptySpawns;
 	private List<Point3f> spawnSelectionList;
 	private List<Point3f> allAvailableSpawns;
@@ -24,14 +26,15 @@ public class PowerUpManager {
 	private HPHeal hp = null;
 	private PlusHonor ph = null;
 	private Invincible invincible = null;
-	private static int DESIRED_SPAWNS = 3;
+	private static int DESIRED_SPAWNS = 20;
 	
 	AllSpawnLocations poss = new AllSpawnLocations();
 	//Should be able to listen
 	
 	public PowerUpManager(GL2 gl, GLU glu) {
 		//weaponsList = new ArrayList<Weapons>(); //weaponslist does not get refreshed
-		
+		this.gl = gl;
+		this.glu = glu;
 		powerUpList = new ArrayList<AbstractPowerUp>();
 		spawnSelectionList = poss.getAllSpawnsPossible();
 		spawns = new ArrayList<Spawn3f>(); //list of all spawn locations possible; currently @ 0,0,0
@@ -43,17 +46,7 @@ public class PowerUpManager {
 		
 		powerUpList.add(hp);
 		powerUpList.add(ph);
-		powerUpList.add(hp);
-		powerUpList.add(ph);
-		powerUpList.add(hp);
-		powerUpList.add(ph);
-		powerUpList.add(hp);
-		//powerUpList.add(invincible);
-		powerUpList.add(ph);
-		powerUpList.add(hp);
-		powerUpList.add(ph);
-		powerUpList.add(hp);
-		powerUpList.add(ph);
+
 		/*
 		for(int x=0; x<powerUpList.size();x++ ) {
 			System.out.println("00 type: " + powerUpList.get(x).getType());
@@ -112,8 +105,17 @@ public class PowerUpManager {
 		}
 		*/
 		int factor = (int) (((1000*Math.random())/1000) * powerUpList.size());
+		if (powerUpList.get(factor).getType().equals("HPHeal")) {
+			return new HPHeal(gl, glu, ps);
+
+		} else if (powerUpList.get(factor).getType().equals("HonorUp")) {
+			return new PlusHonor(gl, glu, ps);
+		} else {
+			System.out.println("POWERUP ERROR");
+			return null;
+		}
 		//System.out.println("List size: " + powerUpList.size() + " " + "Factor: " + factor);
-		return powerUpList.get(factor);
+		//return powerUpList.get(factor);
 	}
 	
 	public void checkList(int time) {
@@ -139,7 +141,7 @@ public class PowerUpManager {
 			AbstractPowerUp temp = spawns.get(t).getPowerUp();
 
 			gl.glTranslatef(spawns.get(t).getLocation().getX(), spawns.get(t).getLocation().getY()-2, spawns.get(t).getLocation().getZ());
-			gl.glScaled(.2,.2,.2);
+			gl.glScaled(.5,.5,.5);
 			//System.out.println("Spawn Location: " + spawns.get(t).getPowerUp().getLocation());
 			//System.out.println("Translating by: " + spawns.get(t).getLocation().getX() + " " +  spawns.get(t).getLocation().getY() + " " +  spawns.get(t).getLocation().getZ());
 			temp.draw(gl, glu, spawns.get(t).getLocation().getX(), spawns.get(t).getLocation().getY(), spawns.get(t).getLocation().getZ());
@@ -161,6 +163,23 @@ public class PowerUpManager {
 		}
 		
 		z+=.5;
+	}
+
+	@Override
+	public void playerMoved(float x, float y, float z, float angle,
+			float y_angle, PlayerStats s) {
+		
+		for (int t=0; t<spawns.size(); t++) {
+		float distance  = (float) Math.sqrt(Math.pow((spawns.get(t).getLocation().getX()-x),2) + Math.pow((spawns.get(t).getLocation().getZ()-z),2));
+
+		if (distance<5) {
+			spawns.get(t).getPowerUp().use();
+			updateLists();
+		}
+
+		}
+		
+		
 	}
 	
 }

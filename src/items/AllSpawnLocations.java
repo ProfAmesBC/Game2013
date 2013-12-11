@@ -15,18 +15,30 @@ public class AllSpawnLocations {
 				//spawns.add(new Point3f(x,2,z));
 		//	}	
 		//}
-		spawns.add(new Point3f(3,5,50));
-		spawns.add(new Point3f(5,5,50));
-		spawns.add(new Point3f(7,5,50));
-		//spawns.add(new Point3f(9,5,50));
-		//spawns.add(new Point3f(11,5,50));
-		//spawns.add(new Point3f(13,5,50));
-		//spawns.add(new Point3f(15,5,50));
-		//spawns.add(new Point3f(17,5,50));
-		//spawns.add(new Point3f(19,5,50));
-		//spawns.add(new Point3f(21,5,50));
-		//spawns.add(new Point3f(23,5,50));
-		//spawns.add(new Point3f(25,5,50));
+		spawns.add(new Point3f(3,5,75));
+		spawns.add(new Point3f(5,5,75));
+		spawns.add(new Point3f(7,5,75));
+		spawns.add(new Point3f(9,5,75));
+		spawns.add(new Point3f(11,5,75));
+		spawns.add(new Point3f(13,5,75));
+		spawns.add(new Point3f(15,5,75));
+		spawns.add(new Point3f(17,5,75));
+		spawns.add(new Point3f(19,5,75));
+		spawns.add(new Point3f(21,5,75));
+		spawns.add(new Point3f(23,5,75));
+		spawns.add(new Point3f(25,5,75));
+		spawns.add(new Point3f(27,5,75));
+		spawns.add(new Point3f(29,5,75));
+		spawns.add(new Point3f(31,5,75));
+		spawns.add(new Point3f(33,5,75));
+		spawns.add(new Point3f(35,5,75));
+		spawns.add(new Point3f(37,5,75));
+		spawns.add(new Point3f(39,5,75));
+		spawns.add(new Point3f(41,5,75));
+		spawns.add(new Point3f(43,5,75));
+		spawns.add(new Point3f(45,5,75));
+		spawns.add(new Point3f(47,5,75));
+		
 
 	}
 	

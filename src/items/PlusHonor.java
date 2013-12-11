@@ -29,7 +29,7 @@ public class PlusHonor extends AbstractPowerUp {
 		pY = (float)p3d.getY();
 		pZ = (float)p3d.getZ();
 		frames = 0;		
-		type = "Honor + ";
+		type = "HonorUp";
 	}
 
 	public PlusHonor(GL2 gl, GLU glu, PlayerStats s) {
@@ -38,7 +38,7 @@ public class PlusHonor extends AbstractPowerUp {
 		grabbed = false;
 		stats=  s;	
 		frames = 0;		
-		type = "Honor +";
+		type = "HonorUp";
 	}
 	@Override
 	public void draw(GL2 gl, GLU glu, float x, float y, float z) {
@@ -60,8 +60,10 @@ public class PlusHonor extends AbstractPowerUp {
 	}
 
 	public void use() {
-		if (!grabbed)
+		if (!grabbed) {
 		stats.changeHonor(1);
+		grabbed = true;
+		}
 		//System.out.println("ACTIVATED");
 	}
 	@Override

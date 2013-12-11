@@ -37,8 +37,8 @@ public abstract class AbstractPowerUp implements Item {
 		this.angle = angle;		
 		stats = s;
 
-		if (distance<2) {
-			use();//grabbed now = true
+		if (distance<5) {
+			use();
 			grabbed = true;
 		}
 
@@ -65,7 +65,7 @@ public abstract class AbstractPowerUp implements Item {
 	@Override
 	public abstract boolean grabbed();
 	@Override
-	public abstract String getType();
+	public String getType() {return type;};
 			
 	public float getLocationX() {
 		return pX;

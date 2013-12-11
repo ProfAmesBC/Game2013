@@ -29,7 +29,7 @@ public class HPHeal extends AbstractPowerUp {
 		pY = (float)p3d.getY();
 		pZ = (float)p3d.getZ();
 		frames = 0;		
-		type = "HP Heal";
+		type = "HPHeal";
 	}
 
 	public HPHeal(GL2 gl, GLU glu, PlayerStats s) {
@@ -38,12 +38,12 @@ public class HPHeal extends AbstractPowerUp {
 		grabbed = false;
 		stats=  s;	
 		frames = 0;		
-		type = "HP Heal";
+		type = "HPHeal";
 	}
 	@Override
 	public void draw(GL2 gl, GLU glu, float x, float y, float z) {
 		frames++;
-		T = T + 0.05;
+		T = T + 0.005;
 		if (grabConditions()) {
 			grabbed = true;
 		}
@@ -60,9 +60,11 @@ public class HPHeal extends AbstractPowerUp {
 	}
 
 	public void use() {
+		if (!grabbed) {
 		stats.changeHealth(1);
-		grabbed=true;
-		System.out.println("ACTIVATED");
+		grabbed = true;
+		}
+		//System.out.println("ACTIVATED");
 	}
 	@Override
 	public String getType() {
