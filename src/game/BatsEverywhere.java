@@ -116,6 +116,10 @@ public class BatsEverywhere implements GLEventListener
         
         Robot.addRobot(new Robot(60,60,gl,glu));
         Robot.addRobot(new Robot(100,100,gl,glu));
+        Robot.addRobot(new Robot(200,300,gl,glu));
+        Robot.addRobot(new Robot(400,400,gl,glu));
+        Robot.addRobot(new Robot(550,550,gl,glu));
+        Robot.addRobot(new Robot(470,420,gl,glu));
         
         catGroup=new CatGroup(gl,glu);
         rabbitGroup=new RabbitGroup(gl,glu);
