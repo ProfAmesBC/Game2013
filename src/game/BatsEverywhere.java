@@ -35,6 +35,7 @@ import sketchupModels.Avatar;
 import weapons.PipeWeapon;
 import weapons.Projectile;
 import weapons.ProjectileWeapons;
+import Music.MusicPlayer;
 import Enemies.Bat;
 import Enemies.MoveSwarm;
 import catsrabbits.CatGroup;
@@ -69,6 +70,9 @@ public class BatsEverywhere implements GLEventListener
         private StatusText writer;
     private GLCanvas canvas = new GLCanvas();
     private PlayerLogger logger = new PlayerLogger();
+
+    private static MusicPlayer jukebox = new MusicPlayer();
+
     private WeaponManager weaponManager = null;
     private CritterGroup catGroup,rabbitGroup;
     private Mummy mummy;
@@ -88,6 +92,7 @@ public class BatsEverywhere implements GLEventListener
     private GLReadBufferUtil bufferUtil = new GLReadBufferUtil(false, true); //For capturing screen shots
     
     //renderer = new TextRenderer(new Font("SansSerif", Font.BOLD, 48));
+
     
     public void init(GLAutoDrawable drawable) {
       //drawable.setGL(new DebugGL2(drawable.getGL().getGL2())); // to do error check upon every GL call.  Slow but useful.
@@ -111,6 +116,8 @@ public class BatsEverywhere implements GLEventListener
 
         writer = new StatusText(drawable);
         town = new Town(gl, glu);
+
+
         
         weaponManager = new WeaponManager();
         weaponManager.init(gl, glu);
@@ -134,6 +141,9 @@ public class BatsEverywhere implements GLEventListener
         moveSwarm = new MoveSwarm(gl, glu);
         
         powerUpManager = new PowerUpManager(gl, glu);
+        //jukebox.loadFanfare();
+		Thread player = new Thread(jukebox);
+		player.run();
 
     }
     
@@ -499,7 +509,9 @@ public class BatsEverywhere implements GLEventListener
          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          frame.pack(); // make just big enough to hold objects inside
          frame.setVisible(true);
+
          renderer.canvas.addKeyListener(renderer.playerActions);
+
          renderer.canvas.addKeyListener(renderer.playerMotion);
 //         renderer.canvas.addKeyListener((KeyListener) renderer.weaponManager);
          renderer.canvas.addMouseMotionListener(renderer.playerMotion);
@@ -507,7 +519,9 @@ public class BatsEverywhere implements GLEventListener
 //         renderer.canvas.addKeyListener(renderer.bw);	// add key listener to bludgeoning weapons
          renderer.canvas.addMouseListener(renderer.projectileWeapons);
          renderer.canvas.requestFocus(); // so key clicks come here
+         
          FPSAnimator animator = new FPSAnimator( renderer.canvas, 60);
          animator.start();
+
     }
 }
