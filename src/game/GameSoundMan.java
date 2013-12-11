@@ -1,4 +1,5 @@
 package game;
+
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -98,7 +99,8 @@ public class GameSoundMan{
 		int[] freq = new int[1]; 
 		int[] loop = new int[1];
 		// load WAV file into the data arrays 
-		String fnm = SOUND_DIR + nm + ".wav"; 
+		//String fnm = SOUND_DIR + nm + ".wav"; 
+		String fnm = nm + ".wav";
 		try {
 			ALut.alutLoadWAVFile(fnm, format, data, size, freq, loop);
 		} catch(ALException e) {

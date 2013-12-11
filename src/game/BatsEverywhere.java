@@ -1,6 +1,7 @@
 package game;
 
 
+//import JOALSoundMan;
 import inventory.Bag;
 import inventory.ItemFactory;
 import inventory.PlayerActions;
@@ -71,6 +72,8 @@ public class BatsEverywhere implements GLEventListener
     private PowerUpManager powerUpManager;
     //private TextRenderer renderer;
     
+    public static GameSoundMan m=null;
+    
 
     private int windowWidth, windowHeight;
     private GLReadBufferUtil bufferUtil = new GLReadBufferUtil(false, true); //For capturing screen shots
@@ -111,6 +114,13 @@ public class BatsEverywhere implements GLEventListener
         moveSwarm = new MoveSwarm(gl, glu);
         
         powerUpManager = new PowerUpManager(gl, glu);
+        
+        m	= new GameSoundMan();
+
+		m.load("destination2",  0, 0, 1, false);
+		m.setListenerPos(0, 0);
+		m.play("destination2");
+
     }
     
     

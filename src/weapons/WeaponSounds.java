@@ -1,14 +1,21 @@
 
 package weapons;
 
-public class WeaponSounds {
+import game.BatsEverywhere;
 
-	//a test commit
-	
-	
+public class WeaponSounds {
+			
+	static String sound1 = "gun-shot copy";
+
 	public static void projectileNoise()
 	{
-		System.out.println("NOISE");
+		
+		BatsEverywhere.m.load(sound1,  0, 0, 1, false);
+		BatsEverywhere.m.setListenerPos(0, 0);
+
+		BatsEverywhere.m.play(sound1);
+		//BatsEverywhere.m.cleanUp();
+		
 	}
 	
 	public static void nonProjectileNoise()
