@@ -28,16 +28,18 @@ public class Bag {
 
 	public void useItem(String i) {
 		
-		InventorySounds.useItemNoise();
+		
 		
 		if (i.equals("Speed")) {
 			if (speedBoxes.getCount() > 0) {
+				InventorySounds.useItemNoise();
 				speedBoxes.decrementCount();
 				speedBoxes.use();
 			}
 		}
 		if (i.equals("Jetpack")) {
 			if (jetpackBoxes.getCount() > 0) {
+				InventorySounds.useItemNoise();
 				jetpackBoxes.decrementCount();
 				jetpackBoxes.use();
 			}
@@ -45,12 +47,14 @@ public class Bag {
 
 		if (i.equals("Damage")) {
 			if (damageBoxes.getCount() > 0) {
+				InventorySounds.useItemNoise();
 				damageBoxes.decrementCount();
 				damageBoxes.use();
 			}
 		}
 		if (i.equals("Teleporter")) {
 			if (teleportBoxes.getCount() > 0) {
+				InventorySounds.useItemNoise();
 				teleportBoxes.decrementCount();				
 				teleportBoxes.use();
 			}

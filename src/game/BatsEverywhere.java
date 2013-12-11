@@ -117,7 +117,7 @@ public class BatsEverywhere implements GLEventListener
         
         m	= new GameSoundMan();
 
-		m.load("destination2",  0, 0, 1, false);
+		m.load("destination2",  0, 0, 1, true);
 		m.setListenerPos(0, 0);
 		m.play("destination2");
 

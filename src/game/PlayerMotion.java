@@ -324,8 +324,6 @@ public class PlayerMotion implements KeyListener, MouseMotionListener {
     }
 
 
-
-
 	public void fly(int height, int duration){
 		flyDuration = duration;
 		flyHeight = height;
