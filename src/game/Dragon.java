@@ -11,7 +11,7 @@ public class Dragon {
 	private SketchupModelJAXB[] frames = new SketchupModelJAXB[10];
 	private int currentFrame = 0;
 	private int frameDirection = 1;
-	private double x = 0;//200;
+	private double x = 0; //200;
 	private double z = 0;
 	private double direction = 1;
 	private double angle = 0;
@@ -32,7 +32,7 @@ public class Dragon {
 	}
 	
 	private void spitFire(GL2 gl, GLU glu){
-		flames.add(new Fire(x + 2,  20 + 6, z - 25, angle, gl, glu));
+		flames.add(new Fire( -15, 6, -20, angle, gl, glu));
 		
 	}
 	
@@ -59,7 +59,7 @@ public class Dragon {
 		
 		changeFrame();
 		this.currentFrame += this.frameDirection;
-		//this.x += this.direction * 20/60;
+		this.x += this.direction * 20/60;
 		
 		angle();
 		z();
@@ -75,11 +75,16 @@ public class Dragon {
 		fireCounter++;
 		if (fireCounter == 5 * FPS){
 			fireCounter = 0;
-			spitFire(gl, glu);
+//			if(flames.size() == 0){
+				spitFire(gl, glu);
+//			}
 		}
-		
-		for(Fire fire : flames){
-			fire.draw(gl, glu);
-		}
+		gl.glPushMatrix();
+			gl.glTranslated(this.x, 20, this.z);
+			gl.glRotated((this.direction * 90) + 90 + + 130 + Math.toDegrees(this.angle), 0, 1, 0);
+			for(Fire fire : flames){
+				fire.draw(gl, glu);
+			}
+		gl.glPopMatrix();
 	}
 }

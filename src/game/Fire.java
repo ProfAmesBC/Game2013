@@ -40,7 +40,34 @@ public class Fire {
 		dx = Math.cos(eyeAngle);
 		dy = Math.sin(Math.toRadians(fireAngle));
 		dz = Math.sin(eyeAngle);
+		
+		System.out.println("Eye Angle: " + eyeAngle);
 	}
+	
+//	public void setLookAt(GL2 gl, GLU glu) {
+//		double moved = 0;
+//        double location[] = ReadZBuffer.getOGLPos(gl, glu, width/2, height/2); //what you're moving towards
+//        if(lx+dx>0 && lz+dz>0 && lx+dx<600 && lz+dz<600 && (lx+dx<300 || lz+dz<500)) {
+//        	if(Math.abs(location[0]-lx)>Math.abs(dx)+1) {
+//        		lx +=dx;
+//        		moved +=dx;
+//        	}//if you have room to move in the x direction, move in the x direction
+//		
+//        	if(Math.abs(location[2]-lz)>Math.abs(dz)+1) {
+//        		lz +=dz;
+//        		moved +=dz;
+//        	}//ditto z
+//        }
+//		
+//		gl.glLoadIdentity();
+//        glu.gluLookAt(lx, ly, lz,   // eye location
+//                lx + Math.cos(Math.toRadians(theta))*Math.cos(Math.toRadians(gamma)), ly + Math.sin(Math.toRadians(gamma)), lz + -Math.sin(Math.toRadians(theta))*Math.cos(Math.toRadians(gamma)),   // point to look at (near middle of pyramid)
+//                 0, 1, 0); // the "up" direction
+//        if(moved!=0 || qdown || edown || dgamma!=0 || dtheta!=0) {
+//        	for (PlayerMotionWatcher watcher: watchers)
+//    			watcher.playerMoved(lx, ly, lz, theta);
+//        }
+//	}
 	
 	public void drawBall(GL2 gl, GLU glu){
 		
@@ -67,9 +94,9 @@ public class Fire {
 		
 		drawBall(gl, glu);
 		
-		this.lx += this.dx*2;
-		this.ly += this.dy*2;
-		this.lz += this.dz*2;
+		this.lx += this.dx*6;
+		this.ly += this.dy*6;
+		this.lz += this.dz*6;
 	}
 	
 }
