@@ -1,4 +1,3 @@
-//Compiled from SwordHit by SketchupModelJAXB
 
 package weapons;
 import javax.media.opengl.GL2;
@@ -26,7 +25,10 @@ public SwordHit(float x, float y, float z, float angle, float y_angle,PlayerStat
 	setProjZ(z);
 	setProjAngle(angle);
     setProjYAngle(y_angle);
-    setSpeed(.5);
+    //setSpeed(.2);
+    //setLifeSpan(10)
+    //shortening life and speed to make melee
+    
     
     
 }

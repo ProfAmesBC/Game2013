@@ -12,6 +12,8 @@ public class ControlProjectileWeapons {
 	public ControlProjectileWeapons(GL2 gl, GLU glu){
 		gun=new LaserGunWeapon(gl, glu);	
 		flamethrower=new FlamethrowerWeapon(gl, glu);
+		
+		
 	}
 	
 	private void displayLaserGun(GL2 gl, GLU glu){
