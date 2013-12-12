@@ -26,6 +26,8 @@ public SwordHit(float x, float y, float z, float angle, float y_angle,PlayerStat
 	setProjZ(z);
 	setProjAngle(angle);
     setProjYAngle(y_angle);
+    setSpeed(.5);
+    
     
 }
 public void draw(GL2 gl, GLU glu) {
