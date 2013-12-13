@@ -26,7 +26,7 @@ public SwordHit(float x, float y, float z, float angle, float y_angle,PlayerStat
 	setProjAngle(angle);
     setProjYAngle(y_angle);
     //setSpeed(.2);
-    //setLifeSpan(10)
+    setLifeSpan(10);
     //shortening life and speed to make melee
     
     

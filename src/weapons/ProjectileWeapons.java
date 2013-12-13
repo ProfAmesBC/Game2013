@@ -48,6 +48,7 @@ public class ProjectileWeapons implements MouseListener, Weapon{
 		SphereBullet ball = new SphereBullet(x, y, z, angle, 2, 3, 4, 2, y_angle,stats);
 
 		bulletsList.add(bullet); //ADD BULLET TO LIST OF BULLETS
+		WeaponSounds.projectileNoise();
 	}
 	
 	@Override
