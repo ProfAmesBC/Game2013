@@ -25,9 +25,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 			Two-dimensional texture sampler state for profile_GLES. This is a bundle of sampler-specific states that will be referenced by one or more texture_units.
  * 			
  * 
- * <playerA>Java class for gles_sampler_state complex type.
+ * <p>Java class for gles_sampler_state complex type.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="gles_sampler_state">
@@ -260,20 +260,20 @@ public class GlesSamplerState {
      * 					OpenGL ES extensions may be used here.
      * 					Gets the value of the extras property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extras property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtras().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extra }
      * 

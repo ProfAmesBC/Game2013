@@ -18,9 +18,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <playerA>Java class for anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -73,20 +73,20 @@ public class BindMaterial {
      * 						The bind_material element may contain any number of param elements.
      * 						Gets the value of the params property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the params property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getParams().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Param }
      * 
@@ -128,20 +128,20 @@ public class BindMaterial {
      * 						This element may contain any number of non-common profile techniques.
      * 						Gets the value of the techniques property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the techniques property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getTechniques().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Technique }
      * 
@@ -159,20 +159,20 @@ public class BindMaterial {
      * 						The extra element may appear any number of times.
      * 						Gets the value of the extras property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extras property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtras().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extra }
      * 
@@ -187,9 +187,9 @@ public class BindMaterial {
 
 
     /**
-     * <playerA>Java class for anonymous complex type.
+     * <p>Java class for anonymous complex type.
      * 
-     * <playerA>The following schema fragment specifies the expected content contained within this class.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>
@@ -220,20 +220,20 @@ public class BindMaterial {
          * 									to a material. This element must appear at least once.
          * 									Gets the value of the instanceMaterials property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the instanceMaterials property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getInstanceMaterials().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link InstanceMaterial }
          * 

@@ -18,9 +18,9 @@ import javax.xml.bind.annotation.XmlValue;
 
 
 /**
- * <playerA>Java class for fx_clearstencil_common complex type.
+ * <p>Java class for fx_clearstencil_common complex type.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="fx_clearstencil_common">

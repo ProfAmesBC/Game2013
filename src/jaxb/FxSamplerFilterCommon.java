@@ -13,10 +13,10 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <playerA>Java class for fx_sampler_filter_common.
+ * <p>Java class for fx_sampler_filter_common.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
- * <playerA>
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
  * <pre>
  * &lt;simpleType name="fx_sampler_filter_common">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}NMTOKEN">

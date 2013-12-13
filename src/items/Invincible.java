@@ -33,7 +33,7 @@ public class Invincible extends AbstractPowerUp {
 		pY = (float)p3d.getY();
 		pZ = (float)p3d.getZ();
 		frames = 0;		
-		type = "Invincibility";
+		type = "Invincible";
 	}
 
 	public Invincible(GL2 gl, GLU glu, Point3f p3d, PlayerStats s, PlayerAttributes p) {		
@@ -47,6 +47,7 @@ public class Invincible extends AbstractPowerUp {
 		pZ = (float)p3d.getZ();
 		frames = 0;		
 		type = "Invincibility";
+		
 	}
 	
 	public Invincible(GL2 gl, GLU glu, PlayerStats s) {
@@ -55,8 +56,19 @@ public class Invincible extends AbstractPowerUp {
 		grabbed = false;
 		stats=  s;	
 		frames = 0;		
-		type = "Honor +";
+		type = "Invincible";
+		
 	}
+	public Invincible(GL2 gl, GLU glu, PlayerStats ps, PlayerAttributes pa) {
+		texture = Building.setupTexture(gl, "yanginvincible.png");//change this later
+		PlayerMotion.registerPlayerWatcher(this);
+		grabbed = false;
+		stats=  ps;	
+		frames = 0;		
+		p = pa;
+		type = "Invincible";	}
+	
+
 	@Override
 	public void draw(GL2 gl, GLU glu, float x, float y, float z) {
 		frames++;
@@ -79,18 +91,20 @@ public class Invincible extends AbstractPowerUp {
 	public void use() {
 		grabbed=true;
 
-		//play invincible music here
-//		BatsEverywhere.m.load("invincible",  0, 0, 1, false);
-//		BatsEverywhere.m.setListenerPos(0, 0);
-//		BatsEverywhere.m.play("invincible");
+		//plays music; commented out b/c don't yet know how to cut off background sound so it sounds muddled
+		/*
+		BatsEverywhere.m.load("invincible",  0, 0, 1, false);
+		BatsEverywhere.m.setListenerPos(0, 0);
+		BatsEverywhere.m.play("invincible");
+		*/
 		
-		double time = 10;
+		int time = 5000;
 		int originalHealth = stats.checkHealth();
-		float currentSpeed = p.getStepSize();
-		p.setStepSize(currentSpeed * currentSpeed/2, 10);
+		//float currentSpeed = p.getStepSize();
+		//p.setStepSize(currentSpeed *2, time);
 		float newSpeed = p.getStepSize();
-		while (newSpeed!=currentSpeed) {
-			
+		//while (newSpeed!=currentSpeed) {
+		while(time>0) {
 			
 			if (stats.checkHealth()<8) {
 				stats.changeHealth(1);
@@ -102,7 +116,8 @@ public class Invincible extends AbstractPowerUp {
 		//cut invincible music here
 
 		stats.changeHealth(originalHealth-stats.checkHealth());
-
+		//p.setStepSize(currentSpeed, time+10000);
+		
 		System.out.println("ACTIVATED");
 	}
 	@Override

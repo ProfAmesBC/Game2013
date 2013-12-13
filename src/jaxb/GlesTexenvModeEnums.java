@@ -13,10 +13,10 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <playerA>Java class for gles_texenv_mode_enums.
+ * <p>Java class for gles_texenv_mode_enums.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
- * <playerA>
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
  * <pre>
  * &lt;simpleType name="gles_texenv_mode_enums">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}token">

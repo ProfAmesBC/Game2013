@@ -23,9 +23,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <playerA>Java class for anonymous complex type.
+ * <p>Java class for anonymous complex type.
  * 
- * <playerA>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -97,20 +97,20 @@ public class InstanceEffect {
     /**
      * Gets the value of the techniqueHints property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the techniqueHints property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getTechniqueHints().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link InstanceEffect.TechniqueHint }
      * 
@@ -126,20 +126,20 @@ public class InstanceEffect {
     /**
      * Gets the value of the setparams property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the setparams property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getSetparams().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link InstanceEffect.Setparam }
      * 
@@ -157,20 +157,20 @@ public class InstanceEffect {
      * 						The extra element may appear any number of times.
      * 						Gets the value of the extras property.
      * 
-     * <playerA>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the extras property.
      * 
-     * <playerA>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExtras().add(newItem);
      * </pre>
      * 
      * 
-     * <playerA>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Extra }
      * 
@@ -257,9 +257,9 @@ public class InstanceEffect {
 
 
     /**
-     * <playerA>Java class for anonymous complex type.
+     * <p>Java class for anonymous complex type.
      * 
-     * <playerA>The following schema fragment specifies the expected content contained within this class.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>
@@ -605,20 +605,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float4X4 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float4X4 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat4X4().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -634,20 +634,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float4X3 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float4X3 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat4X3().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -663,20 +663,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float4X2 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float4X2 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat4X2().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -692,20 +692,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float4X1 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float4X1 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat4X1().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -721,20 +721,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float3X4 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float3X4 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat3X4().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -750,20 +750,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float3X3 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float3X3 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat3X3().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -779,20 +779,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float3X2 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float3X2 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat3X2().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -808,20 +808,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float3X1 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float3X1 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat3X1().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -837,20 +837,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float2X4 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float2X4 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat2X4().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -866,20 +866,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float2X3 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float2X3 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat2X3().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -895,20 +895,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float2X2 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float2X2 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat2X2().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -924,20 +924,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float2X1 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float2X1 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat2X1().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -953,20 +953,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float1X4 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float1X4 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat1X4().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -982,20 +982,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float1X3 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float1X3 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat1X3().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -1011,20 +1011,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float1X2 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float1X2 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat1X2().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -1064,20 +1064,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float4 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float4 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat4().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -1093,20 +1093,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float3 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float3 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat3().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -1122,20 +1122,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the float2 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the float2 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getFloat2().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Double }
          * 
@@ -1175,20 +1175,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the int4 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the int4 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getInt4().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Long }
          * 
@@ -1204,20 +1204,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the int3 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the int3 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getInt3().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Long }
          * 
@@ -1233,20 +1233,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the int2 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the int2 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getInt2().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Long }
          * 
@@ -1286,20 +1286,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the bool4 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the bool4 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getBool4().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Boolean }
          * 
@@ -1315,20 +1315,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the bool3 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the bool3 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getBool3().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Boolean }
          * 
@@ -1344,20 +1344,20 @@ public class InstanceEffect {
         /**
          * Gets the value of the bool2 property.
          * 
-         * <playerA>
+         * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the bool2 property.
          * 
-         * <playerA>
+         * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getBool2().add(newItem);
          * </pre>
          * 
          * 
-         * <playerA>
+         * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Boolean }
          * 
@@ -1422,9 +1422,9 @@ public class InstanceEffect {
 
 
     /**
-     * <playerA>Java class for anonymous complex type.
+     * <p>Java class for anonymous complex type.
      * 
-     * <playerA>The following schema fragment specifies the expected content contained within this class.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>
