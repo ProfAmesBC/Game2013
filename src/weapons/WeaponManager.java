@@ -19,6 +19,7 @@ public class WeaponManager implements KeyListener, PlayerMotionWatcher{
 	
 	private LinkedList<DisplayedWeapon> weapons;
 	private BludgeoningWeapon w;
+	//private ProjectileWeapon w2;
 	private float x, z;
 //	private GL2 gl;
 //	private GLU glu;
